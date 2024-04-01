@@ -7,15 +7,20 @@
     <title>{{ $title ?? 'КЛУБ START' }}</title>
 
     <!-- +++++++++++ PROJECT CSS +++++++++++ -->
-    <link href="{{ secure_asset('styles/different-components.css') }}" type="text/css" rel="stylesheet">
+    <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
+    <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}"
+        type="image/png" />
+
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
+
+    <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
+    <link defer href="{{ secure_asset('styles/different-components.css') }}" type="text/css" rel="stylesheet">
     {{-- slick slider --}}
-    <link href="{{ secure_asset('styles/slick-slider.css') }}" type="text/css" rel="stylesheet">
+    <link defer href="{{ secure_asset('styles/slick-slider.css') }}" type="text/css" rel="stylesheet">
     {{-- glitch effect --}}
-    <link href="{{ secure_asset('styles/glitch.css') }}" type="text/css" rel="stylesheet">
+    <link defer href="{{ secure_asset('styles/glitch.css') }}" type="text/css" rel="stylesheet">
     {{-- accordion --}}
-    <link href="{{ secure_asset('styles/accordion.css') }}" type="text/css" rel="stylesheet">
+    <link defer href="{{ secure_asset('styles/accordion.css') }}" type="text/css" rel="stylesheet">
 
     <!-- +++++++++++ CDNs +++++++++++ -->
     {{-- slick slider --}}
@@ -42,7 +47,7 @@
     <div class="flex w100 h100">
         <livewire:light-mode-on menu_type="top" />
         {{ $slot }}
-        
+
     </div>
 
     <!-- +++++++++++ CDNs +++++++++++ -->
@@ -62,13 +67,7 @@
     {{-- slick slider --}}
     <script src="{{ URL::asset('javascript/slick-slider.js') }}"></script>
     {{-- Three js --}}
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "./javascript/3D/three.js/build/three.module.js"
-          }
-        }
-    </script>
+    <script type="importmap" ignore--minify>{"imports": {"three": "./javascript/3D/three.js/build/three.module.js"}}</script>
     <script type="module" src="{{ URL::asset('javascript/3D/NikeAirMag.js') }}"></script>
     <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script>
     {{-- Accordion --}}

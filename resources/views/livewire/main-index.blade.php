@@ -2,8 +2,7 @@
     {{-- change --}}
     <section class="b-section b-section_v1">
         <div class="overlay"></div>
-        <img src="{{ URL::asset('images/min-png/sneakers-chair.png') }}" class="b-img b-img_v2" alt="sneakers-chair"
-            loading="lazy">
+        <img fetchpriority="high" src="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}" class="b-img b-img_v2" alt="sneakers-chair">
         <div class="container container_v1">
             <div class="flex v">
                 <div class="b-text b-text_3.5em b-text_900 b-text_center b-text_grey mt-4">КЛУБ</div>

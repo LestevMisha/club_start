@@ -34,7 +34,7 @@
 
 .slick-track {
     height: 19em;
-    display: flex;
+    display: flex !important;
     align-items: center;
     padding-left: 1.5em;
 }
