@@ -1,0 +1,17 @@
+composer require laravel-validation-rules/credit-card
+composer require igorescobar/jquery-mask-plugin
+composer require yoomoney/yookassa-sdk-php
+composer require livewire/livewire
+composer require irazasyed/telegram-bot-sdk
+php artisan vendor:publish --tag="telegram-config"
+composer require simplesoftwareio/simple-qrcode "~4"
+composer require guzzlehttp/guzzle
+
+
+for differ languages:
+composer require --dev laravel-lang/common
+composer require laravel-lang/locales
+composer require laravel-lang/json-fallback
+
+https://laravel-lang.com/installation.html#json_fallback
+https://github.com/Laravel-Lang/lang?tab=readme-ov-file

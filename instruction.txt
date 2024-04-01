@@ -1,0 +1,17 @@
+1. - change path in .env on current domain name (path). Last line `MAIN_WEBSITE_URL`
+2. - change notification link in YooKassa on a current domain name and add /yoocallback at the end
+3. - set telegram webhook on the current url using /setwebhook page on the website (1st step must be done bfr it)
+
+command: npx localtunnel --port 8000 --subdomain danielshkitov
+url: https://danielshkitov.loca.lt/
+
+
+brew services start httpd
+brew services start mysql
+php artisan serve
+npx localtunnel --port 8000 --subdomain danielshkitov
+
+open: https://misha.com:8443/
+open for webhook: https://danielshkitov.loca.lt/setwebhook
+open for db: mysql -u root
+use laravel4; show tables; describe users; select * from users;
