@@ -15,15 +15,13 @@
                     wire:loading.attr="disabled">Отправить
                     Письмо</button>
 
-
-
                 @if (session()->has('success'))
                     <div class="b-text b-text_green mt-1">
                         {{ session('success') }}
                     </div>
                     <div id="timer_wrapper" class="b-text b-text_grey b-text_08 {{ $disabled ? 'active' : '' }} mt-05">
                         Следующий код:
-                        <span id="counter"></span>
+                        <span id="counter">60 сек</span>
                     </div>
                 @elseif (session()->has('failure'))
                     <div class="text-error more mt-1">
@@ -34,37 +32,38 @@
                         вышлем письмо
                         о смене пароля.</div>
                 @endif
-
-
-
                 <a class="text-15px mt-1" href="https://mail.ru/" target="_blank">Перейти в Mail.ru</a>
             </div>
         </form>
 
     </div>
 
-    <script>
-        const btn = document.getElementById("timed_button");
+    @section('forgot-password-script')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let debounce = false;
 
-        document.addEventListener("DOMContentLoaded", function() {
-            Livewire.hook('morph.updated', ({
-                el
-            }) => {
-                if (el === btn) {
-                    if (el.disabled) {
-                        var count = 60,
-                            timer = setInterval(function() {
-                                $("#counter").html(`${count--} секунд`);
-                                if (count == 0) {
-                                    @this.call('resetDisabled');
-                                    clearInterval(timer);
-                                };
-                            }, 1000);
+                Livewire.hook('morph.updated', ({
+                    component
+                }) => {
+                    if (component.ephemeral.disabled && !debounce) {
+                        debounce = true;
+
+                        let count = 60;
+                        const timer = setInterval(function() {
+                            $("#counter").html(`${count--}&nbsp;сек`);
+                            if (count === 0) {
+                                @this.call('resetDisabled');
+                                clearInterval(timer);
+                                debounce = false;
+                            }
+                        }, 1000);
                     }
-                }
-            })
-        })
-    </script>
+                });
+            });
+        </script>
+    @stop
+
 
 </div>
 

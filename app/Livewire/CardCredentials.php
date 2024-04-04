@@ -4,13 +4,30 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use LVR\CreditCard\CardCvc;
-use App\Services\ModelService;
+use Illuminate\Http\Request;
 use LVR\CreditCard\CardNumber;
+use App\Services\ModelServices;
+use App\Services\GlobalServices;
 use LVR\CreditCard\CardExpirationYear;
 use LVR\CreditCard\CardExpirationMonth;
 
 class CardCredentials extends Component
 {
+
+
+
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    protected $globalServices;
+    protected $modelServices;
+    protected $request;
+
+    public function __construct()
+    {
+        $this->globalServices = app(GlobalServices::class);
+        $this->modelServices = app(ModelServices::class);
+        $this->request = app(Request::class);
+    }
+
     public $card_name = '';
     public $card_number = '';
     public $expiration = '';
@@ -19,6 +36,10 @@ class CardCredentials extends Component
     public $cvc = '';
 
     protected $rules = [];
+
+
+
+    /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
     public function saveCC()
     {
         if ($this->expiration) {
@@ -37,8 +58,7 @@ class CardCredentials extends Component
 
         $this->validate();
 
-        $modelService = new ModelService();
-        $modelService->insertCardCredentials(
+        $this->modelServices->insertCardCredentials(
             $this->card_name,
             $this->card_number,
             $this->cvc,
@@ -47,8 +67,19 @@ class CardCredentials extends Component
         return redirect()->route("dashboard");
     }
 
+
+
+    /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
+    public function mount()
+    {
+        return $this->globalServices->checkPrivatePagesAccess($this->request);
+    }
+
     public function render()
     {
         return view('livewire.card-credentials');
     }
+
+
+
 }

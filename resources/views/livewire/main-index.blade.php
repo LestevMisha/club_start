@@ -1,8 +1,8 @@
 <div>
-    {{-- change --}}
     <section class="b-section b-section_v1">
         <div class="overlay"></div>
-        <img fetchpriority="high" src="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}" class="b-img b-img_v2" alt="sneakers-chair">
+        <img fetchpriority="high" src="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}" class="b-img b-img_v2"
+            alt="sneakers-chair">
         <div class="container container_v1">
             <div class="flex v">
                 <div class="b-text b-text_3.5em b-text_900 b-text_center b-text_grey mt-4">КЛУБ</div>
@@ -402,22 +402,22 @@
             </div> --}}
             <div class="b-text b-text_2.5em b-text_700 b-text_center py-3">ПРАЙС-ЛИСТ</div>
             <div wire:ignore class="slider mb-3">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn1.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn1"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn2.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn2"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn3.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn3"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn4.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn4"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn5.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn5"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn6.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn6"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn7.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn7"
-                    loading="lazy">
-                <img src="{{ URL::asset('images/jpeg/price-list/sn8.jpg') }}" class="b-img b-img_v5" type="image/jpeg" alt="sn8"
-                    loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn1.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn1" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn2.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn2" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn3.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn3" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn4.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn4" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn5.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn5" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn6.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn6" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn7.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn7" loading="lazy">
+                <img src="{{ URL::asset('images/jpeg/price-list/sn8.jpg') }}" class="b-img b-img_v5"
+                    type="image/jpeg" alt="sn8" loading="lazy">
             </div>
         </div>
     </section>
@@ -510,4 +510,30 @@
             </div>
         </div>
     </section>
+
+    @section('main-index-styles')
+        {{-- slick slider --}}
+        <link defer href="{{ secure_asset('styles/slick-slider.css') }}" type="text/css" rel="stylesheet">
+        {{-- glitch effect --}}
+        <link defer href="{{ secure_asset('styles/glitch.css') }}" type="text/css" rel="stylesheet">
+        {{-- accordion --}}
+        <link defer href="{{ secure_asset('styles/accordion.css') }}" type="text/css" rel="stylesheet">
+        <!-- +++++++++++ CDNs +++++++++++ -->
+        {{-- slick slider --}}
+        <link defer rel="stylesheet" type="text/css"
+            href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    @stop
+
+    @section('main-index-script')
+        {{--  Slick Slider Library  --}}
+        <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        {{-- Three.js Library --}}
+        <script type="module" src="{{ URL::asset('javascript/3D/NikeAirMag.js') }}"></script>
+        {{-- Different Scene --}}
+        <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script>
+        {{-- Slick-slider --}}
+        <script src="{{ URL::asset('javascript/slick-slider.js') }}"></script>
+        {{-- Accordion --}}
+        <script src="{{ URL::asset('javascript/accordion.js') }}"></script>
+    @stop
 </div>

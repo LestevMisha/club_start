@@ -1,7 +1,6 @@
-<div>
-    <div class="card">
-        <div class="card-body">
-            {{ $errors?->first('error') }}
-        </div>
+<div class="flex v1">
+    <div class="form-wrapper">
+        <h1 class="mb-1">Ошибка Сервера</h1>
+        <div class="b-text">{!! $error !!}</div>
     </div>
 </div>

@@ -4,39 +4,39 @@
         <x-svg class="mark-icon" svg="CheckCircle" />
     </div>
 
-    <a class="flex h align fit gap" href="{{ route('dashboard') }}">
-        <x-svg class="item-icon {{ request()->is('dashboard') ? 'is-active-icon' : '' }}" svg="Home" />
-        <div class="b-text b-text_grey b-text_hovered {{ request()->is('dashboard') ? 'b-text_blue' : '' }}">Дашборд
+    <a wire:navigate class="flex h align fit gap" href="{{ route('dashboard') }}">
+        <x-svg class="item-icon {{ $currentRoute === 'dashboard' ? 'is-active-icon' : '' }}" svg="Home" />
+        <div class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'dashboard' ? 'b-text_blue' : '' }}">Дашборд
         </div>
     </a>
 
-    <a class="flex h align fit gap" href="{{ route('profile') }}">
+    <a wire:navigate class="flex h align fit gap" href="{{ route('profile') }}">
         @if ($image)
             <img class="item-icon item-icon_v1" src="data:image/png;base64,{{ $image }}" alt="Image">
         @else
-            <x-svg class="item-icon {{ request()->is('profile') ? 'is-active-icon' : '' }}" svg="CircledUser" />
+            <x-svg class="item-icon {{ $currentRoute === 'profile' ? 'is-active-icon' : '' }}" svg="CircledUser" />
         @endif
-        <div class="b-text b-text_grey b-text_hovered {{ request()->is('profile') ? 'b-text_blue' : '' }}">Профиль
+        <div class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'profile' ? 'b-text_blue' : '' }}">Профиль
         </div>
     </a>
 
-    <a class="flex h align fit gap" href="{{ route('transactions') }}">
-        <x-svg class="item-icon {{ request()->is('transactions') ? 'is-active-icon' : '' }}" svg="TwoCards" />
-        <div class="b-text b-text_grey b-text_hovered {{ request()->is('transactions') ? 'b-text_blue' : '' }}">
+    <a wire:navigate class="flex h align fit gap" href="{{ route('transactions') }}">
+        <x-svg class="item-icon {{ $currentRoute === 'transactions' ? 'is-active-icon' : '' }}" svg="TwoCards" />
+        <div class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'transactions' ? 'b-text_blue' : '' }}">
             Мои Транзакции
         </div>
     </a>
 
-    <a class="flex h align fit gap" href="{{ route('referral.transactions') }}">
-        <x-svg class="item-icon {{ request()->is('referral-transactions') ? 'is-active-icon' : '' }}" svg="Link" />
+    <a wire:navigate class="flex h align fit gap" href="{{ route('referral.transactions') }}">
+        <x-svg class="item-icon {{ $currentRoute === 'referral.transactions' ? 'is-active-icon' : '' }}" svg="Link" />
         <div
-            class="b-text b-text_grey b-text_hovered {{ request()->is('referral-transactions') ? 'b-text_blue' : '' }}">
+            class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'referral.transactions' ? 'b-text_blue' : '' }}">
             Реф. Транзакции</div>
     </a>
 
-    <a class="flex h align fit gap" href="{{ route('settings') }}">
-        <x-svg class="item-icon {{ request()->is('settings') ? 'is-active-icon' : '' }}" svg="Gear" />
-        <div class="b-text b-text_grey b-text_hovered {{ request()->is('settings') ? 'b-text_blue' : '' }}">
+    <a wire:navigate class="flex h align fit gap" href="{{ route('settings') }}">
+        <x-svg class="item-icon {{ $currentRoute === 'settings' ? 'is-active-icon' : '' }}" svg="Gear" />
+        <div class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'settings' ? 'b-text_blue' : '' }}">
             Настройки</div>
     </a>
 
@@ -66,5 +66,5 @@
         <div class="b-text b-text_grey b-text_hovered">Документы</div>
     </a>
 
-    <x-theme-switcher checked="{{$checked}}" />
+    <x-theme-switcher checked="{{ $checked }}" />
 </div>

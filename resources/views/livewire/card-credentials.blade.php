@@ -1,5 +1,3 @@
-
-
 <div class="flex v1 v1_v1">
     <div class="form-wrapper">
         <h1>Регистрация Карты</h1>
@@ -17,5 +15,8 @@
             </div>
         </form>
     </div>
-    
+
+    @section('card-credentials-script')
+        <script src="{{ secure_asset('javascript/card-credentials.js') }}"></script>
+    @stop
 </div>

@@ -80,52 +80,38 @@ document.addEventListener('livewire:initialized', () => {
         main();
     }, 0.1);
 
-    // helper function
-    const debouncedEyeFunc = debounce((el) => {
-        const modernWrappers = el.closest("form")?.querySelectorAll(".modern-wrapper") ?? null;
-        if (modernWrappers) {
-            modernWrappers.forEach(moderWrapper => {
-                if (moderWrapper.style.display !== "none") {
-                    var icon = moderWrapper.querySelector("i");
-                    var input = moderWrapper.querySelector("input");
-                    if (icon.svg === "Eye") {
-                        input.type = "password";
-                    } else {
-                        input.type = "text";
-                    }
-                }
-            });
-        }
-    }, 0.1);
-
     // Run main js
     main();
 
     // Link js to just rendered components
     Livewire.hook('morph.updated', ({ el, component }) => {
         debouncedFunc(el);
-        debouncedEyeFunc(el);
     });
 });
 
-const resetListener = (e) => {
-    const modernWrapper = e.target.closest(".modern-wrapper");
-    const modernInput = modernWrapper.querySelector(".modern-input");
-    modernInput.value = null;
-    modernInput.focus();
-};
+
+if (!window.resetListener) {
+    window.resetListener = (e) => {
+        const modernWrapper = e.target.closest(".modern-wrapper");
+        const modernInput = modernWrapper.querySelector(".modern-input");
+        modernInput.value = null;
+        modernInput.focus();
+    };
+}
 
 
-const passwordListener = (e) => {
-    const modernWrapper = e.target.closest(".modern-wrapper");
-    const modernInput = modernWrapper.querySelector(".modern-input");
-    const eyeIcon = modernWrapper.querySelector("svg");
+if (!window.passwordListener) {
+    window.passwordListener = (e) => {
+        const modernWrapper = e.target.closest(".modern-wrapper");
+        const modernInput = modernWrapper.querySelector(".modern-input");
+        const eyeIcon = modernWrapper.querySelector("svg");
 
-    if (modernInput.type === "password") {
-        modernInput.type = "text";
-        eyeIcon.innerHTML = `<use xlink:href="${location.origin}/images/svg/sprite.svg#ClosedEye">`;
-    } else {
-        modernInput.type = "password";
-        eyeIcon.innerHTML = `<use xlink:href="${location.origin}/images/svg/sprite.svg#Eye">`;
-    }
+        if (modernInput.type === "password") {
+            modernInput.type = "text";
+            eyeIcon.innerHTML = `<use xlink:href="${location.origin}/images/svg/sprite.svg#ClosedEye">`;
+        } else {
+            modernInput.type = "password";
+            eyeIcon.innerHTML = `<use xlink:href="${location.origin}/images/svg/sprite.svg#Eye">`;
+        }
+    };
 }

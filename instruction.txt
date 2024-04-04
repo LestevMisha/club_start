@@ -15,3 +15,5 @@ open: https://misha.com:8443/
 open for webhook: https://danielshkitov.loca.lt/setwebhook
 open for db: mysql -u root
 use laravel4; show tables; describe users; select * from users;
+
+delete from users; delete from users_transactions; delete from users images;

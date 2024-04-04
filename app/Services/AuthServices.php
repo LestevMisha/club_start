@@ -10,22 +10,8 @@ use App\Models\UsersTransactions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
-class AuthService
+class AuthServices
 {
-
-    public function handleError($func, $this_, $key = "server")
-    {
-        try {
-            $func();
-        } catch (Exception $e) {
-            $error = $e->getMessage();
-            if (strpos($error, 'SQL') !== false) {
-                $this_->addError($key, "Пожалуйста проверьте интернет соединение. Попробуйте позже. Если ничего не помогло напишите нам в <a href='/support'>поддержку</a>." . " Ошибка сервера: " . $error);
-            } else {
-                $this_->addError($key, $error);
-            }
-        }
-    }
 
     public function check()
     {
@@ -120,27 +106,4 @@ class AuthService
         return $client;
     }
 
-
-    // Create YooKassa Payment
-    public function createPayment(float $amount, string $description, array $options = [])
-    {
-        $authService = new AuthService();
-        $client = $authService->getClient();
-        $payment = $client->createPayment([
-            "amount" => [
-                "value" => $amount,
-                "currency" => "RUB",
-            ],
-            "capture" => false,
-            "confirmation" => [
-                "type" => "redirect",
-                "return_url" => route("dashboard"),
-            ],
-            "metadata" => $options,
-            "description" => $description,
-            "save_payment_method" => true,
-        ], uniqid("", true));
-
-        return $payment;
-    }
 }

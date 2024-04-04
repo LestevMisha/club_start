@@ -1,6 +1,6 @@
 <?php $condition = $attr === 'password' || $attr === 'password_confirmation' || $attr === 'cvc'; ?>
 <label class="modern-wrapper" style="display: {{ $displayed ?? 'block' }}">
-    <input wire:model="{{ $attr }}"
+    <input wire:model="{{ $attr }}" id="{{ $attr }}"
         class="modern-input @if ($errors->has($attr)) modern-input-error @endif"
         type="{{ $condition ? 'password' : 'text' }}" autocomplete="{{ $attr }}" autocorrect="off"
         autocapitalize="off" spellcheck="false" inputmode="{{ $attr }}" name="{{ $attr }}" placeholder=" "

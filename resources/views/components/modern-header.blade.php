@@ -6,7 +6,7 @@
 
     <div class="flex h gap fit align flex_blured">
         <a href="{{ route('login') }}" class="b-text b-text_right">Личный кабинет</a>
-        <x-theme-switcher checked="{{ $checked }}" />
+        <x-theme-switcher checked="{{ $checked }}" isXComponent="true" />
 
         <div wire:ignore>
             @if (!request()->is('/'))

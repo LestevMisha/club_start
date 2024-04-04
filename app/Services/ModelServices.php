@@ -9,9 +9,10 @@ use App\Models\CardCredentials;
 use App\Models\UsersTransactions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 
-class ModelService
+class ModelServices
 {
 
     public function createUser($name, $email, $password)
@@ -22,7 +23,6 @@ class ModelService
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
-
         ]);
     }
 
@@ -49,7 +49,7 @@ class ModelService
         session()->flush();
     }
 
-    public function createTransaction($user, $amount, $description, $options = [], $referral_id = "", $getConfirmation = true)
+    public function createTransaction($user, $ip, $amount, $description, $referral_id = "")
     {
 
         $transaction = UsersTransactions::create([
@@ -59,27 +59,13 @@ class ModelService
             "telegram_id" => $user->telegram_id,
             "referral_id" => $referral_id,
 
-            "ip" => $user->ip,
+            "ip" => $ip,
 
             "amount" => $amount,
             "description" => $description,
         ]);
 
-        // return url for yookassa redirect
-        if ($getConfirmation) {
-            $authService = new AuthService();
-            if ($transaction) {
-                $options["transaction_id"] = $transaction->id;
-                $payment = $authService->createPayment($amount, $description, $options);
-                // set yookassa_transaction_id & status columns
-                $transaction->yookassa_transaction_id = $payment->id;
-                $transaction->status = $payment->status;
-                $transaction->save();
-                return $payment->getConfirmation()->getConfirmationUrl();
-            }
-        } else {
-            return $transaction;
-        }
+        return $transaction;
     }
 
     public function observeUsersTransactions($user)
@@ -92,7 +78,8 @@ class ModelService
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        Session::flush();
+        return redirect()->route('main');
         // return redirect()->route('login')->withErrors(["email" => 'Вы успешно вышли из аккаунта.'])->onlyInput("email");
     }
 

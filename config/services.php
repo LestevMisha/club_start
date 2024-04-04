@@ -40,9 +40,11 @@ return [
         'bot_token' => env('TELEGRAM_BOT_TOKEN', null),
         'group_id' => env('TELEGRAM_GROUP_ID', null),
         'primary_chat_title' => env('TELEGRAM_PRIMARY_CHAT_TITLE', null),
+
+        'bot_url' => env('TELEGRAM_BOT_LINK', null),
     ],
 
     'website' => [
-        'url' => env('MAIN_WEBSITE_URL', null),
+        'url' => env('APP_URL', null),
     ],
 ];

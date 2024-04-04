@@ -55,8 +55,9 @@
                     <div class="b-text">Изменить E-mail адрес</div>
                     <div class="b-text b-text_08 b-text_grey">Изменение почты можно осуществить только имея доступ к
                         телеграм аккаунту. Ни
-                        какой другой аккаунт не может быть импользован, бот просто не ответит.</div>
-                    <a href="{{ route('password.forgot') }}" class="go-button v4">Изменить Почту</a>
+                        какой другой аккаунт не может быть использован, бот просто не ответит.</div>
+                    <a target="_blank" href="{{ $this->getTelegramChangeEmailLink() }}" class="go-button v4">Изменить
+                        Почту</a>
                 </div>
             </div>
 

@@ -3,12 +3,27 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Http\Request;
+use Livewire\Attributes\Layout;
+use App\Services\GlobalServices;
 use App\Models\UsersTransactions;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Layout;
 
 class Transactions extends Component
 {
+
+
+
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    protected $globalServices;
+    protected $request;
+
+    public function __construct()
+    {
+        $this->globalServices = app(GlobalServices::class);
+        $this->request = app(Request::class);
+    }
+
     protected $listeners = [
         'loadMoreUTs',
     ];
@@ -17,6 +32,9 @@ class Transactions extends Component
     public int $countUTs = 0;
     public array $users_transactions = [];
 
+
+
+    /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
     public function loadUTs(): void
     {
         $this->countUTs += 1;
@@ -35,8 +53,17 @@ class Transactions extends Component
         array_push($this->users_transactions, ...$transactions->items());
     }
 
-    public function getUTCount() {
+    public function getUTCount()
+    {
         return UsersTransactions::where('uuid', Auth::user()->uuid)->count();
+    }
+
+
+
+    /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
+    public function mount()
+    {
+        return $this->globalServices->checkPrivatePagesAccess($this->request);
     }
 
     #[Layout("components.layouts.dashboard")]

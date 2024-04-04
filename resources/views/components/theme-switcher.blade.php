@@ -3,6 +3,6 @@
         <x-svg class="b-img b-img_sun" svg="Sun" />
         <x-svg class="b-img b-img_moon" svg="Moon" />
     </div>
-    <input wire:click="toggle" type="checkbox" {{ $checked ? 'checked' : '' }}>
+    <input wire:click="{{ ($isXComponent ?? null) ? 'toggle' : '$parent.toggle'}}" type="checkbox" {{ $checked ? 'checked' : '' }}>
     <div class="toggle-circle"></div>
 </color-scheme-switcher>

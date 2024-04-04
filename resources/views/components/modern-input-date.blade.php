@@ -1,5 +1,5 @@
 <label class="modern-wrapper" style="display: {{ $displayed ?? 'block' }}">
-    <input wire:model="{{ $attr }}"
+    <input wire:model="{{ $attr }}" id="{{ $attr }}"
         class="modern-input date @if ($errors->has($attr)) modern-input-error @endif" type="text"
         autocomplete="{{ $attr }}" autocorrect="off" autocapitalize="off" spellcheck="false"
         inputmode="{{ $attr }}" name="{{ $attr }}" placeholder=" " maxlength="7" required>

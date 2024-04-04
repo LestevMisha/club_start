@@ -4,12 +4,12 @@
 
     <div class="flex v v2">
         <i class="qr-code-icon mb-2">
-            {{ $this->generateQRCode($this->getLink()) }}
+            {{ $this->generateQRCode($this->getTelegramVerificationLink()) }}
         </i>
 
         <div class="b-text b-text_center mb-1">Отсканируйте QR-код с устройства, на котором установлен Telegram, или нажмите на
             кнопку</div>
-        <a target="blank" href="{{ $this->getLink() }}" style="text-decoration: none;" class="go-button mb-1">
+        <a target="_blank" href="{{ $this->getTelegramVerificationLink() }}" style="text-decoration: none;" class="go-button mb-1">
             <div class="">
                 Перейти в Телеграм
             </div>

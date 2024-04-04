@@ -1771,7 +1771,7 @@ button:disabled {
 }
 
 .flex.v1.v1_v1 {
-    background-image: url("../images/debit-card.svg");
+    background-image: url("../images/svg/img-case/DebitCard.svg");
 }
 
 .flex.v2 {
@@ -1834,6 +1834,15 @@ button:disabled {
     height: 7.6em;
     width: 100%;
     align-items: center;
+}
+
+.flex.v6 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25em;
+    padding: 1em;
+    transform: translate(-50%, -50%);
 }
 
 .flex.v3:hover {

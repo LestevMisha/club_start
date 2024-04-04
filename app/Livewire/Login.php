@@ -2,35 +2,37 @@
 
 namespace App\Livewire;
 
-use Exception;
 use Livewire\Component;
-use App\Services\AuthService;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Validate;
+use Illuminate\Http\Request;
+use App\Services\GlobalServices;
 use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
-    public $remember = false;
 
-    // validate attributes for validation
+
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    protected $globalServices;
+    protected $request;
+
+    public function __construct()
+    {
+        $this->globalServices = app(GlobalServices::class);
+        $this->request = app(Request::class);
+    }
+
     public $email;
     public $password;
+    public $remember = false;
 
     protected $rules = [
         'email' => "required|min:4|email",
         'password' => "required|min:8",
     ];
 
-    private $authService;
-    public function __construct()
-    {
-        $this->authService = new AuthService();
-    }
 
 
     /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
-
     public function submit()
     {
         // validate the fields
@@ -39,16 +41,22 @@ class Login extends Component
         // save password
         session(["password" => $this->password]);
 
-        $this->authService->handleError(function () {
+        $this->globalServices->handleError(function () {
+
             // authentificate user
-            return $this->authService->authenticateUser(
-                $this->email,
-                $this->password,
-                $this->remember,
-                $this,
-            );
+            list($email, $password) = [$this->email, $this->password];
+            $credentials = compact('email', 'password');
+            if (Auth::attempt($credentials, $this->remember)) {
+                session()->flush();
+                session()->regenerate();
+                Auth::login(Auth::user());
+                return $this->globalServices->checkLoginRegisterPagesAccess($this->request);
+            } else {
+                $this->addError('email', 'Предоставленные вами учетные данные не совпадают с нашими записями.');
+            }
         }, $this);
     }
+
 
 
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
@@ -58,9 +66,9 @@ class Login extends Component
         $this->email = session()->get("email", "");
         $this->password = session()->get("password", "");
 
-        // general checks
-        return $this->authService->check();
+        return $this->globalServices->checkLoginRegisterPagesAccess($this->request);
     }
+
 
     public function render()
     {

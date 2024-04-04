@@ -473,22 +473,39 @@
                             нового пользователя приглашенного вами.<br> + Каждый месяц 50% с продления</div>
                         <a href="{{ route('card-credentials') }}" class="go-button v3 mt-1">Стать партнером</a>
                     </div>
-                    <img src="{{ URL::asset('images/dollar-coin-3d.png') }}" alt="dollar-coin-3d"
+                    <img src="{{ URL::asset('images/min-png/dollar-coin-3d.png') }}" alt="dollar-coin-3d"
                         class="b-img b-img_v10">
                 </div>
             @endif
 
             <div class="flex gap_05 h">
-                <div class="flex h v2 v2_1 gap">
-                    <div class="b-text">Закрытый клуб START: </div>
-                    <a href="https://t.me/+U86N3fnqA7wzM2Vl">https://t.me/+U86N3fnqA7wzM2Vl</a>
-                </div>
+                <div class="flex h v2 v2_1 gap_05">
+                    <div class="mb-05">
+                        <div class="b-text">
+                            Оставшиеся дни:
+                            <span class="b-text b-text_green">{{ Auth::user()->days_left }} дней</span>
+                        </div>
+                    </div>
 
-                <div class="flex h v2 v2_1 gap">
-                    <div class="b-text">Оставшиеся дни:</div>
-                    <div class="b-text b-text_green">{{ Auth::user()->days_left }} дней</div>
+                    <div class="mb-05">
+                        <div class="b-text">Текущая Почта: <span
+                                class="b-text b-text_green">{{ Auth::user()->email }}</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-05">
+                        <div class="b-text">Закрытый клуб START: </div>
+                        <a href="https://t.me/+U86N3fnqA7wzM2Vl">https://t.me/+U86N3fnqA7wzM2Vl</a>
+                    </div>
+
+
+                    <a target="_blank" href="{{ $this->getTelegramInformationLink() }}" class="go-button v3">Получить информацию</a>
+                    <div class="b-text b-text_08 b-text_grey">Вы получите информацию о клубе, ссылку на клуб и
+                        тд...</div>
                 </div>
             </div>
+
+
 
 
         </div>

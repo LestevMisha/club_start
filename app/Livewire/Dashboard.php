@@ -2,76 +2,63 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\TelegramController;
 use Livewire\Component;
-use App\Services\AuthService;
-use App\Services\ModelService;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Services\ModelServices;
 use Livewire\Attributes\Layout;
-use Telegram\Bot\Laravel\Facades\Telegram;
-
-use GuzzleHttp\Client;
-use App\Models\UsersImages;
+use App\Services\GlobalServices;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TelegramController;
+use App\Services\TelegramServices;
 
 class Dashboard extends Component
 {
 
-    static function hasCardVerification()
+
+
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    protected $telegramServices;
+    protected $globalServices;
+    protected $modelServices;
+    protected $request;
+
+    public function __construct()
     {
-        $modelService = new ModelService();
-        if ($modelService->getCardCredentials(Auth::user()->uuid)) {
-            return true;
-        }
-        return false;
+        $this->telegramServices = app(TelegramServices::class);
+        $this->globalServices = app(GlobalServices::class);
+        $this->modelServices = app(ModelServices::class);
+        $this->request = app(Request::class);
     }
 
+
+
+    /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
+    public function hasCardVerification()
+    {
+        return $this->modelServices->getCardCredentials(Auth::user()->uuid) ? 1 : 0;
+    }
+
+    // link with user id for verification (example: t.me/bot_name?start=user_id)
+    public function getTelegramInformationLink()
+    {
+        return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, "information");
+    }
+
+
+
+    /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
     public function mount()
     {
-
-        if (!Auth::check()) {
-            return redirect()->route("login");
+        if ($this->globalServices->isFullyRegistered()) {
+            $tgController = new TelegramController();
+            if (!$this->modelServices->hasImage()) {
+                $bin_img = $tgController->observeImg(Auth::user()->telegram_id);
+                $this->modelServices->createImage(Auth::user()->uuid, $bin_img);
+            }
         }
-        if (Auth::user()->telegram_id === null) {
-            return redirect()->route("telegram.verify");
-        }
 
-        // !IMPORTANT It must be after user is logged in
-        // open referral payment link if user was reffered
-        // $authService = new AuthService();
-        // if ($authService->isReferred()) {
-        //     return redirect()->route("payment.referral");
-        // }
-
-        $modelService = new ModelService();
-        $tgController = new TelegramController();
-        if (!$modelService->hasImage()) {
-            $bin_img = $tgController->observeImg(Auth::user()->telegram_id);
-            $modelService->createImage(Auth::user()->uuid, $bin_img);
-        }
-        //     $resp = Telegram::getUserProfilePhotos([
-        //         "user_id" => Auth::user()->telegram_id,
-        //     ]);
-
-        //     $link = Telegram::getFile([
-        //         "file_id" => $resp["photos"][0][2]["file_id"],
-        //     ]);
-
-        //     $url = "https://api.telegram.org/file/bot" . config("services.telegram.bot_token") . "/" . $link["file_path"];
-
-        //     $client = new Client();
-        //     $response = $client->get($url);
-        //     $imageData = $response->getBody()->getContents();
-
-        //     $usersImage = new UsersImages([
-        //         'uuid' => Auth::user()->uuid,
-        //         'image_data' => $imageData,
-        //     ]);
-
-        //     $usersImage->save();
-        // }
-
+        return $this->globalServices->checkPrivatePagesAccess($this->request);
     }
-
 
     #[Layout("components.layouts.dashboard")]
     public function render()

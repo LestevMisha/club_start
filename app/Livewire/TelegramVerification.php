@@ -3,8 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Services\ModelService;
-use App\Services\TelegramService;
+use Illuminate\Http\Request;
+
+use App\Services\ModelServices;
+use App\Services\GlobalServices;
+use App\Services\TelegramServices;
+
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -12,50 +16,51 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class TelegramVerification extends Component
 {
 
-    public function generateQRCode($arg)
+
+
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    protected $telegramServices;
+    protected $globalServices;
+    protected $request;
+
+    public function __construct()
     {
-        return QrCode::generate(
-            $arg,
-        );
+        $this->telegramServices = app(TelegramServices::class);
+        $this->globalServices = app(GlobalServices::class);
+        $this->request = app(Request::class);
     }
 
-    public function getLink()
+
+
+    /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
+    // generate unique QR code image
+    public function generateQRCode($url)
     {
-        $tgService = new TelegramService();
-        return $tgService->getLink(Auth::user()->uuid);
+        return QrCode::generate($url);
     }
 
+    // link with user id for verification (example: t.me/bot_name?start=user_id)
+    public function getTelegramVerificationLink()
+    {
+        return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, "verify");
+    }
+
+    // gives user the option to delete his registration
     public function deleteUser()
     {
-        $modelService = new ModelService();
-        $modelService->deleteUser(Auth::user()->email);
-        return redirect()->route("register");
+        $modelServices = app(ModelServices::class);
+        $modelServices->deleteUser(Auth::user()->email);
+        return $modelServices->logout();
     }
 
+
+
+    /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
     public function mount()
     {
-        if (Auth::check() && Auth::user()->telegram_id !== null) {
-
-            // make user pay 10K for enterance
-            if (Auth::user()->is_paid_10K === 0) {
-                $yoo = new ModelService();
-                $link = $yoo->createTransaction(
-                    Auth::user(),
-                    10000,
-                    "New registered user - 10K",
-                    ["is_paid_10K" => 1],
-                    session()->get("referral_id", "")
-                );
-                return redirect()->away($link);
-            }
-
-            return redirect()->route("dashboard");
-        }
-
-        if (!Auth::check()) {
-            return redirect()->route("register");
-        }
+        return $this->globalServices->checkTelegramVerifyPageAccess($this->request);
     }
+
 
     public function render()
     {
