@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Services\TelegramServices;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Validator;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
@@ -76,25 +75,6 @@ class TelegramController extends Controller
     public function removeWebhook()
     {
         Telegram::removeWebhook();
-    }
-
-    public function observeImg($user_id)
-    {
-        // get user images
-        $resp = Telegram::getUserProfilePhotos([
-            "user_id" => $user_id,
-        ]);
-
-        // get path to last best-quality image
-        $link = Telegram::getFile([
-            "file_id" => $resp["photos"][0][2]["file_id"],
-        ]);
-
-        // return binary code of image
-        $url = "https://api.telegram.org/file/bot" . config("services.telegram.bot_token") . "/" . $link["file_path"];
-        $client = new Client();
-        $response = $client->get($url);
-        return $response->getBody()->getContents();
     }
 
     function isAdmin(string $chat_id, int $target_id)

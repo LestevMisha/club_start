@@ -1,7 +1,3 @@
-@php
-    $checked = session()->get('checked', false);
-@endphp
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -14,18 +10,17 @@
     <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
     <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}"
         type="image/png" />
-
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
-
     @yield('main-index-styles')
 </head>
 
-<body>
+<body class="{{ request()->cookie('checked') ? 'lightMode' : 'darkMode' }}">
 
     <div class="flex h w100 h100">
-        <livewire:light-mode-on menu_type="side" />
+        <livewire:templates.side-menu />
         {{ $slot }}
+        <div id="side-menu-black-cover"></div>
     </div>
 
     <!-- +++++++++++ CDNs +++++++++++ -->
@@ -42,12 +37,88 @@
     </script>
     <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script>
 
-
     <!-- +++++++++++ PROJECT JAVASCRIPT +++++++++++ -->
-    <script src="{{ secure_asset('javascript/light-mode.js') }}"></script>
     {{-- custom modern --}}
     <script src="{{ secure_asset('javascript/modern.js') }}"></script>
+    {{-- dashboard-adaptive-script --}}
+    <script>
+        document.addEventListener('livewire:navigated', () => {
+            const sideMenu = document.getElementById("sideMenu");
+            const menuButton = document.getElementById("menu-button");
+            const blackCover = document.getElementById("side-menu-black-cover");
 
+            // set z-index if css will fail
+            sideMenu.style.zIndex = 101;
+
+            // functions
+            function activateMobile() {
+                blackCover.style.display = "none";
+                sideMenu.style.transform = `translateX(${-(sideMenu.getBoundingClientRect().width)}px)`;
+            }
+
+            function deactivateMobile() {
+                sideMenu.style.transform = "translateX(0px)";
+                blackCover.style.display = "block";
+            }
+
+            // functions
+            function activateDesktop() {
+                sideMenu.classList.add("adaptive");
+                sideMenu.style.transform = `translateX(${-(sideMenu.getBoundingClientRect().width)}px)`;
+            }
+
+            function deactivateDesktop() {
+                sideMenu.classList.remove("adaptive");
+                sideMenu.style.transform = "translateX(0px)";
+            }
+
+            function main() {
+                if (window.innerWidth <= 890) {
+                    // mobile
+                    sideMenu.classList.add("adaptive");
+                    activateMobile();
+
+                    blackCover.addEventListener("click", function() {
+                        activateMobile();
+                    });
+                } else {
+                    // desktop
+                    deactivateDesktop();
+                }
+            }
+
+            // logic
+            main();
+            window.addEventListener("resize", function() {
+                main();
+            });
+
+            menuButton.addEventListener("click", function() {
+                if (window.innerWidth <= 890) {
+                    sideMenu.style.transform === "translateX(0px)" ? activateMobile() : deactivateMobile();
+                } else {
+                    sideMenu.style.transform === "translateX(0px)" ? activateDesktop() :
+                        deactivateDesktop();
+                }
+            });
+        }, {
+            once: true
+        });
+    </script>
+    {{-- theme switcher logic --}}
+    <script>
+        const themeSwitcher = document.getElementById("themeSwitcher");
+        themeSwitcher.addEventListener("change", function() {
+            // set mode respectivly
+            themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
+            /* set mode in contrary to prev one (cookies)
+            /app/Livewire/Templates/SideMenu.php
+            */
+            Livewire.dispatch('checkedUpdateSideMenu');
+        });
+        themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
+    </script>
+    {{-- optimized js --}}
     @yield('main-index-script');
     @yield('card-credentials-script');
 </body>

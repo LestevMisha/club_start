@@ -10,18 +10,14 @@ use Illuminate\Support\Facades\Cookie;
 
 class GlobalServices
 {
-    public $yooKassaServices, $modelServices;
+    public $yooKassaServices, $modelServices, $telegramServices, $user;
 
     public function __construct()
     {
         $this->yooKassaServices = app(YooKassaServices::class);
+        $this->telegramServices = app(TelegramServices::class);
         $this->modelServices = app(ModelServices::class);
-    }
-
-    // check if user completed a full registration
-    public function isFullyRegistered()
-    {
-        return !(!$this->isUserAuthenticated() || !$this->isTelegramVerified() || !$this->hasPaidSubscription());
+        $this->user = Auth::user();
     }
 
     // Check if user is eligible to be on the private pages
@@ -30,6 +26,8 @@ class GlobalServices
         if (!$this->isUserAuthenticated()) return redirect()->route("register");
         if (!$this->isTelegramVerified()) return redirect()->route("telegram.verify");
         if (!$this->hasPaidSubscription()) return $this->fullPaymentProcessing($request);
+        // check if user didn't observe image yet
+        if (!$this->modelServices->hasImage()) return $this->telegramServices->observeSaveUserImage($this->user->telegram_id, $this->user->uuid);
         return;
     }
 
@@ -69,6 +67,12 @@ class GlobalServices
         Cookie::queue("payment_status", $payment->status, 10);
 
         return redirect($payment_link);
+    }
+
+    // check if user completed a full registration
+    public function isFullyRegistered()
+    {
+        return !(!$this->isUserAuthenticated() || !$this->isTelegramVerified() || !$this->hasPaidSubscription());
     }
 
     // if user is registered

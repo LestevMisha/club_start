@@ -8,7 +8,6 @@ use App\Services\ModelServices;
 use Livewire\Attributes\Layout;
 use App\Services\GlobalServices;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\TelegramController;
 use App\Services\TelegramServices;
 
 class Dashboard extends Component
@@ -49,14 +48,6 @@ class Dashboard extends Component
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
     public function mount()
     {
-        if ($this->globalServices->isFullyRegistered()) {
-            $tgController = new TelegramController();
-            if (!$this->modelServices->hasImage()) {
-                $bin_img = $tgController->observeImg(Auth::user()->telegram_id);
-                $this->modelServices->createImage(Auth::user()->uuid, $bin_img);
-            }
-        }
-
         return $this->globalServices->checkPrivatePagesAccess($this->request);
     }
 

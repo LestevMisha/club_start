@@ -17,7 +17,6 @@ use App\Livewire\EmailVerification;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\TelegramVerification;
-use Telegram\Bot\Laravel\Facades\Telegram;
 use App\Http\Controllers\YooKassaController;
 use App\Livewire\CardCredentials;
 use App\Livewire\Profile;

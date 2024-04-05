@@ -1,6 +1,6 @@
 <section class="b-section b-section_v4">
     <div class="container container_v2">
-        <div class="flex v gap_05 mb-2 mt-2 ml-2">
+        <div class="flex v gap_05 my-2 mx-1">
 
             @if (Auth::user()->hasVerifiedEmail())
                 <div class="flex h v2 v2_3 gap">
@@ -19,7 +19,7 @@
                     </svg>
                 </div>
             @else
-                <div class="flex v flex v3 mb-1" onclick="window.location.href='{{ route('email.verify') }}';">
+                <div class="flex v flex v3" onclick="window.location.href='{{ route('email.verify') }}';">
                     <div class="flex v gap_05">
                         <div class="b-text b-text_2em">Хотите использовать функции на полную?</div>
                         <div class="b-text b-text_grey">Верефицируйте почту. Это поможет вам в дальнейшей работе по
@@ -41,9 +41,9 @@
                 </div>
             @endif
 
-            <div class="flex gap_05 h">
+            <div class="flex gap_05 h mob">
 
-                <div class="flex h v2 v2_1 gap_05">
+                <div class="flex v v3 gap cursor_crosshair">
                     <div class="b-text">Изменить пароль</div>
                     <div class="b-text b-text_08 b-text_grey">Изменение пароля происходит в 2 этапа: <br>1 этап -
                         Введите почту и отправьте код<br>2 этап - Перейдите по ссылке указаной в почте и измените
@@ -51,7 +51,7 @@
                     <a href="{{ route('password.forgot') }}" class="go-button v4">Изменить пароль</a>
                 </div>
 
-                <div class="flex h v2 v2_1 gap_05">
+                <div class="flex v v3 gap cursor_crosshair">
                     <div class="b-text">Изменить E-mail адрес</div>
                     <div class="b-text b-text_08 b-text_grey">Изменение почты можно осуществить только имея доступ к
                         телеграм аккаунту. Ни
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="flex h v2 v2_1 gap_05">
+            <div class="flex v v3 gap cursor_crosshair">
                 <div class="b-text">Хотите удалить аккаунт?</div>
                 <div class="b-text b-text_08 b-text_grey">Удалить аккаунт на стороне сайта не возможно, это сделано
                     с целью предостережения пользователя от возможности потерять подписку. Удалить аккаунт возможно

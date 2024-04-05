@@ -90,16 +90,31 @@ class ModelServices
         // return redirect()->route('login')->withErrors(["email" => 'Вы успешно вышли из аккаунта.'])->onlyInput("email");
     }
 
+    public function observeLatestUserImage(string $uuid)
+    {
+        return UsersImages::where("uuid", Auth::user()->uuid)->exists();
+    }
+
     public function hasImage()
     {
         return UsersImages::where("uuid", Auth::user()->uuid)->exists();
     }
 
-    public function createImage($uuid, $image_data)
+    public function updateOrCreateImage($uuid, $image_data)
     {
-        return UsersImages::create([
-            'uuid' => $uuid,
-            'image_data' => $image_data,
-        ]);
+        $image = UsersImages::where('uuid', $uuid)->first();
+
+        if ($image) {
+            $image->update([
+                'image_data' => $image_data,
+            ]);
+            return $image;
+        } else {
+            return UsersImages::create([
+                'uuid' => $uuid,
+                'image_data' => $image_data,
+            ]);
+        }
+    
     }
 }

@@ -766,6 +766,31 @@ body {
     margin-bottom: 5rem !important;
 }
 
+.mx-1 {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+}
+
+.mx-2 {
+    margin-right: 2rem !important;
+    margin-left: 2rem !important;
+}
+
+.mx-3 {
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
+}
+
+.mx-4 {
+    margin-right: 4rem !important;
+    margin-left: 4rem !important;
+}
+
+.mx-5 {
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
+}
+
 .py-3 {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
@@ -1272,6 +1297,51 @@ mask: var(--mask); */
 
 }
 
+.italic {
+    font-style: italic;
+}
+
+#side-menu-black-cover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #0000008c;
+    z-index: 99;
+    display: none;
+}
+
+#enlight-mode {
+    z-index: 101;
+}
+
+.adaptive {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+}
+.menu-icon {
+    position: absolute;
+    top: 0;
+    right: -4.5em;
+    display: flex;
+    margin-top: 1.5em;
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    color: #0d6efd80;
+    z-index: 100;
+    transform: scaleX(-1);
+    padding: 0.5em;
+    backdrop-filter: blur(1em);
+    border-radius: 1em;
+}
+
+.menu-icon:hover {
+    color: #0d6efd;
+}
+
 @font-face {
     font-family: 'Gilroy';
     src: url("../fonts/gilroy/Gilroy-Light.ttf");
@@ -1664,6 +1734,7 @@ button:disabled {
 }
 
 .go-button.v4 {
+    margin-top: auto;
     background: linear-gradient(45deg, #0d6efd, #e33e1c);
 }
 
@@ -1793,8 +1864,9 @@ button:disabled {
 .flex.v2.v2_1 {
     border: none;
     padding: 1em;
-    height: fit-content;
+    height: auto;
     align-items: baseline;
+    justify-content: space-between;
     margin: 0;
 }
 
@@ -1818,12 +1890,20 @@ button:disabled {
 
 .flex.v3 {
     position: relative;
-    min-height: 15em;
     width: 100%;
     background-color: black;
     border-radius: 2em;
     padding: 2em;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.cursor_default {
+    cursor: default !important; 
+}
+
+.cursor_crosshair {
+    cursor: crosshair !important; 
 }
 
 .flex.v4 {
@@ -1847,7 +1927,6 @@ button:disabled {
 
 .flex.v3:hover {
     scale: 1.01;
-    cursor: pointer;
 }
 
 .flex.v3:hover>.b-img.b-img_v10 {
@@ -1957,6 +2036,105 @@ svg {
     width: 100%;
     height: 100%;
 }
+
+
+/* LOADER below */
+.loader {
+    z-index: 10;
+    position: relative;
+    margin: 0 auto;
+    width: 3.5em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 1em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.loader:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.showbox {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5%;
+}
+
+.circular {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+
+    100%,
+    0% {
+        stroke: #d62d20;
+    }
+
+    40% {
+        stroke: #0057e7;
+    }
+
+    66% {
+        stroke: #008744;
+    }
+
+    80%,
+    90% {
+        stroke: #ffa700;
+    }
+}
+
+/* LOADER above */
+
 
 .text-center {
     text-align: center;

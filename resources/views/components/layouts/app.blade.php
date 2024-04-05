@@ -10,15 +10,14 @@
     <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
     <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}"
         type="image/png" />
-
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/different-components.css') }}" type="text/css" rel="stylesheet">
-
     @yield('main-index-styles')
 </head>
 
-<body>
+<body class="{{ request()->cookie('checked') ? 'lightMode' : 'darkMode' }}">
+
     {{-- Admin --}}
     {{-- @if (Auth::guard('admin')->check())
         @include('templates.header_admin')
@@ -34,13 +33,12 @@
     {{-- @include('templates.footer') --}}
 
     <div class="flex w100 h100">
-        <livewire:light-mode-on menu_type="top" />
+        <livewire:templates.header />
         {{ $slot }}
     </div>
 
     {{-- Map For Three.js --}}
     <script type="importmap" ignore--minify>{"imports": {"three": "./javascript/3D/three.js/build/three.module.js"}}</script>
-    <!-- +++++++++++ CDNs +++++++++++ -->
     {{-- jQuery/Mask jQuery --}}
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -54,12 +52,23 @@
     </script>
     <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script>
 
-
     <!-- +++++++++++ PROJECT JAVASCRIPT +++++++++++ -->
-    <script src="{{ secure_asset('javascript/light-mode.js') }}"></script>
     {{-- custom modern --}}
     <script src="{{ secure_asset('javascript/modern.js') }}"></script>
-
+    {{-- theme switcher logic --}}
+    <script>
+        const themeSwitcher = document.getElementById("themeSwitcher");
+        themeSwitcher.addEventListener("change", function() {
+            // set mode respectivly
+            themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
+            /* set mode in contrary to prev one (cookies)
+            /app/Livewire/Templates/Header.php
+            */
+            Livewire.dispatch('checkedUpdateHeader');
+        });
+        themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
+    </script>
+    {{-- optimized js --}}
     @yield('main-index-script');
     @yield('forgot-password-script');
     @yield('card-credentials-script');

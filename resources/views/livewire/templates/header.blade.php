@@ -6,15 +6,13 @@
 
     <div class="flex h gap fit align flex_blured">
         <a href="{{ route('login') }}" class="b-text b-text_right">Личный кабинет</a>
-        <x-theme-switcher checked="{{ $checked }}" isXComponent="true" />
+        <x-theme-switcher />
 
-        <div wire:ignore>
-            @if (!request()->is('/'))
-                <a href="{{ route('main') }}" class="cr-button">
-                    <x-svg class="reset-icon" svg="Cross" />
-                </a>
-            @endif
-        </div>
+        @if ($currentRoute !== 'main')
+            <a href="{{ route('main') }}" class="cr-button">
+                <x-svg class="reset-icon" svg="Cross" />
+            </a>
+        @endif
 
     </div>
 </header>
