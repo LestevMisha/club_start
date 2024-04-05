@@ -64,9 +64,9 @@
             /* set mode in contrary to prev one (cookies)
             /app/Livewire/Templates/Header.php
             */
+            console.log("dispatched");
             Livewire.dispatch('checkedUpdateHeader');
         });
-        themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
     </script>
     {{-- optimized js --}}
     @yield('main-index-script');

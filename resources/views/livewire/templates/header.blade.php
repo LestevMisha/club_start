@@ -1,4 +1,4 @@
-<header class="modern-header">
+<header wire:ignore class="modern-header">
     <div class="flex h fit align flex_blured">
         <div class="b-text b-text_nowrap text-header">Клуб Start</div>
         <x-svg class="mark-icon" svg="CheckCircle" />

@@ -84,6 +84,10 @@ body.lightMode .b-section {
     background-color: #f6f7f8;
 }
 
+body.lightMode .b-section.b-section_v5 {
+    background-color: #FFF;
+}
+
 body.lightMode .card {
     background-color: #f6f7f8;
 }
