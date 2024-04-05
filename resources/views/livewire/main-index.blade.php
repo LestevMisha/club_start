@@ -1,6 +1,5 @@
 <div>
     <section class="b-section b-section_v1">
-        <div class="overlay"></div>
         <img fetchpriority="high" src="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}" class="b-img b-img_v2"
             alt="sneakers-chair">
         <div class="container container_v1">
@@ -42,9 +41,10 @@
         </div>
         <div id="anchor">
         </div>
+        <div class="overlay background_squared"></div>
     </section>
 
-    <section class="b-section b-section_v2">
+    <section class="b-section b-section_v2 background_squared">
         <x-svg class="b-img b-img_v6" svg="ShoesPair" />
         <div class="container container_v2 mob">
             <div class="b-text b-text_2.5em b-text_700 b-text_center">
@@ -422,7 +422,7 @@
         </div>
     </section>
 
-    <section class="b-section b-section_v2">
+    <section class="b-section b-section_v2 b-section_doted">
         <div class="container container_v2 mob">
 
             <div class="h-text">
@@ -492,8 +492,24 @@
         </div>
         <div class="abs_blur_effect_custom"></div>
         <div class="abs_blur_effect_custom green"></div>
-    </section>
 
+
+        <div class="container container_v2 mob mt-6">
+            <x-svg class="b-img b-img_v8" svg="Star" />
+            <div class="b-text b-text_grey-dark b-text_center">
+                Реквизиты<br>
+                ИП ШКИТОВ Д. А; идентификационный номер<br>
+                налогоплательщика (ИНН): 7707083893<br>
+                ОГРНИП: 322325600026496<br><br>
+                Расчетный счет: 40817810308007337829<br>
+                ИНН банка: 7710140679<br>
+                БИК банка: 041501601<br>
+                Корреспондентский счет банка:<br>
+                30101810400000000601
+            </div>
+        </div>
+    </section>
+    {{-- 
     <section class="b-section b-section_v2">
         <x-svg class="b-img b-img_v8" svg="Star" />
         <div class="container container_v2 mob">
@@ -509,9 +525,11 @@
                 30101810400000000601
             </div>
         </div>
-    </section>
+    </section> --}}
 
     @section('main-index-styles')
+        {{-- custom styles only for main page --}}
+        <link defer href="{{ secure_asset('styles/main-page.css') }}" type="text/css" rel="stylesheet">
         {{-- slick slider --}}
         <link defer href="{{ secure_asset('styles/slick-slider.css') }}" type="text/css" rel="stylesheet">
         {{-- glitch effect --}}

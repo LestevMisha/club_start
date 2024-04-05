@@ -47,7 +47,7 @@ video {
 
 input[type='checkbox'] {
     margin: 0 !important;
-    margin-right: 0.5em !important;
+    /* margin-right: 0.5em !important; */
     accent-color: #0d6efd;
     outline: none !important;
     cursor: pointer;
@@ -349,14 +349,20 @@ body {
     background-color: #1a1a1a;
 }
 
+.background_squared {
+    background-image: linear-gradient(#474bff2e 2px, transparent 2px), linear-gradient(to right, #474bff2e 2px, transparent 2px);
+    background-size: 64px 64px;
+    /* background-color: #000000 !important; */
+}
+
 .overlay {
     position: absolute;
-    z-index: 10;
+    /* z-index: 10; */
     bottom: 0;
     left: 0;
     height: 12em;
     width: 100%;
-    background-color: #1a1a1a;
+    background-color: #000000;
     --mask:
         radial-gradient(67.08px at 50% 90px, #000 99%, #0000 101%) calc(50% - 60px) 0/120px 100%,
         radial-gradient(67.08px at 50% -60px, #0000 99%, #000 101%) 50% 30px/120px 100% repeat-x;
@@ -489,6 +495,10 @@ body {
     font-weight: 500;
 }
 
+.b-text.b-text_fit {
+    width: fit-content;
+}
+
 .b-text.b-text_400 {
     font-weight: 400;
 }
@@ -564,6 +574,13 @@ body {
 
 .b-text.b-text_v2 {
     top: -0.3em;
+}
+
+.b-text.b-text_v3 {
+    color: #c2c2c2 !important;
+    padding-left: 0.5em;
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
 }
 
 .b-text.b-text_lh-1\.5em {
@@ -807,6 +824,10 @@ body {
 
 .pt-3 {
     padding-top: 3rem !important;
+}
+
+.pl-05 {
+    padding-left: 0.5rem !important;
 }
 
 .m-auto {
@@ -1095,28 +1116,28 @@ body {
 .b-section.b-section_v1 {
     height: auto;
     padding: 4em 0;
-    /* background-image: url('images/sneakers-min.jpg');
-    background-size: contain; */
     background: linear-gradient(97deg, #0d6efd 5%, #000000 40%);
 }
 
 .b-section.b-section_v2 {
     height: auto;
-    background-color: #1a1a1a;
+    background-color: #000000;
     padding-bottom: 6em;
-    /* --mask:
-    radial-gradient(6.9px at 50% 9.75px, #000 99%, #0000 101%) calc(50% - 10px) 0/20px 51% repeat-x,
-    radial-gradient(6.9px at 50% -4.75px, #0000 99%, #000 101%) 50% 5px/20px calc(51% - 5px) repeat-x,
-    radial-gradient(6.9px at 50% calc(100% - 9.75px), #000 99%, #0000 101%) calc(50% - 10px) 100%/20px 51% repeat-x,
-    radial-gradient(6.9px at 50% calc(100% + 4.75px), #0000 99%, #000 101%) 50% calc(100% - 5px)/20px calc(51% - 5px) repeat-x;
--webkit-mask: var(--mask);
-mask: var(--mask); */
+}
+
+.b-section.b-section_doted {
+    background-image: radial-gradient(#191919 2px, transparent 2px);
+    background-size: 32px 32px;
+    background-color: #000000;
 }
 
 .b-section.b-section_v3 {
     height: auto;
-    background-color: #000;
+    background: linear-gradient(180deg, #000, #0e0e0e);
     padding-bottom: 6em;
+    --mask: radial-gradient(30px at 50% calc(100% - 30px), #000 99%, #0000 101%) calc(50% - 60px) 0 / 120px 100%, radial-gradient(30px at 50% calc(100% + 0px), #0000 99%, #000 101%) 50% calc(100% - 30px) / 120px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
 }
 
 .b-section.b-section_v4 {
@@ -1152,7 +1173,7 @@ mask: var(--mask); */
     border-radius: 50em;
     width: 15em;
     height: 15em;
-    z-index: 0;
+    z-index: 1;
 }
 
 .abs_blur_effect_custom.green {
@@ -1295,17 +1316,23 @@ mask: var(--mask); */
     }
 
     .modern-header {
-        padding: 0.5em;
+        padding: 1em;
         -webkit-backdrop-filter: blur(0.1em);
         backdrop-filter: blur(1em);
         border-radius: 1em;
+        background-color: #00000087;
     }
 
     .modern-header .flex_blured {
-        padding: 0;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border-radius: 0;
+        padding: 0 !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
+    }
+
+    .b-text.b-text_v3 {
+        color: #0d6efd !important;
+        padding: 0 !important;
     }
 
 }
@@ -1334,6 +1361,7 @@ mask: var(--mask); */
     z-index: 100;
     top: 0;
 }
+
 .menu-icon {
     position: absolute;
     top: 0;
@@ -1912,11 +1940,11 @@ button:disabled {
 }
 
 .cursor_default {
-    cursor: default !important; 
+    cursor: default !important;
 }
 
 .cursor_crosshair {
-    cursor: crosshair !important; 
+    cursor: crosshair !important;
 }
 
 .flex.v4 {
@@ -1953,7 +1981,7 @@ button:disabled {
     right: 24px;
     z-index: 101;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
 }
 
@@ -1966,9 +1994,9 @@ button:disabled {
 
 .cr-button {
     display: flex;
-    width: 44px;
-    min-width: 44px;
-    height: 44px;
+    width: 3em;
+    min-width: 3em;
+    height: 3em;
     border-radius: 50%;
     background-color: var(--slightly-transparent);
     cursor: pointer;

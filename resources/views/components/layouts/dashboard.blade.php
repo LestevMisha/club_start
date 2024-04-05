@@ -24,7 +24,7 @@
         {{ $slot }}
     </div>
 
-    @persist("static-javascript")
+    @persist('static-javascript')
         <!-- +++++++++++ CDNs +++++++++++ -->
         {{-- jQuery/Mask jQuery --}}
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -111,8 +111,14 @@
         <script>
             const themeSwitcher = document.getElementById("themeSwitcher");
             themeSwitcher.addEventListener("change", function() {
+                // set mode respectivly
+                themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
+                /* set mode in contrary to prev one (cookies)
+                    /app/Livewire/Templates/SideMenu.php
+                    */
                 Livewire.dispatch('checkedUpdateSideMenu');
             });
+            themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
         </script>
         {{-- optimized js --}}
         @yield('main-index-script')

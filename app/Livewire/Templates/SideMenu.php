@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Cookie;
 class SideMenu extends Component
 {
     public $image;
-    public $currentUrl;
     public $currentRoute;
 
     /* change theme
@@ -22,7 +21,6 @@ class SideMenu extends Component
     public function checkedUpdateSideMenu()
     {
         Cookie::queue("checked", !Cookie::get("checked", true), 60 * 24 * 30);
-        return $this->redirect($this->currentUrl, navigate: true);
     }
 
     public function mount(Request $request)
@@ -32,8 +30,6 @@ class SideMenu extends Component
 
         // get current route
         $this->currentRoute = $request->route()->getName();
-        // get current url
-        $this->currentUrl = url()->current();
     }
 
     public function render()
