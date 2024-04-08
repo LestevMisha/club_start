@@ -21,6 +21,8 @@ class StartCommand extends Command
         $last_name = isset($new_user['last_name']) ? $new_user['last_name'] : '';
         $name = $new_user['first_name'] . " " . $last_name;
         $id = $new_user["id"];
+        logger(json_encode($updates));
+        logger($updates["message"]["chat"]["id"]);
 
         try {
             // get sent metadata (if possible)

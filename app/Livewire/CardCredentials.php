@@ -58,7 +58,7 @@ class CardCredentials extends Component
 
         $this->validate();
 
-        $this->modelServices->insertCardCredentials(
+        $this->modelServices->createCardCredentials(
             $this->card_name,
             $this->card_number,
             $this->cvc,

@@ -18,6 +18,8 @@ class TelegramServices
 
 
 
+
+
     public function getTelegramVerificationLink($uuid = "none", $target)
     {
         return config("services.telegram.bot_url") . "?start=" . $uuid . "_" . $target;
@@ -25,11 +27,11 @@ class TelegramServices
 
     public function markdownv2($text)
     {
-        $replacements = ['\\.', '\\<', '\\>'];
+        $replacements = ['\\.', '\\<', '\\>', '\\-'];
 
         // Add backslashes before periods and angle brackets
-        $modifiedText = preg_replace_callback('/\.|<|>/', function ($matches) use ($replacements) {
-            return $replacements[array_search($matches[0], ['.', '<', '>'])];
+        $modifiedText = preg_replace_callback('/\.|<|>|-/', function ($matches) use ($replacements) {
+            return $replacements[array_search($matches[0], ['.', '<', '>', '-'])];
         }, $text);
 
         return $modifiedText;
@@ -52,6 +54,30 @@ class TelegramServices
         ]);
     }
 
+    public function sendMoneyWithdrawalNotification($uuid, $amount, $card_number, $card_holder_name)
+    {
+        return $this->sendMarkdownV2Message(
+            config("services.telegram.notifications_chat_id"),
+            "*Уведомление о выводе средств*\n\n*Сумма перевода*: __$amount руб.__\n*Номер карты*:`$card_number`\n*Имя владельца карты*: `$card_holder_name`\n*Команда Уведомления*: `/paid $uuid`",
+        );
+    }
+
+    public function sendMessage($chat_id, $text)
+    {
+        return Telegram::sendMessage([
+            "chat_id" => $chat_id,
+            "text" => $text,
+        ]);
+    }
+
+    public function sendMarkdownV2Message($chat_id, $text)
+    {
+        return Telegram::sendMessage([
+            "chat_id" => $chat_id,
+            "text" => $this->markdownv2($text),
+            "parse_mode" => "MarkdownV2",
+        ]);
+    }
 
     public function observeCurrentUserImage($user_id)
     {

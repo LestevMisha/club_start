@@ -173,6 +173,7 @@
                 </div>
             </div>
         </div>
+        <div class="fade-in"></div>
     </section>
 
     <section class="b-section b-section_v3 zi1">

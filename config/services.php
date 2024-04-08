@@ -41,6 +41,8 @@ return [
         'group_id' => env('TELEGRAM_GROUP_ID', null),
         'primary_chat_title' => env('TELEGRAM_PRIMARY_CHAT_TITLE', null),
 
+        'notifications_chat_id' => env('PRIMARY_CHAT_ID_FOR_PAYMENT_NOTIFICATIONS', null),
+
         'bot_url' => env('TELEGRAM_BOT_LINK', null),
     ],
 

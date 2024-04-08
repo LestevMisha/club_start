@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->integer('days_left')->default(0);
             $table->integer('is_paid_10K')->default(0);
+            $table->integer('withdrawal_notification_sent')->default(0);
+            $table->integer('amount')->default(0);
 
             $table->string('name');
             $table->string('email')->unique();

@@ -41,8 +41,9 @@ class Transactions extends Component
         $transactions = UsersTransactions::where('uuid', Auth::user()->uuid)
             ->orderBy("created_at", "desc")
             ->paginate(5, ['*'], 'page');
-        array_push($this->users_transactions, ...$transactions->items());
+        $this->users_transactions = $transactions->items();
     }
+    
 
     public function loadMoreUTs(): void
     {

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
 class MainIndex extends Component
@@ -14,7 +15,7 @@ class MainIndex extends Component
         $this->referralId = request()->query('referral_id');
         // Optionally, you can remove the query parameter from the URL
         if ($this->referralId) {
-            session()->put("referral_id", $this->referralId);
+            Cookie::queue("referral_id", $this->referralId, 60 * 2); # 2 hours
         }
     }
 

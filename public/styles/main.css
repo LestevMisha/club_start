@@ -655,6 +655,10 @@ body {
     color: #50d45e !important;
 }
 
+.b-text.b-text_orange {
+    color: #ff6c00 !important;
+}
+
 .b-text.b-text_pointer {
     cursor: pointer;
 }
@@ -2095,6 +2099,17 @@ svg {
     vertical-align: top;
 }
 
+.loader.v1 {
+    display: inline-block;
+    position: absolute;
+    margin-left: 0.5em;
+    width: 1.5em;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding: 0;
+    left: auto;
+}
+
 .loader:before {
     content: "";
     display: block;
@@ -2339,4 +2354,14 @@ color-scheme-switcher>input:checked+.toggle-circle {
     height: 1.2em;
     color: #fdb70d;
     pointer-events: none;
+}
+
+.fade-in {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5em;
+    background: linear-gradient(180deg, #00000000, #000000);
+    z-index: 0;
 }

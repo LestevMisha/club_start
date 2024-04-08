@@ -60,17 +60,27 @@ class YooKassaController extends Controller
                     $transaction->payment_method_id = $payment->payment_method->id;
                     logger("step 10 callback func after");
 
-                    // check if paid
+                    // check if payment was actually paid
                     if (!(bool) $payment->paid) return;
 
-                    // find user who paid
+                    // find if user who paid actually exists
                     $user = User::where("uuid", $transaction->uuid)->first();
                     if (!$user) return;
 
-                    // user + 30 days
+                    // Add to user 30 days
                     $user->days_left += 30;
                     $user->is_paid_10K = $payment->metadata->is_paid_10K;
                     $user->save();
+
+                    // change partner's amount earned if user was referred by him
+                    if ($transaction->referral_id) {
+                        logger("step 110 USER WAS REFFERED therefore amount");
+                        // find who's referral id is it
+                        $partner = User::where("referral_id", $transaction->referral_id)->first();
+                        $partner->amount = $transaction->amount / 2;
+                        $partner->save();
+                    }
+
                     // unban if he was banned
                     try {
                         // Unban if banned
@@ -122,7 +132,7 @@ class YooKassaController extends Controller
             if ($transaction) {
                 // check if transaction was already successfully served
                 if ($transaction->status === "succeeded") return;
-                
+
                 $transaction->status = $status;
                 // callback function
                 if ($callback_function) {

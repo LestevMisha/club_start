@@ -50,7 +50,7 @@ class YooKassaServices
             $request->ip(),
             $amount,
             $description,
-            session()->get("referral_id", "")
+            $request->cookie("referral_id", ""),
         );
     }
 
