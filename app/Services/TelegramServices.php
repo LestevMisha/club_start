@@ -37,6 +37,19 @@ class TelegramServices
         return $modifiedText;
     }
 
+    public function isAdmin(string $chat_id, int $target_id)
+    {
+        // check if user is admin
+        $admins = Telegram::getChatAdministrators([
+            'chat_id' => $chat_id,
+        ]);
+
+        foreach ($admins as $admin) {
+            if ($admin["user"]["id"] == $target_id) return 1;
+        }
+        return 0;
+    }
+
     public function banChatMember(string $chat_id, int $user_id)
     {
         Telegram::banChatMember([

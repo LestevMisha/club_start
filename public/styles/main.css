@@ -655,8 +655,16 @@ body {
     color: #50d45e !important;
 }
 
+.b-text.b-text_yellow {
+    color: #ffff00 !important;
+}
+
 .b-text.b-text_orange {
     color: #ff6c00 !important;
+}
+
+.b-text.b-text_red {
+    color: #e31c1c !important;
 }
 
 .b-text.b-text_pointer {
@@ -1046,7 +1054,7 @@ body {
     position: absolute;
     bottom: 1em;
     right: 2em;
-    width: 10em;
+    width: 5em;
     filter: blur(0);
     color: #dc0000;
     transform: scaleX(-1);

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { Scene, PerspectiveCamera, WebGLRenderer, Clock, Group, AmbientLight, DirectionalLight } from 'three';
 import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './three.js/examples/jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from './three.js/examples/jsm/postprocessing/EffectComposer.js';
@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const anchorElement = document.getElementById("anchor");
     // init
     function init() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, anchorElement.getBoundingClientRect().width / anchorElement.getBoundingClientRect().height, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        scene = new Scene();
+        camera = new PerspectiveCamera(75, anchorElement.getBoundingClientRect().width / anchorElement.getBoundingClientRect().height, 0.1, 1000);
+        renderer = new WebGLRenderer({ antialias: true, alpha: true });
         controls = new OrbitControls(camera, renderer.domElement);
-        clock = new THREE.Clock();
+        clock = new Clock();
         // renderer settings
         renderer.setClearColor(0x000000, 0);
         renderer.setSize(anchorElement.getBoundingClientRect().width, anchorElement.getBoundingClientRect().height);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         controls.update();
 
         // elements
-        var pivot = new THREE.Group();
+        var pivot = new Group();
         const loader = new GLTFLoader().setPath('3D/NikeAirMag/');
         loader.load('NikeAirMag-scene.gltf', function (gltf) {
             gltfObject = gltf.scene;
@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
             scene.add(pivot);
             pivot.add(gltfObject);
         });
-        const light = new THREE.AmbientLight(0x0d6efd); // soft white light
+        const light = new AmbientLight(0x0d6efd); // soft white light
         scene.add(light);
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        const directionalLight = new DirectionalLight(0xffffff, 1);
         scene.add(directionalLight);
-        const directionalLight2 = new THREE.DirectionalLight(0x0d6efd, 1);
+        const directionalLight2 = new DirectionalLight(0x0d6efd, 1);
         scene.add(directionalLight2);
 
         // animate

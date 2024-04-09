@@ -56,7 +56,7 @@ class Transactions extends Component
 
     public function getUTCount()
     {
-        return UsersTransactions::where('uuid', Auth::user()->uuid)->count();
+        return UsersTransactions::where('uuid', Auth::user()->uuid)->where("referral_id", "")->count();
     }
 
 

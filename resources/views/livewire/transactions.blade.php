@@ -44,8 +44,9 @@
                     </table>
                 </div>
                 @if ($this->getUTCount() > 5)
-                    <button wire:click="loadMoreUTs" class="btn btn-primary" style="width: 100%;">Загрузить еще
-                        5</button>
+                
+                    <button wire:click="loadMoreUTs" class="b-text b-text_blue pointer" style="width: 100%;">Загрузить еще
+                        5 / {{ $this->getUTCount() }}</button>
                 @endif
 
             </div>

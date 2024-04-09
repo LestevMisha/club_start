@@ -2,14 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Controllers\TelegramController;
-use App\Models\ReferredUsersTransactions;
 use Exception;
 use App\Models\User;
-use App\Services\AuthService;
 use Illuminate\Console\Command;
-use App\Models\UsersTransactions;
-use Illuminate\Support\Facades\Log;
+use App\Services\TelegramServices;
+use App\Services\YooKassaServices;
 
 class DecreaseLeftDays extends Command
 {
@@ -30,83 +27,62 @@ class DecreaseLeftDays extends Command
     /**
      * Execute the console command.
      */
-    public function handle(AuthService $authService)
+    public function handle(YooKassaServices $yooKassaServices, TelegramServices $telegramSevices)
     {
         // Decrement days_left for users with days_left greater than 0
         User::where("days_left", ">", 0)->decrement("days_left");
-        $this->info('Days subtracted successfully.');
-
-        // Find users with 1 days_left
-        $usersWithOneDaysLeft = User::where("days_left", "=", 1)->get();
-
-        // Find users with 0 days_left to cick
-        $usersWithZeroDaysLeft = User::where("days_left", "=", 0)->get();
+        logger('1. Days subtracted successfully.');
 
 
-        // 2. Step --1 day before cick-- try to make recurrent payment if user have enough balance
-        if ($usersWithOneDaysLeft->count() > 0) {
-            foreach ($usersWithOneDaysLeft as $user) {
-                // Retrieve user's uuid
-                $uuid = $user->uuid;
+        // Find users with 0 days_left and who are not verified or are not admins
+        $usersWithZeroDaysLeft = User::where('days_left', 0)
+            ->whereNotNull('telegram_id') // Filter out users with no telegram_id
+            ->get();
 
-                // Retrieve user's transaction information
-                $usersTransaction = UsersTransactions::where("uuid", $uuid)->first();
 
-                // Set payment method ID to 0 if not available
-                $payment_method_id = $usersTransaction->payment_method_id ?? null;
-
-                // If payment method ID is 0, return without further processing
-                if ($payment_method_id === null) {
-                    continue;
-                }
-
-                $authService->getClient()->createPayment(
-                    array(
-                        'amount' => array(
-                            'value' => 3000.0,
-                            'currency' => 'RUB',
-                        ),
-                        'capture' => false,
-                        'payment_method_id' => $payment_method_id,
-                        'description' => "Auto-Recurrent payment 3K",
-                        'metadata' => [
-                            'uuid' => $uuid,
-                            'isRecurrent' => true,
-                        ]
-                    ),
-                    uniqid('', true)
-                );
-            }
-            $this->info('Payment applied for users with zero days left.');
-        }
-
-        // 1. Step --0 days left-- ban/cick off user
+        // Kick off users with 0 days_left
         if ($usersWithZeroDaysLeft->count() > 0) {
+            logger('2. Zero users are here');
             foreach ($usersWithZeroDaysLeft as $user) {
                 try {
-                    $tg = new TelegramController();
-
                     // Main telegram group id
-                    $telegram_group_id = config("services.telegram.group_id");
+                    $telegram_group_id = config('services.telegram.group_id');
 
                     // User's telegram id
                     $telegram_id = $user->telegram_id;
 
-                    // 1. check if user is not verified
-                    if ($telegram_id === null) {
-                        continue;
-                    }
-
                     // 2. check if iser is admin
-                    if ($tg->isAdmin((string)$telegram_group_id, (int)$telegram_id)) {
+                    if ($telegramSevices->isAdmin((string)$telegram_group_id, (int)$telegram_id)) {
                         continue;
                     }
 
-                    // if all checks are passed, kick user out
-                    $tg->banChatMember((string)$telegram_group_id, (int)$telegram_id);
+                    // Kick off user
+                    $telegramSevices->banChatMember((string) $telegram_group_id, (int) $telegram_id);
                 } catch (Exception $error) {
-                    Log::error($error);
+                    // :TODO
+                    // Log::error($error);
                 }
+            }
+        }
+
+
+        // Find users with less or equal 3 days left except 0 or less than 0
+        $usersWithOneDaysLeft = User::where("days_left", ">", 0)
+            ->where("days_left", "<=", 3)
+            ->get();
+        // 2. Step --1 day before cick-- try to make recurrent payment if user have enough balance
+        if ($usersWithOneDaysLeft->count() > 0) {
+            foreach ($usersWithOneDaysLeft as $user) {
+
+                $transaction = $yooKassaServices->create3KRecurrentTransaction($user);
+                if (!$transaction) return;
+
+                $payment = $yooKassaServices->create3KRecurrentPayment($transaction);
+                if (!$payment) return;
+
+                $transaction->yookassa_transaction_id = $payment->id;
+                $transaction->status = $payment->status;
+                $transaction->save();
             }
         }
     }

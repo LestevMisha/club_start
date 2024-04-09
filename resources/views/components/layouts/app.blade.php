@@ -8,12 +8,14 @@
 
     <!-- +++++++++++ PROJECT CSS +++++++++++ -->
     <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-    <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}"
+    <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}"
         type="image/png" />
+
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/different-components.css') }}" type="text/css" rel="stylesheet">
     @yield('main-index-styles')
+
 </head>
 
 <body class="{{ request()->cookie('checked') ? 'lightMode' : 'darkMode' }}">
@@ -38,7 +40,7 @@
     </div>
 
     {{-- Map For Three.js --}}
-    <script type="importmap" ignore--minify>{"imports": {"three": "./javascript/3D/three.js/build/three.module.js"}}</script>
+    <script type="importmap" ignore--minify>{"imports": {"three": "./javascript/3D/three.js/build/three.module.min.js"}}</script>
     {{-- jQuery/Mask jQuery --}}
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="

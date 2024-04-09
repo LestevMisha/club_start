@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Services\ModelServices;
 use App\Models\UsersTransactions;
 use App\Services\TelegramServices;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 use YooKassa\Model\Notification\NotificationCanceled;
 use YooKassa\Model\Notification\NotificationEventType;
 use YooKassa\Model\Notification\NotificationSucceeded;
 use YooKassa\Model\Notification\NotificationWaitingForCapture;
 use App\Services\YooKassaServices;
+use Exception;
 
 class YooKassaController extends Controller
 {
@@ -148,23 +145,30 @@ class YooKassaController extends Controller
             logger("step 8");
             // add to database
             $user = User::where("uuid", $metadata->uuid)->first();
-            $transaction = UsersTransactions::create([
-                "uuid" => $user->uuid,
-                "yookassa_transaction_id" => $payment->id,
-                "status" => "succeeded",
-                "amount" => $payment->amount->value,
-                "description" => $payment->description,
-                "ip" => $request->ip(),
-            ]);
-            $transaction->payment_method_id = $payment->payment_method->id;
+            $transaction = UsersTransactions::where("uuid", $metadata->uuid)->first();
+            $transaction->status = "succeeded";
             $transaction->save();
             $user->days_left = (int)$user->days_left + 30;
             $user->save();
+
+            // change partner's amount earned if user was referred by him
+            if ($transaction->referral_id) {
+                logger("step 115 USER WAS REFFERED therefore amount");
+                // find who's referral id is it
+                $partner = User::where("referral_id", $transaction->referral_id)->first();
+                $partner->amount = $transaction->amount / 2;
+                $partner->save();
+            }
+
             // unban if banned
-            $this->telegramServices->unbanChatMember(
-                config("services.telegram.group_id"),
-                $user->telegram_id
-            );
+            try {
+                $this->telegramServices->unbanChatMember(
+                    config("services.telegram.group_id"),
+                    $user->telegram_id
+                );
+            } catch (Exception $e) {
+                // :TODO
+            }
         }
     }
 

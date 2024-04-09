@@ -6,9 +6,7 @@ use Throwable;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
-use App\Services\AuthServices;
 use App\Services\ModelServices;
-use Livewire\Attributes\Layout;
 use App\Services\GlobalServices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;

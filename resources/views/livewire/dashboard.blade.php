@@ -25,7 +25,11 @@
                     <div class="mb-05">
                         <div class="b-text">
                             Оставшиеся дни:
-                            <span class="b-text b-text_green">{{ Auth::user()->days_left }} дней</span>
+
+                            <span
+                                class="b-text {{ Auth::user()->days_left === 3 ? 'b-text_yellow' : (Auth::user()->days_left === 2 ? 'b-text_orange' : (Auth::user()->days_left === 1 ? 'b-text_red' : 'b-text_green')) }}">{{ Auth::user()->days_left }}
+                                дней</span>
+
                         </div>
                     </div>
                     <div class="mb-05">

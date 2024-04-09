@@ -25,6 +25,7 @@ class TelegramController extends Controller
         $user_id = $update["message"]["from"]["id"];
         $chat_id = $update["message"]["chat"]["id"];
         $message = $update["message"]["text"];
+        logger($chat_id);
 
         $admin_messages = [
             0 => "❌ Пользователю уже были переведены деньги!\nПопробуйте позже.",
@@ -115,20 +116,5 @@ class TelegramController extends Controller
     public function removeWebhook()
     {
         Telegram::removeWebhook();
-    }
-
-    function isAdmin(string $chat_id, int $target_id)
-    {
-        // check if user is admin
-        $admins = Telegram::getChatAdministrators([
-            'chat_id' => $chat_id,
-        ]);
-
-        foreach ($admins as $admin) {
-            if ($admin["user"]["id"] == $target_id) {
-                return 1;
-            }
-        }
-        return 0;
     }
 }
