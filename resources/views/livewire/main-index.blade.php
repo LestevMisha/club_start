@@ -1,6 +1,6 @@
 <div>
     <section class="b-section b-section_v1">
-        <img src="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}" class="b-img b-img_v2"
+        <img id="optimize_LCP-mobile" src="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}" class="b-img b-img_v2"
             alt="sneakers-chair">
 
         <div class="container container_v1">
@@ -555,5 +555,7 @@
         <script src="{{ URL::asset('javascript/slick-slider.js') }}"></script>
         {{-- Accordion --}}
         <script src="{{ URL::asset('javascript/accordion.js') }}"></script>
+        {{-- Main page --}}
+        <script src="{{ URL::asset('javascript/main-page.js') }}"></script>
     @stop
 </div>
