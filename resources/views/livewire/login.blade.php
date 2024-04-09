@@ -10,8 +10,8 @@
                 <x-modern-input attr="password" title="Пароль" />
                 <x-modern-error />
                 <button class="go-button v1">Войти</button>
-                <div class="flex h mt-24px space-btw">
-                    <div class="flex h align">
+                <div class="flex h mt-24px gap space-btw mob">
+                    <div class="flex h gap align">
                         <input wire:model="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
                         <label class="text-remember" for="flexCheckDefault">Запомнить меня</label>
                     </div>

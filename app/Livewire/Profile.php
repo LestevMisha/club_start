@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\UsersImages;
 use Illuminate\Http\Request;
 use App\Services\ModelServices;
 use Livewire\Attributes\Layout;
@@ -16,6 +17,7 @@ class Profile extends Component
 
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    public $image;
     protected $telegramServices, $globalServices, $request, $user;
 
     public function __construct()
@@ -29,17 +31,30 @@ class Profile extends Component
 
 
     /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
-    public function observeSaveUserImage() {
+    public function getLink()
+    {
+        return $this->telegramServices->getLink("changeEmail", Auth::user()->uuid);
+    }
+    // link with user id for verification (example: t.me/bot_name?start=user_id)
+    public function getTelegramChangeEmailLink()
+    {
+        return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, "changeEmail");
+    }
+    // get user's image from Telegram API
+    public function observeSaveUserImage()
+    {
         $this->telegramServices->observeSaveUserImage($this->user->telegram_id, $this->user->uuid);
-        // re-render the page to get a new image
         return $this->redirect('/profile', navigate: true);
     }
- 
+
 
 
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
     public function mount()
     {
+        $binaryImage = UsersImages::where("uuid", Auth::user()?->uuid)->first();
+        $this->image = base64_encode($binaryImage?->image_data);
+        
         return $this->globalServices->checkPrivatePagesAccess($this->request);
     }
 

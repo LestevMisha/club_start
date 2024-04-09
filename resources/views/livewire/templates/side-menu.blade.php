@@ -35,12 +35,6 @@
             Реф. Транзакции</div>
     </a>
 
-    <a wire:navigate class="flex h align fit gap" href="{{ route('settings') }}">
-        <x-svg class="item-icon {{ $currentRoute === 'settings' ? 'is-active-icon' : '' }}" svg="Gear" />
-        <div class="b-text b-text_grey b-text_hovered {{ $currentRoute === 'settings' ? 'b-text_blue' : '' }}">
-            Настройки</div>
-    </a>
-
     <div class="item-divider"></div>
 
     <form id="logout" class="d-inline flex h align fit gap" method="POST" action="{{ route('logout') }}">
@@ -68,5 +62,4 @@
     </a>
 
     <x-theme-switcher />
-    <x-svg svg="Menu" class="menu-icon" id="menu-button" />
 </div>

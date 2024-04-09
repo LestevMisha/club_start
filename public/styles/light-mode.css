@@ -42,15 +42,16 @@ body.lightMode .b-text {
     color: #000;
 }
 
-body.lightMode .b-text.b-text_v3 {
-    color: #646464 !important;
-}
-
 body.lightMode .background_squared {
     background-image: linear-gradient(#474bff0d 2px, transparent 2px), linear-gradient(to right, #474bff0d 2px, transparent 2px);
     background-size: 64px 64px;
 }
 
+
+body.lightMode .fade-in {
+    background: linear-gradient(180deg, #00000000, #FFFFFF);
+
+}
 
 body.lightMode .accordion .accordion-item {
     background: #00000008;
@@ -146,6 +147,17 @@ body.lightMode .b-section_doted {
     background-size: 32px 32px;
     background-color: #ffffff;
 }
+
+/* body.lightMode .b-section_doted.b-section_doted-grey {
+    background-color: #f9f9f9;
+} */
+
+body.lightMode .b-section_crosses {
+    background: radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 0% 0% / 64px 64px, radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 32px 32px / 64px 64px, linear-gradient(#f0f0f0 2px, transparent 2px) 0px -1px / 32px 32px, linear-gradient(90deg, #f0f0f0 2px, #f9f9f9 2px) -1px 0px / 32px 32px #f9f9f9;
+    background-size: 64px 64px, 64px 64px, 32px 32px, 32px 32px;
+    background-color: #f9f9f9;
+}
+
 
 body.lightMode .b-img.b-img_v9 {
     filter: invert(0);

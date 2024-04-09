@@ -36,7 +36,6 @@ Route::get("/dashboard", Dashboard::class)->name("dashboard");
 Route::get("/transactions", Transactions::class)->name("transactions");
 Route::get("/referral-transactions", ReferralTransactions::class)->name("referral.transactions");
 Route::get("/profile", Profile::class)->name("profile");
-Route::get("/settings", Settings::class)->name("settings");
 Route::get("/card-credentials", CardCredentials::class)->name("card-credentials");
 Route::get("/telegram/verify", TelegramVerification::class)->name("telegram.verify");
 Route::get("/payment", Payment::class)->name("payment");

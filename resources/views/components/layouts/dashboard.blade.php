@@ -7,9 +7,6 @@
     <title>{{ $title ?? 'КЛУБ START' }}</title>
 
     <!-- +++++++++++ PROJECT CSS +++++++++++ -->
-    <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-    <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-1.png') }}"
-        type="image/png" />
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
     @yield('main-index-styles')
@@ -21,7 +18,17 @@
     <div class="flex h w100 h100">
         <div id="side-menu-black-cover" class="cursor_crosshair"></div>
         <livewire:templates.side-menu />
-        {{ $slot }}
+
+        <section class="b-section b-section_crosses b-section_v4">
+            <div class="container container_v4 mb-2">
+                <div class="flex v7 h w100 space-btw my-2">
+                    <x-svg svg="Menu" class="menu-icon" id="menu-button" />
+                    <a href="{{ route('referral.transactions') }}" class="go-button v3">Баланс:
+                        {{ Auth::user()->amount }} р.</a>
+                </div>
+                {{ $slot }}
+            </div>
+        </section>
     </div>
 
     @persist('static-javascript')

@@ -10,6 +10,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setOptimizedImage(); // Call initially
-
     window.addEventListener("resize", setOptimizedImage);
 });
