@@ -172,6 +172,10 @@ body.lightMode .b-img.b-img_v9 {
     filter: invert(0);
 }
 
+body.lightMode .flex.blured {
+    background-color: #ffffff87;
+}
+
 body.lightMode color-scheme-switcher input[type='checkbox'] {
     background-color: #eee;
 }

@@ -1,3 +1,5 @@
+console.log("✅ Developed by TAFM Team. https://thatsafatalmistake.com");
+
 // keep scroll position when reloaded
 document.addEventListener("DOMContentLoaded", function(event) { 
     var scrollpos = localStorage.getItem('scrollpos');

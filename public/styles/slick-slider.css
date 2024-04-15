@@ -34,6 +34,7 @@
     position: absolute;
     z-index: 10;
     top: 50%;
+    transform: translate(0, -50%);
     background-color: #FFF;
     border-radius: 10em;
     cursor: pointer;
@@ -55,6 +56,14 @@
 .slick-next.slick-arrow {
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.slider_v1 .slick-next.slick-arrow,
+.slider_v1 .slick-prev.slick-arrow,
+.slider_v3 .slick-next.slick-arrow,
+.slider_v3 .slick-prev.slick-arrow 
+ {
+    transform: none;
 }
 
 .slick-track {

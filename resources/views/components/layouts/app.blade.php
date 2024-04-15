@@ -63,8 +63,8 @@
     <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script>
 
     <!-- +++++++++++ PROJECT JAVASCRIPT +++++++++++ -->
-      {{-- main script --}}
-      <script src="{{ secure_asset('javascript/main.js') }}"></script>
+    {{-- main script --}}
+    <script src="{{ secure_asset('javascript/main.js') }}"></script>
     {{-- custom modern --}}
     <script src="{{ secure_asset('javascript/modern.js') }}"></script>
     {{-- theme switcher logic --}}
@@ -76,7 +76,6 @@
             /* set mode in contrary to prev one (cookies)
             /app/Livewire/Templates/Header.php
             */
-            console.log("dispatched");
             Livewire.dispatch('checkedUpdateHeader');
         });
     </script>
