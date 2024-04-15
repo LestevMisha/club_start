@@ -4,30 +4,31 @@ namespace App\Services;
 
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 
 class GlobalServices
 {
-    public $yooKassaServices, $modelServices, $telegramServices, $user;
+    public $yooKassaServices, $modelServices, $telegramServices;
 
     public function __construct()
     {
         $this->yooKassaServices = app(YooKassaServices::class);
         $this->telegramServices = app(TelegramServices::class);
         $this->modelServices = app(ModelServices::class);
-        $this->user = Auth::user();
     }
 
     // Check if user is eligible to be on the private pages
     public function checkPrivatePagesAccess(Request $request)
     {
+        if (!$this->isDatabaseConnected()) return redirect()->route("error")->with(["error" => "К сожалению, на сайте наблюдаются неполадки c базой данных, пожалуйста попробуйте позже."]);
         if (!$this->isUserAuthenticated()) return redirect()->route("register");
         if (!$this->isTelegramVerified()) return redirect()->route("telegram.verify");
         if (!$this->hasPaidSubscription()) return $this->fullPaymentProcessing($request);
         // check if user didn't observe image yet
-        if (!$this->modelServices->hasImage()) return $this->telegramServices->observeSaveUserImage($this->user->telegram_id, $this->user->uuid);
+        if (!$this->modelServices->hasImage()) return $this->telegramServices->observeSaveUserImage(auth()->user()->telegram_id, auth()->user()->uuid);
 
 
         // check if user's days are finished
@@ -41,6 +42,7 @@ class GlobalServices
     // Check if user is eligible to be on the telegram-verify.php
     public function checkTelegramVerifyPageAccess(Request $request)
     {
+        if (!$this->isDatabaseConnected()) return redirect()->route("error")->with(["error" => "К сожалению, на сайте наблюдаются неполадки c базой данных, пожалуйста попробуйте позже."]);
         if (!$this->isUserAuthenticated()) return redirect()->route("register");
         if (!$this->isTelegramVerified()) return;
         if (!$this->hasPaidSubscription()) return $this->fullPaymentProcessing($request);
@@ -50,6 +52,7 @@ class GlobalServices
     // Check if user is eligible to be on the telegram-verify page
     public function checkLoginRegisterPagesAccess(Request $request)
     {
+        if (!$this->isDatabaseConnected()) return redirect()->route("error")->with(["error" => "К сожалению, на сайте наблюдаются неполадки c базой данных, пожалуйста попробуйте позже."]);
         if (!$this->isUserAuthenticated()) return;
         if (!$this->isTelegramVerified()) return redirect()->route("telegram.verify");
         if (!$this->hasPaidSubscription()) return $this->fullPaymentProcessing($request);
@@ -79,7 +82,7 @@ class GlobalServices
     // check if user paid subscription to stay in the club
     public function hasLeftDays()
     {
-        return Auth::user()->days_left;
+        return auth()->user()->days_left;
     }
 
     // check if user completed a full registration
@@ -94,16 +97,28 @@ class GlobalServices
         return Auth::check();
     }
 
+    // if database is connected
+    public function isDatabaseConnected()
+    {
+        try {
+            DB::connection()->getPDO();
+            DB::connection()->getDatabaseName();
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     // if user verified telegram account
     public function isTelegramVerified()
     {
-        return Auth::user()->telegram_id !== null;
+        return auth()->user()->telegram_id !== null;
     }
 
     // if user paid subscription
     public function hasPaidSubscription()
     {
-        return Auth::user()->is_paid_10K === 1;
+        return auth()->user()->is_paid_10K === 1;
     }
 
     // error handler in case server crush / any other mistake (with specified $key)

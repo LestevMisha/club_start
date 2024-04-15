@@ -25,7 +25,7 @@ class YooKassaServices
                 "value" => $amount,
                 "currency" => "RUB",
             ],
-            "capture" => false,
+            "capture" => true,
             "confirmation" => [
                 "type" => "redirect",
                 "return_url" => route("dashboard"),
@@ -101,7 +101,7 @@ class YooKassaServices
                     'value' => $transaction->amount,
                     'currency' => 'RUB',
                 ),
-                'capture' => false,
+                'capture' => true,
                 'payment_method_id' => $transaction->payment_method_id,
                 'description' =>  $transaction->description,
                 'metadata' => [

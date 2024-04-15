@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function setOptimizedImage() {
         const imagePath = (window.innerWidth >= 1250) ?
-            "images/min-png/sneakers-chair-min.png" :
+            "images/min-png/sneakers-chair.png" :
             "images/min-png/sneakers-chair-extromin.png";
 
         optimize_LCP.src = imagePath;

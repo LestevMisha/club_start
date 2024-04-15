@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /public/javascript/3D/three.js
+/public/javascript/3D/three-globe
 /storage/*.key
 /vendor
 .env

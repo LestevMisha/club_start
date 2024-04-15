@@ -8,8 +8,8 @@
 
     <!-- +++++++++++ PROJECT CSS +++++++++++ -->
     <!-- Prefetch the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
-    <link rel="prefetch" fetchpriority="high" as="image" href="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}"
-        type="image/png" />
+    <link rel="prefetch" fetchpriority="high" as="image"
+        href="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}" type="image/png" />
 
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
@@ -34,13 +34,21 @@
     @endif --}}
     {{-- @include('templates.footer') --}}
 
-    <div class="flex w100 h100">
+    <main class="main">
         <livewire:templates.header />
         {{ $slot }}
-    </div>
+    </main>
 
     {{-- Map For Three.js --}}
-    <script type="importmap" ignore--minify>{"imports": {"three": "./javascript/3D/three.js/build/three.module.min.js"}}</script>
+    <script type="importmap" ignore--minify>
+        {
+            "imports":
+                    {
+                       "three": "./javascript/3D/three.js/build/three.module.min.js",
+                       "three-globe": "https://esm.sh/three-globe@2.30.0"
+                    }
+    }
+</script>
     {{-- jQuery/Mask jQuery --}}
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -55,6 +63,8 @@
     <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script>
 
     <!-- +++++++++++ PROJECT JAVASCRIPT +++++++++++ -->
+      {{-- main script --}}
+      <script src="{{ secure_asset('javascript/main.js') }}"></script>
     {{-- custom modern --}}
     <script src="{{ secure_asset('javascript/modern.js') }}"></script>
     {{-- theme switcher logic --}}

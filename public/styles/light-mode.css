@@ -53,6 +53,12 @@ body.lightMode .fade-in {
 
 }
 
+
+body.lightMode .fade-in.top {
+    background: linear-gradient(180deg, #FFFFFF, #00000000);
+
+}
+
 body.lightMode .accordion .accordion-item {
     background: #00000008;
 }
@@ -148,6 +154,9 @@ body.lightMode .b-section_doted {
     background-color: #ffffff;
 }
 
+body.lightMode .laid_card {
+    background-color: #FFFFFF;
+}
 /* body.lightMode .b-section_doted.b-section_doted-grey {
     background-color: #f9f9f9;
 } */

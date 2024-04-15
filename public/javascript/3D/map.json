@@ -1,0 +1,71 @@
+{
+    "type": "Map",
+    "maps": [
+        {
+            "text": "MSC",
+            "size": 2,
+            "pointAltitudeSize": 0.25,
+            "labelDotOrientation": "right",
+            "pointColor": "#0d6efd",
+            "Country": "Russia",
+            "city": "1. MOCKBA",
+            "lat": "55.753757",
+            "lng": "37.620792"
+        },
+        {
+            "text": "BRY",
+            "size": 1.5,
+            "pointAltitudeSize": 0.01,
+            "labelDotOrientation": "botttom",
+            "pointColor": "#000000",
+            "Country": "Russia",
+            "city": "Bryansk",
+            "lat": "53.263446",
+            "lng": "34.416164"
+        },
+        {
+            "text": "NOVK",
+            "size": 1.5,
+            "pointAltitudeSize": 0.01,
+            "labelDotOrientation": "bottom",
+            "pointColor": "#000000",
+            "Country": "Russia",
+            "city": "Novokuznetsk",
+            "lat": "53.759223",
+            "lng": "87.121471"
+        },
+        {
+            "text": "YAKU",
+            "size": 1.5,
+            "pointAltitudeSize": 0.01,
+            "labelDotOrientation": "top",
+            "pointColor": "#000000",
+            "Country": "Russia",
+            "city": "Yakutsk",
+            "lat": "62.039399",
+            "lng": "129.742362"
+        },
+        {
+            "text": "KRAS",
+            "size": 2,
+            "pointAltitudeSize": 0.25,
+            "labelDotOrientation": "right",
+            "pointColor": "#0d6efd",
+            "Country": "Russia",
+            "city": "2. KPACHODAP",
+            "lat": "45.035801",
+            "lng": "38.974564"
+        },
+        {
+            "text": "STPT",
+            "size": 1.5,
+            "pointAltitudeSize": 0.01,
+            "labelDotOrientation": "top",
+            "pointColor": "#000000",
+            "Country": "Russia",
+            "city": "Saint Petersburg",
+            "lat": "59.934210",
+            "lng": "30.335112"
+        }
+    ]
+}
