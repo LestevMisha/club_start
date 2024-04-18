@@ -65,7 +65,7 @@ class GlobalServices
         // if payment is pending
         if ($request->cookie("payment_status") === "pending") return redirect()->to($request->cookie("payment_link"));
 
-        $transaction = $this->yooKassaServices->create10KTransaction($request);
+        $transaction = $this->yooKassaServices->create10KTransaction($request, auth()->user());
         if (!$transaction) return redirect()->route("error");
 
         $payment = $this->yooKassaServices->create10KPayment($transaction);

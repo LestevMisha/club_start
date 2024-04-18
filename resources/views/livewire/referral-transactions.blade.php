@@ -62,7 +62,7 @@
                                 <td class="b-text">{{ $transaction->yookassa_transaction_id }}</td>
                                 <td class="b-text">{{ $transaction->amount }}</td>
                                 <td
-                                    class="{{ $transaction->status === 'succeeded' ? 'text-success' : ($transaction->status === 'pending' ? 'text-warning' : 'text-danger') }}">
+                                    class="b-text {{ $transaction->status === 'succeeded' ? 'b-text_green' : ($transaction->status === 'pending' ? 'b-text_orange' : 'b-text_red') }}">
                                     {{ $transaction->status }}</td>
                                 <td class="b-text">{{ $transaction->updated_at }}</td>
                             </tr>
@@ -76,13 +76,27 @@
             @endif
         </div>
     @else
-        <div class="flex v flex v3" onclick="window.location.href='{{ route('card-credentials') }}';">
-            <div class="flex v gap_05">
+        <div class="flex v flex v3">
+            <div class="flex w70 wmob v gap_05">
                 <div class="b-text b-text_2em">Даем возможность стать партнером</div>
-                <div class="b-text b-text_grey">Если вы становитесь партнером мы перечисляем вам 50% от цены
-                    клуба<br>с каждого
-                    нового пользователя приглашенного вами.<br> + Каждый месяц 50% с продления</div>
-                <a href="{{ route('card-credentials') }}" class="go-button v3 mt-1">Стать партнером</a>
+                <div class="b-text b-text_grey">Если вы становитесь партнером мы перечисляем вам 50% от цены клуб с
+                    каждого нового пользователя приглашенного вами.<br> + Каждый месяц 50% с продления</div>
+
+                <form wire:submit.default="saveCardCredentials" class="modern-form">
+                    @csrf
+                    <div class="flex gap v w100">
+                        <div class="flex v">
+                            <x-input attribute="card_number" inscription="Номер Карты" />
+                            <x-modern-error />
+                        </div>
+                        <button type="submit" class="go-button v6">Стать партнером</button>
+                        <div class="b-text b-text_08 b-text_grey">
+                            Предостовляя номер банковской карты вы подтверждаете
+                            свое согласие на ее использование в целях перевода реферального возврата прибыли.
+                        </div>
+                    </div>
+                </form>
+
             </div>
             <img src="{{ URL::asset('images/min-png/dollar-coin-3d.png') }}" alt="dollar-coin-3d"
                 class="b-img b-img_v10">

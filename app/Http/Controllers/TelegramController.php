@@ -59,8 +59,8 @@ class TelegramController extends Controller
                 $partner_user = User::where("uuid", $uuid)->first();
                 if ($partner_user) {
                     if ((int)$partner_user->withdrawal_notification_sent === 0) return $this->telegramServices->sendMessage($chat_id, $admin_messages[0]);
-                    $this->modelServices->updateUser($partner_user, "withdrawal_notification_sent", 0);
-                    $this->modelServices->updateUser($partner_user, "amount", 0);
+                    $this->modelServices->updateUser("uuid", $partner_user->uuid, "withdrawal_notification_sent", 0);
+                    $this->modelServices->updateUser("uuid", $partner_user->uuid, "amount", 0);
                     return $this->telegramServices->sendMessage($chat_id, $admin_messages[1]);
                 } else {
                     return $this->telegramServices->sendMessage($chat_id, $admin_messages[2]);
@@ -96,7 +96,7 @@ class TelegramController extends Controller
                 'email' => 'required|email|unique:users,email',
             ]);
             if ($validator->fails()) return $this->telegramServices->sendMessage($chat_id, $validator->errors()->first("email"));
-            $this->modelServices->updateUser($user, "email", $email);
+            $this->modelServices->updateUser("uuid", $user->uuid, "email", $email);
             return $this->telegramServices->sendMarkdownV2Message($chat_id, $messages[4]);
         }
 

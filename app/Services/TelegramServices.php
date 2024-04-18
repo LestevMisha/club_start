@@ -5,6 +5,7 @@ namespace App\Services;
 use GuzzleHttp\Client;
 use App\Services\ModelServices;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use Telegram\Bot\Exceptions\TelegramResponseException;
 
 class TelegramServices
 {
@@ -60,18 +61,22 @@ class TelegramServices
 
     public function unbanChatMember(string $chat_id, int $user_id)
     {
-        Telegram::unbanChatMember([
-            'chat_id' => $chat_id,
-            'user_id' => $user_id,
-            'only_if_banned' => true,
-        ]);
+        try {
+            Telegram::unbanChatMember([
+                'chat_id' => $chat_id,
+                'user_id' => $user_id,
+                'only_if_banned' => true,
+            ]);
+        } catch (TelegramResponseException $e) {
+            // TODO
+        }
     }
 
-    public function sendMoneyWithdrawalNotification($uuid, $amount, $card_number, $card_holder_name)
+    public function sendMoneyWithdrawalNotification($uuid, $amount, $card_number)
     {
         return $this->sendMarkdownV2Message(
             config("services.telegram.notifications_chat_id"),
-            "*Уведомление о выводе средств*\n\n*Сумма перевода*: __$amount руб.__\n*Номер карты*:`$card_number`\n*Имя владельца карты*: `$card_holder_name`\n*Команда Уведомления*: `/paid $uuid`",
+            "*Уведомление о выводе средств*\n\n*Сумма перевода*: __$amount руб.__\n*Номер карты*: `$card_number`\n*Команда Уведомления*: `/paid $uuid`",
         );
     }
 

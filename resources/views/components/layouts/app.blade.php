@@ -80,9 +80,9 @@
         });
     </script>
     {{-- optimized js --}}
-    @yield('main-index-script');
-    @yield('forgot-password-script');
-    @yield('card-credentials-script');
+    @yield('main-index-script')
+    @yield('forgot-password-script')
+    @yield('card-credentials-script')
 </body>
 
 </html>

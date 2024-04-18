@@ -34,6 +34,8 @@ class Register extends Component
     public $password_confirmation;
     public $remember = false;
     public $currentStep;
+    public $isEyeOpened = false;
+    public $inputDisplay = "block";
 
     protected $rules = [
         'name' => "required|string|min:2|max:25",
@@ -109,6 +111,11 @@ class Register extends Component
         }, $this, $key);
     }
 
+    public function changeEyeOpened() {
+        $this->isEyeOpened = !$this->isEyeOpened;
+        session()->put("isEyeOpened", $this->isEyeOpened);
+    }
+
 
 
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
@@ -118,6 +125,7 @@ class Register extends Component
         $this->email = session()->get("email", "");
         $this->password = session()->get("password", "");
         $this->currentStep = session()->get("currentStep", 0);
+        $this->isEyeOpened = session()->get("isEyeOpened", 0);
 
         // if any bug or anything fix it using this rule
         if ($this->currentStep < 0 || $this->currentStep > 2) $this->currentStep = 0;

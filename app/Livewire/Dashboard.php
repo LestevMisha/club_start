@@ -29,6 +29,14 @@ class Dashboard extends Component
         $this->request = app(Request::class);
     }
 
+    public $isEyeOpened = false;
+    public $inputDisplay = "block";
+    public $card_number = '';
+
+    protected $rules = [
+        'card_number' => ['required', 'unique:card_credentials,card_number', "min:16", "max:16"],
+    ];
+
 
 
     /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
@@ -41,6 +49,13 @@ class Dashboard extends Component
     public function getTelegramInformationLink()
     {
         return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, "information");
+    }
+    // Save Card Credentials
+    public function saveCardCredentials()
+    {
+        $this->validate();
+        $this->modelServices->createCardCredentials($this->card_number);
+        return redirect()->route("dashboard");
     }
 
 

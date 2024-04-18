@@ -31,7 +31,7 @@
 
                             <td class="b-text b-text_left">{{ $transaction->amount }}</td>
                             <td
-                                class="{{ $transaction->status === 'succeeded' ? 'text-success' : ($transaction->status === 'pending' ? 'text-warning' : 'text-danger') }}">
+                                class="b-text {{ $transaction->status === 'succeeded' ? 'b-text_green' : ($transaction->status === 'pending' ? 'text_orange' : 'b-text_red') }}">
                                 {{ $transaction->status }}</td>
                             <td class="b-text b-text_left">{{ $transaction->updated_at }}</td>
                         </tr>

@@ -1,3 +1,10 @@
 body {
     background-color: #000;
 }
+
+body,
+html,
+main,
+section {
+    height: inherit !important;
+}

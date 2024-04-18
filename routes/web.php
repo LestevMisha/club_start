@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\TelegramController;
-use App\Livewire\Admin;
 use App\Livewire\Error;
 use App\Livewire\MainIndex;
 use App\Livewire\Login;
@@ -9,7 +8,6 @@ use App\Livewire\Support;
 use App\Livewire\Register;
 use App\Livewire\Dashboard;
 use App\Livewire\Documents;
-use App\Livewire\AdminPanel;
 use App\Services\ModelServices;
 use App\Livewire\ResetPassword;
 use App\Livewire\ForgotPassword;
@@ -18,11 +16,9 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\TelegramVerification;
 use App\Http\Controllers\YooKassaController;
-use App\Livewire\CardCredentials;
 use App\Livewire\Payment;
 use App\Livewire\Profile;
 use App\Livewire\ReferralTransactions;
-use App\Livewire\Settings;
 use App\Livewire\Transactions;
 
 // make all redirections using https !IMPORTANT
@@ -36,7 +32,6 @@ Route::get("/dashboard", Dashboard::class)->name("dashboard");
 Route::get("/transactions", Transactions::class)->name("transactions");
 Route::get("/referral-transactions", ReferralTransactions::class)->name("referral.transactions");
 Route::get("/profile", Profile::class)->name("profile");
-Route::get("/card-credentials", CardCredentials::class)->name("card-credentials");
 Route::get("/telegram/verify", TelegramVerification::class)->name("telegram.verify");
 Route::get("/payment", Payment::class)->name("payment");
 
@@ -50,11 +45,6 @@ Route::get("/documents", Documents::class)->name("documents");
 Route::get("/email/verify", EmailVerification::class)->name("email.verify");
 Route::get('/forgot-password', ForgotPassword::class)->name('password.forgot');
 Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
-
-Route::get("/admin/login", Admin::class)->name("admin.login");
-Route::get("/admin/panel", AdminPanel::class)->name("admin.panel");
-
-
 
 
 // methods

@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('card_credentials', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
-            $table->text('full_name');
             $table->text('card_number');
-            $table->text('security_code');
-            $table->text('expires_at');
             $table->timestamps();
         });
     }

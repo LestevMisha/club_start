@@ -24,6 +24,8 @@ class Login extends Component
     public $email;
     public $password;
     public $remember = false;
+    public $isEyeOpened = false;
+    public $inputDisplay = "block";
 
     protected $rules = [
         'email' => "required|min:4|email",
@@ -56,6 +58,17 @@ class Login extends Component
             }
         }, $this);
     }
+    // change/save eye state
+    public function changeEyeOpened()
+    {
+        $this->isEyeOpened = !$this->isEyeOpened;
+        session()->put("isEyeOpened", $this->isEyeOpened);
+    }
+    // change/save remember state
+    public function changeRemember()
+    {
+        session()->put("remember", $this->remember);
+    }
 
 
 
@@ -65,6 +78,8 @@ class Login extends Component
         // keep entered user's data
         $this->email = session()->get("email", "");
         $this->password = session()->get("password", "");
+        $this->isEyeOpened = session()->get("isEyeOpened", 0);
+        $this->remember = session()->get("remember", 0);
 
         return $this->globalServices->checkLoginRegisterPagesAccess($this->request);
     }

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class YooKassaServices
 {
+
+
+
+    /* +++++++++++++++++ HEADER +++++++++++++++++ */
     protected $modelServices;
 
     public function __construct()
@@ -16,42 +20,61 @@ class YooKassaServices
         $this->modelServices = app(ModelServices::class);
     }
 
+
+
+    /* +++++++++++++++++ PRIVATE METHODS +++++++++++++++++ */
     // Create YooKassa Payment
-    private function createPayment(float $amount, string $description, array $options = [])
+    private function createPayment(float $amount, string $description, array $options = [], $isRecurrent = false, string $payment_method_id = null)
     {
         $client = $this->getClient();
-        $payment = $client->createPayment([
+        $paymentData = [
             "amount" => [
                 "value" => $amount,
                 "currency" => "RUB",
             ],
             "capture" => true,
-            "confirmation" => [
+            "description" => $description,
+            "metadata" => $options,
+        ];
+
+        if (!$isRecurrent) {
+            $paymentData["confirmation"] = [
                 "type" => "redirect",
                 "return_url" => route("dashboard"),
-            ],
-            "metadata" => $options,
-            "description" => $description,
-            "save_payment_method" => true,
-        ], uniqid("", true));
-
-        return $payment;
+            ];
+            $paymentData["save_payment_method"] = true;
+        } else {
+            $paymentData["payment_method_id"] = $payment_method_id;
+        }
+        logger($paymentData);
+        return $client->createPayment($paymentData, uniqid("", true));
     }
 
 
     /* ++++++++ PUBLIC METHODS ++++++++ */
     // Create 10K transaction
-    public function create10KTransaction(Request $request)
+    public function create10KTransaction(Request $request, $user)
     {
-        $amount = 10_000;
-        $description = "Registration 10K";
-
         return $this->modelServices->createTransaction(
-            Auth::user(),
+            $user,
             $request->ip(),
-            $amount,
-            $description,
+            10000,
+            "Регистрация оплата 10 000 руб.",
             $request->cookie("referral_id", ""),
+        );
+    }
+
+    // Create 3K transaction
+    public function create3KRecurrentTransaction($user)
+    {
+        $firstUserTransaction = $this->modelServices->getFirstUserTransaction("user_uuid", $user->uuid);
+        return $this->modelServices->createTransaction(
+            $user,
+            $firstUserTransaction->ip,
+            3000,
+            "Автоповторный платеж 3 000 руб.",
+            $firstUserTransaction->referral_id,
+            $firstUserTransaction->payment_method_id
         );
     }
 
@@ -61,77 +84,29 @@ class YooKassaServices
         return $this->createPayment(
             $transaction->amount,
             $transaction->description,
-            [
-                "is_paid_10K" => 1,
-                "transaction_id" => $transaction->id,
-            ]
+            ["transaction_uuid" => $transaction->uuid],
+            false,
+            null,
         );
     }
 
-    // Create 3K transaction
-    public function create3KRecurrentTransaction($user)
-    {
-        $first_10K_transaction = $this->getFirst10KTransaction($user->uuid);
-
-        // If payment method ID is 0, return without further processing
-        if ($first_10K_transaction === null) return null;
-
-        $amount = 3_000;
-        $description = "Auto-Recurrent payment 3K";
-
-        $transaction = $this->modelServices->createTransaction(
-            $user,
-            $first_10K_transaction->ip,
-            $amount,
-            $description,
-            $first_10K_transaction->referral_id,
-        );
-        $transaction->payment_method_id = $first_10K_transaction->payment_method_id;
-        $transaction->save();
-
-        return $transaction;
-    }
-
-    // Create 3K payment
+    // Create 3K recurrent payment
     public function create3KRecurrentPayment($transaction)
     {
-        return  $this->getClient()->createPayment(
-            array(
-                'amount' => array(
-                    'value' => $transaction->amount,
-                    'currency' => 'RUB',
-                ),
-                'capture' => true,
-                'payment_method_id' => $transaction->payment_method_id,
-                'description' =>  $transaction->description,
-                'metadata' => [
-                    'uuid' => $transaction->uuid,
-                    'isRecurrent' => true,
-                ]
-            ),
-            uniqid('', true)
+        return $this->createPayment(
+            $transaction->amount,
+            $transaction->description,
+            ['transaction_uuid' => $transaction->uuid, 'isRecurrent' => true],
+            true,
+            $transaction->payment_method_id
         );
-    }
-
-    public function getFirst10KTransaction($uuid)
-    {
-        // Retrieve the first transaction with the given UUID and a non-null referral ID
-        $transaction = UsersTransactions::where('uuid', $uuid)
-            ->whereNotNull('referral_id')
-            ->first();
-
-        // Check if a transaction was found
-        if ($transaction) return $transaction;
-        return null;
     }
 
     // Process successful payment
     public function processSuccessfulPayment($transaction, $payment)
     {
-        $transaction->yookassa_transaction_id = $payment->id;
-        $transaction->status = $payment->status;
-        $transaction->save();
-
+        $this->modelServices->updateUsersTransactions("uuid", $transaction->uuid, "yookassa_transaction_id", $payment->id);
+        $this->modelServices->updateUsersTransactions("uuid", $transaction->uuid, "status", $payment->status);
         return $payment->getConfirmation()->getConfirmationUrl();
     }
 

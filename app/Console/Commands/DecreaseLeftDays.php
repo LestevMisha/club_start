@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Exception;
 use App\Models\User;
+use App\Services\ModelServices;
 use Illuminate\Console\Command;
 use App\Services\TelegramServices;
 use App\Services\YooKassaServices;
@@ -27,9 +28,10 @@ class DecreaseLeftDays extends Command
     /**
      * Execute the console command.
      */
-    public function handle(YooKassaServices $yooKassaServices, TelegramServices $telegramSevices)
+    public function handle(ModelServices $modelServices, YooKassaServices $yooKassaServices, TelegramServices $telegramSevices)
     {
         // Decrement days_left for users with days_left greater than 0
+        // Consequently decrement days_left from every user (because users with 0 days are deleted from database)
         User::where("days_left", ">", 0)->decrement("days_left");
         logger('1. Days subtracted successfully.');
 
@@ -58,6 +60,8 @@ class DecreaseLeftDays extends Command
 
                     // Kick off user
                     $telegramSevices->banChatMember((string) $telegram_group_id, (int) $telegram_id);
+
+                    // Delete user from database --> ..
                 } catch (Exception $error) {
                     // :TODO
                     // Log::error($error);
@@ -74,15 +78,16 @@ class DecreaseLeftDays extends Command
         if ($usersWithOneDaysLeft->count() > 0) {
             foreach ($usersWithOneDaysLeft as $user) {
 
+                // create transaction
                 $transaction = $yooKassaServices->create3KRecurrentTransaction($user);
                 if (!$transaction) return;
 
+                // create payment
                 $payment = $yooKassaServices->create3KRecurrentPayment($transaction);
                 if (!$payment) return;
 
-                $transaction->yookassa_transaction_id = $payment->id;
-                $transaction->status = $payment->status;
-                $transaction->save();
+                // update transaction's yookassa_transaction_id column
+                $modelServices->updateUsersTransactions("uuid", $transaction->uuid, "yookassa_transaction_id", $payment->id);
             }
         }
     }
