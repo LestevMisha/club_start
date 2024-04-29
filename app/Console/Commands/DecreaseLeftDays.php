@@ -49,9 +49,13 @@ class DecreaseLeftDays extends Command
                 try {
                     // Main telegram group id
                     $telegram_group_id = config('services.telegram.group_id');
+                    logger("telegram_group_id:");
+                    logger($telegram_group_id);
 
                     // User's telegram id
                     $telegram_id = $user->telegram_id;
+                    logger("telegram_id:");
+                    logger($telegram_id);
 
                     // 2. check if iser is admin
                     if ($telegramSevices->isAdmin((string)$telegram_group_id, (int)$telegram_id)) {
@@ -59,9 +63,14 @@ class DecreaseLeftDays extends Command
                     }
 
                     // Kick off user
-                    $telegramSevices->banChatMember((string) $telegram_group_id, (int) $telegram_id);
-
+                    $res = $telegramSevices->banChatMember((string) $telegram_group_id, (int) $telegram_id);
+                    logger($res);
                     // Delete user from database --> ..
+                    $modelServices->deleteUser($user->email);
+                    // delete user's data from users_images, users_transactions, card_credentials amd users tables  ..
+                    $modelServices->deleteUsersCardCredentials($user->uuid);
+                    $modelServices->deleteUsersTransactions($user->uuid);
+                    $modelServices->deleteUsersImages($user->uuid);
                 } catch (Exception $error) {
                     // :TODO
                     // Log::error($error);
@@ -70,25 +79,25 @@ class DecreaseLeftDays extends Command
         }
 
 
-        // Find users with less or equal 3 days left except 0 or less than 0
-        $usersWithOneDaysLeft = User::where("days_left", ">", 0)
-            ->where("days_left", "<=", 3)
-            ->get();
-        // 2. Step --1 day before cick-- try to make recurrent payment if user have enough balance
-        if ($usersWithOneDaysLeft->count() > 0) {
-            foreach ($usersWithOneDaysLeft as $user) {
+        // // Find users with less or equal 3 days left except 0 or less than 0
+        // $usersWithOneDaysLeft = User::where("days_left", ">", 0)
+        //     ->where("days_left", "<=", 3)
+        //     ->get();
+        // // 2. Step --1 day before cick-- try to make recurrent payment if user have enough balance
+        // if ($usersWithOneDaysLeft->count() > 0) {
+        //     foreach ($usersWithOneDaysLeft as $user) {
 
-                // create transaction
-                $transaction = $yooKassaServices->create3KRecurrentTransaction($user);
-                if (!$transaction) return;
+        //         // create transaction
+        //         $transaction = $yooKassaServices->create3KRecurrentTransaction($user);
+        //         if (!$transaction) return;
 
-                // create payment
-                $payment = $yooKassaServices->create3KRecurrentPayment($transaction);
-                if (!$payment) return;
+        //         // create payment
+        //         $payment = $yooKassaServices->create3KRecurrentPayment($transaction);
+        //         if (!$payment) return;
 
-                // update transaction's yookassa_transaction_id column
-                $modelServices->updateUsersTransactions("uuid", $transaction->uuid, "yookassa_transaction_id", $payment->id);
-            }
-        }
+        //         // update transaction's yookassa_transaction_id column
+        //         $modelServices->updateUsersTransactions("uuid", $transaction->uuid, "yookassa_transaction_id", $payment->id);
+        //     }
+        // }
     }
 }

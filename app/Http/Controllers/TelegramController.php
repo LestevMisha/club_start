@@ -22,10 +22,18 @@ class TelegramController extends Controller
     public function handle()
     {
         $update = Telegram::commandsHandler(true);
+
+        $chat_id = isset($update["message"]["chat"]["id"]) ? $update["message"]["chat"]["id"] : null;
+        // ignore everything except real message
+        if (!$chat_id) return;
+        // ignore bot respond on group's notifications
+        if ($chat_id == config("services.telegram.group_id")) return;
+        // retrieve data
         $user_id = $update["message"]["from"]["id"];
-        $chat_id = $update["message"]["chat"]["id"];
         $message = $update["message"]["text"];
-        logger($chat_id);
+
+
+
 
         $admin_messages = [
             0 => "❌ Пользователю уже были переведены деньги!\nПопробуйте позже.",

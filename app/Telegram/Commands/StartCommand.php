@@ -14,21 +14,35 @@ class StartCommand extends Command
 
     public function handle()
     {
-        // retrieving information
+        logger("app/Telegram/Commands/StartCommand.php");
         $updates = $this->getUpdate();
+
+        $chat_id = isset($updates["message"]["chat"]["id"]) ? $updates["message"]["chat"]["id"] : null;
+        // ignore everything except real message
+        if (!$chat_id) return;
+        // ignore bot respond on group's requests
+        if ($chat_id == config("services.telegram.group_id")) return;
+        // retrieve data
         $activation = $updates["message"]["text"];
         $new_user = $updates['message']['from'];
         $last_name = isset($new_user['last_name']) ? $new_user['last_name'] : '';
         $name = $new_user['first_name'] . " " . $last_name;
         $id = $new_user["id"];
-        logger(json_encode($updates));
-        logger($updates["message"]["chat"]["id"]);
 
         try {
             // get sent metadata (if possible)
             $data = explode(" ", $activation)[1];
             list($uuid, $target) = explode("_", $data);
             $user = User::where("uuid", $uuid)->first();
+
+            // check if web-user is trying to get information from the telegram account that is different to the one that is linked to the web-user account
+            $telegram_user = User::where("telegram_id", $id)->first();
+
+            if (($telegram_user !== null) && ($telegram_user->uuid !== $user->uuid)) {
+                logger("here->2");
+                $this->replyWithMessage(['text' => "Убедитесь что телеграм аккаунт привязаный на сайте соответствует данному телеграм аккаунту."]);
+                return;
+            }
 
             if ($target === "verify") {
 

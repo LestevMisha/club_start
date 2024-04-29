@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('users_images', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
+            $table->string('user_uuid');
             $table->timestamps();
         });
         if (!Schema::hasColumn("users_images", "image_data")) {

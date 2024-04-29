@@ -1,5 +1,5 @@
 <div class="flex v gap">
-
+    <x-modern-loader />
     @if ($this->hasCardVerification())
         <div class="flex v flex v3 cursor_crosshair w50 mob">
             <div class="b-text">Реферальная ссылка: </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="mb-05">
                 <div class="b-text">Закрытый клуб START: </div>
-                <a href="https://t.me/+U86N3fnqA7wzM2Vl">https://t.me/+U86N3fnqA7wzM2Vl</a>
+                <a href="https://t.me/+UChE4Obnlq9iNmFh">https://t.me/+UChE4Obnlq9iNmFh</a>
             </div>
         </div>
         <div class="flex v flex v3 cursor_crosshair">

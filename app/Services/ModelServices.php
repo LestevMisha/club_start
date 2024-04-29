@@ -48,6 +48,24 @@ class ModelServices
         return User::where("email", $email)->delete();
     }
 
+    // Delete a users transactions
+    public function deleteUsersTransactions($user_uuid)
+    {
+        return UsersTransactions::where("user_uuid", $user_uuid)->delete();
+    }
+
+    // Delete a users images
+    public function deleteUsersImages($user_uuid)
+    {
+        return UsersImages::where("user_uuid", $user_uuid)->delete();
+    }
+
+    // Delete a users card credentials
+    public function deleteUsersCardCredentials($user_uuid)
+    {
+        return CardCredentials::where("user_uuid", $user_uuid)->delete();
+    }
+
     // Update days left for user
     public function updateUserDays(string $uuid, string $days_added)
     {
@@ -89,20 +107,23 @@ class ModelServices
     // Create a new card credentials
     public function createCardCredentials($card_number)
     {
+        // block any duplicates
+        // if (CardCredentials::where("user_uuid", Auth::user()->uuid)->first()) return;
         return CardCredentials::create([
-            'uuid' => Auth::user()->uuid,
+            'uuid' => Str::orderedUuid()->toString(),
+            'user_uuid' => Auth::user()->uuid,
             'card_number' => $card_number,
         ]);
     }
 
     // Get card credentials
-    public function getCardCredentials($uuid)
+    public function getCardCredentials($user_uuid)
     {
-        return CardCredentials::where('uuid', $uuid)->first();
+        return CardCredentials::where('user_uuid', $user_uuid)->first();
     }
 
     // Create a new transaction
-    public function createTransaction($user, $ip, $amount, $description, $referral_id = null, $payment_method_id = null)
+    public function createTransaction($user, $ip, $amount, $description, $referral_id = "", $payment_method_id = "")
     {
         return UsersTransactions::create([
             "uuid" => Str::orderedUuid()->toString(),
@@ -126,15 +147,15 @@ class ModelServices
     // Check if user has a profle image
     public function hasImage()
     {
-        return UsersImages::where("uuid", Auth::user()->uuid)->exists();
+        return UsersImages::where("user_uuid", Auth::user()->uuid)->exists();
     }
 
     // Update or create user's profile image
     public function updateOrCreateImage($uuid, $image_data)
     {
-        $image = UsersImages::where('uuid', $uuid)->first();
+        $image = UsersImages::where('user_uuid', $uuid)->first();
         if ($image) return $image->update(['image_data' => $image_data,]);
-        return UsersImages::create(['uuid' => $uuid, 'image_data' => $image_data,]);
+        return UsersImages::create(['uuid' => Str::orderedUuid()->toString(), 'user_uuid' => $uuid, 'image_data' => $image_data,]);
     }
 
     // Logout user

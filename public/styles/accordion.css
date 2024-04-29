@@ -5,7 +5,7 @@
 
 .accordion .accordion-item {
     border-radius: 1em;
-    padding: .5em 1em;
+    padding: 1.5em;
     margin-bottom: 1em;
     background: #FFFFFF08;
     backdrop-filter: blur(2em);
@@ -16,7 +16,6 @@
     display: block;
     text-align: left;
     width: 100%;
-    padding: 1em 0;
     color: #fff;
     font-weight: 400;
     border: none;
@@ -28,6 +27,8 @@
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: all .5s ease-in-out;
 }
 
@@ -102,5 +103,5 @@
 
 .accordion button[aria-expanded=true]+.accordion-content {
     opacity: 1;
-    max-height: 40em;
+    max-height: 100em;
 }

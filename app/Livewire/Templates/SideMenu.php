@@ -25,7 +25,7 @@ class SideMenu extends Component
 
     public function mount(Request $request)
     {
-        $binaryImage = UsersImages::where("uuid", Auth::user()?->uuid)->first();
+        $binaryImage = UsersImages::where("user_uuid", Auth::user()?->uuid)->first();
         $this->image = base64_encode($binaryImage?->image_data);
 
         // get current route

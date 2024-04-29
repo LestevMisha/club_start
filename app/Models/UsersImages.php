@@ -9,5 +9,5 @@ class UsersImages extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'image_data'];
+    protected $fillable = ['uuid', 'user_uuid', 'image_data'];
 }

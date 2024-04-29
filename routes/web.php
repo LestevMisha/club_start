@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\TelegramVerification;
 use App\Http\Controllers\YooKassaController;
-use App\Livewire\Payment;
 use App\Livewire\Profile;
 use App\Livewire\ReferralTransactions;
 use App\Livewire\Transactions;
@@ -33,7 +32,6 @@ Route::get("/transactions", Transactions::class)->name("transactions");
 Route::get("/referral-transactions", ReferralTransactions::class)->name("referral.transactions");
 Route::get("/profile", Profile::class)->name("profile");
 Route::get("/telegram/verify", TelegramVerification::class)->name("telegram.verify");
-Route::get("/payment", Payment::class)->name("payment");
 
 /* PUBLIC */
 Route::get('/', MainIndex::class)->name("main");

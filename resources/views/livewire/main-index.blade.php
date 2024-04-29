@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="b-text b-text_1.3em b-text_center mt-2">
-                        Закрытый и конфиденциальный клуб<br>для продаж кроссовок по дропшиппингу
+                        Закрытый клуб для продаж <br>кроссовок по дропшиппингу
                     </div>
                     <div class="flex fit gap-05 v mt-2 m-auto">
                         <div class="flex gap h align">
@@ -196,8 +196,7 @@
                 <div class="flex h gap mb-3">
                     <div class="b-text b-text_5em b-text_900 b-text_lh-1em  mr-1">1</div>
                     <div class="b-text b-text_2em b-text_400 fmob1">
-                        Ты хочешь заниматься дропшиппингом онлайн что-бы привлечь первых клиентов или иметь возможность
-                        купить кроссовки по оптовой цене.
+                        Ты хочешь открыть бизнес на кроссовках не выходя из дома
                     </div>
                 </div>
 
@@ -368,93 +367,181 @@
     <section class="b-section b-section_v3">
         <x-svg class="b-img b-img_v7" svg="NikePair" />
         <div class="container container_v2 mob">
-            <div class="py-3">
-                <div class="glitch-wrapper">
-                    <div class="b-text b-text_2em b-text_700 b-text_right glitch custom_media_size_change"
-                        data-text="                ?">
-                        КАК ЭТО РАБОТАЕТ?
-                    </div>
-                </div>
+            <div class="b-text b-text_2em b-text_700 b-text_center custom_media_size_change">
+                КАК РАБОТАЕТ «КЛУБ СТАРТ»
+            </div>
+            <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3">
+                Всего 3 шага и ты владелец своего личного
+                <br>
+                интернет-магазина кроссовок.
             </div>
 
             <div class="accordion-container mb-5">
                 <div class="divider"></div>
                 <div class="accordion">
-                    <div class="accordion-item">
-                        <button id="accordion-button-4" aria-expanded="false">
-                            <span class="b-text b-text_2em">1 ШАГ</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                В рамках клуба вы получите возможность покупать кроссовки от 1 пары по оптовой цене.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
+
+                    <div class="accordion-item noise">
                         <button id="accordion-button-1" aria-expanded="false">
-                            <span class="b-text b-text_2em">2 ШАГ</span>
+                            <span class="b-text b-text_1.5em fmob1">Шаг 1</span>
+                            <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Кроссовки по себестоимости от 1
+                                пары</span>
                             <span class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Дропшиппинг — это продажа кроссовок поставщика под заказ клиента. В рамках обучения вы
-                                сможете заказать кроссовки себе или напрямую вашим клиентам, а прибыль с продаж получить
-                                напрямую на карту.
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    Что получите:
+                                </div>
+                                <div class="b-text">
+                                    Поставщика кроссовок, работающего по системе «дропшиппинга»
+                                </div>
+                            </div>
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    💡 Результат:
+                                </div>
+                                <div class="flex v gap_05">
+                                    <div class="b-text">
+                                        1. Без вложения в товар, доступ к 610 моделям кроссовок
+                                    </div>
+                                    <div class="b-text">
+                                        2. Для вас цена кроссовок по себестоимости (БЕЗ НАКРУТКИ)
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <img src="{{ URL::asset('images/Group_565.webp') }}" class="b-img b-img_v15" type="image/webp" loading="lazy">
                     </div>
-                    <div class="accordion-item">
+
+                    <div class="accordion-item noise">
                         <button id="accordion-button-2" aria-expanded="false">
-                            <span class="b-text b-text_2em">3 ШАГ</span>
+                            <span class="b-text b-text_1.5em fmob1">Шаг 2</span>
+                            <span class="b-text b-text_600 b-text_2em fmob2 ml-05">База знаний «продавца
+                                кроссовок»</span>
                             <span class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Обучение проходит закрытом Telegram-канале. Всю информацию Данил будет лично публиковать
-                                в текстовым, аудио и видео форматах.
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    Что получите:
+                                </div>
+                                <div class="flex v gap_05">
+                                    <div class="b-text">
+                                        1. Доступ к основному телеграм-каналу «КЛУБ СТАРТ»
+                                    </div>
+                                    <div class="b-text">
+                                        2. Доступ к 3-х летнему «архиву» клуба (С чего мы начинали и какие шаги привели
+                                        к
+                                        такому итогу)
+                                    </div>
+                                    <div class="b-text">
+                                        3. Google таблица с актуальными размерами
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    Что узнаете:
+                                </div>
+                                <div class="flex v gap_05">
+                                    <div class="b-text">
+                                        1. Где брать фото и видео поставок, без водяного знака
+                                    </div>
+                                    <div class="b-text">
+                                        2. Ошибка 98.9 % предпринимателей.
+                                    </div>
+                                    <div class="b-text">
+                                        3. Как победить всех конкурентов и стать №1 в своем городе
+                                    </div>
+                                    <div class="b-text">
+                                        4. Оформить заказ
+                                    </div>
+                                    <div class="b-text">
+                                        5. Оформить заказ по "наложенному платежу"
+                                    </div>
+                                    <div class="b-text">
+                                        6. Лучшая накрутка на кроссовки
+                                    </div>
+                                    <div class="b-text">
+                                        7. Видео от нашего таргетолога по запуску рекламы
+                                    </div>
+                                    <div class="b-text">
+                                        8. Видео курс от Даниила по запуску рекламы без денег
+                                    </div>
+                                    <div class="b-text">
+                                        9. Как общаться с клиентами чтобы не слить продажу
+                                    </div>
+                                    <div class="b-text">
+                                        10. Как выйти на 100 продаж в первые 2 месяца работы
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    💡 Результат:
+                                </div>
+                                <div class="b-text">
+                                    Вы создадите продающий аккаунт
+                                    магазина кроссовок в интернете
+                                </div>
                             </div>
                         </div>
+                        <img src="{{ URL::asset('images/Group_564.png') }}" class="b-img b-img_v15" type="image/png" loading="lazy">
                     </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-5" aria-expanded="false">
-                            <span class="b-text b-text_2em">4 ШАГ</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Да, участие в марафоне с первого и до последнего дня абсолютно бесплатное!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
+
+                    <div class="accordion-item noise">
                         <button id="accordion-button-3" aria-expanded="false">
-                            <span class="b-text b-text_2em">5 ШАГ</span>
+                            <span class="b-text b-text_1.5em fmob1">Шаг 3</span>
+                            <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Марафон по бизнесу на
+                                кроссовках</span>
                             <span class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                У нас заключён официальный договор с транспортной компанией, поэтому продавать кроссовки
-                                вы можете в любом городе мира.
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    Что узнаете:
+                                </div>
+                                <div class="b-text">
+                                    Доступ к 3-х дневному, онлайн марафону для новичков в этом бизнесе. В формате
+                                    фото |видео | голосовых сообщений, мы разберём с чего начать бизнес на
+                                    кроссовках
+                                </div>
+                            </div>
+
+                            <div class="flex gap_05 v mt-1.5">
+                                <div class="b-text b-text_1.3em b-text_600">
+                                    💡 Результат:
+                                </div>
+                                <div class="flex v gap_05">
+                                    <div class="b-text">
+                                        1. Полное понимание всех технических моментов
+                                    </div>
+                                    <div class="b-text">
+                                        2. За 3 дня создадим интернет магазин кроссовок
+                                    </div>
+                                    <div class="b-text">
+                                        3. На чужом опыте узнаете, как не допустить ошибок в работе с кроссовками
+                                    </div>
+                                    <div class="b-text">
+                                        4. Разбор аккаунтов участников марафона
+                                    </div>
+                                    <div class="b-text">
+                                        5. Узнаете про 5 дополнительных способов продвижения магазина в соцсетях
+                                    </div>
+                                    <div class="b-text">
+                                        6. Первые лиды, обращения, а возможно первая продажа
+                                    </div>
+                                    <div class="b-text">
+                                        7. Полностью упакованный бизнес и стратегия для развития
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-3" aria-expanded="false">
-                            <span class="b-text b-text_2em">6 ШАГ</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                У нас заключён официальный договор с транспортной компанией, поэтому продавать кроссовки
-                                вы можете в любом городе мира.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-3" aria-expanded="false">
-                            <span class="b-text b-text_2em">7 ШАГ</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                У нас заключён официальный договор с транспортной компанией, поэтому продавать кроссовки
-                                вы можете в любом городе мира.
-                            </div>
-                        </div>
+                        <img src="{{ URL::asset('images/Deal_With_It_Glasses.webp') }}" class="b-img b-img_v15 b-img_v15_1" type="image/webp" loading="lazy">
+
                     </div>
                 </div>
             </div>
@@ -659,7 +746,7 @@
 
     </section>
 
-    <section class="b-section b-section_v2 b-section_visible_overflow b-section_doted">
+    <section class="b-section b-section_v5 b-section_visible_overflow b-section_doted">
         <div class="container container_v2 mob">
 
             <div class="h-text">
@@ -729,40 +816,11 @@
         </div>
         <div class="abs_blur_effect_custom"></div>
         <div class="abs_blur_effect_custom green"></div>
-
-
-        <div class="container container_v2 mob mt-6">
-            <x-svg class="b-img b-img_v8" svg="Star" />
-            <div class="b-text b-text_grey-dark b-text_center">
-                Реквизиты<br>
-                ИП ШКИТОВ Д. А; идентификационный номер<br>
-                налогоплательщика (ИНН): 7707083893<br>
-                ОГРНИП: 322325600026496<br><br>
-                Расчетный счет: 40817810308007337829<br>
-                ИНН банка: 7710140679<br>
-                БИК банка: 041501601<br>
-                Корреспондентский счет банка:<br>
-                30101810400000000601
-            </div>
-        </div>
+        <div class="fade-in top"></div>
+        <div class="fade-in"></div>
     </section>
-    {{-- 
-    <section class="b-section b-section_v2">
-        <x-svg class="b-img b-img_v8" svg="Star" />
-        <div class="container container_v2 mob">
-            <div class="b-text b-text_grey-dark b-text_center">
-                Реквизиты<br>
-                ИП ШКИТОВ Д. А; идентификационный номер<br>
-                налогоплательщика (ИНН): 7707083893<br>
-                ОГРНИП: 322325600026496<br><br>
-                Расчетный счет: 40817810308007337829<br>
-                ИНН банка: 7710140679<br>
-                БИК банка: 041501601<br>
-                Корреспондентский счет банка:<br>
-                30101810400000000601
-            </div>
-        </div>
-    </section> --}}
+
+    <x-footer />
 
     @section('main-index-styles')
         {{-- custom styles only for main page --}}

@@ -29,14 +29,6 @@ class GlobalServices
         if (!$this->hasPaidSubscription()) return $this->fullPaymentProcessing($request);
         // check if user didn't observe image yet
         if (!$this->modelServices->hasImage()) return $this->telegramServices->observeSaveUserImage(auth()->user()->telegram_id, auth()->user()->uuid);
-
-
-        // check if user's days are finished
-        if ($request->route()->getName() !== "payment") {
-            if (!$this->hasLeftDays()) return redirect()->route("payment");
-        }
-
-        return;
     }
 
     // Check if user is eligible to be on the telegram-verify.php
@@ -77,12 +69,6 @@ class GlobalServices
         Cookie::queue("payment_status", $payment->status, 10);
 
         return redirect($payment_link);
-    }
-
-    // check if user paid subscription to stay in the club
-    public function hasLeftDays()
-    {
-        return auth()->user()->days_left;
     }
 
     // check if user completed a full registration

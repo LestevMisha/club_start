@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('card_credentials', function (Blueprint $table) {
             $table->id();
             $table->string('uuid');
+            $table->string('user_uuid');
             $table->text('card_number');
             $table->timestamps();
         });
