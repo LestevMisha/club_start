@@ -4,12 +4,18 @@
             <div class="container container_v1">
                 <div class="flex v h100">
                     <div class="flex v mt-4">
-                        <div class="b-text b-text_3.5em b-text_900 b-text_center b-text_grey b-text_lh-1em">КЛУБ</div>
-                        <div class="glitch-wrapper">
-                            <div data-text="START" class="b-text b-text_4.5em b-text_900 b-text_center glitch">
-                                START
+
+                        <div class="h-text h-text_main-header">
+                            <div class="b-text b-text_3.5em b-text_900 b-text_center b-text_grey b-text_lh-1em">
+                                КЛУБ
+                            </div>
+                            <div class="glitch-wrapper">
+                                <div data-text="START" class="b-text b-text_4.5em b-text_900 b-text_center glitch">
+                                    START
+                                </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="b-text b-text_1.3em b-text_center mt-2">
                         Закрытый клуб для продаж <br>кроссовок по дропшиппингу
@@ -34,9 +40,9 @@
                     </div>
                     <div class="card mt-2">
                         <div class="b-text b-text_1.3em b-text_center">
-                            Единоразавая подписка на<br>"КЛУБ START"
+                            Едижемесечная подписка на<br>"КЛУБ START"
                         </div>
-                        <div class="b-text b-text_grey b-text_center">Вход: 10 000 рублей</div>
+                        <div class="b-text b-text_grey b-text_center">Вход: 6 000 рублей</div>
                         <a class="go-button v2" href="{{ route('register') }}">Вступить в Клуб</a>
                     </div>
                 </div>
@@ -55,8 +61,11 @@
 
         <div class="container container_v2 mob">
 
-            <div class="b-text b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_v2 mb-6">
-                УЧАСТНИКАМ КЛУБА<br>ПРЕДОСТАВЛЯЕТСЯ
+            <div class="h-text h-text_header">
+                <div
+                    class="b-text b-text_2.5em b-text_fit b-text_700 b-text_center b-text_v2 b-text_blue-marker b-text_blue-marker_v3">
+                    УЧАСТНИКАМ КЛУБА<br>ПРЕДОСТАВЛЯЕТСЯ
+                </div>
             </div>
 
             <div class="flex v gap mob">
@@ -140,7 +149,7 @@
                             <div class="b-text b-text_nowrap">Вложения в товар</div>
                         </div>
                         <div class="flex h space-btw">
-                            <div class="b-text b-text_nowrap">10 000 руб</div>
+                            <div class="b-text b-text_nowrap">6 000 руб</div>
                             <span class="border-dot"></span>
                             <div class="b-text b-text_nowrap">Оплата клуба</div>
                         </div>
@@ -186,189 +195,599 @@
     </section>
 
 
-    <section class="b-section b-section_v2 background_squared">
+    <section class="b-section b-section_v2 background_squared mb-1">
         <div class="container container_v2 mob">
-            <div class="b-text b-text_2.5em b-text_700 b-text_center my-6">
-                КЛУБ ТОЧНО ДЛЯ ТЕБЯ, ЕСЛИ
+
+            <div class="h-text h-text_header h-text_mob">
+                <div class="b-text b-text_fit b-text_2.5em b-text_700 b-text_center">
+                    ЧТО ТЕБЯ ЖДЕТ В «КЛУБЕ СТАРТ»
+                </div>
             </div>
 
             <div class="flex v mb-6">
-                <div class="flex h gap mb-3">
-                    <div class="b-text b-text_5em b-text_900 b-text_lh-1em  mr-1">1</div>
-                    <div class="b-text b-text_2em b-text_400 fmob1">
-                        Ты хочешь открыть бизнес на кроссовках не выходя из дома
+                <div class="flex h gap align mb-3 mb-3_2xmob">
+                    <div class="b-text b-text_5em b-text_900 b-text_lh-1em b-text_fith">1</div>
+                    <div class="b-text b-text_2em b-text_400 fmob3">
+                        Ты хочешь открыть бизнес не выходя из дома
                     </div>
                 </div>
 
                 <div wire:ignore class="flex space-btw h mob gap_2 slider_v3">
-                    <div class="flex v mobalign w100">
-                        <div class="flex v hmin6 w20 mb-1 __text-block">
-                            <div class="b-text b-text_600 b-text_grey mb-05">Отправка Оптового Заказа
+                    <div class="flex v mobalign w100 mx-2.5">
+                        <div class="flex v hmin6 mb-1 __text-block">
+                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                                Фото поставок 👟
                             </div>
-                            <div class="b-text b-text_200">
-                                Оптовая отправка кроссовок разного типа с уже готовым логистическим рещением по всей
-                                России.
-                            </div>
-                        </div>
-                        <video class="b-video b-video_v2 __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/SDEK-boxes.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v mobalign w100">
-                        <div class="flex v hmin6 w20 mb-1 __text-block">
-                            <div class="b-text b-text_600 b-text_grey mb-05">3 месяца ТЕСТ-ДРАЙВ кроссовок
-
-                            </div>
-                            <div class="b-text b-text_200">
-                                “ Ну я наконец-то созрела для отзыва. Клевые Nike Air Force, очень
-                                понравились..”
+                            <div class="b-text b-text_center b-text_200">
+                                Мы сами снимаем кроссовки на складе и загружаем фотографии в специальную папку для
+                                партнеров.
                             </div>
                         </div>
                         <video class="b-video b-video_v2 __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/3-month.mp4') }}" type="video/mp4">
+                            <source src="{{ URL::asset('videos/block-1/1.mp4') }}" type="video/mp4">
                         </video>
                     </div>
 
-                    <div class="flex v mobalign w100">
-                        <div class="flex v hmin6 w20 mb-1 __text-block">
-                            <div class="b-text b-text_600 b-text_grey mb-05">Клиентская проверка 😊
+                    <div class="flex v mobalign w100 mx-2.5">
+                        <div class="flex v hmin6 mb-1 __text-block">
+                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                                Контент с кроссовками 📸
                             </div>
-                            <div class="b-text b-text_200">
-                                Проверка на качество, запах и размер )))
+                            <div class="b-text b-text_center b-text_200">
+                                Каждый сезон мы арендовываем студию, приглашаем моделей и создаем контент для вашего
+                                магазина.
+                            </div>
+                        </div>
+                        <video class="b-video b-video_v2 __slide-block" controls>
+                            <source src="{{ URL::asset('videos/block-1/2.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="flex v mobalign w100 mx-2.5">
+                        <div class="flex v hmin6 mb-1 __text-block">
+                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                                Доставка товара 🚚
+                            </div>
+                            <div class="b-text b-text_center b-text_200">
+                                Отправка кроссовок клиентам, осуществляется с нашего склада, нашими сотрудниками.
                             </div>
                         </div>
                         <video class="b-video b-video_v2  __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/mans-feedback.mp4') }}" type="video/mp4">
+                            <source src="{{ URL::asset('videos/block-1/3.mp4') }}" type="video/mp4">
                         </video>
                     </div>
 
-
                 </div>
             </div>
 
-            <div class="flex v mb-6">
-                <div class="flex h gap blured mb-1">
-                    <div class="b-text b-text_5em b-text_900 b-text_lh-1em mr-1">2</div>
-                    <div class="b-text b-text_2em b-text_400 fmob1">
-                        Тебе нужна продуманая инфраструктура доставки по всей России с гарантией сохранности товара.
-                    </div>
-                </div>
 
-                <div class="flex h gap_2 mob mb-2">
-
-                    <div class="flex v w10 wmob0">
-                        <div id="globe" class="cursor_grab"></div>
-                    </div>
-                    <div class="flex v gap w100 blue_border blured mob">
-                        <div class="flex v">
-
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                СКЛАДЫ
-                            </div>
-
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v13" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">Москва и Краснодар.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex v">
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                РЕГИОН
-                            </div>
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v13" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">По всей России.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex v">
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                ТИП ДОСТАВКИ
-                            </div>
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v13" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">СДЕК и Почта России
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex v gap w100 green_border blured mob">
-                        <div class="flex v">
-
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                ФОТОСЕССИИ & БЭКСТЭЙДЖИ
-                            </div>
-
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v14" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">Август, апрель ..
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex v">
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                ПЛАН РАБОТЫ
-                            </div>
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v14" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">Полноценный план работы
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex v">
-                            <div class="b-text b-text_2.5em b-text_700 mr-1 cursor_default">
-                                ТЕЛЕГРАМ
-                            </div>
-                            <div class="flex gap_05 h align">
-                                <x-svg class="b-img b-img_v14" svg="ArrowAnglePoint" />
-                                <div class="b-text b-text_1.3em">Вышлем все через телегу
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div wire:ignore class="slider_v2">
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/1.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/2.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/3.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/4.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/5.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v12 cursor_grab" controls>
-                        <source src="{{ URL::asset('videos/delivery/6.mp4') }}" type="video/mp4">
-                    </video>
-
-                </div>
-            </div>
             <div class="abs_blur_effect_blue_custom v3"></div>
         </div>
         <div class="fade-in top"></div>
         <div class="fade-in"></div>
     </section>
 
+    <section class="b-section b-section_standard b-section_v6 overflow_hidden">
+
+        <div class="shaped_angle_background">
+            <div id="globe" class="cursor_grab">
+            </div>
+        </div>
+
+        <div class="container container_v2 custom_blur_103xd mob">
+            <div class="flex v">
+                <div class="flex w70 v mob gap mb-1">
+
+                    <div class="grid grid_v1 mb-1">
+                        <div class="grid-item b-text b-text_5em b-text_900 b-text_lh-1em">2</div>
+
+                        <div class="grid-item b-text b-text_2em b-text_400 fmob3">
+                            Нет денег для вложений в товар
+                        </div>
+                        <div
+                            class="grid-item b-text b-text_fit b-text_2em b-text_700 b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
+                            ПРАЙС ЛИСТ
+                        </div>
+                    </div>
+                    <i class="arrow-icon v1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="52" height="66" viewBox="0 0 52 66"
+                            fill="none" class="create__author-decor">
+                            <path
+                                d="M9.55808 1.94398C9.86242 1.48312 9.73554 0.862801 9.27467 0.558458C8.81381 0.254114 8.19349 0.380998 7.88915 0.841859L9.55808 1.94398ZM51.0109 58.1824C51.3331 57.7339 51.2308 57.109 50.7823 56.7868L43.4732 51.5353C43.0247 51.213 42.3999 51.3154 42.0776 51.7639C41.7554 52.2124 41.8577 52.8373 42.3062 53.1595L48.8032 57.8275L44.1352 64.3244C43.8129 64.7729 43.9153 65.3978 44.3638 65.72C44.8123 66.0423 45.4371 65.9399 45.7594 65.4914L51.0109 58.1824ZM5.52176 4.87913C5.26853 5.36994 5.46113 5.9731 5.95194 6.22632C6.44275 6.47955 7.04591 6.28695 7.29914 5.79614L5.52176 4.87913ZM4.13265 14.1002C4.26911 13.5651 3.94589 13.0206 3.41073 12.8842C2.87557 12.7477 2.33111 13.0709 2.19466 13.6061L4.13265 14.1002ZM0.979276 22.881C0.974428 23.4333 1.4182 23.8849 1.97046 23.8898C2.52272 23.8946 2.97435 23.4509 2.9792 22.8986L0.979276 22.881ZM4.01437 31.6961C3.88025 31.1604 3.33721 30.8348 2.80146 30.9689C2.26571 31.103 1.94012 31.646 2.07424 32.1818L4.01437 31.6961ZM5.53095 40.8953C5.80145 41.3768 6.41107 41.5478 6.89258 41.2773C7.37409 41.0068 7.54514 40.3972 7.27464 39.9157L5.53095 40.8953ZM12.6104 46.9574C12.2199 46.5668 11.5867 46.5667 11.1961 46.9572C10.8056 47.3476 10.8054 47.9808 11.1959 48.3714L12.6104 46.9574ZM18.6503 54.0529C19.1297 54.3272 19.7407 54.1609 20.0149 53.6815C20.2892 53.2022 20.1229 52.5912 19.6435 52.317L18.6503 54.0529ZM27.8243 55.743C27.2934 55.5908 26.7396 55.8978 26.5874 56.4287C26.4352 56.9596 26.7422 57.5134 27.2731 57.6656L27.8243 55.743ZM36.4566 59.2799C37.0073 59.3214 37.4874 58.9085 37.5288 58.3578C37.5703 57.8071 37.1574 57.327 36.6067 57.2856L36.4566 59.2799ZM45.5648 57.1856C45.0148 57.236 44.6098 57.7227 44.6602 58.2727C44.7107 58.8227 45.1974 59.2277 45.7474 59.1772L45.5648 57.1856ZM7.88915 0.841859C7.01557 2.16471 6.22682 3.51256 5.52176 4.87913L7.29914 5.79614C7.97121 4.49353 8.72371 3.20745 9.55808 1.94398L7.88915 0.841859ZM2.19466 13.6061C1.40719 16.6945 1.00625 19.8081 0.979276 22.881L2.9792 22.8986C3.00475 19.9878 3.38457 17.0342 4.13265 14.1002L2.19466 13.6061ZM2.07424 32.1818C2.83752 35.2308 3.99467 38.1606 5.53095 40.8953L7.27464 39.9157C5.82721 37.3392 4.73527 34.5758 4.01437 31.6961L2.07424 32.1818ZM11.1959 48.3714C13.3584 50.5345 15.8482 52.4498 18.6503 54.0529L19.6435 52.317C16.9949 50.8017 14.6468 48.9945 12.6104 46.9574L11.1959 48.3714ZM27.2731 57.6656C30.1268 58.4837 33.1911 59.0341 36.4566 59.2799L36.6067 57.2856C33.471 57.0495 30.5414 56.522 27.8243 55.743L27.2731 57.6656ZM45.7474 59.1772C47.252 59.0393 48.7899 58.843 50.3604 58.5857L50.0371 56.612C48.512 56.8619 47.021 57.0521 45.5648 57.1856L45.7474 59.1772Z"
+                                fill="#0d6efd"></path>
+                        </svg>
+                    </i>
+                    <div class="b-text b-text_1.3em b-text_400 fmob1 mb-1">
+                        Вкладывать деньги в товар — не нужно!
+                        Благодаря большому количеству портнеров в «КЛУБ START» у нас есть возможность приобретать самые
+                        востребованные кроссовки.
+                    </div>
+                </div>
+
+                <div class="flex v">
+                    <div wire:ignore class="slider_v1">
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+
+                        <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                            loading="lazy">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="b-section b-section_v2 background_vlines">
+        <div class="container container_v2 mob">
+
+
+            <div class="flex v my-6">
+                <div class="flex v gap mb-3">
+
+                    <div class="flex h gap align">
+                        <div class="b-text b-text_5em b-text_900 b-text_lh-1em b-text_fith">3</div>
+                        <div class="b-text b-text_2em b-text_400 fmob3">
+                            Не знаешь какой бизнес открыть, чтобы заработать в первые 3 дня
+                        </div>
+                    </div>
+
+
+                    <div class="b-text b-text_grey b-text_1.3em b-text_400 fmob1 mb-1">
+                        Бизнес на кроссах окупается с первой же продажи!
+                    </div>
+                </div>
+
+                <div class="flex h gap_2 mob">
+                    <img src="{{ URL::asset('images/min-png/money-sticker.png') }}" class="b-img b-img_v4 v4_0"
+                        alt="thumb-up" loading="lazy">
+                    <div class="flex w50 v gap card mob">
+                        <div class="slidecontainer">
+                            <div class="flex h space-btw gap mob mb-2">
+                                <div class="b-text b-text_1.3em">Кол-во подписчиков в вашем магазине</div>
+                                <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 w" id="subs-value"></div>
+                            </div>
+                            <input type="range" min="1" max="100" value="50" class="slider"
+                                id="subs">
+                        </div>
+
+                        <div class="slidecontainer">
+                            <div class="flex h space-btw gap mob mb-2">
+                                <div class="b-text b-text_1.3em">Накрутка на пару</div>
+                                <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 w" id="add-price-value"></div>
+                            </div>
+                            <input type="range" min="2000" max="5000" value="2500" class="slider"
+                                id="add-price">
+                        </div>
+                    </div>
+
+
+                    <div class="flex w50 v gap_2 mob">
+                        <div class="b-text b-text_1.3em">Вы заработаете в месяц со своего магазина</div>
+
+                        <div class="flex v gap card">
+                            <div class="b-text b-text_1.3em">От: <span id="min-result"></div>
+                            <div class="b-text b-text_1.3em">До: <span id="max-result"></div>
+                        </div>
+
+                        <div class="b-text b-text_grey b-text_1.3em">Расчет происходит через перемножения кол-ва
+                            подписчиков и накрутки на товар.</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <script>
+                var subsSlider = document.getElementById("subs");
+                var addPriceSlider = document.getElementById("add-price");
+                var addValue = document.getElementById("add-price-value");
+                var subsValue = document.getElementById("subs-value");
+
+                var minResult = document.getElementById("min-result");
+                var maxResult = document.getElementById("max-result");
+
+                subsValue.innerHTML = subsSlider.value + '  человек';
+                addValue.innerHTML = (addPriceSlider.value).toLocaleString('ru-RU') + ' рублей';
+
+                minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString('ru-RU') +
+                    ' рублей';
+                maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString('ru-RU') +
+                    ' рублей';
+
+
+                addPriceSlider.oninput = function() {
+                    addValue.innerHTML = (this.value).toLocaleString('ru-RU') + ' рублей';
+                    minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString(
+                        'ru-RU') + ' рублей';
+                    maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString(
+                        'ru-RU') + ' рублей';
+                };
+
+                subsSlider.oninput = function() {
+                    subsValue.innerHTML = this.value + " человек";
+                    minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString(
+                        'ru-RU') + ' рублей';
+                    maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString(
+                        'ru-RU') + ' рублей';
+                };
+            </script>
+
+        </div>
+        <div class="fade-in top"></div>
+        <div class="fade-in"></div>
+    </section>
+
+
+    <section class="b-section b-section_standard">
+        <div class="container container_v2 mob">
+
+            <div class="flex v">
+
+                <div
+                    class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_blue-marker b-text_blue-marker_v4 mb-6">
+                    СОЗДАЕМ ТРЭНД В ЭТОЙ НИШЕ
+                </div>
+
+                <div class="flex v gap_2">
+                    <div class="flex h gap space-btw mob">
+
+
+                        <div class="flex v w33 gap mob">
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Удобная таблица с актуальными размерами кроссовок
+                                    на складе
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/1-table.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered">
+                            </div>
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Мы заключили официальный договор со СДЭК. Как
+                                    юридическое лицо, отправка товаров нам обходится вдвое дешевле, чем частным лицам
+                                </div>
+                                <div class="slider_v4">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-1-docs.jpg') }}"
+                                        alt="docs-1" class="b-img b-img_wfull-hauto b-img_bordered">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-2-docs.jpg') }}"
+                                        alt="docs-2" class="b-img b-img_wfull-hauto b-img_bordered">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-3-docs.jpg') }}"
+                                        alt="docs-3" class="b-img b-img_wfull-hauto b-img_bordered">
+                                </div>
+                            </div>
+
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    🔥 Мы расширяем ассортимент не только кроссовками, но и
+                                    брендовой одеждой и аксессуарами, для доп продаж
+                                </div>
+                                <div class="slider_v4">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-1-cloth.jpg') }}"
+                                        alt="cloth-1" class="b-img b-img_wfull-hauto b-img_bordered">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-2-cloth.jpg') }}"
+                                        alt="cloth-2" class="b-img b-img_wfull-hauto b-img_bordered">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-3-cloth.jpg') }}"
+                                        alt="cloth-3" class="b-img b-img_wfull-hauto b-img_bordered">
+                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-4-cloth.jpg') }}"
+                                        alt="cloth-4" class="b-img b-img_wfull-hauto b-img_bordered">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex v w33 gap mob">
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Отдел поддержки для заказов и вопросов участников
+                                    клуба
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/2-account.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered">
+                            </div>
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    После отправки вашего заказа, мы делаем фото и
+                                    пересылаем вам трек-номер, для отслеживания доставки
+                                    клуба
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/5-track-code.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered">
+                            </div>
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Каждый участник клуба получает индивидуальную таблицу для удобного отслеживания
+                                    продаж.
+
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/8-table-sell-buy-manage.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered">
+                            </div>
+                        </div>
+
+
+                        <div class="flex v w33 gap mob">
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Видео уроки от нашего таргетолога с инфой как и где
+                                    закупать рекламу
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lesson.jpg') }}"
+                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
+                            </div>
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    🔗 У вас будет собственная реферальная ссылка для
+                                    продажи "КЛУБА START" За каждого привлеченного, вы получаете 50% от его участия
+                                    закупать рекламу
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/6-referral-link.jpg') }}"
+                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
+                            </div>
+                            <div class="flex card card_v4">
+                                <div class="b-text b-text_1.3">
+                                    Делаем дополнительную фотографию или видео со склада по запросу вашего клиента
+                                </div>
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/9-client-req.jpg') }}"
+                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="b-section b-section_standard">
+        <div class="container container_v2 mob">
+
+            <div class="flex v">
+
+                <div class="h-text">
+                    <div
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1">
+                        Фотосессии и бекстейджи
+                    </div>
+                </div>
+
+                <div wire:ignore class="slider_v1">
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="b-section b-section_standard">
+        <div class="container container_v2 mob">
+
+            <div class="flex v">
+
+                <div class="h-text">
+                    <div
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1">
+                        ОТЗЫВЫ КРОССОВОК
+                    </div>
+                </div>
+
+                <div wire:ignore class="slider_v1">
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
+                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 
     <section class="b-section b-section_v3">
         <x-svg class="b-img b-img_v7" svg="NikePair" />
         <div class="container container_v2 mob">
-            <div class="b-text b-text_2em b-text_700 b-text_center custom_media_size_change">
-                КАК РАБОТАЕТ «КЛУБ СТАРТ»
+
+            <div class="h-text">
+                <div
+                    class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v1 mb-1">
+                    КАК РАБОТАЕТ «КЛУБ СТАРТ»
+                </div>
             </div>
             <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3">
                 Всего 3 шага и ты владелец своего личного
@@ -382,7 +801,9 @@
 
                     <div class="accordion-item noise">
                         <button id="accordion-button-1" aria-expanded="false">
-                            <span class="b-text b-text_1.5em fmob1">Шаг 1</span>
+                            <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em fmob1">
+                                Шаг 1
+                            </span>
                             <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Кроссовки по себестоимости от 1
                                 пары</span>
                             <span class="icon" aria-hidden="true"></span></button>
@@ -392,7 +813,7 @@
                                 <div class="b-text b-text_1.3em b-text_600">
                                     Что получите:
                                 </div>
-                                <div class="b-text">
+                                <div class="b-text b-text_400 b-text_1.2em">
                                     Поставщика кроссовок, работающего по системе «дропшиппинга»
                                 </div>
                             </div>
@@ -402,21 +823,23 @@
                                     💡 Результат:
                                 </div>
                                 <div class="flex v gap_05">
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         1. Без вложения в товар, доступ к 610 моделям кроссовок
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         2. Для вас цена кроссовок по себестоимости (БЕЗ НАКРУТКИ)
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <img src="{{ URL::asset('images/Group_565.webp') }}" class="b-img b-img_v15" type="image/webp" loading="lazy">
+                        <img src="{{ URL::asset('images/min-webp/coin.webp') }}" class="b-img b-img_v15"
+                            type="image/webp" loading="lazy">
                     </div>
 
                     <div class="accordion-item noise">
                         <button id="accordion-button-2" aria-expanded="false">
-                            <span class="b-text b-text_1.5em fmob1">Шаг 2</span>
+                            <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em fmob1">Шаг
+                                2</span>
                             <span class="b-text b-text_600 b-text_2em fmob2 ml-05">База знаний «продавца
                                 кроссовок»</span>
                             <span class="icon" aria-hidden="true"></span></button>
@@ -427,15 +850,15 @@
                                     Что получите:
                                 </div>
                                 <div class="flex v gap_05">
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         1. Доступ к основному телеграм-каналу «КЛУБ СТАРТ»
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         2. Доступ к 3-х летнему «архиву» клуба (С чего мы начинали и какие шаги привели
                                         к
                                         такому итогу)
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         3. Google таблица с актуальными размерами
                                     </div>
                                 </div>
@@ -446,34 +869,34 @@
                                     Что узнаете:
                                 </div>
                                 <div class="flex v gap_05">
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         1. Где брать фото и видео поставок, без водяного знака
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         2. Ошибка 98.9 % предпринимателей.
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         3. Как победить всех конкурентов и стать №1 в своем городе
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         4. Оформить заказ
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         5. Оформить заказ по "наложенному платежу"
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         6. Лучшая накрутка на кроссовки
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         7. Видео от нашего таргетолога по запуску рекламы
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         8. Видео курс от Даниила по запуску рекламы без денег
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         9. Как общаться с клиентами чтобы не слить продажу
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         10. Как выйти на 100 продаж в первые 2 месяца работы
                                     </div>
                                 </div>
@@ -483,18 +906,20 @@
                                 <div class="b-text b-text_1.3em b-text_600">
                                     💡 Результат:
                                 </div>
-                                <div class="b-text">
+                                <div class="b-text b-text_400 b-text_1.2em">
                                     Вы создадите продающий аккаунт
                                     магазина кроссовок в интернете
                                 </div>
                             </div>
                         </div>
-                        <img src="{{ URL::asset('images/Group_564.png') }}" class="b-img b-img_v15" type="image/png" loading="lazy">
+                        <img src="{{ URL::asset('images/min-png/heart.png') }}" class="b-img b-img_v15"
+                            type="image/png" loading="lazy">
                     </div>
 
                     <div class="accordion-item noise">
                         <button id="accordion-button-3" aria-expanded="false">
-                            <span class="b-text b-text_1.5em fmob1">Шаг 3</span>
+                            <span class="b-text b-text_grey b-text_grey_light-mode y b-text_400 b-text_1.5em fmob1">Шаг
+                                3</span>
                             <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Марафон по бизнесу на
                                 кроссовках</span>
                             <span class="icon" aria-hidden="true"></span></button>
@@ -504,7 +929,7 @@
                                 <div class="b-text b-text_1.3em b-text_600">
                                     Что узнаете:
                                 </div>
-                                <div class="b-text">
+                                <div class="b-text b-text_400 b-text_1.2em">
                                     Доступ к 3-х дневному, онлайн марафону для новичков в этом бизнесе. В формате
                                     фото |видео | голосовых сообщений, мы разберём с чего начать бизнес на
                                     кроссовках
@@ -516,298 +941,239 @@
                                     💡 Результат:
                                 </div>
                                 <div class="flex v gap_05">
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         1. Полное понимание всех технических моментов
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         2. За 3 дня создадим интернет магазин кроссовок
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         3. На чужом опыте узнаете, как не допустить ошибок в работе с кроссовками
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         4. Разбор аккаунтов участников марафона
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         5. Узнаете про 5 дополнительных способов продвижения магазина в соцсетях
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         6. Первые лиды, обращения, а возможно первая продажа
                                     </div>
-                                    <div class="b-text">
+                                    <div class="b-text b-text_400 b-text_1.2em">
                                         7. Полностью упакованный бизнес и стратегия для развития
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <img src="{{ URL::asset('images/Deal_With_It_Glasses.webp') }}" class="b-img b-img_v15 b-img_v15_1" type="image/webp" loading="lazy">
+                        <img src="{{ URL::asset('images/min-webp/deal-glasses.webp') }}"
+                            class="b-img b-img_v15 b-img_v15_1" type="image/webp" loading="lazy">
 
                     </div>
                 </div>
             </div>
 
-            <div class="flex v mb-5">
 
-                <div class="b-text b-text_2em b-text_700 b-text_center custom_media_size_change mb-1">
-                    ПРАЙС ЛИСТ
-                </div>
-                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3">
-                    Ты хочешь готовый продукт с фотосессиями, бэкстэйджами,<br> описаниями и отзывами в <a
-                        href="{{ URL::asset('register') }}">один клик</a>
-                </div>
-
-                <div wire:ignore class="slider_v1">
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <video class="b-img b-img_v5 cursor_grab __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/350-boost.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/min-jpeg/1.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/mixed/sneakers.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <video class="b-img b-img_v5 cursor_grab __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/boxes-2.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/mixed/pillar.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/mixed/backstage-photo.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <video class="b-img b-img_v5 cursor_grab __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/boxes-1.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/min-jpeg/3.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/min-jpeg/4.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <video class="b-img b-img_v5 cursor_grab __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/sneakers.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/min-jpeg/5.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/min-jpeg/6.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <video class="b-img b-img_v5 cursor_grab __slide-block" controls>
-                            <source src="{{ URL::asset('videos/mixed/camera.mp4') }}" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="flex v w100 ">
-                        <div class="flex v w100 mb-1 __text-block">
-                            <div class="b-text b-text_center b-text_600 b-text_grey mb-1">Александр, канал
-                                @solovevmotivation</div>
-                            <div class="b-text b-text_center b-text_200">
-                                “У меня тут видос только что вышел, применял что узнал на обучении)))”
-                            </div>
-                        </div>
-                        <img src="{{ URL::asset('images/mixed/nike-bag.jpg') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                            loading="lazy">
-                    </div>
-                </div>
-                <div class="abs_blur_effect_blue_custom v2"></div>
-            </div>
         </div>
 
     </section>
+
+
 
     <section class="b-section b-section_v5 b-section_visible_overflow b-section_doted">
         <div class="container container_v2 mob">
 
             <div class="h-text">
-                <div class="b-text b-text_fit-content b-text_2.5em b-text_700 b-text_center my-3 b-text_blue-marker">
+                <div
+                    class="b-text b-text_fit-content b-text_2.5em b-text_700 b-text_center my-3 b-text_blue-marker b-text_after-orator">
                     ЧАСТЫЕ ВОПРОСЫ
                 </div>
             </div>
             <div class="accordion-container">
                 <div class="divider"></div>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button id="accordion-button-4" aria-expanded="false">
-                            <span class="b-text b-text_2em">В чем суть клуба?</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                В рамках клуба вы получите возможность покупать кроссовки от 1 пары по оптовой цене.
+                <div class="flex h gap mob accordion">
+                    <div class="flex v gap">
+                        <div class="accordion-item">
+                            <button id="accordion-button-1" aria-expanded="false">
+                                <span class="b-text b-text_2em">Как оплатить?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Выберите удобный способ оплаты, после того как пройдете регистрацию. Вы можете
+                                    оплатить
+                                    доступ в клуб из любого банка РФ.
+                                    <br><br>
+                                    *Если нужно оплатить иностранной картой, обратитесь в службу заботы: <a
+                                        href="https://t.me/ClubStarthelp_bot">@ClubStarthelp_bot</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-2" aria-expanded="false">
+                                <span class="b-text b-text_2em">Что будет после оплаты?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Вы будете перенаправлены в личный кабинет, где найдите ссылку на закрытый
+                                    Telegram-канал
+                                    "КЛУБ START". Также, в вашем личном кабинете будут ссылки на: марафон, таблицы,
+                                    архивы
+                                    клуба (с чего мы начинали и что привело к результату) и другие актуальные ссылки для
+                                    продуктивной работы.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-3" aria-expanded="false">
+                                <span class="b-text b-text_2em">В каком городе и странах можно работать?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    У нас заключён официальный договор с транспортной компанией, поэтому продавать
+                                    кроссовки
+                                    и участвовать в клубе вы можете в любом городе мира.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-4" aria-expanded="false">
+                                <span class="b-text b-text_2em">Кроссовки оригинал?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Для того чтобы в полной мере ответвить на этот вопрос, я записал отдельное
+                                    пояснения👇
+                                </div>
+                                <audio controls autoplay>
+                                    <source src="{{ URL::asset('/audio/audio-are-genuine-sneakers.ogg') }}"
+                                        type="audio/ogg">
+                                    Ваш браузер не поддерживает аудио элементы.
+                                </audio>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-5" aria-expanded="false">
+                                <span class="b-text b-text_2em">В чем суть клуба?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    В клубе у вас будет возможность покупать кроссовки от одной пары по закупочной цене.
+                                    Также вам будет предоставлен доступ к продающему контенту для сайта и соцсетей. Вы
+                                    станете частью сообщества продавцов кроссовок, и получите информационную поддержку,
+                                    благодаря чему избежите множество ошибок на старте.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-6" aria-expanded="false">
+                                <span class="b-text b-text_2em">Есть ли возврат?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Возврат кроссовок возможен в течение 14 дней. Вы или ваш клиент можете вернуть
+                                    кроссовки
+                                    на склад и получить деньги обратно.
+                                    <br>
+                                    На клуб возврата нет. Услуга считается оказанной, с момента получения доступа.
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-1" aria-expanded="false">
-                            <span class="b-text b-text_2em">Что такое дропшиппинг?</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Дропшиппинг — это продажа кроссовок поставщика под заказ клиента. В рамках обучения вы
-                                сможете заказать кроссовки себе или напрямую вашим клиентам, а прибыль с продаж получить
-                                напрямую на карту.
+                    <div class="flex v gap">
+
+
+
+                        <div class="accordion-item">
+                            <button id="accordion-button-7" aria-expanded="false">
+                                <span class="b-text b-text_2em">Можно ли оплатить кроссовки после получения?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Да, при оформлении заказа можно указать, чтобы оплата была после получения товара.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-2" aria-expanded="false">
-                            <span class="b-text b-text_2em">Где проходит обучение?</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Обучение проходит закрытом Telegram-канале. Всю информацию Данил будет лично публиковать
-                                в текстовым, аудио и видео форматах.
+                        <div class="accordion-item">
+                            <button id="accordion-button-8" aria-expanded="false">
+                                <span class="b-text b-text_2em">Можно купить кроссовки по дроппу без клуба?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Для всех участников клуба действуют низкие цены по дропшиппингу. Получить к ним
+                                    доступ
+                                    вы можете оплатив ежемесячный членский взнос. Если вы хотите оформить заказ без
+                                    клуба,
+                                    тогда для вас будет действовать розничная цена, как для всех обычных клиентов.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-5" aria-expanded="false">
-                            <span class="b-text b-text_2em">Марафон бесплатный?</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                Да, участие в марафоне с первого и до последнего дня абсолютно бесплатное!
+                        <div class="accordion-item">
+                            <button id="accordion-button-9" aria-expanded="false">
+                                <span class="b-text b-text_2em">Если это мой первый бизнес, смогу ли я
+                                    разобраться?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Да, каждый этап создания магазина я объясняю простым языком. От вас не потребуется
+                                    специальных знаний и опыта, вы сможете их получить в процессе.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <button id="accordion-button-3" aria-expanded="false">
-                            <span class="b-text b-text_2em">В каком городе и странах можно работать?</span>
-                            <span class="icon" aria-hidden="true"></span></button>
-                        <div class="accordion-content">
-                            <div class="b-text b-text_1.3em b-text_400 my-1">
-                                У нас заключён официальный договор с транспортной компанией, поэтому продавать кроссовки
-                                вы можете в любом городе мира.
+                        <div class="accordion-item">
+                            <button id="accordion-button-10" aria-expanded="false">
+                                <span class="b-text b-text_2em">Где находится клуб?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Клуб находится в закрытом телеграмм канале. Общение в клубе происходит текстом,
+                                    кружочками, эфирами и войсами как в реальной переписке.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-11" aria-expanded="false">
+                                <span class="b-text b-text_2em">Что такое дропшиппинг?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    Дропшиппинг — это продажа кроссовок поставщика под заказ клиента. В клубе вы сможете
+                                    заказывать кроссовки себе или напрямую вашим покупателям, а прибыль с продаж
+                                    получать
+                                    переводом на карту.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-12" aria-expanded="false">
+                                <span class="b-text b-text_2em">Как продлить/отменить подписку на клуб?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    После успешной оплаты деньги будут автоматически списываться с той карты, через
+                                    которую
+                                    вы оплатили клуб.
+                                    <br><br>
+                                    Чтобы отменить подписку, зайдите в личный кабинет, выберите раздел "Настройки" и
+                                    перейдите в раздел "Подписка", затем нажмите кнопку "Отменить".
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button id="accordion-button-13" aria-expanded="false">
+                                <span class="b-text b-text_2em">Как я получу доступ, и что делать, если возникнут
+                                    трудности
+                                    с оплатой или клубом?</span>
+                                <span class="icon" aria-hidden="true"></span></button>
+                            <div class="accordion-content">
+                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                    После оплаты, у вас создаться личный кабинет, где будут все ссылки клуб start.
+                                    <br>
+                                    *После оплаты, вы буду перемещены в личный кабинет автоматически.
+                                    <br>
+                                    Если возникнут трудности, мы поможем. Напишите в отдел заботы, указав почту,
+                                    на которую
+                                    была совершена оплата. Телеграм поддержки: <a
+                                        href="https://t.me/ClubStarthelp_bot">@ClubStarthelp_bot</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -819,6 +1185,61 @@
         <div class="fade-in top"></div>
         <div class="fade-in"></div>
     </section>
+
+    <section class="b-section b-section_standard">
+        <div class="container container_v2 mob">
+
+            <div class="flex v">
+                <img src="{{ URL::asset('images/min-webp/star-sticker.webp') }}" alt="star-sticker"
+                    class="b-img b-img_v17">
+
+                <div
+                    class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_blue-marker b-text_blue-marker_v5 mb-6">
+                    Об авторе клуба
+                </div>
+
+                <div wire:ignore class="slider_v1">
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/1.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/2.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/3.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/4.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/5.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/author-img/6.jpg') }}"
+                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="video-intro">
+        <div class="video-wrapper">
+            <img src="{{ URL::asset('images/svg/img-case/RedCross.svg') }}" class="b-img b-img_remove"
+                alt="remove" loading="lazy">
+
+            <div class="b-img b-img_remove v1">—</div>
+
+            <video src="{{ URL::asset('videos/camera.mp4') }}" autoplay muted loop>
+            </video>
+        </div>
+    </div>
+
 
     <x-footer />
 

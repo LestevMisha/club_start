@@ -1,4 +1,4 @@
-import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, DirectionalLight, PointLight, Color, Fog } from 'three';
+import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, DirectionalLight, PointLight, Color, Clock } from 'three';
 import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js';
 import ThreeGlobe from 'three-globe';
 
@@ -16,38 +16,8 @@ let mouseY = 0;
 let windowHalfX = globeElement.getBoundingClientRect().width / 2;
 let windowHalfY = globeElement.getBoundingClientRect().height / 2;
 var Globe;
+var clock = new Clock();
 
-
-// function respectiveMode(callback = null) {
-//     globeElement.style.opacity = 0;
-//     setTimeout(function () {
-//         if (callback !== null) {
-//             callback();
-//         }
-//         if (document.body.classList.contains("lightMode") === true) {
-//             init();
-//             initGlobe("#d9e8ff", 0xFFFFFF);
-//             onWindowResize();
-//             animate();
-//         } else {
-//             init();
-//             initGlobe("#0d6efd", 0x220038);
-//             // onWindowResize();
-//             animate();
-//         }
-//         globeElement.style.opacity = 1;
-//     }, 450);
-// }
-
-// respectiveMode();
-
-// const themeSwitcher = document.getElementById("themeSwitcher");
-// themeSwitcher.addEventListener("change", function () {
-//     const canvasToRemove = globeElement.querySelector("canvas");
-//     respectiveMode(function () {
-//         globeElement.removeChild(canvasToRemove);
-//     });
-// });
 init();
 initGlobe();
 onWindowResize();
@@ -88,42 +58,33 @@ function init() {
 
     scene.add(camera);
 
-    // scene.fog = new Fog(0x535ef3, 400, 2000);
-
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dynamicDampingFactor = 0.01;
+    controls.dynamicDampingFactor = 0.1;
     controls.enablePan = false;
-    controls.minDistance = 300;
-    controls.maxDistance = 400;
+    controls.enableZoom = false;
     controls.rotateSpeed = 0.8;
     controls.zoomSpeed = 1;
     controls.autoRotate = false;
 
-    // controls.minPolarAngle = Math.PI / 3.5;
-    // controls.minPolarAngle = Math.PI - Math.PI / 3;
 
     window.addEventListener("resize", onWindowResize, false);
-    document.addEventListener("mousemove", onMouseMove);
+    // document.addEventListener("mousemove", onMouseMove);
 }
 
 
 function initGlobe() {
 
-    Globe = new ThreeGlobe({
-        waitForGlobeReady: true,
-        animateIn: true,
-    })
+    Globe = new ThreeGlobe()
         .hexPolygonsData(countries.features)
         .hexPolygonResolution(3)
         .hexPolygonColor(0x0d6efd)
-        .hexPolygonMargin(0.3)
+        .hexPolygonMargin(0.5)
         .showAtmosphere(true)
-        .atmosphereColor("#0d6efd")
-        .atmosphereAltitude(0.2);
+        .showGraticules(true)
+    .atmosphereColor("#0d6efd")
+    .atmosphereAltitude(0.1);
 
-
-    // setTimeout(() => {
     Globe.arcsData(lines.pulls)
         .arcColor((e) => e.color)
         .arcAltitude((e) => e.arcAlt)
@@ -133,90 +94,34 @@ function initGlobe() {
         .arcDashAnimateTime((e) => e.animateSpeed)
         .arcsTransitionDuration(1000)
         .arcDashInitialGap((e) => e.order)
-        // .labelsData(map.maps)
-        // .labelColor(() => "#000000")
-
-        // .labelDotRadius(1)
-        // .labelDotOrientation((e) => e.labelDotOrientation)
-        // .labelSize((e) => e.size)
-        // .labelText("city")
-        // .labelAltitude(0)
         .pointsData(map.maps)
         .pointColor((e) => e.pointColor)
-        // .pointsMerge(true)
         .pointAltitude(0.01)
         .pointRadius(0.5)
-    // }, 1000);
 
-
+    // Rotate the globe
     Globe.rotateY(-Math.PI * (5 / 12));
     Globe.rotateZ(-Math.PI / 15);
+
+    // // Get the globe material
     const globeMaterial = Globe.globeMaterial();
-    globeMaterial.color = new Color(0xFFFFFF);
-    globeMaterial.emissive = new Color(0x0014c6);
-    globeMaterial.emissiveIntensity = 2;
-    globeMaterial.shininess = 1.7;
+
+    // // Set the material properties for transparency
+    globeMaterial.color = new Color(0x0d6efd);
+    globeMaterial.transparent = true; // Enable transparency
+    globeMaterial.opacity = 0.2; // Set the opacity level (adjust as needed)
+    globeMaterial.emissive = new Color(0xc600ab);
+    globeMaterial.emissiveIntensity = .1;
     scene.add(Globe);
+
 }
-
-
-// function initGlobe() {
-
-//     Globe = new ThreeGlobe({
-//         waitForGlobeReady: true,
-//         animateIn: true,
-//     })
-//         .hexPolygonsData(countries.features)
-//         .hexPolygonResolution(3)
-//         .hexPolygonColor(0xFFFFFF)
-//         .hexPolygonMargin(0.3)
-//         .showAtmosphere(true)
-//         .atmosphereColor("#d9e8ff")
-//         .atmosphereAltitude(0.2);
-
-
-//     // setTimeout(() => {
-//     Globe.arcsData(lines.pulls)
-//         .arcColor((e) => e.color)
-//         .arcAltitude((e) => e.arcAlt)
-//         .arcStroke((e) => e.arcStroke)
-//         .arcDashLength((e) => e.arcDashLength)
-//         .arcDashGap((e) => e.arcDashGap)
-//         .arcDashAnimateTime((e) => e.animateSpeed)
-//         .arcsTransitionDuration(1000)
-//         .arcDashInitialGap((e) => e.order)
-//         .labelsData(map.maps)
-//         .labelColor(() => "#000000")
-
-//         .labelDotRadius(1)
-//         .labelDotOrientation((e) => e.labelDotOrientation)
-//         .labelSize((e) => e.size)
-//         .labelText("city")
-//         .labelAltitude(0)
-//         .pointsData(map.maps)
-//         .pointColor((e) => e.pointColor)
-//         .pointsMerge(true)
-//         .pointAltitude((e) => e.pointAltitudeSize)
-//         .pointRadius(0.5)
-//     // }, 1000);
-
-
-//     Globe.rotateY(-Math.PI * (5 / 12));
-//     Globe.rotateZ(-Math.PI / 15);
-//     const globeMaterial = Globe.globeMaterial();
-//     globeMaterial.color = new Color(0x0d6efd);
-//     globeMaterial.emissive = new Color(0xFFFFFF);
-//     globeMaterial.emissiveIntensity = 2;
-//     globeMaterial.shininess = 1.7;
-//     scene.add(Globe);
-// }
-
 
 function onMouseMove(event) {
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
-}
+   
 
+    // mouseX = event.clientX - windowHalfX;
+    // mouseY = event.clientY - windowHalfY;
+}
 
 function onWindowResize() {
     camera.aspect = globeElement.getBoundingClientRect().width / globeElement.getBoundingClientRect().height;
@@ -228,13 +133,8 @@ function onWindowResize() {
 
 
 function animate() {
-    camera.position.x +=
-        Math.abs(mouseX) <= windowHalfX / 2
-            ? (mouseX / 2 - camera.position.x) * 0.005
-            : 0;
-    camera.position.y += (-mouseY / 2 - camera.position.y) * 0.005;
-    camera.lookAt(scene.position);
-    controls.update();
+    const time = clock.getElapsedTime();
+    camera.position.y = Math.sin(time) * 5;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }

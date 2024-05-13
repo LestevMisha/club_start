@@ -100,7 +100,14 @@ body.lightMode .b-section.b-section_v1 {
     body.lightMode .modern-header {
         background-color: #ffffff87;
     }
+
+    body.lightMode .container.container_v2.custom_blur_103xd {
+        backdrop-filter: blur(1em);
+        background-color: #ffffff54;
+        border-radius: 1em;
+    }
 }
+
 
 
 body.lightMode .b-section.b-section_v1 {
@@ -177,6 +184,10 @@ body.lightMode .flex.blured {
     background-color: #ffffff87;
 }
 
+body.lightMode .b-text_grey.b-text_grey_light-mode {
+    color: #666666 !important;
+}
+
 body.lightMode remember-me-switcher input[type='checkbox'],
 body.lightMode color-scheme-switcher input[type='checkbox'] {
     background-color: #eee;
@@ -249,7 +260,6 @@ body.lightMode .reset-icon {
 body.lightMode .eye-icon {
     color: rgba(0, 0, 0, .4);
 }
-
 
 body.lightMode .modern-input:focus {
     background-color: rgba(0, 0, 0, 0);
