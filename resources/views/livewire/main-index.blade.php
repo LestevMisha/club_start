@@ -1,5 +1,6 @@
 <div>
-    <section class="b-section b-section_v1">
+
+    <section class="b-section b-section_hidden b-section_v1">
         <div class="container container_v2 mob">
             <div class="container container_v1">
                 <div class="flex v h100">
@@ -40,7 +41,7 @@
                     </div>
                     <div class="card mt-2">
                         <div class="b-text b-text_1.3em b-text_center">
-                            Едижемесечная подписка на<br>"КЛУБ START"
+                            Ежемесечная подписка на<br>"КЛУБ START"
                         </div>
                         <div class="b-text b-text_grey b-text_center">Вход: 6 000 рублей</div>
                         <a class="go-button v2" href="{{ route('register') }}">Вступить в Клуб</a>
@@ -56,12 +57,11 @@
         <div class="overlay"></div>
     </section>
 
-    <section class="b-section b-section_v2">
-        {{-- <x-svg class="b-img b-img_v6" svg="ShoesPair" /> --}}
+    <section class="b-section b-section_visible pt-6 pb-2">
 
         <div class="container container_v2 mob">
 
-            <div class="h-text h-text_header">
+            <div class="h-text mb-6">
                 <div
                     class="b-text b-text_2.5em b-text_fit b-text_700 b-text_center b-text_v2 b-text_blue-marker b-text_blue-marker_v3">
                     УЧАСТНИКАМ КЛУБА<br>ПРЕДОСТАВЛЯЕТСЯ
@@ -129,7 +129,7 @@
             </div>
 
 
-            <div class="flex h gap-2 my-2 reverse_mob">
+            <div class="flex h gap-2 mt-2 reverse_mob">
                 <div class="card card_blue card_v1 mob" id="custom-target-01">
                     <div class="b-text b-text_1.5em b-text_700 b-text_center">РАБОТА<br>В РАМКАХ КЛУБА</div>
                     <div class="flex v gap my-1">
@@ -192,101 +192,117 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 
-    <section class="b-section b-section_v2 background_squared mb-1">
+    <section class="b-section b-section_v2 b-section_visible pt-6">
         <div class="container container_v2 mob">
 
-            <div class="h-text h-text_header h-text_mob">
+            <div class="h-text h-text_mob mb-2r">
                 <div class="b-text b-text_fit b-text_2.5em b-text_700 b-text_center">
-                    ЧТО ТЕБЯ ЖДЕТ В «КЛУБЕ СТАРТ»
+                    КЛУБ ТОЧНО ДЛЯ ТЕБЯ, ЕСЛИ
                 </div>
             </div>
 
-            <div class="flex v mb-6">
-                <div class="flex h gap align mb-3 mb-3_2xmob">
-                    <div class="b-text b-text_5em b-text_900 b-text_lh-1em b-text_fith">1</div>
+            <div class="flex v">
+                <div class="flex slight-bg h gap_2 gmob-1 align mb-3r w70 wmob mb-3r_2xmob">
+                    <div class="b-text b-text_5em b-text_900 b-text_blue b-text_lh-1em b-text_fith">1</div>
                     <div class="b-text b-text_2em b-text_400 fmob3">
-                        Ты хочешь открыть бизнес не выходя из дома
+                        Ты хочешь открыть свой собственный бизнес не выходя из дома
                     </div>
                 </div>
 
                 <div wire:ignore class="flex space-btw h mob gap_2 slider_v3">
-                    <div class="flex v mobalign w100 mx-2.5">
-                        <div class="flex v hmin6 mb-1 __text-block">
-                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                    <div class="flex v mobalign w100 mx-2.5 ml-2.5_0 mob">
+                        <div class="flex v hmin6 mb-1r __text-block">
+                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
                                 Фото поставок 👟
                             </div>
-                            <div class="b-text b-text_center b-text_200">
+                            <div class="b-text tcmob b-text_200">
                                 Мы сами снимаем кроссовки на складе и загружаем фотографии в специальную папку для
                                 партнеров.
                             </div>
                         </div>
-                        <video class="b-video b-video_v2 __slide-block" controls>
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/block-1/1.jpeg') }}">
                             <source src="{{ URL::asset('videos/block-1/1.mp4') }}" type="video/mp4">
                         </video>
                     </div>
 
                     <div class="flex v mobalign w100 mx-2.5">
-                        <div class="flex v hmin6 mb-1 __text-block">
-                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                        <div class="flex v hmin6 mb-1r __text-block">
+                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
                                 Контент с кроссовками 📸
                             </div>
-                            <div class="b-text b-text_center b-text_200">
+                            <div class="b-text tcmob b-text_200">
                                 Каждый сезон мы арендовываем студию, приглашаем моделей и создаем контент для вашего
                                 магазина.
                             </div>
                         </div>
-                        <video class="b-video b-video_v2 __slide-block" controls>
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/block-1/2.jpeg') }}">
                             <source src="{{ URL::asset('videos/block-1/2.mp4') }}" type="video/mp4">
                         </video>
                     </div>
 
-                    <div class="flex v mobalign w100 mx-2.5">
-                        <div class="flex v hmin6 mb-1 __text-block">
-                            <div class="b-text b-text_1.3em b-text_600 b-text_center b-text_grey mb-05">
+                    <div class="flex v mobalign w100 mx-2.5 mr-2.5_0 mob">
+                        <div class="flex v hmin6 mb-1r __text-block">
+                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
                                 Доставка товара 🚚
                             </div>
-                            <div class="b-text b-text_center b-text_200">
+                            <div class="b-text tcmob b-text_200">
                                 Отправка кроссовок клиентам, осуществляется с нашего склада, нашими сотрудниками.
                             </div>
                         </div>
-                        <video class="b-video b-video_v2  __slide-block" controls>
+                        <video class="b-video b-video_v2  __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/block-1/3.jpeg') }}">
                             <source src="{{ URL::asset('videos/block-1/3.mp4') }}" type="video/mp4">
                         </video>
                     </div>
 
                 </div>
             </div>
-
-
-            <div class="abs_blur_effect_blue_custom v3"></div>
+            <svg class="b-img b-img_v23" xmlns="http://www.w3.org/2000/svg" width="1237" height="1934"
+                viewBox="0 0 1237 1934" fill="none">
+                <g filter="url(#a)">
+                    <path
+                        d="M589.499 410.171C805.886 599.23 959.96 1016.35 933.701 1341.93s-147.497 387.5-270.86 138.34c-123.362-249.15-277.49-666.323-344.307-931.86s54.789-327.091 270.965-138.239"
+                        fill="#0d6efd" />
+                </g>
+                <defs>
+                    <filter id="a" x=".203" y=".719" width="1236.41" height="1932.42"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                        <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_801_1814" />
+                    </filter>
+                </defs>
+            </svg>
         </div>
+        <div class="bg_noise"></div>
         <div class="fade-in top"></div>
-        <div class="fade-in"></div>
+
     </section>
 
-    <section class="b-section b-section_standard b-section_v6 overflow_hidden">
+    <section class="b-section b-section_v2 b-section_hidden pt-6">
 
-        <div class="shaped_angle_background">
+        <img src="{{ URL::asset('images/dan-5.png') }}" class="b-img b-img_v19" type="image/jpeg" alt="sn1"
+            loading="lazy">
+        {{-- <div class="shaped_angle_background">
             <div id="globe" class="cursor_grab">
             </div>
-        </div>
+        </div> --}}
 
         <div class="container container_v2 custom_blur_103xd mob">
             <div class="flex v">
-                <div class="flex w70 v mob gap mb-1">
+                <div class="flex w70 v mob gap fcmob mb-1r">
 
-                    <div class="grid grid_v1 mb-1">
-                        <div class="grid-item b-text b-text_5em b-text_900 b-text_lh-1em">2</div>
+                    <div class="slight-bg flex h gap_2 mb-1r">
+                        <div class="b-text b-text_5em b-text_blue b-text_900 b-text_lh-1em">2</div>
 
-                        <div class="grid-item b-text b-text_2em b-text_400 fmob3">
+                        <div class="b-text b-text_2em b-text_400 my-auto fmob3">
                             Нет денег для вложений в товар
-                        </div>
-                        <div
-                            class="grid-item b-text b-text_fit b-text_2em b-text_700 b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
-                            ПРАЙС ЛИСТ
                         </div>
                     </div>
                     <i class="arrow-icon v1">
@@ -297,143 +313,159 @@
                                 fill="#0d6efd"></path>
                         </svg>
                     </i>
-                    <div class="b-text b-text_1.3em b-text_400 fmob1 mb-1">
+                    <div class="b-text b-text_1.3em b-text_400 tcmob fmob1 mb-1r">
                         Вкладывать деньги в товар — не нужно!
                         Благодаря большому количеству портнеров в «КЛУБ START» у нас есть возможность приобретать самые
                         востребованные кроссовки.
                     </div>
+                    <div
+                        class="b-text b-text_fit b-text_2.5em b-text_700 b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
+                        ПРАЙС ЛИСТ
+                    </div>
+
                 </div>
 
                 <div class="flex v">
                     <div wire:ignore class="slider_v1">
                         <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
 
                         <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
-                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                            loading="lazy">
+                            class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
+                            alt="sn1" loading="lazy">
                     </div>
 
                 </div>
             </div>
         </div>
+        <div class="bg_noise"></div>
+
     </section>
 
-    <section class="b-section b-section_v2 background_vlines">
+    <section class="b-section b-section_v2">
         <div class="container container_v2 mob">
 
 
             <div class="flex v my-6">
-                <div class="flex v gap mb-3">
 
-                    <div class="flex h gap align">
-                        <div class="b-text b-text_5em b-text_900 b-text_lh-1em b-text_fith">3</div>
-                        <div class="b-text b-text_2em b-text_400 fmob3">
+                <div class="flex w70 wmob mb-2r">
+                    <div class="slight-bg grid grid_v2">
+                        <div class="grid-item b-text b-text_5em b-text_blue b-text_900 b-text_lh-1em">3</div>
+
+                        <div class="grid-item b-text b-text_2em b-text_400 fmob3">
                             Не знаешь какой бизнес открыть, чтобы заработать в первые 3 дня
                         </div>
-                    </div>
 
-
-                    <div class="b-text b-text_grey b-text_1.3em b-text_400 fmob1 mb-1">
-                        Бизнес на кроссах окупается с первой же продажи!
+                        <div class="grid-item b-text b-text_grey b-text_1.3em b-text_400 fmob1">
+                            Бизнес на кроссах окупается с первой же продажи!
+                        </div>
                     </div>
                 </div>
 
                 <div class="flex h gap_2 mob">
-                    <img src="{{ URL::asset('images/min-png/money-sticker.png') }}" class="b-img b-img_v4 v4_0"
-                        alt="thumb-up" loading="lazy">
-                    <div class="flex w50 v gap card mob">
-                        <div class="slidecontainer">
-                            <div class="flex h space-btw gap mob mb-2">
-                                <div class="b-text b-text_1.3em">Кол-во подписчиков в вашем магазине</div>
-                                <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 w" id="subs-value"></div>
+                    <img id="banknote" src="{{ URL::asset('images/min-png/money-sticker.png') }}"
+                        class="b-img b-img_v4 v4_0" alt="banknote" loading="lazy">
+
+                    <div class="flex h gap_2 slight-bg mob">
+
+
+                        <div class="flex w50 v gap mob">
+                            <div class="slidecontainer">
+                                <div class="flex h space-btw gap mob mb-2r">
+                                    <div class="b-text b-text_1.3em">Кол-во подписчиков в вашем магазине</div>
+                                    <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 b-text_fith w"
+                                        id="subs-value"></div>
+                                </div>
+                                <input type="range" min="1" max="500" value="100" class="slider"
+                                    id="subs">
                             </div>
-                            <input type="range" min="1" max="100" value="50" class="slider"
-                                id="subs">
-                        </div>
 
-                        <div class="slidecontainer">
-                            <div class="flex h space-btw gap mob mb-2">
-                                <div class="b-text b-text_1.3em">Накрутка на пару</div>
-                                <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 w" id="add-price-value"></div>
+                            <div class="slidecontainer">
+                                <div class="flex h space-btw gap mob mb-2r">
+                                    <div class="b-text b-text_1.3em">Накрутка на пару</div>
+                                    <div class="b-text b-text_1.3em b-text_nowrap b-text_v4 b-text_fith w"
+                                        id="add-price-value">
+                                    </div>
+                                </div>
+                                <input type="range" min="1000" max="5000" value="1000" class="slider"
+                                    id="add-price">
                             </div>
-                            <input type="range" min="2000" max="5000" value="2500" class="slider"
-                                id="add-price">
-                        </div>
-                    </div>
-
-
-                    <div class="flex w50 v gap_2 mob">
-                        <div class="b-text b-text_1.3em">Вы заработаете в месяц со своего магазина</div>
-
-                        <div class="flex v gap card">
-                            <div class="b-text b-text_1.3em">От: <span id="min-result"></div>
-                            <div class="b-text b-text_1.3em">До: <span id="max-result"></div>
                         </div>
 
-                        <div class="b-text b-text_grey b-text_1.3em">Расчет происходит через перемножения кол-ва
-                            подписчиков и накрутки на товар.</div>
+                        <div class="flex w50 v gap_2 mob">
+                            <div class="flex v gap">
+                                <div class="b-text b-text_1.3em b-text_400">Вы заработаете в месяц со своего магазина
+                                </div>
+                                <div class="b-text b-text_1.3em">От: <span id="min-result"></div>
+                                <div class="b-text b-text_1.3em">До: <span id="max-result"></div>
+                                <div class="b-text b-text_grey-dark">
+                                    Расчеты основаны на средней (от 0,5% до 3%) конверсии аудитории в платных
+                                    подписчиков.
+                                    Конверсия зависит от продукта и покупательной способности аудитории.
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -444,50 +476,72 @@
                 var addPriceSlider = document.getElementById("add-price");
                 var addValue = document.getElementById("add-price-value");
                 var subsValue = document.getElementById("subs-value");
+                var banknote = document.getElementById("banknote");
 
                 var minResult = document.getElementById("min-result");
                 var maxResult = document.getElementById("max-result");
 
-                subsValue.innerHTML = subsSlider.value + '  человек';
+                subsValue.innerHTML = subsSlider.value + '  человек';
                 addValue.innerHTML = (addPriceSlider.value).toLocaleString('ru-RU') + ' рублей';
 
-                minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString('ru-RU') +
+                minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value)).toLocaleString(
+                        'ru-RU') +
                     ' рублей';
-                maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString('ru-RU') +
+                maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
+                        'ru-RU') +
                     ' рублей';
-
 
                 addPriceSlider.oninput = function() {
                     addValue.innerHTML = (this.value).toLocaleString('ru-RU') + ' рублей';
-                    minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString(
+                    minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value))
+                        .toLocaleString(
+                            'ru-RU') + ' рублей';
+                    maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
                         'ru-RU') + ' рублей';
-                    maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString(
-                        'ru-RU') + ' рублей';
+                    banknote.style.opacity = 0.7;
                 };
 
                 subsSlider.oninput = function() {
                     subsValue.innerHTML = this.value + " человек";
-                    minResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.value)).toLocaleString(
+                    minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value))
+                        .toLocaleString(
+                            'ru-RU') + ' рублей';
+                    maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
                         'ru-RU') + ' рублей';
-                    maxResult.textContent = (parseInt(subsSlider.value) * parseInt(addPriceSlider.max)).toLocaleString(
-                        'ru-RU') + ' рублей';
+                    banknote.style.opacity = 0.7;
+                };
+
+                addPriceSlider.onchange = function() {
+                    banknote.style.opacity = 0.2;
+                };
+
+                subsSlider.onchange = function() {
+                    banknote.style.opacity = 0.2;
                 };
             </script>
 
+
         </div>
-        <div class="fade-in top"></div>
+        <div class="bg_noise"></div>
         <div class="fade-in"></div>
+
     </section>
 
 
-    <section class="b-section b-section_standard">
+    <section class="b-section pt-6">
         <div class="container container_v2 mob">
 
             <div class="flex v">
 
-                <div
-                    class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_blue-marker b-text_blue-marker_v4 mb-6">
-                    СОЗДАЕМ ТРЭНД В ЭТОЙ НИШЕ
+                <div class="h-text">
+                    <div
+                        class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v4 mb-1r">
+                        СОЗДАЕМ ТРЭНД В ЭТОЙ НИШЕ
+                    </div>
+                </div>
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
+                    Наша цель — чтобы каждый получил выгоду от продукта и эффективно продавал его.<br>
+                    По этому мы на шаг впереди и у нас есть:
                 </div>
 
                 <div class="flex v gap_2">
@@ -605,172 +659,226 @@
     </section>
 
 
-    <section class="b-section b-section_standard">
+    <section class="b-section b-section_hidden pt-6">
         <div class="container container_v2 mob">
 
             <div class="flex v">
 
                 <div class="h-text">
                     <div
-                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1">
-                        Фотосессии и бекстейджи
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1rr">
+                        КОНТЕНТ ДЛЯ ВАШЕГО МАГАЗИНА
                     </div>
                 </div>
-
-                <div wire:ignore class="slider_v1">
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
+                    Мы устраиваем фотосессии с популярными кроссовками,
+                    <br>
+                    чтобы показать, как они выглядят на ногах
                 </div>
+
+                <div class="flex h space-btw">
+                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
+                        type="image/jpeg" alt="sn1" loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}" class="b-img  b-img_v20"
+                        type="image/jpeg" alt="sn1" loading="lazy">
+
+                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_3.jpeg') }}" class="b-img  b-img_v20"
+                        type="image/jpeg" alt="sn1" loading="lazy">
+                </div>
+
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 my-3">
+                    🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки «за
+                    кадром» и публикуем файлы в КЛУБ START.
+                </div>
+
+                <div class="flex h space-btw">
+                    <video class="b-img b-img_v20" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/1.jpeg') }}">
+                        <source src="{{ URL::asset('videos/behind-the-scene-portview/1.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-img b-img_v20" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/2.jpeg') }}">
+                        <source src="{{ URL::asset('videos/behind-the-scene-portview/2.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-img b-img_v20" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/3.jpeg') }}">
+                        <source src="{{ URL::asset('videos/behind-the-scene-portview/3.mp4') }}" type="video/mp4">
+                    </video>
+
+                </div>
+
+                <div class="animated-block flex h gap_2 opacity-0 blur-025 absolute -z-10">
+                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_1.mp4') }}"
+                        autoplay muted loop>
+                    </video>
+                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_2.mp4') }}"
+                        autoplay muted loop>
+                    </video>
+                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_3.mp4') }}"
+                        autoplay muted loop>
+                    </video>
+                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_4.mp4') }}"
+                        autoplay muted loop>
+                    </video>
+                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_5.mp4') }}"
+                        autoplay muted loop>
+                    </video>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const animatedBlock = document.querySelector('.animated-block');
+
+                        function updateBlockVisibility() {
+                            const rect = animatedBlock.getBoundingClientRect();
+                            const windowHeight = window.innerHeight;
+
+                            // Calculate the proportion of the element that is visible
+                            const visibleRatio = Math.max(0, Math.min(1, (windowHeight - rect.top) / (rect.height +
+                                windowHeight)));
+
+                            // Set the opacity based on the visible ratio (from 0 to 0.25)
+                            animatedBlock.style.opacity = Math.min(0.5, visibleRatio * 0.75);
+
+                            // Move the element from right to left based on its visibility
+                            const translateX = 100 * (0.25 - visibleRatio); // Move from 100% to 0%
+                            animatedBlock.style.transform = `translateX(${translateX}%)`;
+                        }
+
+                        // Update visibility on scroll and resize
+                        window.addEventListener('scroll', updateBlockVisibility);
+                        window.addEventListener('resize', updateBlockVisibility);
+
+                        // Initial check
+                        updateBlockVisibility();
+                    });
+                </script>
+
             </div>
         </div>
 
     </section>
 
-    <section class="b-section b-section_standard">
+    <section class="b-section pt-6">
         <div class="container container_v2 mob">
 
             <div class="flex v">
 
                 <div class="h-text">
                     <div
-                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1">
-                        ОТЗЫВЫ КРОССОВОК
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-3r">
+                        УНИВЕРСАЛЬНЫЙ ТАРИФ,
+                        <br>
+                        В КОТОРЫЙ ВСЕ ВКЛЮЧЕНО
                     </div>
                 </div>
 
-                <div wire:ignore class="slider_v1">
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                <div class="card flex align w50 mob m-auto">
+                    <div class="flex fit gap v">
+                        <div class="flex gap h align">
+                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                            <div class="b-text b-text_1.3em b-text_400">Кроссовки по себестоимости</div>
+                        </div>
+                        <div class="flex gap h align">
+                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                            <div class="b-text b-text_1.3em b-text_400">Обратная связь по всем вопросам</div>
+                        </div>
+                        <div class="flex gap h align">
+                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                            <div class="b-text b-text_1.3em b-text_400">Закрытое сообщество в Телеграм</div>
+                        </div>
+                        <div class="flex gap h align">
+                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                            <div class="b-text b-text_1.3em b-text_400">Конференции и лекции по продажам кроссовок
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex v">
+                        <div class="b-text b-text_1.3em b-text_center mb-1r">
+                            Едижемесечная подписка на<br>"КЛУБ START"
+                        </div>
+                        <div class="b-text b-text_4em b-text_700 b-text_center mb-2r">6 000 ₽</div>
+                        <a class="go-button v2 mb-1r" href="{{ route('register') }}">ГОТОВ НАЧАТЬ</a>
+                        <div class="b-text b-text_grey b-text_center">При оплате вы принимаете условия
+                            <a href="{{ route('documents') }}">договора оферты</a>
+                        </div>
+                    </div>
+                </div>
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/3.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+            </div>
+        </div>
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/4.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+    </section>
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/5.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+    <section class="b-section pt-6">
+        <div class="container container_v2 mob">
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/6.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+            <div class="flex v">
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/7.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                <div class="h-text">
+                    <div
+                        class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v1 mb-1r">
+                        ПРОДАЛИ ~107 ТЫСЯЧ
+                        <br>
+                        ПАР КРОССОВОК
+                    </div>
+                </div>
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
+                    И вот что говорят клиенты о нашем товаре
+                </div>
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/8.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/9.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                <div wire:ignore class="slider_v5">
 
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/10.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/11.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/12.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/13.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/14.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/15.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/16.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/17.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/price-list/1.JPG') }}"
-                        class="b-img b-img_v5 cursor_grab __slide-block mx-2.5" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_1.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_1.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_2.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_2.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_3.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_3.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_4.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_4.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_5.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_5.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_6.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_6.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_7.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_7.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_8.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_8.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_9.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_9.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_10.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_10.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_11.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_11.mp4') }}" type="video/mp4">
+                    </video>
+                    <video class="b-video b-video_v2 __slide-block mr-1" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_12.jpeg') }}">
+                        <source src="{{ URL::asset('videos/feedbacks/feedback_12.mp4') }}" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
@@ -779,17 +887,17 @@
 
 
 
-    <section class="b-section b-section_v3">
+    <section class="b-section b-section_v3 b-section_visible pt-6">
         <x-svg class="b-img b-img_v7" svg="NikePair" />
         <div class="container container_v2 mob">
 
             <div class="h-text">
                 <div
-                    class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v1 mb-1">
+                    class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v1 mb-1r">
                     КАК РАБОТАЕТ «КЛУБ СТАРТ»
                 </div>
             </div>
-            <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3">
+            <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
                 Всего 3 шага и ты владелец своего личного
                 <br>
                 интернет-магазина кроссовок.
@@ -977,9 +1085,7 @@
 
     </section>
 
-
-
-    <section class="b-section b-section_v5 b-section_visible_overflow b-section_doted">
+    <section class="b-section b-section_doted b-section_v5 b-section_visible">
         <div class="container container_v2 mob">
 
             <div class="h-text">
@@ -1043,7 +1149,7 @@
                                     Для того чтобы в полной мере ответвить на этот вопрос, я записал отдельное
                                     пояснения👇
                                 </div>
-                                <audio controls autoplay>
+                                <audio controls preload="none" autoplay="false">
                                     <source src="{{ URL::asset('/audio/audio-are-genuine-sneakers.ogg') }}"
                                         type="audio/ogg">
                                     Ваш браузер не поддерживает аудио элементы.
@@ -1179,14 +1285,14 @@
                     </div>
                 </div>
             </div>
+            <div class="abs_blur_effect_custom"></div>
+            <div class="abs_blur_effect_custom green"></div>
         </div>
-        <div class="abs_blur_effect_custom"></div>
-        <div class="abs_blur_effect_custom green"></div>
-        <div class="fade-in top"></div>
+
         <div class="fade-in"></div>
     </section>
 
-    <section class="b-section b-section_standard">
+    <section class="b-section b-section_visible">
         <div class="container container_v2 mob">
 
             <div class="flex v">
@@ -1194,34 +1300,139 @@
                     class="b-img b-img_v17">
 
                 <div
-                    class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_blue-marker b-text_blue-marker_v5 mb-6">
-                    Об авторе клуба
+                    class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto b-text_blue-marker b-text_blue-marker_v5 mb-6r">
+                    С ТОБОЙ ДЕЛИТСЯ ЗНАНИЯМИ
                 </div>
 
-                <div wire:ignore class="slider_v1">
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/1.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+                <div class="flex h gap_2 mob">
+                    <div class="flex v w20 mob gap_2">
+                        <div class="flex v">
+                            <div wire:ignore class="slider_v6">
 
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/2.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
 
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/3.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
 
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/4.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
 
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/5.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
 
-                    <img src="{{ URL::asset('images/min-jpeg/author-img/6.jpg') }}"
-                        class="b-img b-img_v16 cursor_grab __slide-block" type="image/jpeg" alt="sn1"
-                        loading="lazy">
+
+
+                                <div class="flex v">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/2.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                </div>
+
+
+                                <div class="flex v">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/1.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                </div>
+                                <div class="flex v">
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/3.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+                                </div>
+                                <div class="flex v">
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/4.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+                                </div>
+                                <div class="flex v">
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/5.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+                                </div>
+
+                                <div class="flex v">
+                                    <img src="{{ URL::asset('images/min-jpeg/author-img/6.jpg') }}"
+                                        class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
+                                        alt="sn1" loading="lazy">
+                                    <div
+                                        class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                        Даниил<br>
+                                        Шкитов
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="absolute bottom-0 left-0 flex blured_v1 mb-1r ml-2">
+                            
+                            </div> --}}
+                            {{-- <div
+                                class="absolute bottom-0 left-0 b-text w b-text_2.5em b-text_600 b-text_shadow4 b-text_uppercase ml-1">
+                                Даниил<br>
+                                Шкитов
+                            </div> --}}
+                        </div>
+
+                        <div class="flex fit gap-2 h mt-2 m-auto">
+                            <div class="flex gap_05 h align">
+                                <img src="{{ URL::asset('images/svg/img-case/instagram.svg') }}" class="b-img"
+                                    alt="instagram" loading="lazy">
+                                <a href="https://www.instagram.com/daniilshkit">daniilshkit</a>
+                            </div>
+                            <div class="flex gap_05 h align">
+                                <x-svg class="b-img b-img_v1" svg="Telegram" />
+                                <a href="https://t.me/daniilshkitov">daniilshkitov</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="flex v w70 mob">
+                        <div class="b-text b-text_1.5em mb-2r">
+                            Создатель клуба, поставщик и ведущий YoyTube-канала
+                            <span class="inline-block mt-1">
+                                <img src="{{ URL::asset('images/yt-logo.jpg') }}" alt="yt-logo"
+                                    class="b-img b-img_v21">
+                            </span>
+                        </div>
+
+                        <div class="flex v mb-2r">
+                            <div class="b-text b-text_1.5em b-text_500">
+                                <span class="b-text b-text_2em b-text_700">470</span> выпускников
+                            </div>
+                            {{-- <div class="b-text b-text_1.5em b-text_500">
+                                <span class="b-text b-text_2em b-text_700">119</span> выпусков
+                            </div> --}}
+                            <div class="b-text b-text_1.5em b-text_500">
+                                <span class="b-text b-text_2em b-text_700">295.000</span> подписчиков
+                            </div>
+                            {{-- <div class="b-text b-text_1.5em b-text_500">
+                                <span class="b-text b-text_2em b-text_700">60.000.000</span> просмотров
+                            </div> --}}
+                        </div>
+
+                        <div class="b-text b-text_1.5em">
+                            Даниил лично делится всей информацией в клубе в виде текстов, аудио и видео контента.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1239,7 +1450,6 @@
             </video>
         </div>
     </div>
-
 
     <x-footer />
 
@@ -1263,7 +1473,7 @@
         <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         {{-- Three.js Library --}}
         <script type="module" src="{{ URL::asset('javascript/3D/NikeAirMag.js') }}"></script>
-        <script type="module" src="{{ URL::asset('javascript/3D/Globe.js') }}"></script>
+        {{-- <script type="module" src="{{ URL::asset('javascript/3D/Globe.js') }}"></script> --}}
         {{-- Different Scene --}}
         <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script>
         {{-- Slick-slider --}}

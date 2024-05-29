@@ -122,7 +122,7 @@ body.lightMode .b-section.b-section_v3 {
 
 
 body.lightMode .b-section {
-    background-color: #f6f7f8;
+    background-color: #FFFFFF;
 }
 
 body.lightMode .b-section.b-section_v5 {
@@ -130,6 +130,10 @@ body.lightMode .b-section.b-section_v5 {
 }
 
 body.lightMode .card {
+    background-color: #f6f7f8;
+}
+
+body.lightMode .slight-bg {
     background-color: #f6f7f8;
 }
 
@@ -175,6 +179,14 @@ body.lightMode .b-section_crosses {
     background-color: #f9f9f9;
 }
 
+ul.slick-dots li button {
+    opacity: 0;
+    visibility: hidden;
+}
+
+ul.slick-dots li {
+  cursor: pointer;
+}
 
 body.lightMode .b-img.b-img_v9 {
     filter: invert(0);
