@@ -84,8 +84,12 @@ body.lightMode .hook {
     background-size: calc(128px/4.667) 128px, 128px calc(128px/4.667) !important;
 }
 
-body.lightMode .b-text.b-text_blue-marker::before {
-    background-color: #88b8ff;
+body.lightMode .blue-marker::before {
+    background-color: #6fa9ff;
+}
+
+body.lightMode .b-img.b-img_v21 {
+    filter: invert(0) !important;
 }
 
 body.lightMode h1 {
@@ -134,7 +138,7 @@ body.lightMode .card {
 }
 
 body.lightMode .slight-bg {
-    background-color: #f6f7f8;
+    background-color: #e8e8e869;
 }
 
 body.lightMode .side-container {

@@ -13,7 +13,10 @@
 
 .accordion button {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     text-align: left;
     width: 100%;
     color: #fff;
@@ -38,12 +41,11 @@
 
 .accordion button .icon {
     display: inline-block;
-    position: absolute;
-    transform: translate(0, -50%);
-    top: 50%;
-    right: 0;
+    position: relative;
     width: 2em;
+    min-width: 2em;
     height: 2em;
+    min-height: 2em;
     border: 1px solid;
     border-radius: 50%;
     transition-duration: 10ms;
