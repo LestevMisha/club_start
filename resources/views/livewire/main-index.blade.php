@@ -213,7 +213,7 @@
                     </div>
                 </div>
 
-                <div wire:ignore class="flex space-btw h mob gap_2 slider_v3">
+                <div wire:ignore class="flex space-btw h mob gap_2 slider_v3 video-slider">
                     <div class="flex v mobalign w100 mob">
                         <div class="flex v hmin6 mb-1r __text-block">
                             <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
@@ -285,7 +285,7 @@
 
     </section>
 
-    <section class="b-section b-section_v2 b-section_hidden pt-6">
+    <section class="b-section b-section_v2 b-section_hidden pt-12">
 
         <img src="{{ URL::asset('images/dan-6.png') }}" class="b-img b-img_v19" type="image/jpeg" alt="sn1"
             loading="lazy" id="responsive-img">
@@ -348,7 +348,7 @@
                         </div>
                     </div> --}}
 
-                    <div wire:ignore class="slider_v1">
+                    <div wire:ignore class="slider_v1 video-slider">
                         <img src="{{ URL::asset('images/min-jpeg/price-list/2.JPG') }}"
                             class="b-img b-img_v5 cursor_grab __slide-block mx-2.5 mx-2.5_mob" type="image/jpeg"
                             alt="sn1" loading="lazy">
@@ -555,7 +555,10 @@
 
 
     <section class="b-section pt-6">
-        <div class="container container_v2 mob">
+
+        <div id="cursor_follow_box" class="container container_v2 mob">
+            <img id="cursor_follow" class="b-img b-img_v27"
+                src="{{ URL::asset('images/min-webp/location-iso-gradient.webp') }}" alt="pointer">
 
             <div class="flex v">
 
@@ -563,95 +566,206 @@
                     <div
                         class="b-text b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v4 mb-1r">
                         СОЗДАЕМ
-                        <span class="relative nowrap blue-marker">ТРЭНД</span>
+                        <span class="relative nowrap blue-marker trand">ТРЭНД</span>
                         В ЭТОЙ НИШЕ
                     </div>
                 </div>
-                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-6r">
                     Наша цель — чтобы каждый получил выгоду от продукта и эффективно продавал его.<br>
                     По этому мы на шаг впереди и у нас есть:
                 </div>
 
                 <div class="flex v gap_2">
+
+                    <svg class="b-img b-img_v24" width="453" height="283" viewBox="0 0 453 283" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_1_36" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                            width="453" height="283">
+                            <path
+                                d="M98.5 124.873C186.5 62.3725 189 124.873 260 124.873C331 124.873 410.5 -0.499997 434 0.872539C457.5 2.24507 460 26.2451 434 50.3725C408 74.5 324 147.373 264 152.873C204 158.373 173.859 114.824 133 140.5C92.1414 166.176 72.5 247.5 57 266.873C41.5 286.245 14.9999 288.745 3.49997 266.873C-7.99999 245 10.5 187.373 98.5 124.873Z"
+                                fill="#FF0000" />
+                        </mask>
+                        <g mask="url(#mask0_1_36)">
+                            <g filter="url(#filter0_f_1_36)">
+                                <path d="M161.5 59L234.679 161.75H88.3209L161.5 59Z" fill="#1CFFA0" />
+                                <circle cx="261" cy="128" r="85" fill="#0047FF" />
+                                <rect x="359" y="-22" width="94" height="164" fill="#00FF1A" />
+                                <ellipse cx="358.5" cy="97.5" rx="24.5" ry="29.5"
+                                    fill="#23BDFF" />
+                                <rect x="-9" y="77" width="139" height="302" fill="#773FEF" />
+                            </g>
+                        </g>
+                        <defs>
+                            <filter id="filter0_f_1_36" x="-73" y="-86" width="590" height="529"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix"
+                                    result="shape" />
+                                <feGaussianBlur stdDeviation="32" result="effect1_foregroundBlur_1_36" />
+                            </filter>
+                        </defs>
+                    </svg>
+
+
                     <div class="flex h gap_2 mob">
 
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">1. Google таблица</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Удобная таблица с актуальными размерами кроссовок
-                                на складе
-                            </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/1-table.jpg') }}" alt="account"
-                                class="b-img b-img_full b-img_bordered b-img_v22">
-                        </div>
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">2. Сотня полезных материалов</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Отдел поддержки для заказов и вопросов участников
-                                клуба
-                            </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/2-account.jpg') }}"
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/1-items-table.jpg') }}"
                                 alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
-                        </div>
 
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">3. Современный формат</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Видео уроки от нашего таргетолога с инфой как и где
-                                закупать рекламу
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">1. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Удобная таблица с актуальными размерами кроссовок
+                                    на складе
+                                </div>
                             </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lesson.jpg') }}"
-                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
                         </div>
 
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/2-account-screen.jpg') }}"
+                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">2. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Отдел поддержки для заказов и вопросов участников
+                                    клуба
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex h gap_2 mob">
+
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lessons.jpg') }}"
+                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">3. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Видео уроки от нашего таргетолога с инфой как и где закупать рекламу
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex v h20rem hmobauto gap w50 wmob">
+                            <div class="flex v gap w65 wmob">
+                                <div class="b-text b-text_1.5em">4. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Мы заключили официальный договор со СДЭК. Как юридическое лицо, отправка товаров нам
+                                    обходится вдвое дешевле, чем частным лицам
+                                </div>
+                            </div>
+                            <div class="flex img_flex_overflow_preventor h gap_2">
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-SDEK/header.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered b-img_v22 v22.1">
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-SDEK/body.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered b-img_v22 v22.1">
+                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-SDEK/footer.jpg') }}"
+                                    alt="account" class="b-img b-img_full b-img_bordered b-img_v22 v22.1">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex h gap_2 mob">
+
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/5-track-code.jpg') }}"
+                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">5. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    После отправки вашего заказа, мы делаем фото и
+                                    пересылаем вам трек-номер, для отслеживания доставки
+                                    клуба
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/6-referral-link.jpg') }}"
+                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">6. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    🔗 У вас будет собственная реферальная ссылка для
+                                    продажи "КЛУБА START" За каждого привлеченного, вы получаете 50% от его участия
+                                    закупать рекламу
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
                     <div class="flex h gap_2 mob">
 
-                        <div class="flex v gap w30 mob">
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-products.jpg') }}"
+                                alt="cloth-3" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">7. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    🔥 Мы расширяем ассортимент не только кроссовками, но и брендовой одеждой и
+                                    аксессуарами, для доп продаж
+                                    клуба
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/8-google-sheet.jpg') }}"
+                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
+                            <div class="flex v gap w65">
+                                <div class="b-text b-text_1.5em">8. Заголовок</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Каждый участник клуба получает индивидуальную таблицу для удобного отслеживания
+                                    продаж.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    {{-- <div class="flex h gap w50 wmob">
+                        <div class="slider_v4 flex fit w35">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-1-docs.jpg') }}"
+                                alt="docs-1" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-2-docs.jpg') }}"
+                                alt="docs-2" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-3-docs.jpg') }}"
+                                alt="docs-3" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
+                        </div>
+                        <div class="flex v gap w65">
                             <div class="b-text b-text_1.5em">4. Google таблица</div>
                             <div class="b-text b-text_grey b_text-1.3em b-text_400">
                                 Мы заключили официальный договор со СДЭК. Как
                                 юридическое лицо, отправка товаров нам обходится вдвое дешевле, чем частным лицам
                             </div>
-                            <div class="slider_v4">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-1-docs.jpg') }}"
-                                    alt="docs-1" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-2-docs.jpg') }}"
-                                    alt="docs-2" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-3-docs.jpg') }}"
-                                    alt="docs-3" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                            </div>
                         </div>
+                    </div> --}}
 
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">5. Сотня полезных материалов</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                После отправки вашего заказа, мы делаем фото и
-                                пересылаем вам трек-номер, для отслеживания доставки
-                                клуба
-                            </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/5-track-code.jpg') }}"
+                    {{-- <div class="flex h gap_2 mob">
+
+                        <div class="flex h gap w50 wmob">
+                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lesson.jpg') }}"
                                 alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
-                        </div>
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">6. Современный формат</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                🔗 У вас будет собственная реферальная ссылка для
-                                продажи "КЛУБА START" За каждого привлеченного, вы получаете 50% от его участия
-                                закупать рекламу
+                            <div class="flex v gap fit">
+                                <div class="b-text b-text_1.5em">3. Современный формат</div>
+                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
+                                    Видео уроки от нашего таргетолога с инфой как и где
+                                    закупать рекламу
+                                </div>
                             </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/6-referral-link.jpg') }}"
-                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
                         </div>
 
-                    </div>
+                    </div> --}}
 
-                    <div class="flex h gap_2 mob">
+                    {{-- <div class="flex h gap_2 mob">
 
                         <div class="flex v gap w30 mob">
                             <div class="b-text b-text_1.5em">7. Google таблица</div>
@@ -690,7 +804,7 @@
                                 alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
                         </div>
 
-                    </div>
+                    </div> --}}
                     {{-- <div class="flex h gap space-btw mob">
 
 
@@ -823,8 +937,15 @@
                 </div>
 
                 <div class="flex h space-btw">
-                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
-                        type="image/jpeg" alt="sn1" loading="lazy">
+                    {{-- <div class="flex v h100"> --}}
+                        <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
+                            type="image/jpeg" alt="sn1" loading="lazy">
+                        {{-- <video class="b-img b-img_v26" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/1.jpeg') }}">
+                            <source src="{{ URL::asset('videos/behind-the-scene-portview/1.mp4') }}"
+                                type="video/mp4">
+                        </video> --}}
+                    {{-- </div> --}}
 
                     <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}" class="b-img  b-img_v20"
                         type="image/jpeg" alt="sn1" loading="lazy">
@@ -907,50 +1028,67 @@
     </section>
 
     <section class="b-section pt-6">
-        <div class="container container_v2 mob">
+        <div id="gradient-effect_bf1" class="container container_v2 mob">
+
+            <div class="vignette"></div>
+
+            <div class="grad-block">
+                <div id="follow-gradient" class="follow-gradient">
+                    <div class="grad-text"></div>
+                </div>
+            </div>
 
             <div class="flex v">
 
                 <div class="h-text">
                     <div
                         class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-3r">
-                        УНИВЕРСАЛЬНЫЙ ТАРИФ,
-                        <br>
-                        В КОТОРЫЙ
+                        УНИВЕРСАЛЬНЫЙ ТАРИФ, В КОТОРЫЙ
                         <span class="relative nowrap blue-marker">ВСЕ ВКЛЮЧЕНО</span>
                     </div>
                 </div>
 
-                <div class="card flex align w40 mob m-auto">
-                    <div class="flex fit gap v mb-2r">
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_400">Кроссовки по себестоимости</div>
+                <div class="flex fit w40 m-auto mob">
+                    <svg class="b-img b-img_v25" width="421" height="399" viewBox="0 0 421 399" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M210.5 0C210.5 0 229.409 121.766 260.005 152.362C290.601 182.958 420.208 152.362 420.208 152.362C420.208 152.362 290.601 188.329 290.601 246.526C290.601 304.724 340.107 398.888 340.107 398.888C340.107 398.888 260.005 304.724 210.5 304.724C160.995 304.724 80.8934 398.888 80.8934 398.888C80.8934 398.888 130.399 304.724 130.399 246.526C130.399 188.329 0.792038 152.362 0.792038 152.362C0.792038 152.362 130.399 182.958 160.995 152.362C191.591 121.766 210.5 0 210.5 0Z"
+                            fill="#0dfd56" />
+                    </svg>
+                    <div class="card flex align">
+
+                        <div class="flex fit gap v mb-2r">
+                            <div class="flex gap h align">
+                                <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                                <div class="b-text b-text_1.3em b-text_400">Кроссовки по себестоимости</div>
+                            </div>
+                            <div class="flex gap h align">
+                                <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                                <div class="b-text b-text_1.3em b-text_400">Обратная связь по всем вопросам</div>
+                            </div>
+                            <div class="flex gap h align">
+                                <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                                <div class="b-text b-text_1.3em b-text_400">Закрытое сообщество в Телеграм</div>
+                            </div>
+                            <div class="flex gap h align">
+                                <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                                <div class="b-text b-text_1.3em b-text_400">Конференции и лекции по продажам кроссовок
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_400">Обратная связь по всем вопросам</div>
-                        </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_400">Закрытое сообщество в Телеграм</div>
-                        </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_400">Конференции и лекции по продажам кроссовок
+                        <div class="flex v">
+                            <div class="b-text b-text_1.3em b-text_center mb-1r">
+                                Едижемесечная подписка на<br>"КЛУБ START"
+                            </div>
+                            <div class="b-text b-text_4em b-text_700 b-text_center mb-2r">6 000 ₽</div>
+                            <a class="go-button v2 mb-1r" href="{{ route('register') }}">ГОТОВ НАЧАТЬ</a>
+                            <div class="b-text b-text_grey b-text_center b-text_08">При оплате вы принимаете
+                                условия<br>
+                                <a href="{{ route('documents') }}">договора оферты</a>
                             </div>
                         </div>
                     </div>
-                    <div class="flex v">
-                        <div class="b-text b-text_1.3em b-text_center mb-1r">
-                            Едижемесечная подписка на<br>"КЛУБ START"
-                        </div>
-                        <div class="b-text b-text_4em b-text_700 b-text_center mb-2r">6 000 ₽</div>
-                        <a class="go-button v2 mb-1r" href="{{ route('register') }}">ГОТОВ НАЧАТЬ</a>
-                        <div class="b-text b-text_grey b-text_center b-text_08">При оплате вы принимаете условия<br>
-                            <a href="{{ route('documents') }}">договора оферты</a>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
@@ -976,56 +1114,81 @@
                 </div>
 
 
-                <div wire:ignore class="slider_v5">
+                <div wire:ignore class="slider_v5 video-slider">
 
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_1.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_1.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_2.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_2.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_3.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_3.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_4.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_4.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_5.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_5.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_6.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_6.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_7.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_7.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_8.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_8.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_9.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_9.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_10.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_10.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_11.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_11.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-video b-video_v2 __slide-block mx-1" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_12.jpeg') }}">
-                        <source src="{{ URL::asset('videos/feedbacks/feedback_12.mp4') }}" type="video/mp4">
-                    </video>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_1.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_1.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_2.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_2.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_3.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_3.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_4.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_4.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_5.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_5.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_6.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_6.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_7.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_7.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_8.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_8.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_9.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_9.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_10.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_10.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_11.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_11.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex v w100 mx-1">
+                        <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                            poster="{{ URL::asset('images/min-jpeg/feedback-posters/feedback-poster_12.jpeg') }}">
+                            <source src="{{ URL::asset('videos/feedbacks/feedback_12.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1508,7 +1671,7 @@
                 {{-- <img src="{{ URL::asset('images/min-webp/star-sticker.webp') }}" alt="star-sticker"
                     class="b-img b-img_v17"> --}}
 
-                <div class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto mb-3r">
+                <div class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto mb-6r">
                     <span class="relative nowrap blue-marker">С ТОБОЙ</span>
                     ДЕЛИТСЯ ЗНАНИЯМИ
                 </div>
@@ -1527,7 +1690,7 @@
                                             class="b-img b-img_v16 cursor_grab __slide-block mx-1" type="image/jpeg"
                                             alt="sn1" loading="lazy">
                                         <div
-                                            class="absolute bottom-0 left-0 b-text b-text_v5 w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                            class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
                                             Даня<br>
                                             Шкитов
                                         </div>
@@ -1592,17 +1755,16 @@
                             </div>
                         </div>
 
-                        <div class="flex v w70 space-btw mob">
+                        <div class="flex v w50 wmob space-btw">
                             <div class="flex v gap mb-2r">
                                 <div class="b-text b-text_1.5em b-text_400">
-                                    Создатель клуба, поставщик и ведущий <br>
-                                    YouTube-канала
+                                    Создатель клуба, поставщик и ведущий YouTube-канала
                                     <span class="mt-1">
                                         <img src="{{ URL::asset('images/yt-logo.jpg') }}" alt="yt-logo"
                                             class="b-img b-img_v21">
                                     </span>
                                 </div>
-                                <div class="b-text b-text_grey b-text_1.3em b-text_400">
+                                <div class="b-text b-text_grey b-text_400">
                                     Даниил лично делится всей информацией в клубе в виде текстов, аудио и видео
                                     контента.
                                 </div>
@@ -1676,7 +1838,7 @@
         <script type="module" src="{{ URL::asset('javascript/3D/NikeAirMag.js') }}"></script>
         {{-- <script type="module" src="{{ URL::asset('javascript/3D/Globe.js') }}"></script> --}}
         {{-- Different Scene --}}
-        <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script>
+        {{-- <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script> --}}
         {{-- Slick-slider --}}
         <script src="{{ URL::asset('javascript/slick-slider.js') }}"></script>
         {{-- Accordion --}}

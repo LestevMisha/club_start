@@ -88,6 +88,14 @@ body.lightMode .blue-marker::before {
     background-color: #6fa9ff;
 }
 
+body.lightMode .vignette::before {
+    background: radial-gradient(rgba(0, 0, 0, 0) 40%, rgb(255 255 255) 60%);
+}
+
+body.lightMode .grad-block {
+    background-color: #FFFFFF;
+}
+
 body.lightMode .b-img.b-img_v21 {
     filter: invert(0) !important;
 }
@@ -112,6 +120,13 @@ body.lightMode .b-section.b-section_v1 {
     }
 }
 
+@media (max-width: 1250px) {
+    body.lightMode .vignette::before {
+        background: linear-gradient(180deg, #FFF 15%, transparent 25%);
+    }
+    
+}
+
 
 
 body.lightMode .b-section.b-section_v1 {
@@ -134,7 +149,8 @@ body.lightMode .b-section.b-section_v5 {
 }
 
 body.lightMode .card {
-    background-color: #f6f7f8;
+    background-color: #e8e8e84a;
+    /* background-color: #f6f7f8; */
 }
 
 body.lightMode .slight-bg {
