@@ -90,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         },]
     });
-    setArrowsCenter("slider_v5");
-
 
     $('.slider_v6').slick({
         dots: true,

@@ -16,11 +16,11 @@ class Kernel extends HttpKernel
     protected $middleware = [
 
         // Middleware to minify CSS
-        \Fahlisaputra\Minify\Middleware\MinifyCss::class,
+        // \Fahlisaputra\Minify\Middleware\MinifyCss::class,
         // Middleware to minify Javascript
-        \Fahlisaputra\Minify\Middleware\MinifyJavascript::class,
+        // \Fahlisaputra\Minify\Middleware\MinifyJavascript::class,
         // Middleware to minify Blade
-        \Fahlisaputra\Minify\Middleware\MinifyHtml::class,
+        // \Fahlisaputra\Minify\Middleware\MinifyHtml::class,
 
         // optimizations
         \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
@@ -30,7 +30,7 @@ class Kernel extends HttpKernel
         // //\RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class, 
         // //\RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
         // \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class, // Note: This middleware invokes "RemoveComments::class" before it runs.
-        \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
 
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,

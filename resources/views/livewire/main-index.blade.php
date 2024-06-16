@@ -556,9 +556,9 @@
 
     <section class="b-section pt-6">
 
-        <div id="cursor_follow_box" class="container container_v2 mob">
-            <img id="cursor_follow" class="b-img b-img_v27"
-                src="{{ URL::asset('images/min-webp/location-iso-gradient.webp') }}" alt="pointer">
+        <div class="container container_v2 mob">
+            {{-- <img id="cursor_follow" class="b-img b-img_v27"
+                src="{{ URL::asset('images/min-webp/location-iso-gradient.webp') }}" alt="pointer"> --}}
 
             <div class="flex v">
 
@@ -919,10 +919,222 @@
     </section>
 
 
-    <section class="b-section b-section_hidden pt-6">
+
+    <section class="b-section b-section_visible pt-6">
         <div class="container container_v2 mob">
 
-            <div class="flex v">
+
+
+            <div class="flex v w70 mx-auto wmob">
+                <div class="h-text">
+                    <div
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1r">
+                        КОНТЕНТ ДЛЯ ВАШЕГО МАГАЗИНА
+                    </div>
+                </div>
+
+                <div class="flex v gap_2">
+                    <div class="flex gap h align">
+                        <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                        <div class="b-text b-text_1.5em b-text_400 fmob1">
+                            Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
+                            ногах
+                        </div>
+                    </div>
+                    <div class="flex gap h align">
+                        <x-svg class="b-img b-img_v1" svg="CheckCircle" />
+                        <div class="b-text b-text_1.5em b-text_400 fmob1">
+                            🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки
+                            «за
+                            кадром» и публикуем файлы в КЛУБ START.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex h gap_4 mt-2 mb-1">
+                    <div class="block w50">
+                        <div class="b-text b-text_400">Обработанная фотка</div>
+                    </div>
+                    <div class="block w50">
+                        <div class="b-text b-text_400">Бэкстэйдж</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="swiper mySwiper flex h gap_2 w70 mx-auto wmob">
+                <div class="swiper-wrapper">
+
+                    <div class="cabs_2">
+                        <img class="b-img b-img_v28" src="{{ URL::asset('images/min-png/hand-thumb-up.png') }}"
+                            alt="hand-thumb-up">
+                        <svg class="b-img b-img_v29" width="250px" height="250px" viewBox="0 0 400 400"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g transform="translate(200,200)">
+                                <circle id="core" cx="0" cy="0" r="2em"></circle>
+                                <circle id="radar" cx="0" cy="0" r="2em"></circle>
+                            </g>
+                        </svg>
+                        <div class="b-text b-text_grey-dark cabs_3">Потяни</div>
+                        {{-- <div class="b-text b-text_grey-dark cabs_3">🤏 Потяни</div> --}}
+                    </div>
+
+
+                    <div class="swiper-slide">
+                        <div class="flex h gap_4">
+                            <div class="block w50">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                            </div>
+                            <div class="block w50">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene-portview/2.mp4') }}" autoplay muted
+                                    loop>
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex h gap_4">
+                            <div class="block w50">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                            </div>
+                            <div class="block w50">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene-portview/2.mp4') }}" autoplay muted
+                                    loop>
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex h gap_4">
+                            <div class="block w50">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                            </div>
+                            <div class="block w50">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene-portview/2.mp4') }}" autoplay muted
+                                    loop>
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            {{-- <div class="flex h gap_2">
+
+                <div class="block w50">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-1" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_3.jpeg') }}"
+                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-3" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block w50">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <img class="b-img b-img_v28" src="{{ URL::asset('images/min-png/hand-thumb-up.png') }}"
+                            alt="hand-thumb-up">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene/behind_1.mp4') }}" autoplay muted
+                                    loop>
+                                </video>
+                            </div>
+                            <div class="swiper-slide">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene/behind_2.mp4') }}" muted loop>
+                                </video>
+                            </div>
+                            <div class="swiper-slide">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene/behind_3.mp4') }}" muted loop>
+                                </video>
+                            </div>
+                            <div class="swiper-slide">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene/behind_4.mp4') }}" muted loop>
+                                </video>
+                            </div>
+                            <div class="swiper-slide">
+                                <video class="b-obj b-obj_v3"
+                                    src="{{ URL::asset('videos/behind-the-scene/behind_5.mp4') }}" muted loop>
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> --}}
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    effect: "cards",
+                    grabCursor: true,
+                    cardsEffect: {
+                        perSlideOffset: 2, // Space between cards in px
+                        perSlideRotate: 2, // Rotation of cards in degrees
+                    },
+                    on: {
+                        slideChange: function() {
+                            console.log(document.querySelectorAll('.swiper-slide video'));
+                            // Pause all videos
+                            document.querySelectorAll('.swiper-slide video').forEach(video => {
+                                video.pause();
+                            });
+                            // Play the active video
+                            setTimeout(() => {
+                                const activeSlide = document.querySelector('.swiper-slide-active video');
+                                console.log(activeSlide);
+                                if (activeSlide) {
+                                    activeSlide.play();
+                                }
+                            }, 10);
+                        },
+                        init: function() {
+                            // Pause all videos initially
+                            document.querySelectorAll('.swiper-slide video').forEach(video => {
+                                video.pause();
+                            });
+                            // Play the active video on load
+                            const activeSlide = document.querySelector('.swiper-slide-active video');
+                            if (activeSlide) {
+                                activeSlide.play();
+                            }
+                        }
+                    }
+                });
+            </script>
+
+
+            {{-- <div class="flex v">
 
                 <div class="h-text">
                     <div
@@ -930,6 +1142,11 @@
                         КОНТЕНТ ДЛЯ ВАШЕГО МАГАЗИНА
                     </div>
                 </div>
+                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 my-3">
+                    🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки «за
+                    кадром» и публикуем файлы в КЛУБ START.
+                </div>
+
                 <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
                     Мы устраиваем фотосессии с популярными кроссовками,
                     <br>
@@ -937,16 +1154,8 @@
                 </div>
 
                 <div class="flex h space-btw">
-                    {{-- <div class="flex v h100"> --}}
-                        <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
-                            type="image/jpeg" alt="sn1" loading="lazy">
-                        {{-- <video class="b-img b-img_v26" muted controls preload="none"
-                            poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/1.jpeg') }}">
-                            <source src="{{ URL::asset('videos/behind-the-scene-portview/1.mp4') }}"
-                                type="video/mp4">
-                        </video> --}}
-                    {{-- </div> --}}
-
+                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
+                        type="image/jpeg" alt="sn1" loading="lazy">
                     <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}" class="b-img  b-img_v20"
                         type="image/jpeg" alt="sn1" loading="lazy">
 
@@ -954,10 +1163,7 @@
                         type="image/jpeg" alt="sn1" loading="lazy">
                 </div>
 
-                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 my-3">
-                    🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки «за
-                    кадром» и публикуем файлы в КЛУБ START.
-                </div>
+
 
                 <div class="flex h space-btw">
                     <video class="b-img b-img_v20" muted controls preload="none"
@@ -975,23 +1181,7 @@
 
                 </div>
 
-                <div class="animated-block flex h gap_2 opacity-0 blur-025 absolute -z-10">
-                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_1.mp4') }}"
-                        autoplay muted loop>
-                    </video>
-                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_2.mp4') }}"
-                        autoplay muted loop>
-                    </video>
-                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_3.mp4') }}"
-                        autoplay muted loop>
-                    </video>
-                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_4.mp4') }}"
-                        autoplay muted loop>
-                    </video>
-                    <video class="b-video b-video_v3" src="{{ URL::asset('videos/behind-the-scene/behind_5.mp4') }}"
-                        autoplay muted loop>
-                    </video>
-                </div>
+
 
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
@@ -1022,17 +1212,18 @@
                     });
                 </script>
 
-            </div>
+            </div> --}}
         </div>
 
     </section>
 
-    <section class="b-section pt-6">
-        <div id="gradient-effect_bf1" class="container container_v2 mob">
+    <section class="b-section pt-12">
+        <div id="gradient-effect_bf2" class="container container_v2 mob">
+            <div class="fade-in fade-in_v1 top -z-1"></div>
 
-            <div class="vignette"></div>
 
-            <div class="grad-block">
+            <div class="vignette vignette_v1 -z-2"></div>
+            <div class="grad-block grad-block_v1 -z-3">
                 <div id="follow-gradient" class="follow-gradient">
                     <div class="grad-text"></div>
                 </div>
@@ -1114,7 +1305,7 @@
                 </div>
 
 
-                <div wire:ignore class="slider_v5 video-slider">
+                <div wire:ignore class="slider_v5 relative video-slider">
 
                     <div class="flex v w100 mx-1">
                         <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
@@ -1198,8 +1389,18 @@
 
 
     <section class="b-section b-section_v3 b-section_visible pt-6">
+        <div class="fade-in fade-in_v1 top"></div>
         <x-svg class="b-img b-img_v7" svg="NikePair" />
-        <div class="container container_v2 mob">
+        <div id="gradient-effect_bf1" class="container container_v2 mob">
+            <div class="fade-in fade-in_v1 top -z-1"></div>
+
+
+            <div class="vignette -z-2"></div>
+            <div class="grad-block -z-3">
+                <div id="follow-gradient" class="follow-gradient">
+                    <div class="grad-text"></div>
+                </div>
+            </div>
 
             <div class="h-text">
                 <div
@@ -1221,10 +1422,10 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-1" aria-expanded="false">
                             <div class="flex h align">
-                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em fmob1">
+                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">
                                     Шаг 1
                                 </span>
-                                <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Кроссовки по себестоимости от 1
+                                <span class="b-text b-text_600 b-text_2em fmob5 ml-05">Кроссовки по себестоимости от 1
                                     пары
                                 </span>
                             </div>
@@ -1262,10 +1463,8 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-2" aria-expanded="false">
                             <div class="flex h align">
-                                <span
-                                    class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em fmob1">Шаг
-                                    2</span>
-                                <span class="b-text b-text_600 b-text_2em fmob2 ml-05">База знаний «продавца
+                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг 2</span>
+                                <span class="b-text b-text_600 b-text_2em fmob5 ml-05">База знаний «продавца
                                     кроссовок»</span>
                             </div>
                             <span class="icon" aria-hidden="true"></span>
@@ -1346,10 +1545,8 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-3" aria-expanded="false">
                             <div class="flex h align">
-                                <span
-                                    class="b-text b-text_grey b-text_grey_light-mode y b-text_400 b-text_1.5em fmob1">Шаг
-                                    3</span>
-                                <span class="b-text b-text_600 b-text_2em fmob2 ml-05">Марафон по бизнесу на
+                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг 3</span>
+                                <span class="b-text b-text_600 b-text_2em fmob5 ml-05">Марафон по бизнесу на
                                     кроссовках</span>
                             </div>
                             <span class="icon" aria-hidden="true"></span>
@@ -1423,7 +1620,7 @@
                     <div class="flex v gap">
                         <div class="accordion-item">
                             <button id="accordion-button-1" aria-expanded="false">
-                                <span class="b-text b-text_2em">Как оплатить?</span>
+                                <span class="b-text b-text_2em fmob4">Как оплатить?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1438,7 +1635,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-2" aria-expanded="false">
-                                <span class="b-text b-text_2em">Что будет после оплаты?</span>
+                                <span class="b-text b-text_2em fmob4">Что будет после оплаты?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1453,7 +1650,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-3" aria-expanded="false">
-                                <span class="b-text b-text_2em">В каком городе и странах можно работать?</span>
+                                <span class="b-text b-text_2em fmob4">В каком городе и странах можно работать?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1465,14 +1662,14 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-4" aria-expanded="false">
-                                <span class="b-text b-text_2em">Кроссовки оригинал?</span>
+                                <span class="b-text b-text_2em fmob4">Кроссовки оригинал?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
                                     Для того чтобы в полной мере ответвить на этот вопрос, я записал отдельное
                                     пояснения👇
                                 </div>
-                                <audio controls preload="none" autoplay="false">
+                                <audio controls preload="none">
                                     <source src="{{ URL::asset('/audio/audio-are-genuine-sneakers.ogg') }}"
                                         type="audio/ogg">
                                     Ваш браузер не поддерживает аудио элементы.
@@ -1481,7 +1678,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-5" aria-expanded="false">
-                                <span class="b-text b-text_2em">В чем суть клуба?</span>
+                                <span class="b-text b-text_2em fmob4">В чем суть клуба?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1494,7 +1691,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-6" aria-expanded="false">
-                                <span class="b-text b-text_2em">Есть ли возврат?</span>
+                                <span class="b-text b-text_2em fmob4">Есть ли возврат?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1508,7 +1705,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-7" aria-expanded="false">
-                                <span class="b-text b-text_2em">Можно ли оплатить кроссовки после получения?</span>
+                                <span class="b-text b-text_2em fmob4">Можно ли оплатить кроссовки после получения?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1519,12 +1716,9 @@
                     </div>
                     <div class="flex v gap">
 
-
-
-
                         <div class="accordion-item">
                             <button id="accordion-button-8" aria-expanded="false">
-                                <span class="b-text b-text_2em">Можно купить кроссовки по дроппу без клуба?</span>
+                                <span class="b-text b-text_2em fmob4">Можно купить кроссовки по дроппу без клуба?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1538,7 +1732,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-9" aria-expanded="false">
-                                <span class="b-text b-text_2em">Если это мой первый бизнес, смогу ли я
+                                <span class="b-text b-text_2em fmob4">Если это мой первый бизнес, смогу ли я
                                     разобраться?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
@@ -1550,7 +1744,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-10" aria-expanded="false">
-                                <span class="b-text b-text_2em">Где находится клуб?</span>
+                                <span class="b-text b-text_2em fmob4">Где находится клуб?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1561,7 +1755,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-11" aria-expanded="false">
-                                <span class="b-text b-text_2em">Что такое дропшиппинг?</span>
+                                <span class="b-text b-text_2em fmob4">Что такое дропшиппинг?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1574,7 +1768,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-12" aria-expanded="false">
-                                <span class="b-text b-text_2em">Как продлить/отменить подписку на клуб?</span>
+                                <span class="b-text b-text_2em fmob4">Как продлить/отменить подписку на клуб?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
                                 <div class="b-text b-text_1.3em b-text_400 my-1">
@@ -1589,7 +1783,7 @@
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-13" aria-expanded="false">
-                                <span class="b-text b-text_2em">Как я получу доступ, и что делать, если возникнут
+                                <span class="b-text b-text_2em fmob4">Как я получу доступ, и что делать, если возникнут
                                     трудности
                                     с оплатой или клубом?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
@@ -1635,7 +1829,7 @@
                                 textElements.forEach(textElement => {
                                     // Store the full text in a data attribute
                                     textElement.dataset.fullText = textElement.textContent;
-                                    truncateText(textElement, 30);
+                                    truncateText(textElement, 40);
                                 });
 
                                 buttons.forEach(button => {
@@ -1645,7 +1839,7 @@
 
                                         if (isExpanded) {
                                             // If expanded, truncate the text
-                                            truncateText(textElement, 30);
+                                            truncateText(textElement, 40);
                                         } else {
                                             // If not expanded, show the full text
                                             textElement.textContent = textElement.dataset.fullText;
@@ -1679,7 +1873,7 @@
                 <div class="flex v gap_2 mob">
 
 
-                    <div class="flex h gap_2 mob">
+                    <div class="flex h gap_4 mob">
 
                         <div class="flex v w30 mob gap_2">
                             <div class="flex v">
@@ -1826,6 +2020,8 @@
         {{-- accordion --}}
         <link defer href="{{ secure_asset('styles/accordion.css') }}" type="text/css" rel="stylesheet">
         <!-- +++++++++++ CDNs +++++++++++ -->
+        {{-- Swiper Css --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         {{-- slick slider --}}
         <link defer rel="stylesheet" type="text/css"
             href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -1845,5 +2041,6 @@
         <script src="{{ URL::asset('javascript/accordion.js') }}"></script>
         {{-- Main page --}}
         <script src="{{ URL::asset('javascript/main-page.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     @stop
 </div>

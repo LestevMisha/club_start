@@ -18,6 +18,7 @@ section {
     height: 10em;
     z-index: 109 !important;
     cursor: pointer;
+    transition: scale .225s ease-in-out;
 }
 
 #video-intro .video-wrapper {

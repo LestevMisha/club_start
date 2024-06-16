@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-div,
+/* div,
 img,
 svg,
 section,
@@ -17,7 +17,7 @@ span,
     transition-property: transform, filter, scale, color, background-color, opacity, box-shadow;
     transition-duration: .25s;
     transition-timing-function: ease-in-out;
-}
+} */
 
 /* LIGHT MODE */
 
@@ -36,6 +36,10 @@ body.lightMode select:-webkit-autofill:focus {
 
 body.lightMode {
     background-color: #ffffff;
+}
+
+body.lightMode .cabs_3 {
+    background-color: #00000024;
 }
 
 body.lightMode .b-text {
@@ -89,10 +93,24 @@ body.lightMode .blue-marker::before {
 }
 
 body.lightMode .vignette::before {
-    background: radial-gradient(rgba(0, 0, 0, 0) 40%, rgb(255 255 255) 60%);
+    box-shadow: inset 5px 12px 90px 20px #f6f7f8,
+        inset -5px -12px 90px 20px #f6f7f8,
+        inset 10px -5px 90px 20px #f6f7f8,
+        inset -20px 18px 90px 20px #f6f7f8;
+}
+
+body.lightMode .vignette.vignette_v1::before {
+    box-shadow: inset 5px 12px 90px 20px #FFFFFF,
+        inset -5px -12px 90px 20px #FFFFFF,
+        inset 10px -5px 90px 20px #FFFFFF,
+        inset -20px 18px 90px 20px #FFFFFF;
 }
 
 body.lightMode .grad-block {
+    background-color: #f6f7f8;
+}
+
+body.lightMode .grad-block.grad-block_v1 {
     background-color: #FFFFFF;
 }
 
@@ -120,12 +138,9 @@ body.lightMode .b-section.b-section_v1 {
     }
 }
 
+/* 
 @media (max-width: 1250px) {
-    body.lightMode .vignette::before {
-        background: linear-gradient(180deg, #FFF 15%, transparent 25%);
-    }
-    
-}
+} */
 
 
 
@@ -135,7 +150,7 @@ body.lightMode .b-section.b-section_v1 {
 
 
 body.lightMode .b-section.b-section_v3 {
-    background: linear-gradient(180deg, #FFFFFF, #f6f7f8);
+    background: #f6f7f8;
 
 }
 
@@ -205,7 +220,7 @@ ul.slick-dots li button {
 }
 
 ul.slick-dots li {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 body.lightMode .b-img.b-img_v9 {

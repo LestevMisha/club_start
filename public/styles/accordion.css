@@ -9,6 +9,8 @@
     margin-bottom: 1em;
     background: #FFFFFF08;
     backdrop-filter: blur(2em);
+    -webkit-backdrop-filter: blur(2em);
+    position: relative;
 }
 
 .accordion button {
@@ -49,6 +51,7 @@
     border: 1px solid;
     border-radius: 50%;
     transition-duration: 10ms;
+    margin-left: 1rem;
 }
 
 .accordion button:hover::after,
