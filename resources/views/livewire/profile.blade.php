@@ -2,11 +2,6 @@
     <x-modern-loader />
 
     <div class="flex h gap mob cursor_crosshair">
-        {{-- @if ($image)
-            <img class="b-img b-img_v11" src="data:image/png;base64,{{ $image }}" alt="Image">
-        @else
-            <x-svg class="item-icon {{ true === 'profile' ? 'is-active-icon' : '' }}" svg="CircledUser" />
-        @endif --}}
         <img class="b-img b-img_v11" src="data:image/png;base64,{{ $image }}" alt="Image">
         <div class="flex v v3 gap cursor_crosshair">
             <div class="b-text">Изменили изображение?</div>

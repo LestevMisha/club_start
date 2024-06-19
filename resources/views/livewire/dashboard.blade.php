@@ -35,13 +35,18 @@
     @endif
 
     <div class="flex gap h mob">
+
         <div class="flex v v3 gap_05 cursor_crosshair">
             <div class="mb-05">
                 <div class="b-text">
                     Оставшиеся дни:
-                    <span
-                        class="b-text {{ Auth::user()->days_left === 3 ? 'b-text_yellow' : (Auth::user()->days_left === 2 ? 'b-text_orange' : (Auth::user()->days_left === 1 ? 'b-text_red' : 'b-text_green')) }}">{{ Auth::user()->days_left }}
-                        дней</span>
+                    @if (Auth::user()->telegram_channel_exempted)
+                            <span class="b-text b-text_green">x дней</span>
+                    @else
+                        <span
+                            class="b-text {{ Auth::user()->days_left === 3 ? 'b-text_yellow' : (Auth::user()->days_left === 2 ? 'b-text_orange' : (Auth::user()->days_left === 1 ? 'b-text_red' : 'b-text_green')) }}">{{ Auth::user()->days_left }}
+                            дней</span>
+                    @endif
                 </div>
             </div>
             <div class="mb-05">
@@ -65,6 +70,20 @@
                 class="b-img b-img_v10">
         </div>
     </div>
+
+    @if (Auth::user()->telegram_channel_exempted)
+        <div class="flex v v3 gap_05 cursor_crosshair mt-05">
+            <div class="mb-05">
+                <div class="b-text">
+                    Вы являетесь уникальным пользователем, после вас таких не будет 😁. Начиная с лета 2024 года
+                    подписка в клуб Start
+                    продается только с сайта, так как вы покупаете ее ботом мы даем вам привилегию какую-то (пока
+                    непонятно :)).
+                </div>
+            </div>
+        </div>
+    @endif
+
 
     @section('card-credentials-script')
         <script src="{{ secure_asset('javascript/card-credentials.js') }}"></script>

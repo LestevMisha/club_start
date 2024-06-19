@@ -19,7 +19,7 @@
         <div id="side-menu-black-cover" class="cursor_crosshair"></div>
         <livewire:templates.side-menu />
 
-        <section class="b-section b-section_crosses b-section_v4">
+        <section class="b-section b-section_v4">
             <div class="container container_v4 mb-2">
                 <div class="flex v7 h w100 space-btw my-2">
                     <x-svg svg="Menu" class="menu-icon" id="menu-button" />

@@ -52,7 +52,9 @@ class Profile extends Component
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
     public function mount()
     {
-        $binaryImage = UsersImages::where("uuid", Auth::user()?->uuid)->first();
+        $binaryImage = UsersImages::where("user_uuid", Auth::user()?->uuid)->first();
+        // logger(Auth::user()?->uuid);
+        // logger($binaryImage);
         $this->image = base64_encode($binaryImage?->image_data);
         
         return $this->globalServices->checkPrivatePagesAccess($this->request);

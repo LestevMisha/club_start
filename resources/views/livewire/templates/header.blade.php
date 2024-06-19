@@ -4,7 +4,7 @@
             <div class="b-text b-text_nowrap text-header">Клуб Start</div>
             <x-svg class="mark-icon" svg="CheckCircle" />
         </div>
-        <div id="dashboard-link-container" class="flex h gap fit align flex_blured mob">
+        <div id="dashboard-link-container" class="flex h gap fit align flex_blured login_cst mob">
             <div class="flex h align gap">
                 <x-theme-switcher />
                 @if ($currentRoute !== 'main')

@@ -26,16 +26,19 @@ class TelegramServices
         return config("services.telegram.bot_url") . "?start=" . $uuid . "_" . $target;
     }
 
-    public function markdownv2($text)
+
+
+    function markdownv2($text)
     {
-        $replacements = ['\\.', '\\<', '\\>', '\\-'];
+        // List of characters to be escaped
+        $characters = ['[', ']', '(', ')', '~', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'];
 
-        // Add backslashes before periods and angle brackets
-        $modifiedText = preg_replace_callback('/\.|<|>|-/', function ($matches) use ($replacements) {
-            return $replacements[array_search($matches[0], ['.', '<', '>', '-'])];
-        }, $text);
+        // Iterate over the list of characters and escape them
+        foreach ($characters as $char) {
+            $text = str_replace($char, '\\' . $char, $text);
+        }
 
-        return $modifiedText;
+        return $text;
     }
 
     public function isAdmin(string $chat_id, int $target_id)

@@ -13,6 +13,8 @@ class ForgotPassword extends Component
 {
     public $disabled = false;
     protected $listeners = ['resetDisabled'];
+    public $inputDisplay = "block";
+
 
     public function resetDisabled()
     {

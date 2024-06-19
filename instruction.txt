@@ -17,3 +17,26 @@ open for db: mysql -u root
 use laravel4; show tables; describe users; select * from users;
 
 delete from users; delete from users_transactions; delete from users images;
+
+Project Rules + Doc about this project for the next devs (if applicable):
+1. Be sure to use https connection over SSL.
+2. Errors with project transfer can occur only if .env file isn't set correctly,
+make sure that it is connected to mysql db, check yookassa API keys if yookassa
+integrationdoesn't work, if Symfony Sanctum error happened - install this extension with `composer install Symfony`,
+if telegram registration doesn't work check that Telegram Bot API key is up to date and correct, check if you set webhook with 
+https://klubstart.com/setwebhook etc (more info in routes/web.php).
+3. When working with localhost be sure that you connect over https use localtunnel for example (npx localtunnel --port 8000 --subdomain danielshkitov),
+then make sure to use https://danielshkitov.loca.lt/setwebhook, otherwise registration via telegram won't work, than set it back on https://klubstart.com/setwebhook
+so that people can register.
+4. Before you set `npx localtunnel --port 8000 --subdomain danielshkitov` you should have project running on localhost,
+the usual command fot this is `php artisan serve`.
+5. The reason website doesn't work on https is that in resources/views/components/layouts/app.blade.php I used `secure_asset` if you
+want it rinning, use/replace-on just `asset` in resources/views/components/layouts/app.blade.php, resources/views/components/layouts/auth.blade.php,
+resources/views/components/layouts/dashboard.blade.php (if applicable), resources/views/livewire/main-index.blade.php. And remove `URL::forceScheme("https");` line
+from routes/web.php. If this didn't work check if you use production and change it on dev (https://stackoverflow.com/questions/34378122/load-blade-assets-with-https-in-laravel).
+6. When you use /setwebhook /removewebhook be sure to check for which domain name you do that in .env file! IMPORTANT!
+7. YooKassa IMPORTANT! When pay set notification link on the domain you are currently working with and add /yoocallback, example https://klubstart.com/yoocallback.
+8. When you integrate any changes with the schemes in db run `php artisan migrate:refresh --seed` (on hosting if applicable).
+9 !IMPORTANT run `php artisan migrate:refresh --seed` when transfer on the new hosting!.
+
+// Hopefully this helps. (2024)

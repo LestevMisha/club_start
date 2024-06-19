@@ -6,7 +6,8 @@
         <form wire:submit.default="sendResetLink" class="modern-form">
             @csrf
             <div class="flex v w100">
-                <x-modern-input attr="email" title="Email Адрес" />
+                <x-input attribute="email" inscription="Email Адрес" />
+
                 <div>
                     <x-modern-error />
                 </div>

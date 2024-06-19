@@ -1,6 +1,6 @@
 <div>
 
-    <section class="b-section b-section_hidden b-section_v1">
+    {{-- <section class="b-section b-section_hidden b-section_v1">
         <div class="container container_v2 mob">
             <div class="container container_v1">
                 <div class="flex v h100">
@@ -21,7 +21,7 @@
                     <div class="b-text b-text_1.3em b-text_center mt-2">
                         Закрытый клуб для продаж <br>кроссовок по дропшиппингу
                     </div>
-                    <div class="flex fit gap-05 v mt-2 m-auto">
+                    <!-- <div class="flex fit gap-05 v mt-2 m-auto">
                         <div class="flex gap h align">
                             <x-svg class="b-img b-img_v1" svg="CheckCircle" />
                             <div class="b-text b-text_1.3em b-text_700">Без опыта</div>
@@ -38,7 +38,7 @@
                             <x-svg class="b-img b-img_v1" svg="CheckCircle" />
                             <div class="b-text b-text_1.3em b-text_700">Без вложений в товар</div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="card mt-2">
                         <div class="b-text b-text_1.3em b-text_center">
                             Ежемесечная подписка на<br>"КЛУБ START"
@@ -55,16 +55,69 @@
         <img id="optimize_LCP-mobile" src="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}"
             class="b-img b-img_v2" alt="sneakers-chair">
         <div class="overlay"></div>
+    </section> --}}
+
+    <section class="b-section b-section_visible b-section_v1 pt-6 pb-12">
+        <div class="container container_v2 mob">
+            <div class="flex h reverse_mob">
+                <div id="custom_mobile" class="flex v w70 z-2 wmob mb-6">
+                        <img class="b-img b-img_logo mb-4" src="{{ URL::asset('images/logo.png') }}" alt="logo">
+
+                        <div class="b-text b-text_v5 mb-1">ОНЛАЙН-ДОСТУП</div>
+
+                    <div class="b-text b-text_4.5em b-text_lh-1 b-text_700 mb-2r">Дропшиппинг
+                        <img class="b-img b-img_open-book floating" src="{{ URL::asset('images/min-png/money-sticker.png') }}"
+                            alt="open-book">
+                        на кроссовках
+                        <span class="b-text b-text_grey modeLight_darker span_custom">Всего в 1 клик</span>
+                    </div>
+
+                    <div class="b-text b-text_400 b-text_1.5em mb-2">
+                        Начни зарабатывать без опыта, склада,
+                        <br>
+                        сотрудников или вложений в товар
+                    </div>
+
+                    <div class="flex h gap_2 align mob">
+
+
+                        <a class="go-button v7" href="{{ route('register') }}">
+                            Вступить в Клуб
+                            <img class="b-img b-img_finger-click" src="{{ URL::asset('images/finger-click.png') }}"
+                                alt="finger-click">
+                        </a>
+
+                        <div class="hblock hblock_center hblock_gap">
+                            <img class="b-img b-img_face" src="{{ URL::asset('images/face.png') }}" alt="face">
+                            <div class="b-text b-text_400 b-text_grey modeLight_darker">Ежемесечная подписка<br> за 6 000
+                                рублей</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex v w30 wmob">
+                    <div class="blue-light"></div>
+                    <div id="anchor" class="z-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
     </section>
 
-    <section class="b-section b-section_visible pt-6 pb-2">
+
+    <section class="b-section b-section_visible pb-2">
 
         <div class="container container_v2 mob">
 
-            <div class="h-text mb-6">
-                <div
+            <div class="h-text mb-3">
+                {{-- <div
                     class="b-text b-text_2.5em b-text_fit b-text_700 b-text_center b-text_v2 b-text_blue-marker b-text_blue-marker_v3">
                     УЧАСТНИКАМ КЛУБА<br>ПРЕДОСТАВЛЯЕТСЯ
+                </div> --}}
+                <div
+                    class="b-text b-text_2.5em b-text_fit b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v3">
+                    УЧАСТНИКАМ КЛУБА<br><span
+                        class="b-text b-text_grey-dark b-text_400 b-text_08">ПРЕДОСТАВЛЯЕТСЯ</span>
                 </div>
             </div>
 
@@ -206,9 +259,9 @@
             </div>
 
             <div class="flex v">
-                <div class="flex slight-bg slight-bg_blured h gap_2 gmob-1 align mb-3r w70 wmob mb-3r_2xmob">
+                <div class="flex h gap_2 gmob-1 align mb-3r w70 wmob mb-3r_2xmob">
                     <div class="b-text b-text_5em b-text_900 b-text_blue b-text_lh-1em b-text_fith">1</div>
-                    <div class="b-text b-text_2em b-text_400 fmob3">
+                    <div class="b-text b-text_1.5em b-text_400 fmob3">
                         Ты хочешь открыть свой собственный бизнес не выходя из дома
                     </div>
                 </div>
@@ -216,10 +269,10 @@
                 <div wire:ignore class="flex space-btw h mob gap_2 slider_v3 video-slider">
                     <div class="flex v mobalign w100 mob">
                         <div class="flex v hmin6 mb-1r __text-block">
-                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
-                                Фото поставок 👟
+                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                                Фото поставок
                             </div>
-                            <div class="b-text tcmob b-text_200">
+                            <div class="b-text tcmob b-text_400 b-text_grey">
                                 Мы сами снимаем кроссовки на складе и загружаем фотографии в специальную папку для
                                 партнеров.
                             </div>
@@ -232,10 +285,10 @@
 
                     <div class="flex v mobalign w100 mx-2.5 mx-2.5_mob">
                         <div class="flex v hmin6 mb-1r __text-block">
-                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
-                                Контент с кроссовками 📸
+                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                                Контент с кроссовками
                             </div>
-                            <div class="b-text tcmob b-text_200">
+                            <div class="b-text tcmob b-text_400 b-text_grey">
                                 Каждый сезон мы арендовываем студию, приглашаем моделей и создаем контент для вашего
                                 магазина.
                             </div>
@@ -248,10 +301,10 @@
 
                     <div class="flex v mobalign w100 mob">
                         <div class="flex v hmin6 mb-1r __text-block">
-                            <div class="b-text tcmob b-text_1.3em b-text_600 b-text_grey mb-05">
-                                Доставка товара 🚚
+                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                                Доставка товара
                             </div>
-                            <div class="b-text tcmob b-text_200">
+                            <div class="b-text tcmob b-text_400 b-text_grey">
                                 Отправка кроссовок клиентам, осуществляется с нашего склада, нашими сотрудниками.
                             </div>
                         </div>
@@ -281,7 +334,7 @@
             </svg>
         </div>
         <div class="bg_noise"></div>
-        <div class="fade-in top"></div>
+        <div class="fade-in fade-in_v1 top"></div>
 
     </section>
 
@@ -316,10 +369,10 @@
             <div class="flex v">
                 <div class="flex w70 v mob gap fcmob">
 
-                    <div class="slight-bg slight-bg_blured flex h gap_2 mb-1r">
+                    <div class="flex h gap_2 mb-1r">
                         <div class="b-text b-text_5em b-text_blue b-text_900 b-text_lh-1em">2</div>
 
-                        <div class="b-text b-text_2em b-text_400 my-auto fmob3">
+                        <div class="b-text b-text_1.5em b-text_400 my-auto fmob3">
                             Нет денег для вложений в товар
                         </div>
                     </div>
@@ -331,7 +384,7 @@
                                 fill="#0d6efd"></path>
                         </svg>
                     </i>
-                    <div class="b-text b-text_1.3em b-text_400 tcmob fmob1 mb-2r">
+                    <div class="b-text b-text_1.3em b-text_lh-1.5em b-text_400 tcmob fmob1 mb-2r">
                         Вкладывать деньги в товар — не нужно!
                         Благодаря большому количеству портнеров в «КЛУБ START» у нас есть возможность приобретать самые
                         востребованные кроссовки.
@@ -434,12 +487,12 @@
                 <div class="flex w70 wmob mb-2r">
 
 
-                    <div class="slight-bg slight-bg_blured flex v gap mb-1r">
+                    <div class="flex v gap mb-1r">
 
                         <div class="flex h gap_2">
                             <div class="b-text b-text_5em b-text_blue b-text_900 b-text_lh-1em">3</div>
 
-                            <div class="b-text b-text_2em b-text_400 my-auto fmob3">
+                            <div class="b-text b-text_1.5em b-text_400 my-auto fmob3">
                                 Не знаешь какой бизнес открыть, чтобы заработать в первые 3 дня
                             </div>
                         </div>
@@ -554,12 +607,9 @@
     </section>
 
 
-    <section class="b-section pt-6">
+    {{-- <section class="b-section pt-6">
 
         <div class="container container_v2 mob">
-            {{-- <img id="cursor_follow" class="b-img b-img_v27"
-                src="{{ URL::asset('images/min-webp/location-iso-gradient.webp') }}" alt="pointer"> --}}
-
             <div class="flex v">
 
                 <div class="h-text">
@@ -727,196 +777,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
-                    {{-- <div class="flex h gap w50 wmob">
-                        <div class="slider_v4 flex fit w35">
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-1-docs.jpg') }}"
-                                alt="docs-1" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-2-docs.jpg') }}"
-                                alt="docs-2" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-3-docs.jpg') }}"
-                                alt="docs-3" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                        </div>
-                        <div class="flex v gap w65">
-                            <div class="b-text b-text_1.5em">4. Google таблица</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Мы заключили официальный договор со СДЭК. Как
-                                юридическое лицо, отправка товаров нам обходится вдвое дешевле, чем частным лицам
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="flex h gap_2 mob">
-
-                        <div class="flex h gap w50 wmob">
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lesson.jpg') }}"
-                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
-                            <div class="flex v gap fit">
-                                <div class="b-text b-text_1.5em">3. Современный формат</div>
-                                <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                    Видео уроки от нашего таргетолога с инфой как и где
-                                    закупать рекламу
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> --}}
-
-                    {{-- <div class="flex h gap_2 mob">
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">7. Google таблица</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                🔥 Мы расширяем ассортимент не только кроссовками, но и
-                                брендовой одеждой и аксессуарами, для доп продаж
-                            </div>
-                            <div class="slider_v4">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-1-cloth.jpg') }}"
-                                    alt="cloth-1" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-2-cloth.jpg') }}"
-                                    alt="cloth-2" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-3-cloth.jpg') }}"
-                                    alt="cloth-3" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-4-cloth.jpg') }}"
-                                    alt="cloth-4" class="b-img b-img_wfull-hauto b-img_bordered b-img_v22">
-                            </div>
-                        </div>
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">8. Сотня полезных материалов</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Каждый участник клуба получает индивидуальную таблицу для удобного отслеживания
-                                продаж.
-                            </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/8-table-sell-buy-manage.jpg') }}"
-                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
-                        </div>
-
-                        <div class="flex v gap w30 mob">
-                            <div class="b-text b-text_1.5em">9. Современный формат</div>
-                            <div class="b-text b-text_grey b_text-1.3em b-text_400">
-                                Делаем дополнительную фотографию или видео со склада по запросу вашего клиента
-                            </div>
-                            <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/9-client-req.jpg') }}"
-                                alt="account" class="b-img b-img_full b-img_bordered b-img_v22">
-                        </div>
-
-                    </div> --}}
-                    {{-- <div class="flex h gap space-btw mob">
-
-
-                        <div class="flex v w33 gap mob">
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Удобная таблица с актуальными размерами кроссовок
-                                    на складе
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/1-table.jpg') }}"
-                                    alt="account" class="b-img b-img_full b-img_bordered">
-                            </div>
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Мы заключили официальный договор со СДЭК. Как
-                                    юридическое лицо, отправка товаров нам обходится вдвое дешевле, чем частным лицам
-                                </div>
-                                <div class="slider_v4">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-1-docs.jpg') }}"
-                                        alt="docs-1" class="b-img b-img_wfull-hauto b-img_bordered">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-2-docs.jpg') }}"
-                                        alt="docs-2" class="b-img b-img_wfull-hauto b-img_bordered">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/4-3-docs.jpg') }}"
-                                        alt="docs-3" class="b-img b-img_wfull-hauto b-img_bordered">
-                                </div>
-                            </div>
-
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    🔥 Мы расширяем ассортимент не только кроссовками, но и
-                                    брендовой одеждой и аксессуарами, для доп продаж
-                                </div>
-                                <div class="slider_v4">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-1-cloth.jpg') }}"
-                                        alt="cloth-1" class="b-img b-img_wfull-hauto b-img_bordered">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-2-cloth.jpg') }}"
-                                        alt="cloth-2" class="b-img b-img_wfull-hauto b-img_bordered">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-3-cloth.jpg') }}"
-                                        alt="cloth-3" class="b-img b-img_wfull-hauto b-img_bordered">
-                                    <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/7-4-cloth.jpg') }}"
-                                        alt="cloth-4" class="b-img b-img_wfull-hauto b-img_bordered">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex v w33 gap mob">
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Отдел поддержки для заказов и вопросов участников
-                                    клуба
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/2-account.jpg') }}"
-                                    alt="account" class="b-img b-img_full b-img_bordered">
-                            </div>
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    После отправки вашего заказа, мы делаем фото и
-                                    пересылаем вам трек-номер, для отслеживания доставки
-                                    клуба
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/5-track-code.jpg') }}"
-                                    alt="account" class="b-img b-img_full b-img_bordered">
-                            </div>
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Каждый участник клуба получает индивидуальную таблицу для удобного отслеживания
-                                    продаж.
-
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/8-table-sell-buy-manage.jpg') }}"
-                                    alt="account" class="b-img b-img_full b-img_bordered">
-                            </div>
-                        </div>
-
-
-                        <div class="flex v w33 gap mob">
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Видео уроки от нашего таргетолога с инфой как и где
-                                    закупать рекламу
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/3-video-lesson.jpg') }}"
-                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
-                            </div>
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    🔗 У вас будет собственная реферальная ссылка для
-                                    продажи "КЛУБА START" За каждого привлеченного, вы получаете 50% от его участия
-                                    закупать рекламу
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/6-referral-link.jpg') }}"
-                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
-                            </div>
-                            <div class="flex card card_v4">
-                                <div class="b-text b-text_1.3">
-                                    Делаем дополнительную фотографию или видео со склада по запросу вашего клиента
-                                </div>
-                                <img src="{{ URL::asset('images/min-jpeg/trand-niche-img/9-client-req.jpg') }}"
-                                    alt="account" class="b-img b-img_wfull-hauto b-img_bordered">
-                            </div>
-                        </div>
-
-
-                    </div> --}}
-
-
                 </div>
             </div>
-
         </div>
-
-    </section>
+    </section> --}}
 
 
 
@@ -929,36 +794,50 @@
                 <div class="h-text">
                     <div
                         class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1r">
-                        КОНТЕНТ ДЛЯ ВАШЕГО МАГАЗИНА
-                    </div>
-                </div>
-
-                <div class="flex v gap_2">
-                    <div class="flex gap h align">
-                        <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                        <div class="b-text b-text_1.5em b-text_400 fmob1">
-                            Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
-                            ногах
-                        </div>
-                    </div>
-                    <div class="flex gap h align">
-                        <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                        <div class="b-text b-text_1.5em b-text_400 fmob1">
-                            🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки
-                            «за
-                            кадром» и публикуем файлы в КЛУБ START.
-                        </div>
+                        <span class="relative nowrap blue-marker">КОНТЕНТ</span> ДЛЯ ВАШЕГО МАГАЗИНА
                     </div>
                 </div>
 
                 <div class="flex h gap_4 mt-2 mb-1">
                     <div class="block w50">
-                        <div class="b-text b-text_400">Обработанная фотка</div>
+                        <div class="flex v hmin6 mb-1r __text-block">
+                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                                Обработанная фотка
+                            </div>
+                            <div class="b-text tcmob b-text_400 b-text_grey">
+                                Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
+                                ногах.
+                            </div>
+                        </div>
                     </div>
                     <div class="block w50">
-                        <div class="b-text b-text_400">Бэкстэйдж</div>
+                        <div class="flex v hmin6 mb-1r __text-block">
+                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                                Бэкстэйдж
+                            </div>
+                            <div class="b-text tcmob b-text_400 b-text_grey">
+                                Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
+                                ногах.
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                {{-- <div class="flex v mobalign w100 mob">
+                    <div class="flex v hmin6 mb-1r __text-block">
+                        <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                            Обработанная фотка
+                        </div>
+                        <div class="b-text tcmob b-text_400 b-text_grey">
+                            Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
+                            ногах.
+                        </div>
+                    </div>
+                    <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
+                        poster="{{ URL::asset('images/min-jpeg/block-1/1.jpeg') }}">
+                        <source src="{{ URL::asset('videos/block-1/1.mp4') }}" type="video/mp4">
+                    </video>
+                </div> --}}
             </div>
 
 
@@ -1391,16 +1270,17 @@
     <section class="b-section b-section_v3 b-section_visible pt-6">
         <div class="fade-in fade-in_v1 top"></div>
         <x-svg class="b-img b-img_v7" svg="NikePair" />
-        <div id="gradient-effect_bf1" class="container container_v2 mob">
-            <div class="fade-in fade-in_v1 top -z-1"></div>
+        <div class="container container_v2 mob">
+            {{-- <div id="gradient-effect_bf1" class="container container_v2 mob"> --}}
+            {{-- <div class="fade-in fade-in_v1 top -z-1"></div> --}}
 
 
-            <div class="vignette -z-2"></div>
+            {{-- <div class="vignette -z-2"></div>
             <div class="grad-block -z-3">
                 <div id="follow-gradient" class="follow-gradient">
                     <div class="grad-text"></div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="h-text">
                 <div
@@ -1422,7 +1302,8 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-1" aria-expanded="false">
                             <div class="flex h align">
-                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">
+                                <span
+                                    class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">
                                     Шаг 1
                                 </span>
                                 <span class="b-text b-text_600 b-text_2em fmob5 ml-05">Кроссовки по себестоимости от 1
@@ -1463,7 +1344,9 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-2" aria-expanded="false">
                             <div class="flex h align">
-                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг 2</span>
+                                <span
+                                    class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг
+                                    2</span>
                                 <span class="b-text b-text_600 b-text_2em fmob5 ml-05">База знаний «продавца
                                     кроссовок»</span>
                             </div>
@@ -1545,7 +1428,9 @@
                     <div class="accordion-item noise">
                         <button id="accordion-button-3" aria-expanded="false">
                             <div class="flex h align">
-                                <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг 3</span>
+                                <span
+                                    class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">Шаг
+                                    3</span>
                                 <span class="b-text b-text_600 b-text_2em fmob5 ml-05">Марафон по бизнесу на
                                     кроссовках</span>
                             </div>
@@ -1555,7 +1440,7 @@
 
                             <div class="flex gap_05 v mt-1.5">
                                 <div class="b-text b-text_1.3em b-text_600">
-                                    Что узнаете:
+                                    Что получете:
                                 </div>
                                 <div class="b-text b-text_400 b-text_1.2em">
                                     Доступ к 3-х дневному, онлайн марафону для новичков в этом бизнесе. В формате
@@ -1623,7 +1508,7 @@
                                 <span class="b-text b-text_2em fmob4">Как оплатить?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Выберите удобный способ оплаты, после того как пройдете регистрацию. Вы можете
                                     оплатить
                                     доступ в клуб из любого банка РФ.
@@ -1638,11 +1523,12 @@
                                 <span class="b-text b-text_2em fmob4">Что будет после оплаты?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Вы будете перенаправлены в личный кабинет, где найдите ссылку на закрытый
                                     Telegram-канал
-                                    "КЛУБ START". Также, в вашем личном кабинете будут ссылки на: марафон, таблицы,
-                                    архивы
+                                    "КЛУБ START".
+                                    <br><br>
+                                    Также, в вашем личном кабинете будут ссылки на: марафон, таблицы, архивы
                                     клуба (с чего мы начинали и что привело к результату) и другие актуальные ссылки для
                                     продуктивной работы.
                                 </div>
@@ -1653,7 +1539,7 @@
                                 <span class="b-text b-text_2em fmob4">В каком городе и странах можно работать?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     У нас заключён официальный договор с транспортной компанией, поэтому продавать
                                     кроссовки
                                     и участвовать в клубе вы можете в любом городе мира.
@@ -1665,7 +1551,7 @@
                                 <span class="b-text b-text_2em fmob4">Кроссовки оригинал?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Для того чтобы в полной мере ответвить на этот вопрос, я записал отдельное
                                     пояснения👇
                                 </div>
@@ -1681,10 +1567,12 @@
                                 <span class="b-text b-text_2em fmob4">В чем суть клуба?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     В клубе у вас будет возможность покупать кроссовки от одной пары по закупочной цене.
-                                    Также вам будет предоставлен доступ к продающему контенту для сайта и соцсетей. Вы
-                                    станете частью сообщества продавцов кроссовок, и получите информационную поддержку,
+                                    Также вам будет предоставлен доступ к продающему контенту для сайта и соцсетей.
+                                    <br><br>
+                                    Вы станете частью сообщества продавцов кроссовок, и получите информационную
+                                    поддержку,
                                     благодаря чему избежите множество ошибок на старте.
                                 </div>
                             </div>
@@ -1694,21 +1582,22 @@
                                 <span class="b-text b-text_2em fmob4">Есть ли возврат?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Возврат кроссовок возможен в течение 14 дней. Вы или ваш клиент можете вернуть
                                     кроссовки
                                     на склад и получить деньги обратно.
-                                    <br>
+                                    <br><br>
                                     На клуб возврата нет. Услуга считается оказанной, с момента получения доступа.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button id="accordion-button-7" aria-expanded="false">
-                                <span class="b-text b-text_2em fmob4">Можно ли оплатить кроссовки после получения?</span>
+                                <span class="b-text b-text_2em fmob4">Можно ли оплатить кроссовки после
+                                    получения?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Да, при оформлении заказа можно указать, чтобы оплата была после получения товара.
                                 </div>
                             </div>
@@ -1718,14 +1607,16 @@
 
                         <div class="accordion-item">
                             <button id="accordion-button-8" aria-expanded="false">
-                                <span class="b-text b-text_2em fmob4">Можно купить кроссовки по дроппу без клуба?</span>
+                                <span class="b-text b-text_2em fmob4">Можно купить кроссовки по дроппу без
+                                    клуба?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Для всех участников клуба действуют низкие цены по дропшиппингу. Получить к ним
                                     доступ
-                                    вы можете оплатив ежемесячный членский взнос. Если вы хотите оформить заказ без
-                                    клуба,
+                                    вы можете оплатив ежемесячный членский взнос.
+                                    <br><br>
+                                    Если вы хотите оформить заказ без клуба,
                                     тогда для вас будет действовать розничная цена, как для всех обычных клиентов.
                                 </div>
                             </div>
@@ -1736,7 +1627,7 @@
                                     разобраться?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Да, каждый этап создания магазина я объясняю простым языком. От вас не потребуется
                                     специальных знаний и опыта, вы сможете их получить в процессе.
                                 </div>
@@ -1747,7 +1638,7 @@
                                 <span class="b-text b-text_2em fmob4">Где находится клуб?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Клуб находится в закрытом телеграмм канале. Общение в клубе происходит текстом,
                                     кружочками, эфирами и войсами как в реальной переписке.
                                 </div>
@@ -1758,7 +1649,7 @@
                                 <span class="b-text b-text_2em fmob4">Что такое дропшиппинг?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     Дропшиппинг — это продажа кроссовок поставщика под заказ клиента. В клубе вы сможете
                                     заказывать кроссовки себе или напрямую вашим покупателям, а прибыль с продаж
                                     получать
@@ -1771,7 +1662,7 @@
                                 <span class="b-text b-text_2em fmob4">Как продлить/отменить подписку на клуб?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     После успешной оплаты деньги будут автоматически списываться с той карты, через
                                     которую
                                     вы оплатили клуб.
@@ -1788,11 +1679,11 @@
                                     с оплатой или клубом?</span>
                                 <span class="icon" aria-hidden="true"></span></button>
                             <div class="accordion-content">
-                                <div class="b-text b-text_1.3em b-text_400 my-1">
+                                <div class="b-text b-text_1.2em b-text_400 b-text_grey my-1">
                                     После оплаты, у вас создаться личный кабинет, где будут все ссылки клуб start.
-                                    <br>
+                                    <br><br>
                                     *После оплаты, вы буду перемещены в личный кабинет автоматически.
-                                    <br>
+                                    <br><br>
                                     Если возникнут трудности, мы поможем. Напишите в отдел заботы, указав почту,
                                     на которую
                                     была совершена оплата. Телеграм поддержки: <a
@@ -1953,10 +1844,10 @@
                             <div class="flex v gap mb-2r">
                                 <div class="b-text b-text_1.5em b-text_400">
                                     Создатель клуба, поставщик и ведущий YouTube-канала
-                                    <span class="mt-1">
+                                    <a target="_blank" href="https://www.youtube.com/@shkitov" class="mt-1">
                                         <img src="{{ URL::asset('images/yt-logo.jpg') }}" alt="yt-logo"
                                             class="b-img b-img_v21">
-                                    </span>
+                                    </a>
                                 </div>
                                 <div class="b-text b-text_grey b-text_400">
                                     Даниил лично делится всей информацией в клубе в виде текстов, аудио и видео
@@ -2013,6 +1904,8 @@
     @section('main-index-styles')
         {{-- custom styles only for main page --}}
         <link defer href="{{ secure_asset('styles/main-page.css') }}" type="text/css" rel="stylesheet">
+        {{-- main & first section --}}
+        <link defer href="{{ secure_asset('styles/first-section.css') }}" type="text/css" rel="stylesheet">
         {{-- slick slider --}}
         <link defer href="{{ secure_asset('styles/slick-slider.css') }}" type="text/css" rel="stylesheet">
         {{-- glitch effect --}}

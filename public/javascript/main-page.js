@@ -103,10 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const gradTarget = document.getElementById("gradient-effect_bf1");
-    gradientize(gradTarget);
+    if (gradTarget) {
+        gradientize(gradTarget);
+    }
 
     const gradTarget1 = document.getElementById("gradient-effect_bf2");
-    gradientize(gradTarget1);
+    if (gradTarget1) {
+        gradientize(gradTarget1);
+    }
+
 
 
 

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('telegram_username')->nullable();
+            $table->integer('telegram_channel_exempted')->default(0);
+            $table->string('telegram_channel_status')->default("none");
 
             /* if empty (null) - user is not either verified/referred,
             if not empty (<value>) - user is either verified/referred  */

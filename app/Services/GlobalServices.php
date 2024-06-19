@@ -104,6 +104,10 @@ class GlobalServices
     // if user paid subscription
     public function hasPaidSubscription()
     {
+        // if user is telegram_channel_exempted give him a pass
+        if (auth()->user()->telegram_channel_exempted === 1) {
+            return true;
+        }
         return auth()->user()->is_paid_10K === 1;
     }
 

@@ -92,6 +92,11 @@ body.lightMode .blue-marker::before {
     background-color: #6fa9ff;
 }
 
+body.lightMode .blue-circle-offset {
+    background-color: #c6d8ff;
+}
+
+
 body.lightMode .vignette::before {
     box-shadow: inset 5px 12px 90px 20px #f6f7f8,
         inset -5px -12px 90px 20px #f6f7f8,
@@ -104,6 +109,10 @@ body.lightMode .vignette.vignette_v1::before {
         inset -5px -12px 90px 20px #FFFFFF,
         inset 10px -5px 90px 20px #FFFFFF,
         inset -20px 18px 90px 20px #FFFFFF;
+}
+
+body.lightMode .b-section.b-section_v4 {
+    background-color: #f9f9f9;
 }
 
 body.lightMode .grad-block {
@@ -122,9 +131,6 @@ body.lightMode h1 {
     color: #000;
 }
 
-body.lightMode .b-section.b-section_v1 {
-    background: linear-gradient(97deg, #0d6efd 5%, #FFFFFF 40%);
-}
 
 @media (max-width: 500px) {
     body.lightMode .modern-header {
@@ -144,10 +150,32 @@ body.lightMode .b-section.b-section_v1 {
 
 
 
-body.lightMode .b-section.b-section_v1 {
+/* body.lightMode .b-section.b-section_v1 {
     background: linear-gradient(97deg, #0d6efd 5%, #FFFFFF 40%);
+} */
+
+body.lightMode .span_custom,
+body.lightMode .b-img.b-img_open-book {
+    background-color: #0000000f;
 }
 
+body.lightMode .b-section.b-section_v1 {
+    background: linear-gradient(97deg, #FFFFFF 40%, var(--blue-1) 100%);
+}
+
+body.lightMode .b-text.b-text_v5 {
+    color: transparent !important;
+    background-image: linear-gradient(0.303turn, rgb(0 0 0) 1%, rgb(0 0 0 / 20%) 100%);
+    border: 0.1em solid #00000033;
+}
+
+body.lightMode .modeLight_darker {
+    color: #666666 !important;
+}
+
+body.lightMode .modern-header .flex_blured.login_cst {
+    background-color: #ffffff66;
+}
 
 body.lightMode .b-section.b-section_v3 {
     background: #f6f7f8;

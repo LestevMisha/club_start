@@ -39,7 +39,7 @@ class TelegramController extends Controller
             0 => "❌ Пользователю уже были переведены деньги!\nПопробуйте позже.",
             1 => "✅ Отлично, пользователь успешно уведомлен!",
             2 => "❌ Что-то пошло не так. Данного пользователя не существует, обратитесь в поддержку.",
-            5 => "Доступные текущие комманды - /withdrawalUsers",
+            5 => "Доступные комманды - /withdrawalUsers, /changeEmail, /getInfo",
             6 => "На данный момент все партнеры обработаны и оплачены ✅",
         ];
 
@@ -74,9 +74,6 @@ class TelegramController extends Controller
                     return $this->telegramServices->sendMessage($chat_id, $admin_messages[2]);
                 }
             }
-
-            // <any message> - default answer to admin
-            return $this->telegramServices->sendMessage($chat_id, $admin_messages[5]);
         }
 
         // observe user / ignore any stranger who is not a user in our database
@@ -89,7 +86,7 @@ class TelegramController extends Controller
         $messages = [
             3 => "*$user->name* ваша текущая почта $user->email. Чтобы изменить текущюю почту напишите /changeEmail пробел <новая почта>, пример: `/changeEmail example@mail.ru`",
             4 => "✅ Отлично, мы заменили вашу почту!",
-            7 => "Доступные текущие комманды - /changeEmail",
+            7 => "Доступные комманды - /changeEmail, /getInfo",
         ];
 
         // /changeEmail - instractions to change email
@@ -108,8 +105,18 @@ class TelegramController extends Controller
             return $this->telegramServices->sendMarkdownV2Message($chat_id, $messages[4]);
         }
 
-        // <any message> - default answer
-        return $this->telegramServices->sendMessage($chat_id, $messages[7]);
+        // /getInfo - 'get common info about the club' command
+        if (strpos($message, "getInfo")) {
+            return $this->telegramServices->sendMessage($chat_id, file_get_contents(dirname(dirname(__DIR__)) . "/Telegram/Commands/messages/registerResponse.txt"));
+        }
+
+        if ($chat_id == config("services.telegram.notifications_chat_id")) {
+            // <any message> - default answer to admin
+            return $this->telegramServices->sendMessage($chat_id, $admin_messages[5]);
+        } else {
+            // <any message> - default answer
+            return $this->telegramServices->sendMessage($chat_id, $messages[7]);
+        }
     }
 
     public function setWebhook()
@@ -123,6 +130,7 @@ class TelegramController extends Controller
 
     public function removeWebhook()
     {
-        Telegram::removeWebhook();
+        $response = Telegram::removeWebhook();
+        dd($response);
     }
 }
