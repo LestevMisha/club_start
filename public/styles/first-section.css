@@ -8,6 +8,7 @@
     width: 2.5em;
     height: 2.5em;
     transition: all 0.225s ease-in-out;
+    opacity: 0;
 }
 
 .b-img.b-img_logo {
@@ -51,6 +52,7 @@
 }
 
 .go-button:hover>.b-img.b-img_finger-click {
+    opacity: 1;
     transform: translateX(-1em) translateY(-1em) !important;
 }
 
@@ -117,12 +119,16 @@
 }
 
 .blue-light {
+    display: none;
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 0;
     border-radius: 100em;
     opacity: 0.8;
-    height: 25em;
-    width: 100%;
+    height: 50%;
+    width: 50%;
     filter: blur(4em);
     /* background-image: linear-gradient(0turn, #009dff 0%, #050761 100%); */
     background-image: linear-gradient(0turn, #0067ff 0%, #0d6efd 100%);

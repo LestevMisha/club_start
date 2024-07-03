@@ -161,6 +161,7 @@ body.lightMode .b-img.b-img_open-book {
 
 body.lightMode .b-section.b-section_v1 {
     background: linear-gradient(97deg, #FFFFFF 40%, var(--blue-1) 100%);
+    /* background: linear-gradient(16deg, #FFFFFF 40%, var(--blue-1) 100%); */
 }
 
 body.lightMode .b-text.b-text_v5 {
@@ -174,7 +175,7 @@ body.lightMode .modeLight_darker {
 }
 
 body.lightMode .modern-header .flex_blured.login_cst {
-    background-color: #ffffff66;
+    background-color: #ffffff1f;
 }
 
 body.lightMode .b-section.b-section_v3 {

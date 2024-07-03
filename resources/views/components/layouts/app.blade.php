@@ -15,7 +15,6 @@
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/different-components.css') }}" type="text/css" rel="stylesheet">
     @yield('main-index-styles')
-
 </head>
 
 <body class="{{ request()->cookie('checked') ? 'lightMode' : 'darkMode' }}">
@@ -83,6 +82,10 @@
     @yield('main-index-script')
     @yield('forgot-password-script')
     @yield('card-credentials-script')
+
+    <!-- reCAPTCHA SETUP -->
+    @yield('reCAPTCHA-script')
+
 </body>
 
 </html>

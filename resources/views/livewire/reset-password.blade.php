@@ -55,33 +55,37 @@
         <h1>Сменить Пароль</h1>
         <x-modern-loader />
 
-        <form wire:submit.default="resetPassword" class="modern-form">
+        <form wire:submit.prevent="$dispatch('executeCaptchaValidation')" class="modern-form">
             @csrf
             <div class="flex v w100">
                 <x-input attribute="email" inscription="Email Адрес" />
                 <x-input attribute="password" inscription="Новый Пароль" />
                 <x-input attribute="password_confirmation" inscription="Введите новый пароль еще раз" />
                 <x-modern-error />
-                <button {{ $disabled ? "disabled" : "" }} id="countdown-btn" class="go-button v1">Изменить пароль</button>
+                <button {{ $disabled ? 'disabled' : '' }} id="countdown-btn" class="go-button v1">
+                    Изменить пароль
+                </button>
 
                 <div class="b-text b-text_08 b-text_grey-dark mt-1">
                     Измените пароль от вашего аккаунта, и мы перенаправим вас на страницу Авторизации.
                 </div>
 
+                {{-- ---------------------- Countdown SETUP ----------------------— --}}
                 <script>
                     document.addEventListener('livewire:init', () => {
                         Livewire.on('retryCountdown', (event) => {
                             let countdownBtn = document.getElementById('countdown-btn');
                             let countdown = event.retryAfter - 1;
-                            countdownBtn.textContent = `${Math.floor(countdown / 60)} мин ${countdown % 60}  сек`;
+                            countdownBtn.textContent =
+                                `${Math.floor(countdown / 60) !== 0 ? `${Math.floor(countdown / 60)} мин` : ''} ${countdown % 60}  сек`;
 
                             let interval = setInterval(() => {
-                                countdownBtn.style.color = "red";
                                 countdownBtn.textContent =
-                                    `${Math.floor(countdown / 60)} мин ${countdown % 60}  сек`;
+                                    `${Math.floor(countdown / 60) !== 0 ? `${Math.floor(countdown / 60)} мин` : ''} ${countdown % 60}  сек`;
                                 countdown--;
 
                                 if (countdown < 0) {
+                                    countdownBtn.disabled = false;
                                     countdownBtn.textContent = "Изменить пароль";
                                     clearInterval(interval);
                                 }
@@ -89,10 +93,12 @@
                         });
                     });
                 </script>
-
-
             </div>
         </form>
-
     </div>
 </div>
+
+{{-- reCAPTCHA SETUP --}}
+@section('reCAPTCHA-script')
+    <x-scripts.recaptcha />
+@stop

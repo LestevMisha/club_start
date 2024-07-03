@@ -1,78 +1,20 @@
 <div>
 
-    {{-- <section class="b-section b-section_hidden b-section_v1">
-        <div class="container container_v2 mob">
-            <div class="container container_v1">
-                <div class="flex v h100">
-                    <div class="flex v mt-4">
-
-                        <div class="h-text h-text_main-header">
-                            <div class="b-text b-text_3.5em b-text_900 b-text_center b-text_grey b-text_lh-1em">
-                                КЛУБ
-                            </div>
-                            <div class="glitch-wrapper">
-                                <div data-text="START" class="b-text b-text_4.5em b-text_900 b-text_center glitch">
-                                    START
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="b-text b-text_1.3em b-text_center mt-2">
-                        Закрытый клуб для продаж <br>кроссовок по дропшиппингу
-                    </div>
-                    <!-- <div class="flex fit gap-05 v mt-2 m-auto">
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_700">Без опыта</div>
-                        </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_700">Без склада</div>
-                        </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_700">Без сотрудников</div>
-                        </div>
-                        <div class="flex gap h align">
-                            <x-svg class="b-img b-img_v1" svg="CheckCircle" />
-                            <div class="b-text b-text_1.3em b-text_700">Без вложений в товар</div>
-                        </div>
-                    </div> -->
-                    <div class="card mt-2">
-                        <div class="b-text b-text_1.3em b-text_center">
-                            Ежемесечная подписка на<br>"КЛУБ START"
-                        </div>
-                        <div class="b-text b-text_grey b-text_center">Вход: 6 000 рублей</div>
-                        <a class="go-button v2" href="{{ route('register') }}">Вступить в Клуб</a>
-                    </div>
-                </div>
-            </div>
-            <div id="anchor">
-            </div>
-
-        </div>
-        <img id="optimize_LCP-mobile" src="{{ URL::asset('images/min-png/sneakers-chair-extromin.png') }}"
-            class="b-img b-img_v2" alt="sneakers-chair">
-        <div class="overlay"></div>
-    </section> --}}
-
-    <section class="b-section b-section_visible b-section_v1 pt-6 pb-12">
+    <section class="b-section b-section_visible b-section_v1 pt-12 pb-12">
         <div class="container container_v2 mob">
             <div class="flex h reverse_mob">
                 <div id="custom_mobile" class="flex v w70 z-2 wmob mb-6">
-                        <img class="b-img b-img_logo mb-4" src="{{ URL::asset('images/logo.png') }}" alt="logo">
 
-                        <div class="b-text b-text_v5 mb-1">ОНЛАЙН-ДОСТУП</div>
+                    <div class="b-text b-text_v5 mb-1">ОНЛАЙН-ДОСТУП</div>
 
-                    <div class="b-text b-text_4.5em b-text_lh-1 b-text_700 mb-2r">Дропшиппинг
-                        <img class="b-img b-img_open-book floating" src="{{ URL::asset('images/min-png/money-sticker.png') }}"
-                            alt="open-book">
+                    <div class="b-text b-text_4.5em b-text_lh-1 b-text_700 fmob6 tcmob mb-2r">Дропшиппинг
+                        {{-- <img class="b-img b-img_open-book floating"
+                            src="{{ URL::asset('images/svg/img-case/rocket-dynamic-premium.svg') }}" alt="open-book"> --}}
                         на кроссовках
-                        <span class="b-text b-text_grey modeLight_darker span_custom">Всего в 1 клик</span>
+                        <span class="b-text b-text_500 modeLight_darker b-text_white_mob span_custom">Всего в 1 клик</span>
                     </div>
 
-                    <div class="b-text b-text_400 b-text_1.5em mb-2">
+                    <div class="b-text b-text_400 b-text_1.5em b-text_grey_mob br_remover_mob fmob3 tcmob mb-2">
                         Начни зарабатывать без опыта, склада,
                         <br>
                         сотрудников или вложений в товар
@@ -81,23 +23,26 @@
                     <div class="flex h gap_2 align mob">
 
 
-                        <a class="go-button v7" href="{{ route('register') }}">
+                        <a class="go-button v7 go-button_50%" href="{{ route('register') }}">
                             Вступить в Клуб
                             <img class="b-img b-img_finger-click" src="{{ URL::asset('images/finger-click.png') }}"
                                 alt="finger-click">
                         </a>
 
-                        <div class="hblock hblock_center hblock_gap">
-                            <img class="b-img b-img_face" src="{{ URL::asset('images/face.png') }}" alt="face">
-                            <div class="b-text b-text_400 b-text_grey modeLight_darker">Ежемесечная подписка<br> за 6 000
+                        <div class="flex h align">
+                            <img class="b-img b-img_face" src="{{ URL::asset('images/svg/img-case/tick-dynamic-color.svg') }}" alt="face">
+                            <div class="b-text b-text_400 b-text_grey b-text_grey-dark_mob modeLight_darker">Ежемесечная подписка<br> за 6
+                                000
                                 рублей</div>
                         </div>
                     </div>
                 </div>
-                <div class="flex v w30 wmob">
+                <div class="flex v w30 h24em_mob wmob">
                     <div class="blue-light"></div>
                     <div id="anchor" class="z-1">
                     </div>
+                    <img class="b-img b-img_box" src="{{ URL::asset('images/shipping-box.webp') }}" alt="shipping-box">
+                    <img class="b-img b-img_box b-img_box-cut" src="{{ URL::asset('images/shipping-box-cut.png') }}" alt="shipping-box-cut">
                 </div>
             </div>
         </div>
@@ -117,7 +62,7 @@
                 <div
                     class="b-text b-text_2.5em b-text_fit b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v3">
                     УЧАСТНИКАМ КЛУБА<br><span
-                        class="b-text b-text_grey-dark b-text_400 b-text_08">ПРЕДОСТАВЛЯЕТСЯ</span>
+                        class="b-text b-text_grey b-text_grey-dark_mob modeLight_darker b-text_400 b-text_08">ПРЕДОСТАВЛЯЕТСЯ</span>
                 </div>
             </div>
 
@@ -338,32 +283,11 @@
 
     </section>
 
-    <section class="b-section b-section_v2 b-section_hidden pt-12">
+    <section class="b-section b-section_v2 b-section_hidden pt-6">
 
+        {{-- hook Astod62_ds --}}
         <img src="{{ URL::asset('images/dan-6.png') }}" class="b-img b-img_v19" type="image/jpeg" alt="sn1"
             loading="lazy" id="responsive-img">
-        <script>
-            function switchImageBasedOnWidth() {
-                const imgElement = document.getElementById('responsive-img');
-                const screenWidth = window.innerWidth;
-
-                if (screenWidth < 1250) {
-                    imgElement.src = "{{ URL::asset('images/dan-6.png') }}";
-                } else {
-                    imgElement.src = "{{ URL::asset('images/dan-5.png') }}";
-                }
-            }
-
-            // Initial check
-            switchImageBasedOnWidth();
-
-            // Add event listener for window resize
-            window.addEventListener('resize', switchImageBasedOnWidth);
-        </script>
-        {{-- <div class="shaped_angle_background">
-            <div id="globe" class="cursor_grab">
-            </div>
-        </div> --}}
 
         <div class="container container_v2 custom_blur_103xd mob">
             <div class="flex v">
@@ -478,7 +402,7 @@
 
     </section>
 
-    <section class="b-section b-section_v2">
+    <section class="b-section b-section_v2 b-section_hidden">
         <div class="container container_v2 mob">
 
 
@@ -506,9 +430,8 @@
                     <img id="banknote" src="{{ URL::asset('images/min-png/money-sticker.png') }}"
                         class="b-img b-img_v4 v4_0" alt="banknote" loading="lazy">
 
+                    {{-- Stopp09_er --}}
                     <div class="flex h gap_2 slight-bg mob">
-
-
                         <div class="flex w50 v gap_2 mob">
                             <div class="slidecontainer">
                                 <div class="flex h space-btw gap_2 mob mb-2r">
@@ -546,59 +469,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <script>
-                var subsSlider = document.getElementById("subs");
-                var addPriceSlider = document.getElementById("add-price");
-                var addValue = document.getElementById("add-price-value");
-                var subsValue = document.getElementById("subs-value");
-                var banknote = document.getElementById("banknote");
-
-                var minResult = document.getElementById("min-result");
-                var maxResult = document.getElementById("max-result");
-
-                subsValue.innerHTML = subsSlider.value + '  человек';
-                addValue.innerHTML = (addPriceSlider.value).toLocaleString('ru-RU') + ' рублей';
-
-                minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value)).toLocaleString(
-                        'ru-RU') +
-                    ' рублей';
-                maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
-                        'ru-RU') +
-                    ' рублей';
-
-                addPriceSlider.oninput = function() {
-                    addValue.innerHTML = (this.value).toLocaleString('ru-RU') + ' рублей';
-                    minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value))
-                        .toLocaleString(
-                            'ru-RU') + ' рублей';
-                    maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
-                        'ru-RU') + ' рублей';
-                    banknote.style.opacity = 0.7;
-                };
-
-                subsSlider.oninput = function() {
-                    subsValue.innerHTML = this.value + " человек";
-                    minResult.textContent = (parseInt(subsSlider.value) * 0.005 * parseInt(addPriceSlider.value))
-                        .toLocaleString(
-                            'ru-RU') + ' рублей';
-                    maxResult.textContent = (parseInt(subsSlider.value) * 0.03 * parseInt(addPriceSlider.value)).toLocaleString(
-                        'ru-RU') + ' рублей';
-                    banknote.style.opacity = 0.7;
-                };
-
-                addPriceSlider.onchange = function() {
-                    banknote.style.opacity = 0.2;
-                };
-
-                subsSlider.onchange = function() {
-                    banknote.style.opacity = 0.2;
-                };
-            </script>
-
 
         </div>
         <div class="bg_noise"></div>
@@ -607,7 +479,7 @@
     </section>
 
 
-    {{-- <section class="b-section pt-6">
+    <section class="b-section pt-6">
 
         <div class="container container_v2 mob">
             <div class="flex v">
@@ -781,66 +653,47 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 
 
     <section class="b-section b-section_visible pt-6">
         <div class="container container_v2 mob">
-
-
-
             <div class="flex v w70 mx-auto wmob">
-                <div class="h-text">
+                <div class="h-text mb-3r">
                     <div
-                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1r">
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
                         <span class="relative nowrap blue-marker">КОНТЕНТ</span> ДЛЯ ВАШЕГО МАГАЗИНА
                     </div>
                 </div>
 
-                <div class="flex h gap_4 mt-2 mb-1">
-                    <div class="block w50">
+                <div class="flex h gap_4 mb-1 gap_1_mob mob">
+                    <div class="block w50 mob">
                         <div class="flex v hmin6 mb-1r __text-block">
-                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                            <div class="b-text b-text_1.5em b-text_600 mb-05">
                                 Обработанная фотка
                             </div>
-                            <div class="b-text tcmob b-text_400 b-text_grey">
+                            <div class="b-text b-text_400 b-text_grey">
                                 Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
                                 ногах.
                             </div>
                         </div>
                     </div>
-                    <div class="block w50">
+                    <div class="block w50 mob">
                         <div class="flex v hmin6 mb-1r __text-block">
-                            <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
+                            <div class="b-text b-text_1.5em b-text_600 mb-05">
                                 Бэкстэйдж
                             </div>
-                            <div class="b-text tcmob b-text_400 b-text_grey">
-                                Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
-                                ногах.
+                            <div class="b-text b-text_400 b-text_grey">
+                                Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки
+                                «за кадром» и публикуем файлы в КЛУБ START.
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {{-- <div class="flex v mobalign w100 mob">
-                    <div class="flex v hmin6 mb-1r __text-block">
-                        <div class="b-text tcmob b-text_1.5em b-text_600 mb-05">
-                            Обработанная фотка
-                        </div>
-                        <div class="b-text tcmob b-text_400 b-text_grey">
-                            Мы устраиваем фотосессии с популярными кроссовками, чтобы показать, как они выглядят на
-                            ногах.
-                        </div>
-                    </div>
-                    <video class="b-video b-video_v2 __slide-block" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/block-1/1.jpeg') }}">
-                        <source src="{{ URL::asset('videos/block-1/1.mp4') }}" type="video/mp4">
-                    </video>
-                </div> --}}
             </div>
 
-
+            {{-- hook klotMo33_nE --}}
             <div class="swiper mySwiper flex h gap_2 w70 mx-auto wmob">
                 <div class="swiper-wrapper">
 
@@ -856,7 +709,6 @@
                             </g>
                         </svg>
                         <div class="b-text b-text_grey-dark cabs_3">Потяни</div>
-                        {{-- <div class="b-text b-text_grey-dark cabs_3">🤏 Потяни</div> --}}
                     </div>
 
 
@@ -904,199 +756,13 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
-            {{-- <div class="flex h gap_2">
-
-                <div class="block w50">
-                    <!-- Swiper -->
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}"
-                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-1" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}"
-                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ URL::asset('images/min-jpeg/edited/edited_3.jpeg') }}"
-                                    class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-3" loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block w50">
-                    <!-- Swiper -->
-                    <div class="swiper mySwiper">
-                        <img class="b-img b-img_v28" src="{{ URL::asset('images/min-png/hand-thumb-up.png') }}"
-                            alt="hand-thumb-up">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <video class="b-obj b-obj_v3"
-                                    src="{{ URL::asset('videos/behind-the-scene/behind_1.mp4') }}" autoplay muted
-                                    loop>
-                                </video>
-                            </div>
-                            <div class="swiper-slide">
-                                <video class="b-obj b-obj_v3"
-                                    src="{{ URL::asset('videos/behind-the-scene/behind_2.mp4') }}" muted loop>
-                                </video>
-                            </div>
-                            <div class="swiper-slide">
-                                <video class="b-obj b-obj_v3"
-                                    src="{{ URL::asset('videos/behind-the-scene/behind_3.mp4') }}" muted loop>
-                                </video>
-                            </div>
-                            <div class="swiper-slide">
-                                <video class="b-obj b-obj_v3"
-                                    src="{{ URL::asset('videos/behind-the-scene/behind_4.mp4') }}" muted loop>
-                                </video>
-                            </div>
-                            <div class="swiper-slide">
-                                <video class="b-obj b-obj_v3"
-                                    src="{{ URL::asset('videos/behind-the-scene/behind_5.mp4') }}" muted loop>
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> --}}
-
-            <!-- Swiper JS -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-            <!-- Initialize Swiper -->
-            <script>
-                var swiper = new Swiper(".mySwiper", {
-                    effect: "cards",
-                    grabCursor: true,
-                    cardsEffect: {
-                        perSlideOffset: 2, // Space between cards in px
-                        perSlideRotate: 2, // Rotation of cards in degrees
-                    },
-                    on: {
-                        slideChange: function() {
-                            console.log(document.querySelectorAll('.swiper-slide video'));
-                            // Pause all videos
-                            document.querySelectorAll('.swiper-slide video').forEach(video => {
-                                video.pause();
-                            });
-                            // Play the active video
-                            setTimeout(() => {
-                                const activeSlide = document.querySelector('.swiper-slide-active video');
-                                console.log(activeSlide);
-                                if (activeSlide) {
-                                    activeSlide.play();
-                                }
-                            }, 10);
-                        },
-                        init: function() {
-                            // Pause all videos initially
-                            document.querySelectorAll('.swiper-slide video').forEach(video => {
-                                video.pause();
-                            });
-                            // Play the active video on load
-                            const activeSlide = document.querySelector('.swiper-slide-active video');
-                            if (activeSlide) {
-                                activeSlide.play();
-                            }
-                        }
-                    }
-                });
-            </script>
-
-
-            {{-- <div class="flex v">
-
-                <div class="h-text">
-                    <div
-                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-1r">
-                        КОНТЕНТ ДЛЯ ВАШЕГО МАГАЗИНА
-                    </div>
-                </div>
-                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 my-3">
-                    🎥 Чтобы клиент понимал, что контент не был взят из интернета, мы фиксируем процесс съемки «за
-                    кадром» и публикуем файлы в КЛУБ START.
-                </div>
-
-                <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
-                    Мы устраиваем фотосессии с популярными кроссовками,
-                    <br>
-                    чтобы показать, как они выглядят на ногах
-                </div>
-
-                <div class="flex h space-btw">
-                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_1.jpeg') }}" class="b-img b-img_v20"
-                        type="image/jpeg" alt="sn1" loading="lazy">
-                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_2.jpeg') }}" class="b-img  b-img_v20"
-                        type="image/jpeg" alt="sn1" loading="lazy">
-
-                    <img src="{{ URL::asset('images/min-jpeg/edited/edited_3.jpeg') }}" class="b-img  b-img_v20"
-                        type="image/jpeg" alt="sn1" loading="lazy">
-                </div>
-
-
-
-                <div class="flex h space-btw">
-                    <video class="b-img b-img_v20" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/1.jpeg') }}">
-                        <source src="{{ URL::asset('videos/behind-the-scene-portview/1.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v20" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/2.jpeg') }}">
-                        <source src="{{ URL::asset('videos/behind-the-scene-portview/2.mp4') }}" type="video/mp4">
-                    </video>
-                    <video class="b-img b-img_v20" muted controls preload="none"
-                        poster="{{ URL::asset('images/min-jpeg/behind-the-scene-portview-posters/3.jpeg') }}">
-                        <source src="{{ URL::asset('videos/behind-the-scene-portview/3.mp4') }}" type="video/mp4">
-                    </video>
-
-                </div>
-
-
-
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const animatedBlock = document.querySelector('.animated-block');
-
-                        function updateBlockVisibility() {
-                            const rect = animatedBlock.getBoundingClientRect();
-                            const windowHeight = window.innerHeight;
-
-                            // Calculate the proportion of the element that is visible
-                            const visibleRatio = Math.max(0, Math.min(1, (windowHeight - rect.top) / (rect.height +
-                                windowHeight)));
-
-                            // Set the opacity based on the visible ratio (from 0 to 0.25)
-                            animatedBlock.style.opacity = Math.min(0.5, visibleRatio * 0.75);
-
-                            // Move the element from right to left based on its visibility
-                            const translateX = 100 * (0.25 - visibleRatio); // Move from 100% to 0%
-                            animatedBlock.style.transform = `translateX(${translateX}%)`;
-                        }
-
-                        // Update visibility on scroll and resize
-                        window.addEventListener('scroll', updateBlockVisibility);
-                        window.addEventListener('resize', updateBlockVisibility);
-
-                        // Initial check
-                        updateBlockVisibility();
-                    });
-                </script>
-
-            </div> --}}
         </div>
-
     </section>
 
-    <section class="b-section pt-12">
+    <section class="b-section b-section_visible pt-6">
+        {{-- hook Doors72_da --}}
         <div id="gradient-effect_bf2" class="container container_v2 mob">
             <div class="fade-in fade-in_v1 top -z-1"></div>
 
@@ -1110,11 +776,11 @@
 
             <div class="flex v">
 
-                <div class="h-text">
+                <div class="h-text mb-3r">
                     <div
-                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change mb-3r">
+                        class="b-text b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
                         УНИВЕРСАЛЬНЫЙ ТАРИФ, В КОТОРЫЙ
-                        <span class="relative nowrap blue-marker">ВСЕ ВКЛЮЧЕНО</span>
+                        <span class="relative block nowrap blue-marker mt-05r mx-auto">ВСЕ ВКЛЮЧЕНО</span>
                     </div>
                 </div>
 
@@ -1166,7 +832,7 @@
 
     </section>
 
-    <section class="b-section pt-6">
+    <section class="b-section b-section_visible pt-6">
         <div class="container container_v2 mob">
 
             <div class="flex v">
@@ -1271,16 +937,6 @@
         <div class="fade-in fade-in_v1 top"></div>
         <x-svg class="b-img b-img_v7" svg="NikePair" />
         <div class="container container_v2 mob">
-            {{-- <div id="gradient-effect_bf1" class="container container_v2 mob"> --}}
-            {{-- <div class="fade-in fade-in_v1 top -z-1"></div> --}}
-
-
-            {{-- <div class="vignette -z-2"></div>
-            <div class="grad-block -z-3">
-                <div id="follow-gradient" class="follow-gradient">
-                    <div class="grad-text"></div>
-                </div>
-            </div> --}}
 
             <div class="h-text">
                 <div
@@ -1501,6 +1157,7 @@
             </div>
             <div class="accordion-container">
                 <div class="divider"></div>
+                {{-- hook Gloof49_ck --}}
                 <div class="flex h gap mob accordion">
                     <div class="flex v gap">
                         <div class="accordion-item">
@@ -1691,54 +1348,6 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            function truncateText(element, maxLetters) {
-                                let text = element.textContent.replace(/\s+/g, '');
-                                if (text.length > maxLetters) {
-                                    let truncatedText = '';
-                                    let letterCount = 0;
-
-                                    for (let char of element.textContent) {
-                                        if (char !== ' ') {
-                                            letterCount++;
-                                        }
-                                        if (letterCount > maxLetters) {
-                                            truncatedText += '...';
-                                            break;
-                                        }
-                                        truncatedText += char;
-                                    }
-
-                                    element.textContent = truncatedText;
-                                }
-                            }
-
-                            document.addEventListener('DOMContentLoaded', () => {
-                                const textElements = document.querySelectorAll('.accordion-item .b-text.b-text_2em');
-                                const buttons = document.querySelectorAll('.accordion-item button');
-
-                                textElements.forEach(textElement => {
-                                    // Store the full text in a data attribute
-                                    textElement.dataset.fullText = textElement.textContent;
-                                    truncateText(textElement, 40);
-                                });
-
-                                buttons.forEach(button => {
-                                    button.addEventListener("click", function() {
-                                        const textElement = this.querySelector('.b-text.b-text_2em');
-                                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-                                        if (isExpanded) {
-                                            // If expanded, truncate the text
-                                            truncateText(textElement, 40);
-                                        } else {
-                                            // If not expanded, show the full text
-                                            textElement.textContent = textElement.dataset.fullText;
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
                     </div>
                 </div>
             </div>
@@ -1753,8 +1362,8 @@
         <div class="container container_v2 mob">
 
             <div class="flex v">
-                {{-- <img src="{{ URL::asset('images/min-webp/star-sticker.webp') }}" alt="star-sticker"
-                    class="b-img b-img_v17"> --}}
+                <img src="{{ URL::asset('images/min-webp/star-sticker.webp') }}" alt="star-sticker"
+                    class="b-img b-img_v17">
 
                 <div class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto mb-6r">
                     <span class="relative nowrap blue-marker">С ТОБОЙ</span>
@@ -1874,30 +1483,22 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
-
     </section>
 
-    <div id="video-intro">
+    {{-- <div id="video-intro">
         <div class="video-wrapper">
             <img src="{{ URL::asset('images/svg/img-case/RedCross.svg') }}" class="b-img b-img_remove"
                 alt="remove" loading="lazy">
-
             <div class="b-img b-img_remove v1">—</div>
-
             <video src="{{ URL::asset('videos/camera.mp4') }}" autoplay muted loop>
             </video>
         </div>
-    </div>
+    </div> --}}
 
     <x-footer />
 
@@ -1923,11 +1524,10 @@
     @section('main-index-script')
         {{--  Slick Slider Library  --}}
         <script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         {{-- Three.js Library --}}
         <script type="module" src="{{ URL::asset('javascript/3D/NikeAirMag.js') }}"></script>
-        {{-- <script type="module" src="{{ URL::asset('javascript/3D/Globe.js') }}"></script> --}}
-        {{-- Different Scene --}}
-        {{-- <script src="{{ URL::asset('javascript/3D/SneakersOnBox.js') }}"></script> --}}
         {{-- Slick-slider --}}
         <script src="{{ URL::asset('javascript/slick-slider.js') }}"></script>
         {{-- Accordion --}}
