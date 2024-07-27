@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('email')->default("");
             $table->string('telegram_id')->default("");
-            $table->string('referral_id')->default("");
+            $table->string('referred_referral_id')->default("");
 
             $table->string('yookassa_transaction_id')->default("");
             $table->string('payment_method_id')->default("");

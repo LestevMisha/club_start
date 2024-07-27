@@ -1,0 +1,134 @@
+body.lightMode {
+    background-color: #f1f1f1;
+}
+
+body.lightMode .ds-notice {
+    background: #FFFFFF;
+}
+
+body.lightMode .ds-row {
+    background: #FFFFFF;
+}
+
+body.lightMode .modern-blox {
+    background-color: #ecf1f7;
+    color: #000;
+}
+
+html, body {
+    height: 100% !important;
+}
+
+.ds-notice {
+    display: block;
+    width: fit-content;
+    background-color: #171717;
+    border: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    line-height: 1.4;
+    padding: 11px 15px;
+    font-size: 14px;
+    border-left: 4px solid #50d45e;
+    border-radius: 0.4em;
+}
+
+.ds-row {
+    position: relative;
+    min-width: 255px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    background: #171717;
+    border-radius: 0.4em;
+    padding: 1em;
+}
+
+.ds-row-contain {
+    padding: 1em;
+}
+
+.ds-row-contain.vsqueeze {
+    padding: 0.5em 1em;
+}
+
+.ds-postbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.emphasize {
+    background-image: linear-gradient(155deg, #E94094 10%, #FDBB6A 30%, #75C9C6 40%, #A0D081 50%, #5DC7DE 60%, #4357A4 79%, #E94094);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.emphasize.blue {
+    background-image: linear-gradient(135deg, #BF7BFF, #3A34B5);
+}
+.emphasize.orange {
+    background-image: linear-gradient(155deg, #ee0979 50%, #ff6a00)
+}
+
+.modern-blox-wrapper {    
+    position: relative;
+    display: block;
+    border-radius: inherit;
+    font-size: 15px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.modern-blox-wrapper .modern-blox {
+    font-weight: 400;
+    height: 56px;
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    color: #FFF;
+    background-color: rgb(128 128 128 / 15%);
+    width: 100%;
+    padding: 19px 16px 0;
+    border-color: #ffffff21;
+}
+
+.modern-blox-label {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    max-width: calc(100% - 32px);
+    color: rgba(255, 255, 255, .54);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    transform-origin: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.modern-blox-wrapper .modern-blox-label,
+.modern-blox-wrapper .modern-blox-label {
+    transform: translateY(-10px) scale(0.87);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.modern-blox-wrapper .right-content {
+    display: flex;
+}
+
+.copy-icon {
+    display: flex;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+#referral_plot {
+    height: 12em !important;
+}

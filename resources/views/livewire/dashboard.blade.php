@@ -1,13 +1,49 @@
-<div class="flex v gap">
+<div class="flex h100 v gap">
+
+    <div class="ds-notice">
+        <div class="b-text">Купить <a class="emphasize blue" href=""> Эксклюзивный доступ</a></div>
+    </div>
+    <div class="b-text b-text_1.5em">Главная</div>
     <x-modern-loader />
     @if ($this->hasCardVerification())
-        <div class="flex v flex v3 cursor_crosshair w50 mob">
-            <div class="b-text">Реферальная ссылка: </div>
-            <?php $url = url('/') . '?referral_id=' . Auth::user()->referral_id; ?>
-            <a href="{{ $url }}">{{ $url }}</a>
+       <div class="flex h gap">
+        <div class="flex v hfit ds-row cursor_crosshair w50 mob">
+            <div class="b-text b-text_grey mb-1">Основная Информация</div>
+
+            <div class="flex gap v">
+                <?php $url = url('/') . '?referred_referral_id=' . Auth::user()->referral_id; ?>
+                <x-blox attribute="referral_link" inscription="Реферальная ссылка" value="{{ $url }}"
+                    class="mb-1" />
+                <x-blox attribute="referral_link" inscription="Закрытый клуб" value="https://t.me/+UChE4Obnlq9iNmFh"
+                    class="mb-1" />
+                <div class="b-text b-text_08 b-text_grey-dark">
+                    It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
         </div>
+        <div class="flex v ds-row cursor_crosshair w50 mob">
+            <div class="b-text b-text_grey mb-1">Реферальные Транзакции</div>
+            <canvas id="referral_plot">Ваш браузер не поддерживает canvas элемент.</canvas>
+{{-- 
+            <div class="flex gap v">
+                <?php $url = url('/') . '?referred_referral_id=' . Auth::user()->referral_id; ?>
+                <x-blox attribute="referral_link" inscription="Реферальная ссылка" value="{{ $url }}"
+                    class="mb-1" />
+                <x-blox attribute="referral_link" inscription="Закрытый клуб" value="https://t.me/+UChE4Obnlq9iNmFh"
+                    class="mb-1" />
+                <div class="b-text b-text_08 b-text_grey-dark">
+                    It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div> --}}
+        </div>
+       </div>
     @else
-        <div class="flex v flex v3">
+        <div class="flex v ds-row">
+
             <div class="flex w70 wmob v gap_05">
                 <div class="b-text b-text_2em">Даем возможность стать партнером</div>
                 <div class="b-text b-text_grey">Если вы становитесь партнером мы перечисляем вам 50% от цены клуб с
@@ -36,12 +72,13 @@
 
     <div class="flex gap h mob">
 
-        <div class="flex v v3 gap_05 cursor_crosshair">
+        <div class="flex v ds-row gap_05 cursor_crosshair">
+
             <div class="mb-05">
                 <div class="b-text">
                     Оставшиеся дни:
                     @if (Auth::user()->telegram_channel_exempted)
-                            <span class="b-text b-text_green">x дней</span>
+                        <span class="b-text b-text_green">x дней</span>
                     @else
                         <span
                             class="b-text {{ Auth::user()->days_left === 3 ? 'b-text_yellow' : (Auth::user()->days_left === 2 ? 'b-text_orange' : (Auth::user()->days_left === 1 ? 'b-text_red' : 'b-text_green')) }}">{{ Auth::user()->days_left }}
@@ -58,7 +95,7 @@
                 <a href="https://t.me/+UChE4Obnlq9iNmFh">https://t.me/+UChE4Obnlq9iNmFh</a>
             </div>
         </div>
-        <div class="flex v flex v3 cursor_crosshair">
+        <div class="flex v ds-row cursor_crosshair">
             <div class="flex v gap_05">
                 <div class="b-text b-text_2em">Фотосессии</div>
                 <div class="b-text b-text_08 b-text_grey mb-1">Вы получите информацию о клубе, ссылку на клуб и
@@ -72,7 +109,7 @@
     </div>
 
     @if (Auth::user()->telegram_channel_exempted)
-        <div class="flex v v3 gap_05 cursor_crosshair mt-05">
+        <div class="flex v ds-row gap_05 cursor_crosshair mt-05">
             <div class="mb-05">
                 <div class="b-text">
                     Вы являетесь уникальным пользователем, после вас таких не будет 😁. Начиная с лета 2024 года
@@ -86,6 +123,57 @@
 
 
     @section('card-credentials-script')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"
+            integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="{{ secure_asset('javascript/card-credentials.js') }}"></script>
+        <script type="module">
+            // import Chart from 'chart.js/auto';
+
+            (async function() {
+                const data = [{
+                        year: 2010,
+                        count: 10
+                    },
+                    {
+                        year: 2011,
+                        count: 20
+                    },
+                    {
+                        year: 2012,
+                        count: 15
+                    },
+                    {
+                        year: 2013,
+                        count: 25
+                    },
+                    {
+                        year: 2014,
+                        count: 22
+                    },
+                    {
+                        year: 2015,
+                        count: 30
+                    },
+                    {
+                        year: 2016,
+                        count: 28
+                    },
+                ];
+
+                new Chart(
+                    document.getElementById('referral_plot'), {
+                        type: 'bar',
+                        data: {
+                            labels: data.map(row => row.year),
+                            datasets: [{
+                                label: 'Acquisitions by year',
+                                data: data.map(row => row.count)
+                            }]
+                        }
+                    }
+                );
+            })();
+        </script>
     @stop
 </div>

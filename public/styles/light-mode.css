@@ -1,24 +1,5 @@
 @charset "UTF-8";
 
-/* div,
-img,
-svg,
-section,
-body,
-a,
-svg,
-i,
-.modern-input,
-label,
-button,
-span,
-::before,
-::after {
-    transition-property: transform, filter, scale, color, background-color, opacity, box-shadow;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
-} */
-
 /* LIGHT MODE */
 
 /* Change Autocomplete styles in Chrome*/
@@ -112,7 +93,7 @@ body.lightMode .vignette.vignette_v1::before {
 }
 
 body.lightMode .b-section.b-section_v4 {
-    background-color: #f9f9f9;
+    background-color: #f0f0f1;
 }
 
 body.lightMode .grad-block {
@@ -144,16 +125,6 @@ body.lightMode h1 {
     }
 }
 
-/* 
-@media (max-width: 1250px) {
-} */
-
-
-
-/* body.lightMode .b-section.b-section_v1 {
-    background: linear-gradient(97deg, #0d6efd 5%, #FFFFFF 40%);
-} */
-
 body.lightMode .span_custom,
 body.lightMode .b-img.b-img_open-book {
     background-color: #0000000f;
@@ -161,7 +132,6 @@ body.lightMode .b-img.b-img_open-book {
 
 body.lightMode .b-section.b-section_v1 {
     background: linear-gradient(97deg, #FFFFFF 40%, var(--blue-1) 100%);
-    /* background: linear-gradient(16deg, #FFFFFF 40%, var(--blue-1) 100%); */
 }
 
 body.lightMode .b-text.b-text_v5 {
@@ -183,6 +153,13 @@ body.lightMode .b-section.b-section_v3 {
 
 }
 
+body.lightMode .b-text.b-text_grey-dark_v1.reverse {
+    color: #acacac;
+}
+
+body.lightMode .b-text.b-text_blue {
+    color: var(--blue-1) !important;
+}
 
 body.lightMode .b-section {
     background-color: #FFFFFF;
@@ -194,7 +171,6 @@ body.lightMode .b-section.b-section_v5 {
 
 body.lightMode .card {
     background-color: #e8e8e84a;
-    /* background-color: #f6f7f8; */
 }
 
 body.lightMode .slight-bg {
@@ -232,10 +208,6 @@ body.lightMode .b-section_doted {
 body.lightMode .laid_card {
     background-color: #FFFFFF;
 }
-
-/* body.lightMode .b-section_doted.b-section_doted-grey {
-    background-color: #f9f9f9;
-} */
 
 body.lightMode .b-section_crosses {
     background: radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 0% 0% / 64px 64px, radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 32px 32px / 64px 64px, linear-gradient(#f0f0f0 2px, transparent 2px) 0px -1px / 32px 32px, linear-gradient(90deg, #f0f0f0 2px, #f9f9f9 2px) -1px 0px / 32px 32px #f9f9f9;

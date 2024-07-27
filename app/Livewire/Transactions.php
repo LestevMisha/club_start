@@ -38,7 +38,7 @@ class Transactions extends Component
     public function loadUTs(): void
     {
         $this->countUTs += 1;
-        $transactions = UsersTransactions::where('uuid', Auth::user()->uuid)
+        $transactions = UsersTransactions::where('user_uuid', Auth::user()->uuid)
             ->orderBy("created_at", "desc")
             ->paginate(5, ['*'], 'page');
         $this->users_transactions = $transactions->items();
@@ -48,7 +48,7 @@ class Transactions extends Component
     public function loadMoreUTs(): void
     {
         $this->countUTs += 1;
-        $transactions = UsersTransactions::where('uuid', Auth::user()->uuid)
+        $transactions = UsersTransactions::where('user_uuid', Auth::user()->uuid)
             ->orderBy("created_at", "desc")
             ->paginate(5, ['*'], 'page', $this->countUTs);
         array_push($this->users_transactions, ...$transactions->items());
@@ -56,7 +56,7 @@ class Transactions extends Component
 
     public function getUTCount()
     {
-        return UsersTransactions::where('uuid', Auth::user()->uuid)->where("referral_id", "")->count();
+        return UsersTransactions::where('user_uuid', Auth::user()->uuid)->where("referred_referral_id", "")->count();
     }
 
 

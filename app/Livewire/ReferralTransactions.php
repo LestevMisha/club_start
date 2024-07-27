@@ -59,7 +59,7 @@ class ReferralTransactions extends Component
     public function sendMoneyWithdrawalNotification()
     {
         if (!$this->disabled) {
-            $card_credentials = CardCredentials::where('uuid', Auth::user()->uuid)->first();
+            $card_credentials = CardCredentials::where('user_uuid', Auth::user()->uuid)->first();
             $userModel = User::where("uuid", Auth::user()->uuid)->first();
             $userModel->withdrawal_notification_sent = 1;
             $userModel->save();
@@ -75,7 +75,7 @@ class ReferralTransactions extends Component
     public function loadURTs(): void
     {
         $this->countURTs += 1;
-        $transactions = UsersTransactions::where('referral_id', Auth::user()->referral_id)
+        $transactions = UsersTransactions::where('referred_referral_id', Auth::user()->referral_id)
             ->orderBy("created_at", "desc")
             ->paginate(5, ['*'], 'page');
         $this->users_referral_transactions = $transactions->items();
@@ -84,7 +84,7 @@ class ReferralTransactions extends Component
     public function loadMoreURTs(): void
     {
         $this->countURTs += 1;
-        $transactions = UsersTransactions::where('referral_id', Auth::user()->referral_id)
+        $transactions = UsersTransactions::where('referred_referral_id', Auth::user()->referral_id)
             ->orderBy("created_at", "desc")
             ->paginate(5, ['*'], 'page', $this->countURTs);
         array_push($this->users_referral_transactions, ...$transactions->items());
@@ -92,7 +92,7 @@ class ReferralTransactions extends Component
 
     public function getURTCount()
     {
-        return UsersTransactions::where("referral_id", Auth::user()->referral_id)->count();
+        return UsersTransactions::where("referred_referral_id", Auth::user()->referral_id)->count();
     }
 
 

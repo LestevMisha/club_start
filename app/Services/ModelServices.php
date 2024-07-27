@@ -16,11 +16,12 @@ class ModelServices
 {
 
     // Create a new user
-    public function createUser($name, $email, $password)
+    public function createUser($name, $email, $password, $referred_referral_id)
     {
         return User::create([
             'uuid' => Str::orderedUuid()->toString(),
             'referral_id' => Str::orderedUuid()->toString(),
+            'referred_referral_id' => $referred_referral_id,
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
@@ -74,10 +75,14 @@ class ModelServices
     }
 
     // Update amount partner earned from transaction
-    public function updatePartnerAmount(string $referral_id, string $amount)
+    public function updatePartnerAmount(string $referred_referral_id, string $amount)
     {
-        $user = User::where("referral_id", $referral_id)->first();
-        $user->increment('amount', $amount);
+        $user = User::where("referral_id", $referred_referral_id)?->first();
+        if ($user) {
+            $user->increment('amount', $amount);
+        } else {
+            // TODO
+        }
     }
 
     // Update user row
@@ -123,14 +128,14 @@ class ModelServices
     }
 
     // Create a new transaction
-    public function createTransaction($user, $ip, $amount, $description, $referral_id = "", $payment_method_id = "")
+    public function createTransaction($user, $ip, $amount, $description, $referred_referral_id = "", $payment_method_id = "")
     {
         return UsersTransactions::create([
             "uuid" => Str::orderedUuid()->toString(),
             "user_uuid" => $user->uuid,
             "email" => $user->email,
             "telegram_id" => $user->telegram_id,
-            "referral_id" => $referral_id, // optional
+            "referred_referral_id" => $referred_referral_id, // optional
             "ip" => $ip,
             "amount" => $amount,
             "description" => $description,

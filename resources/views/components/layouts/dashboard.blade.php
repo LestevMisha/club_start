@@ -10,16 +10,135 @@
     <link href="{{ secure_asset('styles/main.css') }}" type="text/css" rel="stylesheet">
     <link defer href="{{ secure_asset('styles/light-mode.css') }}" type="text/css" rel="stylesheet">
     @yield('main-index-styles')
+    <link href="{{ secure_asset('styles/dashboard-page.css') }}" type="text/css" rel="stylesheet">
+
+    <style>
+        .bloxk_sd {
+            background: red;
+            width: 20em;
+            height: 20em;
+        }
+
+        .contain {
+            position: absolute;
+            margin: 0 24em;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+    </style>
 </head>
 
-
-<body class="{{ request()->cookie('checked') ? 'lightMode' : 'darkMode' }}">
-
-    <div class="flex h w100 h100">
-        <div id="side-menu-black-cover" class="cursor_crosshair"></div>
+<body>
+    <div class="flex gap_2 h h100 w100">
         <livewire:templates.side-menu />
+        <div class="flex w100 h100 pt-2 pr-2">
+            {{ $slot }}
+        </div>
+    </div>
+    {{-- <div class="contain">
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+        <div class="bloxk_sd"></div>
+    </div> --}}
 
-        <section class="b-section b-section_v4">
+    {{-- script for dynamic side menu scroll --}}
+    {{-- <script>
+        var lastScrollTop = 0;
+        var dynamic = true;
+        var dynamic1 = true;
+        var isTriggered = true;
+        var currentTop = 0;
+        var reverse = false;
+        var measure = 0;
+
+        var sideMenu = document.getElementById("sideMenu");
+
+        if (window.innerHeight <= sideMenu.getBoundingClientRect().height) {
+            console.log("<=");
+            // sideMenu.style.position = "absolute";
+            // sideMenu.style.height = "auto";
+
+            window.addEventListener("scroll", function() {
+                var rect = sideMenu.getBoundingClientRect();
+                var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                var docRect = document.documentElement.getBoundingClientRect();
+
+                console.log("-------------------");
+                // console.log("rect", rect)
+                // console.log("docRect", docRect)
+
+                if (rect.top >= 0) {
+                    sideMenu.setAttribute("style", "position: fixed; top: 0px;");
+                    isTriggered = true;
+                }
+
+                if (isTriggered) {
+                    if (docRect.top < lastScrollTop) {
+                        sideMenu.setAttribute("style", `position: absolute; top: ${Math.abs(docRect.top)}px`);
+                        isTriggered = false;
+                    }
+                }
+
+                if (!reverse) {
+                    console.log("top y of docRect:", Math.abs(docRect.y));
+                    console.log("distance:", Math.abs(measure));
+                    now = true;
+                    if (now) {
+                        measure = currentTop - rect.height + windowHeight;
+                        now = false;
+                    }
+                    if (Math.abs(docRect.y) >= Math.abs(measure) && dynamic) {
+                        console.log("met");
+                        sideMenu.setAttribute("style", "position: fixed; bottom: 0px;");
+                        dynamic = false;
+                        dynamic1 = true;
+                    }
+                } else {
+                    console.log("bottom measure:", measure);
+                    console.log("rect bottom:", Math.abs(rect.bottom));
+                    if (measure >= Math.abs(rect.bottom) && dynamic) {
+                        sideMenu.setAttribute("style", "position: fixed; bottom: 0px;");
+                        dynamic = false;
+                        dynamic1 = true;
+                    }
+                }
+
+
+                if (docRect.top > lastScrollTop && dynamic1) {
+                    console.log("greater");
+                    sideMenu.setAttribute("style", `position: absolute; bottom: ${docRect.bottom-windowHeight}px`);
+
+                    dynamic1 = false;
+                    dynamic = true;
+                    measure = rect.bottom;
+                    console.log("docRect", docRect);
+                    reverse = true;
+                }
+
+                lastScrollTop = docRect.top;
+
+            });
+
+        } else {
+            sideMenu.style.height = "100%";
+        }
+    </script> --}}
+
+
+    {{-- <livewire:layouts.kernel /> --}}
+    {{-- <div class="modern-wrap"> --}}
+
+
+    {{-- {{ $slot }} --}}
+    {{-- <section class="b-section b-section_v4">
             <div class="container container_v4 mb-2">
                 <div class="flex v7 h w100 space-btw my-2">
                     <x-svg svg="Menu" class="menu-icon" id="menu-button" />
@@ -28,8 +147,9 @@
                 </div>
                 {{ $slot }}
             </div>
-        </section>
-    </div>
+        </section> --}}
+    {{-- </div> --}}
+
 
     @persist('static-javascript')
         <!-- +++++++++++ CDNs +++++++++++ -->
@@ -39,18 +159,18 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <!-- Fix jQuery [Violation] non-passive event (support https://github.com/ignasdamunskis/passive-events-support) -->
-        <script>
+        {{-- <script>
             window.passiveSupport = {
                 events: ['touchstart', 'touchmove']
             }
         </script>
-        <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script>
+        <script type="module" src="{{ URL::asset('javascript/passive-events-support/dist/main.js') }}"></script> --}}
 
         <!-- +++++++++++ PROJECT JAVASCRIPT +++++++++++ -->
         {{-- custom modern --}}
         <script src="{{ secure_asset('javascript/modern.js') }}"></script>
         {{-- dashboard-adaptive-script --}}
-        <script>
+        {{-- <script>
             document.addEventListener('livewire:navigated', () => {
                 const sideMenu = document.getElementById("sideMenu");
                 const menuButton = document.getElementById("menu-button");
@@ -113,20 +233,8 @@
             }, {
                 once: true
             });
-        </script>
-        {{-- theme switcher logic --}}
-        <script>
-            const themeSwitcher = document.getElementById("themeSwitcher");
-            themeSwitcher.addEventListener("change", function() {
-                // set mode respectivly
-                themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
-                /* set mode in contrary to prev one (cookies)
-                    /app/Livewire/Templates/SideMenu.php
-                    */
-                Livewire.dispatch('checkedUpdateSideMenu');
-            });
-            themeSwitcher.checked ? document.body.className = "lightMode" : document.body.className = "darkMode";
-        </script>
+        </script> --}}
+
         {{-- optimized js --}}
         @yield('main-index-script')
         @yield('card-credentials-script')

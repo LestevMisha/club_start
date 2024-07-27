@@ -14,15 +14,6 @@ class SideMenu extends Component
     public $image;
     public $currentRoute;
 
-    /* change theme
-    references: /resources/views/components/layouts/dashboard.blade.php,
-    */
-    #[On('checkedUpdateSideMenu')]
-    public function checkedUpdateSideMenu()
-    {
-        Cookie::queue("checked", !Cookie::get("checked", true), 60 * 24 * 30);
-    }
-
     public function mount(Request $request)
     {
         $binaryImage = UsersImages::where("user_uuid", Auth::user()?->uuid)->first();

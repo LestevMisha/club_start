@@ -91,9 +91,9 @@ class YooKassaController extends Controller
         $this->modelServices->updateUserDays($transaction->user_uuid, 30);
 
         // change partner's amount earned if user was referred by him
-        if ($transaction->referral_id) {
+        if ($transaction->referred_referral_id) {
             try {
-                $this->modelServices->updatePartnerAmount($transaction->referral_id, (int)$transaction->amount / 2);
+                $this->modelServices->updatePartnerAmount($transaction->referred_referral_id, (int)$transaction->amount / 2);
             } catch (Exception $e) {
                 logger("User with this referral id does not exist or either (more likely) was banned and deleted from database.");
             }

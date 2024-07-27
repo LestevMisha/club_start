@@ -1,5 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* -------------------------------- hook Qsori02_az -------------------------------- */
+    let overlay = document.getElementById('paralax');
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    let vx = 0, vy = 0;
+    const stiffness = 0.1;
+    const damping = 0.85;
+
+    document.addEventListener('mousemove', (event) => {
+        targetX = (event.clientX - window.innerWidth / 2) * 0.01;
+        targetY = (event.clientY - window.innerHeight / 2) * 0.01;
+    });
+
+    function animate() {
+        let dx = targetX - currentX;
+        let dy = targetY - currentY;
+
+        vx += dx * stiffness;
+        vy += dy * stiffness;
+
+        vx *= damping;
+        vy *= damping;
+
+        currentX += vx;
+        currentY += vy;
+
+        overlay.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
     /* -------------------------------- hook Doors72_da -------------------------------- */
     // Backgroun grad-text
     function gradientize(target) {
@@ -54,60 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (screenWidth < 1250) {
             imgElement.src = "images/dan-6.png";
         } else {
-            imgElement.src = "images/dan-5.png";
+            imgElement.src = "images/dan-4.png";
         }
     }
     // Initial check
     switchImageBasedOnWidth();
     // Add event listener for window resize
     window.addEventListener('resize', switchImageBasedOnWidth);
-
-
-    /* -------------------------------- hook Gloof49_ck --------------------------------  */
-    // make text shorter ... for accordion
-    function truncateText(element, maxLetters) {
-        let text = element.textContent.replace(/\s+/g, '');
-        if (text.length > maxLetters) {
-            let truncatedText = '';
-            let letterCount = 0;
-
-            for (let char of element.textContent) {
-                if (char !== ' ') {
-                    letterCount++;
-                }
-                if (letterCount > maxLetters) {
-                    truncatedText += '...';
-                    break;
-                }
-                truncatedText += char;
-            }
-
-            element.textContent = truncatedText;
-        }
-    }
-    const textElements = document.querySelectorAll('.accordion-item .b-text.b-text_2em');
-    const buttons = document.querySelectorAll('.accordion-item button');
-
-    textElements.forEach(textElement => {
-        // Store the full text in a data attribute
-        textElement.dataset.fullText = textElement.textContent;
-        truncateText(textElement, 40);
-    });
-
-    buttons.forEach(button => {
-        button.addEventListener("click", function () {
-            const textElement = this.querySelector('.b-text.b-text_2em');
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-            if (!isExpanded) {
-                // If not expanded, truncate the text
-                truncateText(textElement, 40);
-            } else {
-                // If expanded, show the full text
-                textElement.textContent = textElement.dataset.fullText;
-            }
-        });
-    });
 
 
     /* -------------------------------- hook Stopp09_er --------------------------------  */
@@ -159,43 +145,23 @@ document.addEventListener("DOMContentLoaded", function () {
         banknote.style.opacity = 0.2;
     };
 
+    // blur movement (1st - 2md blocks)
+    document.addEventListener('scroll', function () {
+        const element = document.querySelector('.b-img.b-img_v23');
+        const elementRect = element.getBoundingClientRect();
+        const scrollPosition = window.scrollY;
+        const offset = scrollPosition / 2;
 
-    /* -------------------------------- hook klotMo33_nE --------------------------------  */
-    new Swiper(".mySwiper", {
-        effect: "cards",
-        grabCursor: true,
-        cardsEffect: {
-            perSlideOffset: 2, // Space between cards in px
-            perSlideRotate: 2, // Rotation of cards in degrees
-        },
-        on: {
-            slideChange: function () {
-                console.log(document.querySelectorAll('.swiper-slide video'));
-                // Pause all videos
-                document.querySelectorAll('.swiper-slide video').forEach(video => {
-                    video.pause();
-                });
-                // Play the active video
-                setTimeout(() => {
-                    const activeSlide = document.querySelector('.swiper-slide-active video');
-                    console.log(activeSlide);
-                    if (activeSlide) {
-                        activeSlide.play();
-                    }
-                }, 10);
-            },
-            init: function () {
-                // Pause all videos initially
-                document.querySelectorAll('.swiper-slide video').forEach(video => {
-                    video.pause();
-                });
-                // Play the active video on load
-                const activeSlide = document.querySelector('.swiper-slide-active video');
-                if (activeSlide) {
-                    activeSlide.play();
-                }
+        if ((elementRect.top > elementRect.height)) {
+            // console.log("invisible");
+        } else {
+            if (!(elementRect.top < -elementRect.height)) {
+                // console.log("visible");
+                // Move the element up twice as fast as the scroll position
+                element.style.transform = `translateY(-${-elementRect.height + offset}px)`;
+            } else {
+                // console.log("invisible");
             }
         }
     });
-
 });

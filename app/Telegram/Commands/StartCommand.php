@@ -132,13 +132,15 @@ class StartCommand extends Command
                     // those who are not in the chat
                     if ($request_chat_member->status === "left") {
                         $userByUuid->telegram_channel_status = "left";
-                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "\n\n! Вы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
                         // throw new \Exception('User isn\'t exempted');
+                        return;
                     };
                     if ($request_chat_member->status === "kicked") {
                         $userByUuid->telegram_channel_status = "kicked";
-                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "\n\n! Вы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
                         // throw new \Exception('User isn\'t exempted');
+                        return;
                     };
                 } catch (\Exception $e) {
                     // ignore .. continue to register user

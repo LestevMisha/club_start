@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // GLOBAL
     let scene, camera, renderer, controls, gltfObject, clock;
     const anchorElement = document.getElementById("anchor");
+    const loadingOverlay = document.getElementById("loadingOverlay");
+
     // init
     function init(lightColor1, lightIntensity1, lightColor2, lightIntensity2, lightColor3, lightIntensity3) {
         scene = new Scene();
@@ -17,9 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
         renderer = new WebGLRenderer({ antialias: true, alpha: true });
         controls = new OrbitControls(camera, renderer.domElement);
         clock = new Clock();
+
         // renderer settings
+        renderer.setPixelRatio(window.devicePixelRatio); // Set the pixel ratio to match the device's
         renderer.setClearColor(0x000000, 0);
         renderer.setSize(anchorElement.getBoundingClientRect().width, anchorElement.getBoundingClientRect().height);
+
         // camera settings
         camera.position.set(0, 9, 0);
         camera.lookAt(0, 0, 0); // camera looks at the boom's zero
@@ -45,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
             pivot.add(gltfObject);
 
             anchorElement.style.opacity = 1;
+            anchorElement.style.visibility = "visible";
+            loadingOverlay.style.visibility = "hidden"; // Hide the loading overlay
         });
         const light = new AmbientLight(lightColor1, lightIntensity1); // soft white light
         scene.add(light);
@@ -90,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
         camera.updateProjectionMatrix();
         renderer.setSize(anchorElement.getBoundingClientRect().width, anchorElement.getBoundingClientRect().height);
     }
-
 
     function respectiveMode(callback = null) {
         anchorElement.style.opacity = 0;

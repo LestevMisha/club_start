@@ -102,6 +102,7 @@ class TelegramController extends Controller
             ]);
             if ($validator->fails()) return $this->telegramServices->sendMessage($chat_id, $validator->errors()->first("email"));
             $this->modelServices->updateUser("uuid", $user->uuid, "email", $email);
+            $this->modelServices->updateUser("uuid", $user->uuid, "email_verified_at", null);
             return $this->telegramServices->sendMarkdownV2Message($chat_id, $messages[4]);
         }
 

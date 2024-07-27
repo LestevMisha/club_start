@@ -60,7 +60,7 @@ class YooKassaServices
             $request->ip(),
             10000,
             "Регистрация оплата 10 000 руб.",
-            $request->cookie("referral_id", ""),
+            $request->cookie("referred_referral_id", ""),
         );
     }
 
@@ -73,7 +73,7 @@ class YooKassaServices
             $firstUserTransaction->ip,
             3000,
             "Автоповторный платеж 3 000 руб.",
-            $firstUserTransaction->referral_id,
+            $firstUserTransaction->referred_referral_id,
             $firstUserTransaction->payment_method_id
         );
     }

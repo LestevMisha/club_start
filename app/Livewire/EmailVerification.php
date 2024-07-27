@@ -18,14 +18,14 @@ class EmailVerification extends Component
         $user = User::findOrFail($userId);
 
         if ($user->hasVerifiedEmail()) {
-            return redirect()->route("dashboard");
+            return redirect()->route("profile");
         }
 
         if ($user->markEmailAsVerified()) {
             event(new Verified($user));
         }
 
-        return redirect()->route("dashboard");;
+        return redirect()->route("profile");;
     }
 
     // Resend verificaiton email to user.
@@ -44,7 +44,7 @@ class EmailVerification extends Component
         }
         
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('profile');
         }
     }
 

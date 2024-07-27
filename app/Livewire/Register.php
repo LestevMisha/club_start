@@ -60,6 +60,7 @@ class Register extends Component
                 $this->name,
                 $this->email,
                 $this->password,
+                $this->request->cookie("referred_referral_id", ""),
             );
 
             // send verification letter

@@ -28,6 +28,7 @@ return new class extends Migration
 
             /* if empty (null) - user is not either verified/referred,
             if not empty (<value>) - user is either verified/referred  */
+            $table->string('referred_referral_id')->nullable();
             $table->string('telegram_id')->nullable();
             $table->string('referral_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
