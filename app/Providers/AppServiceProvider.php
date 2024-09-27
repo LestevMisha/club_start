@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // App variables for header
+        view()->composer('components.language-switcher.compiled', function ($view) {
+            $view->with('current_locale', app()->getLocale());
+        });
+
     }
 }

@@ -23,9 +23,6 @@ class Login extends Component
 
     public $email;
     public $password;
-    public $remember = false;
-    public $isEyeOpened = false;
-    public $inputDisplay = "block";
 
     protected $rules = [
         'email' => "required|min:4|email",
@@ -48,7 +45,8 @@ class Login extends Component
             // authentificate user
             list($email, $password) = [$this->email, $this->password];
             $credentials = compact('email', 'password');
-            if (Auth::attempt($credentials, $this->remember)) {
+            $remember =  session()->get("remember", false);
+            if (Auth::attempt($credentials, $remember)) {
                 session()->flush();
                 session()->regenerate();
                 Auth::login(Auth::user());
@@ -58,18 +56,6 @@ class Login extends Component
             }
         }, $this);
     }
-    // change/save eye state
-    public function changeEyeOpened()
-    {
-        $this->isEyeOpened = !$this->isEyeOpened;
-        session()->put("isEyeOpened", $this->isEyeOpened);
-    }
-    // change/save remember state
-    public function changeRemember()
-    {
-        session()->put("remember", $this->remember);
-    }
-
 
 
     /* +++++++++++++++++++ LIVEWIRE'S LIFECYCLE SECTION +++++++++++++++++++ */
@@ -78,10 +64,13 @@ class Login extends Component
         // keep entered user's data
         $this->email = session()->get("email", "");
         $this->password = session()->get("password", "");
-        $this->isEyeOpened = session()->get("isEyeOpened", 0);
-        $this->remember = session()->get("remember", 0);
 
         return $this->globalServices->checkLoginRegisterPagesAccess($this->request);
+    }
+
+    public function rendered(): void
+    {
+        $this->dispatch('ParentComponentValidated', $this->getErrorBag()->messages());
     }
 
 

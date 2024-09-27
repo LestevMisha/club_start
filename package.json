@@ -1,19 +1,22 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "axios": "^1.6.4",
-        "laravel-mix": "^6.0.49",
-        "laravel-vite-plugin": "^1.0.0",
-        "vite": "^5.0.0"
-    },
-    "dependencies": {
-        "alpinejs": "^3.13.5",
-        "chart.js": "^4.4.3",
-        "three": "^0.162.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "axios": "^1.6.4",
+    "globals": "^15.9.0",
+    "laravel-vite-plugin": "^1.0.5",
+    "vite": "^5.0"
+  },
+  "dependencies": {
+    "flexgridify": "^2.3.9",
+    "gridstack": "^10.3.1",
+    "swiper": "^11.1.12",
+    "three": "^0.168.0",
+    "vite-plugin-css-injected-by-js": "^3.5.1"
+  }
 }

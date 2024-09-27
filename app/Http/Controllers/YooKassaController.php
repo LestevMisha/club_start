@@ -25,6 +25,8 @@ class YooKassaController extends Controller
 
     public function callback(Request $request)
     {
+        logger($request->all());
+        logger("callback triggered");
         // observe data
         $source = file_get_contents("php://input");
         $requestBody = json_decode($source, true);

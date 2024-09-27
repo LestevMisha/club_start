@@ -4,12 +4,12 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Models\UsersImages;
-use Illuminate\Support\Str;
 use App\Models\CardCredentials;
 use App\Models\UsersTransactions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 
 class ModelServices
@@ -168,7 +168,5 @@ class ModelServices
     {
         Auth::logout();
         Session::flush();
-        return redirect()->route('main');
-        // return redirect()->route('login')->withErrors(["email" => 'Вы успешно вышли из аккаунта.'])->onlyInput("email");
     }
 }

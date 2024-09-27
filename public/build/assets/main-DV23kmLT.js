@@ -1,0 +1,1 @@
+console.log("✅ Developed by Ebenezer Team.");window.onbeforeunload=function(e){localStorage.setItem("scrollpos",window.scrollY)};document.addEventListener("DOMContentLoaded",function(e){var o=localStorage.getItem("scrollpos");o&&window.scrollTo(0,o)});

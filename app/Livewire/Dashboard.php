@@ -9,6 +9,7 @@ use Livewire\Attributes\Layout;
 use App\Services\GlobalServices;
 use Illuminate\Support\Facades\Auth;
 use App\Services\TelegramServices;
+use Livewire\Attributes\On;
 
 class Dashboard extends Component
 {
@@ -56,6 +57,11 @@ class Dashboard extends Component
         $this->validate();
         $this->modelServices->createCardCredentials($this->card_number);
         return redirect()->route("dashboard");
+    }
+    // Save gridstack configuration
+    #[On('save-gridstack')]
+    public function saveGridstack($id, $params) {
+        session()->put("gridstack-item-{$id}", json_encode($params));
     }
 
 

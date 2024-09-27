@@ -1,0 +1,152 @@
+:root {
+    --input-button-height: 2rem;
+    --input-field-height: 4rem;
+    --input-label-line-height: 1rem;
+    --input-label-top: calc((var(--input-field-height) / 2) - (var(--input-label-line-height) / 2));
+    --input-button-top: calc((var(--input-field-height) / 2) - (var(--input-button-height) / 2));
+}
+
+.modern-family * {
+    box-sizing: border-box !important;
+}
+
+.modern-family svg.input-icon.input-icon-default {
+    padding: 0.7rem;
+    color: rgba(255, 255, 255, .4);
+    background-color: rgb(128 128 128 / 15%);
+    display: none;
+}
+
+.modern-family .input-field:valid~.input-button svg.input-icon.input-icon-default,
+.modern-family .input-field:read-only~.input-button svg.input-icon.input-icon-default {
+    display: flex;
+}
+
+.modern-family .input-button {
+    position: absolute;
+    right: 1rem;
+    top: var(--input-button-top);
+}
+
+.modern-family svg.input-icon {
+    color: #FFF;
+    cursor: pointer;
+    background-color: #0d6efd;
+    width: var(--input-button-height) !important;
+    height: var(--input-button-height) !important;
+    border-radius: 0.5rem;
+}
+
+.modern-family .input-label {
+    position: absolute;
+    left: 1rem;
+    top: var(--input-label-top);
+    color: rgba(255, 255, 255, .54);
+    white-space: nowrap;
+    pointer-events: none;
+    transition: all .225s ease-in-out;
+    transform-origin: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 1rem;
+    line-height: var(--input-label-line-height);
+    font-weight: 400;
+    overflow: visible;
+}
+
+.modern-family .input-container {
+    position: relative;
+    display: block;
+    border-radius: inherit;
+    font-family: haas, helvetica, arial, sans-serif;
+}
+
+.modern-family .input-field {
+    height: var(--input-field-height);
+    font-size: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    outline: none;
+    color: #FFF;
+    background-color: rgb(128 128 128 / 15%);
+    transition-duration: 0.25s;
+    transition-property: background-color;
+    transition-timing-function: ease;
+    width: 100%;
+    padding-top: 1rem !important;
+    text-indent: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.modern-family .input-field:focus~.input-label,
+.modern-family .input-field:valid~.input-label {
+    transform: translateY(calc(-1rem * 0.85)) scale(0.85);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.modern-family .input-field:focus {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 0 0.0625rem #ffffff21;
+    -webkit-appearance: none;
+}
+
+.modern-family .input-field:valid~.input-actions {
+    display: flex;
+}
+
+.modern-family .input-container.input-container_done .input-field {
+    color: #4d4d4d !important;
+}
+
+.modern-family .input-container.input-container_done .input-label {
+    color: #6b6b6b !important;
+}
+
+/* Error View */
+.modern-family .input-label.input-label-error {
+    color: rgba(255, 255, 255, .54) !important;
+}
+
+.modern-family .input-field.input-field-error {
+    background-color: rgba(224, 31, 25, .16) !important;
+}
+
+.modern-family .input-field.input-field-error:focus {
+    box-shadow: inset 0 0 0 1px #e31c1c !important;
+    background-color: #ffffff00 !important;
+}
+
+
+/* LIGHT MODE */
+
+
+body.lightMode .modern-family .input-button svg.input-icon.input-icon-default {
+    color: rgba(0, 0, 0, .4) !important;
+}
+
+body.lightMode .modern-family .input-field:focus {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 0 0.0625rem #00000021;
+}
+
+body.lightMode .modern-family .input-field {
+    color: #000;
+    background-color: #ecf1f7;
+}
+
+body.lightMode .modern-family .input-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+body.lightMode .modern-family .input-field:focus~.input-label,
+body.lightMode .modern-family .input-field:valid~.input-label {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Error View */
+body.lightMode .modern-family .input-label.input-label-error {
+    color: rgba(0, 0, 0, .54) !important;
+}

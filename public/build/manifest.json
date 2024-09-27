@@ -1,0 +1,166 @@
+{
+  "resources/assets/fonts/gilroy/Gilroy-Black.ttf": {
+    "file": "assets/Gilroy-Black-CUfVRAQt.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-Black.ttf"
+  },
+  "resources/assets/fonts/gilroy/Gilroy-Bold.ttf": {
+    "file": "assets/Gilroy-Bold-yXpx-Icw.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-Bold.ttf"
+  },
+  "resources/assets/fonts/gilroy/Gilroy-ExtraBold.ttf": {
+    "file": "assets/Gilroy-ExtraBold-C3mOj7sV.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-ExtraBold.ttf"
+  },
+  "resources/assets/fonts/gilroy/Gilroy-Light.ttf": {
+    "file": "assets/Gilroy-Light-DVwvzZ-0.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-Light.ttf"
+  },
+  "resources/assets/fonts/gilroy/Gilroy-Medium.ttf": {
+    "file": "assets/Gilroy-Medium-D7PbV1sv.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-Medium.ttf"
+  },
+  "resources/assets/fonts/gilroy/Gilroy-SemiBold.ttf": {
+    "file": "assets/Gilroy-SemiBold-Rj2UL15y.ttf",
+    "src": "resources/assets/fonts/gilroy/Gilroy-SemiBold.ttf"
+  },
+  "resources/javascript/dashboard/flexgridify.js": {
+    "file": "assets/flexgridify-BhAyz_fs.js",
+    "name": "flexgridify",
+    "src": "resources/javascript/dashboard/flexgridify.js",
+    "isEntry": true
+  },
+  "resources/javascript/global/main.js": {
+    "file": "assets/main-DV23kmLT.js",
+    "name": "main",
+    "src": "resources/javascript/global/main.js",
+    "isEntry": true
+  },
+  "resources/javascript/global/modern-inputs.js": {
+    "file": "assets/modern-inputs-BrK0pO6X.js",
+    "name": "modern-inputs",
+    "src": "resources/javascript/global/modern-inputs.js",
+    "isEntry": true
+  },
+  "resources/javascript/index/accordion.js": {
+    "file": "assets/accordion-DesKQQq8.js",
+    "name": "accordion",
+    "src": "resources/javascript/index/accordion.js",
+    "isEntry": true
+  },
+  "resources/javascript/index/hooks.js": {
+    "file": "assets/hooks-fVbSyLqN.js",
+    "name": "hooks",
+    "src": "resources/javascript/index/hooks.js",
+    "isEntry": true
+  },
+  "resources/javascript/index/modules/sneaker.js": {
+    "file": "assets/sneaker-B0xLs-Io.js",
+    "name": "sneaker",
+    "src": "resources/javascript/index/modules/sneaker.js",
+    "isEntry": true
+  },
+  "resources/javascript/index/modules/swiper.js": {
+    "file": "assets/swiper-D626o-33.js",
+    "name": "swiper",
+    "src": "resources/javascript/index/modules/swiper.js",
+    "isEntry": true
+  },
+  "resources/javascript/index/telegram-circle-video.js": {
+    "file": "assets/telegram-circle-video-C7xKB7pt.js",
+    "name": "telegram-circle-video",
+    "src": "resources/javascript/index/telegram-circle-video.js",
+    "isEntry": true
+  },
+  "resources/javascript/laravel/helpers.js": {
+    "file": "assets/helpers-KexpGOXm.js",
+    "name": "helpers",
+    "src": "resources/javascript/laravel/helpers.js",
+    "isEntry": true
+  },
+  "resources/javascript/laravel/requests.js": {
+    "file": "assets/requests-BJtcWHrW.js",
+    "name": "requests",
+    "src": "resources/javascript/laravel/requests.js",
+    "isEntry": true
+  },
+  "resources/styles/global/authorization.css": {
+    "file": "assets/authorization-DLyBlJJC.css",
+    "src": "resources/styles/global/authorization.css",
+    "isEntry": true
+  },
+  "resources/styles/global/light-mode.css": {
+    "file": "assets/light-mode-C4ga066a.css",
+    "src": "resources/styles/global/light-mode.css",
+    "isEntry": true
+  },
+  "resources/styles/global/main.css": {
+    "file": "assets/main-BSb3PuU0.css",
+    "src": "resources/styles/global/main.css",
+    "isEntry": true
+  },
+  "resources/styles/global/user-panel.css": {
+    "file": "assets/user-panel-CYIIfofX.css",
+    "src": "resources/styles/global/user-panel.css",
+    "isEntry": true
+  },
+  "resources/styles/index/accordion.css": {
+    "file": "assets/accordion-CVRFMGha.css",
+    "src": "resources/styles/index/accordion.css",
+    "isEntry": true
+  },
+  "resources/styles/index/swiper.css": {
+    "file": "assets/swiper-DmlkRaY5.css",
+    "src": "resources/styles/index/swiper.css",
+    "isEntry": true
+  },
+  "resources/styles/index/telegram-circle-video.css": {
+    "file": "assets/telegram-circle-video-owMQ-KmT.css",
+    "src": "resources/styles/index/telegram-circle-video.css",
+    "isEntry": true
+  },
+  "resources/views/components/modern-copy-input/element.js": {
+    "file": "assets/element-_A3n38Ir.js",
+    "name": "element",
+    "src": "resources/views/components/modern-copy-input/element.js",
+    "isEntry": true
+  },
+  "resources/views/components/modern-credit-card-input/element.css": {
+    "file": "assets/element-DQgUhlxf.css",
+    "src": "resources/views/components/modern-credit-card-input/element.css",
+    "isEntry": true
+  },
+  "resources/views/components/modern-credit-card-input/element.js": {
+    "file": "assets/element-DnUTl1J9.js",
+    "name": "element",
+    "src": "resources/views/components/modern-credit-card-input/element.js",
+    "isEntry": true
+  },
+  "resources/views/components/modern-input/element.css": {
+    "file": "assets/element-DXWvxVyA.css",
+    "src": "resources/views/components/modern-input/element.css",
+    "isEntry": true
+  },
+  "resources/views/components/modern-password-input/element.css": {
+    "file": "assets/element-BXYFpZqr.css",
+    "src": "resources/views/components/modern-password-input/element.css",
+    "isEntry": true
+  },
+  "resources/views/components/modern-password-input/element.js": {
+    "file": "assets/element-DIQ8gMhn.js",
+    "name": "element",
+    "src": "resources/views/components/modern-password-input/element.js",
+    "isEntry": true
+  },
+  "resources/views/components/referral-link/element.js": {
+    "file": "assets/element-D38stucJ.js",
+    "name": "element",
+    "src": "resources/views/components/referral-link/element.js",
+    "isEntry": true
+  },
+  "resources/views/components/theme-switcher/element.js": {
+    "file": "assets/element-CfaFhCs9.js",
+    "name": "element",
+    "src": "resources/views/components/theme-switcher/element.js",
+    "isEntry": true
+  }
+}

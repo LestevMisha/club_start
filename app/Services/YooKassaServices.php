@@ -58,8 +58,8 @@ class YooKassaServices
         return $this->modelServices->createTransaction(
             $user,
             $request->ip(),
-            10000,
-            "Регистрация оплата 10 000 руб.",
+            6000,
+            "Регистрация оплата 6 000 руб.",
             $request->cookie("referred_referral_id", ""),
         );
     }
@@ -71,8 +71,8 @@ class YooKassaServices
         return $this->modelServices->createTransaction(
             $user,
             $firstUserTransaction->ip,
-            3000,
-            "Автоповторный платеж 3 000 руб.",
+            6000,
+            "Автоповторный платеж 6 000 руб.",
             $firstUserTransaction->referred_referral_id,
             $firstUserTransaction->payment_method_id
         );

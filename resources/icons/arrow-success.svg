@@ -1,0 +1,7 @@
+<svg color="success" fill="currentColor" size="30" clip-path="">
+    <circle cx="50%" cy="50%" r="50%" fill="currentColor" fill-opacity="0.15"></circle>
+    <g style="transform: translate(7px, 7px);">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M10.3904 8.0001L5.52833 3.1382L6.47113 2.19538L11.8046 7.52868C11.9296 7.65371 11.9998 7.82327 11.9998 8.00009C11.9998 8.1769 11.9296 8.34647 11.8046 8.47149L6.47134 13.8048L5.52852 12.862L10.3904 8.0001Z"></path>
+    </g>
+</svg>
