@@ -3,7 +3,7 @@
     $link = $tvc->getTelegramVerificationLink();
 @endphp
 
-@extends('layouts.auth')
+@extends('layouts.intermediate')
 @section('content')
     <div class="flex v1">
         <div class="form-wrapper">

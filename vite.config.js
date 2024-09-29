@@ -14,10 +14,12 @@ export default defineConfig({
                 "resources/javascript/index/modules/swiper.js",
                 "resources/javascript/index/modules/sneaker.js",
                 "resources/javascript/index/telegram-circle-video.js",
+                "resources/javascript/index/modals.js",
                 // css
                 "resources/styles/index/accordion.css",
                 "resources/styles/index/swiper.css",
                 "resources/styles/index/telegram-circle-video.css",
+                "resources/styles/index/modals.css",
 
 
                 // MARK: global
@@ -48,7 +50,7 @@ export default defineConfig({
 
                 "resources/views/components/modern-input/element.css",
                 "resources/views/components/modern-password-input/element.css",
-                
+
                 "resources/views/components/modern-copy-input/element.js",
                 "resources/views/components/modern-password-input/element.js",
                 "resources/views/components/theme-switcher/element.js",

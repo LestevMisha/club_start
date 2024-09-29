@@ -40,7 +40,7 @@ Route::get("/forgot-password", ForgotPasswordController::class)->name("public.pa
 Route::middleware(Authentication::class)->group(function () {
     Route::get('/login', LoginController::class)->name('auth.login');
     Route::get('/register', RegisterController::class)->name('auth.register');
-    Route::get("/telegram/verify", TelegramVerificationController::class)->name("auth.telegram.verify");
+    Route::get("/telegram/verify", TelegramVerificationController::class)->name("intermediate.telegram.verify");
     Route::get('/dashboard', DashboardController::class)->name('private.dashboard');
     Route::get('/profile', ProfileController::class)->name('private.profile');
     Route::get('/transactions', TransactionsController::class)->name('private.transactions');

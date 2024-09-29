@@ -2,8 +2,8 @@
     <x-theme-switcher.compiled />
     <x-language-switcher.compiled />
 
-    @if (Route::current()->getName() !== 'index')
-        @if (auth()->user()?->uuid)
+    @if (Route::current()->getName() !== 'public.index')
+        @if (auth()->user()?->telegram_id)
             <a href="{{ route('private.dashboard') }}" class="cr-button">
                 @svg('cross', 'reset-icon')
             </a>

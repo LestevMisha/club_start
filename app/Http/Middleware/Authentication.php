@@ -26,12 +26,15 @@ class Authentication
     public function handle(Request $request, Closure $next): Response
     {
         $route = $request->route()->getName();
-        $isPrivate = str_contains($route, "private");
 
-        if (!$this->globalServices->isDatabaseConnected())  return redirect("/error");
-        if (!$this->globalServices->isUserAuthenticated())  return $isPrivate ? redirect("/register") : $next($request);
-        if (!$this->globalServices->isTelegramVerified())   return $isPrivate ? redirect("/register") : $next($request);
-        if (!$this->globalServices->hasPaidSubscription())  return $this->globalServices->fullPaymentProcessing($request);
-        return $isPrivate ? $next($request) : redirect("/dashboard");
+        // categories
+        $isPrivate = str_contains($route, "private");
+        $isIntermediate = str_contains($route, "intermediate");
+
+        if (!$this->globalServices->isDatabaseConnected()) return redirect("/error"); // if hosting's database stopped working
+        if (!$this->globalServices->isUserAuthenticated()) return ($isPrivate || $isIntermediate) ? redirect()->route("auth.register") : $next($request); // if user didn't login or register
+        if (!$this->globalServices->isTelegramVerified()) return $isIntermediate ? $next($request) : redirect()->route("intermediate.telegram.verify"); // if user has unverified telegram
+        if (!$this->globalServices->hasPaidSubscription()) return $this->globalServices->fullPaymentProcessing($request); // if user has not yet paid subscription
+        return $isPrivate ? $next($request) : redirect()->route("private.dashboard");
     }
 }

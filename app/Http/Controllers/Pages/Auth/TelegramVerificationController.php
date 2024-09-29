@@ -44,6 +44,6 @@ class TelegramVerificationController extends Controller
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        return view("pages.auth.telegram-verification");
+        return view("pages.intermediate.telegram-verification");
     }
 }

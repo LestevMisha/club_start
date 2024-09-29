@@ -7,7 +7,7 @@
                 <x-modern-loader.compiled attribute="authenticate" />
 
                 <div class="flex h space-btw mb-2">
-                    <img class="b-img b-img_3em" src="{{ URL::asset('assets/images/logo.png') }}" alt="logo">
+                    <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
                     <x-tools-stack.compiled class="flex h gap" />
                 </div>
                 <div class="flex h mob">
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <button class="go-button v1" type="submit">Войти</button>
-                                <div class="flex h mt-1 gap_05 mob">
+                                <div class="flex h mt-1 gap_05">
                                     <input name="remember-me" type="checkbox" id="remember-me">
                                     <label class="b-text b-text_grey" for="remember-me">Запомнить меня</label>
                                 </div>

@@ -690,6 +690,10 @@ body {
     font-weight: 500;
 }
 
+.b-text.b-text_w90 {
+    width: 90%;
+}
+
 .b-text.b-text_warning {
     color: #e31c1c !important;
 }
@@ -1123,6 +1127,10 @@ body {
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+.z-0 {
+    z-index: 0 !important;
+}
+
 .z-1 {
     z-index: 1 !important;
 }
@@ -1547,6 +1555,10 @@ body {
     object-fit: cover;
 }
 
+.b-img.b-img_border-radius-100 {
+    border-radius: 100%;
+}
+
 .b-img.b-img_3em {
     width: 3em;
     height: 3em;
@@ -1962,8 +1974,8 @@ body {
     height: auto;
     position: absolute;
     top: 0;
-    left: -30em;
-    z-index: -1;
+    left: -40em;
+    rotate: 20deg;
 }
 
 .b-img.b-img_v24 {
@@ -3570,6 +3582,7 @@ input[type=number] {
     right: 100%;
     transform: translateX(75%);
     bottom: -20%;
+    z-index: 1;
 }
 
 .ui-green-blur {
@@ -3582,6 +3595,7 @@ input[type=number] {
     background-color: #00ff75;
     border-radius: 100%;
     filter: blur(10em);
+    z-index: 1;
 }
 
 .ui-purple-blur {
@@ -4406,6 +4420,47 @@ i {
     margin-bottom: 0.5em;
 }
 
+.pointer-90 {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    pointer-events: all !important;
+}
+
+.swipe_finger {
+    position: absolute;
+    top: 100%;
+    transform: translate(-50%, 0);
+    left: 50%;
+    animation: swipe 5s cubic-bezier(0.42, 0, 0.24, 1.1) infinite;
+    z-index: 8;
+    width: 5em;
+    height: 5em;
+}
+
+@keyframes swipe {
+    0% {
+        left: 50%;
+        rotate: 45deg;
+        top: 100%;
+    }
+
+    50% {
+        top: 95%;
+        left: 45%;
+        rotate: 0deg;
+    }
+
+    100% {
+        left: 50%;
+        rotate: 45deg;
+        top: 100%;
+    }
+}
+
 remember-me-switcher {
     padding: 0 !important;
     width: 3em !important;
@@ -4624,6 +4679,15 @@ video::-webkit-media-controls-panel {
 
 @media (max-width: 1250px) {
 
+    .grecaptcha-badge {
+        visibility: hidden !important;
+    }
+
+    .swipe_finger {
+        width: 3em;
+        height: 3em;
+    }
+
     .b-img.b-img_rocket {
         right: 70%;
         left: unset;
@@ -4710,6 +4774,10 @@ video::-webkit-media-controls-panel {
         top: -4em;
         width: 18rem;
         height: 18rem;
+    }
+
+    .b-text.b-text_w90.mob {
+        width: 100% !important;
     }
 
     .b-text.b-text_grey_mob {

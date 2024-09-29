@@ -7,7 +7,7 @@
                 <x-modern-loader.compiled attribute="store" />
 
                 <div class="flex h space-btw mb-2">
-                    <img class="b-img b-img_3em" src="{{ URL::asset('assets/images/logo.png') }}" alt="logo">
+                    <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
                     <x-tools-stack.compiled class="flex h gap" />
                 </div>
 

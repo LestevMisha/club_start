@@ -112,7 +112,7 @@
                         </div>
                         <div class="flex w50 h base wmob">
                             <div class="b-text b-text_2em b-text_700 mr-2"><span class="blue-circle-offset"></span>8</div>
-                            <div class="b-text b-text_1.3em">{{ __('Closed community in Telegram for our clients.') }}
+                            <div class="b-text b-text_1.3em">{{ __('Closed community in Telegram for our partners.') }}
                             </div>
                         </div>
                     </div>
@@ -300,7 +300,7 @@
 
                         @svg('dotted-arrow', 'arrow-icon v1')
 
-                        <div class="b-text b-text_1.3em b-text_grey b-text_400 fmob1 mb-2r">
+                        <div class="b-text b-text_1.3em b-text_grey b-text_400 fmob1 mb-2r b-text_w90 modeLight_darker mob">
                             {!! __("No need to invest money in products! Thanks to the large number of partners in \"START CLUB,\" we have the opportunity to acquire the most in-demand sneakers.") !!}
                         </div>
 
@@ -479,6 +479,7 @@
             </div>
             <div class="bg_noise"></div>
 
+            <div class="fade-in fade-in_v1 bottom z-0"></div>
         </section>
 
         <section class="b-section pt-6 pb-6">
@@ -524,7 +525,7 @@
                                             Удобная таблица с актуальными размерами кроссовок на складе.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.notes', 'ui-set-icon')
@@ -542,7 +543,7 @@
                                             Отдел поддержки для заказов и вопросов участников клуба.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.chat', 'ui-set-icon')
@@ -560,7 +561,7 @@
                                             Видео уроки от нашего таргетолога с инфой как и где закупать рекламу.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.play', 'ui-set-icon')
@@ -578,7 +579,7 @@
                                             Мы заключили договор со СДЭК. Отправка товаров вдвое дешевле.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.paper', 'ui-set-icon')
@@ -600,7 +601,7 @@
                                             После отправки заказа, высылаем фото и трек-номер для отслеживания.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.show', 'ui-set-icon')
@@ -620,7 +621,7 @@
                                             с 50% за каждого.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.discount', 'ui-set-icon')
@@ -638,7 +639,7 @@
                                             Мы расширяем ассортимент брендовой одеждой и аксессуаров.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.tick', 'ui-set-icon')
@@ -656,7 +657,7 @@
                                             Каждый участник получает индивидуальную таблицу для отслеживания продаж.
                                         </div>
                                     </div>
-                                    <button class="ui-set-button">
+                                    <button class="ui-set-button modal-button">
                                         <div class="b-text b-text_1.2em">подробнее</div>
                                     </button>
                                     @svg('ui-set.stars', 'ui-set-icon')
@@ -787,6 +788,8 @@
         </section>
 
         <section class="b-section b-section_visible pt-6">
+
+
             <div class="container container_v2 mob">
                 <div class="flex v w70 mx-auto wmob">
                     <div class="h-text mb-3r">
@@ -810,7 +813,7 @@
                         <div class="block w50 mob">
                             <div class="flex v hmin6 mb-1r __text-block">
                                 <div class="b-text b-text_1.5em b-text_600 mb-05">
-                                    {!! __('Behind the scenes') !!}
+                                    {!! __('Behind the Scenes') !!}
                                 </div>
                                 <div class="b-text b-text_400 b-text_grey">
                                     {!! __('To make sure the content is not taken from the internet, we document the shooting process "behind the scenes" and publish the files in the Start Club.') !!}
@@ -827,10 +830,13 @@
                         <div class="swiper-slide">
                             <div class="flex h gap_4">
                                 <div class="block w50">
-                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_2.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_1.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
                                 </div>
+
                                 <div class="block w50">
-                                    <video class="b-obj b-obj_v3" src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" autoplay muted loop>
+                                    <div class="pointer-90"></div>
+                                    <video class="b-obj b-obj_v3" muted controls>
+                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/1.mp4') }}" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
@@ -842,7 +848,9 @@
                                     <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_2.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
                                 </div>
                                 <div class="block w50">
-                                    <video class="b-obj b-obj_v3" src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" autoplay muted loop>
+                                    <div class="pointer-90"></div>
+                                    <video class="b-obj b-obj_v3" muted controls>
+                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
@@ -851,17 +859,23 @@
                         <div class="swiper-slide">
                             <div class="flex h gap_4">
                                 <div class="block w50">
-                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_2.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_3.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
                                 </div>
                                 <div class="block w50">
-                                    <video class="b-obj b-obj_v3" src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" autoplay muted loop>
+                                    <div class="pointer-90"></div>
+                                    <video class="b-obj b-obj_v3" muted controls>
+                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/3.mp4') }}" type="video/mp4">
                                     </video>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <img class="swipe_finger" src="{{ URL::asset('assets/images/finger-click.png') }}" alt="finger-click">
+
             </div>
+            
         </section>
 
         <section class="b-section b-section_visible pt-6">
@@ -881,13 +895,12 @@
 
                     <div class="h-text mb-3r">
                         <div class="b-text b-text_uppercase b-text_fit b-text_2em b-text_700 b-text_center b-text_blue-marker b-text_blue-marker_v2 custom_media_size_change">
-                            {{ __('Universal tariff, everything included') }}
+                            {{ __('Universal tariff') }}
                             <span class="relative block nowrap blue-marker mt-05r mx-auto">{{ __('everything included') }}</span>
                         </div>
                     </div>
 
                     <div class="flex fit w35 m-auto mob">
-                        @svg('green-star', 'b-img b-img_v25')
                         <div class="card flex align">
                             <div class="flex fit gap v mb-2r">
                                 <div class="flex gap h align">
@@ -1029,15 +1042,15 @@
 
         </section>
 
-        <section class="b-section b-section_v3 b-section_visible pt-6">
+        <section class="b-section b-section_visible pt-6">
             <div class="fade-in fade-in_v1 top"></div>
             @svg('nike-pair', 'b-img b-img_v7')
             <div class="container container_v2 mob">
 
                 <div class="h-text">
                     <div class="b-text b-text_uppercase b-text_fit-content b-text_2em b-text_700 b-text_center custom_media_size_change b-text_blue-marker b-text_blue-marker_v1 mb-1r">
-                        <span class="relative nowrap blue-marker">{{ __('How it works') }}</span>
-                        {{ __('“Start Club”') }}
+                        <span class="relative nowrap blue-marker">{{ __('Work proccess of') }}</span>
+                        {{ __('Club Start') }}
                     </div>
                 </div>
                 <div class="b-text b-text_1.5em b-text_400 b-text_center fmob1 mb-3r">
@@ -1049,7 +1062,7 @@
                     <div class="accordion">
 
                         <div class="accordion-item noise">
-                            <button id="accordion-button-1" aria-expanded="false">
+                            <button id="accordion-button-1" aria-expanded="true">
                                 <div class="flex h align">
                                     <span class="b-text b-text_grey b-text_grey_light-mode b-text_400 b-text_1.5em b-text_nowrap fmob1">{{ __('Step 1') }}</span>
                                     <span class="b-text b-text_600 b-text_2em fmob5 ml-05">{{ __('Sneakers at cost from 1 pair') }}</span>
@@ -1183,6 +1196,121 @@
             </div>
 
         </section>
+
+
+        <section class="b-section b-section_v3 b-section_visible pt-6">
+            <div class="fade-in fade-in_v1 top"></div>
+            <div class="container container_v2 mob">
+                <div class="flex v">
+                    <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/star-sticker.webp') }}" alt="star-sticker" class="b-img b-img_v17">
+
+                    <div class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto mb-6r">
+                        <span class="relative nowrap blue-marker">{{ __('With You') }}</span>
+                        {{ __('Sharing Knowledge') }}
+                    </div>
+
+                    <div class="flex v gap_2 mob">
+                        <div class="flex h gap_4 mob">
+
+                            <div class="flex v w30 mob gap_2">
+                                <div class="flex v">
+
+                                    {{-- Swiper_v4 Lopd25 --}}
+                                    <div wire:ignore class="swiper swiper_v4">
+                                        <div class="swiper-wrapper">
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/3.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-3">
+                                            </div>
+
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/2.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-2">
+                                            </div>
+
+
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/1.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-1">
+                                            </div>
+
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/4.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-4">
+                                            </div>
+
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/5.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-5">
+                                            </div>
+
+                                            <div class="flex v swiper-slide">
+                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
+                                                    {!! __('Daniil<br /> Shkitov') !!}
+                                                </div>
+                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/6.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
+                                                    type="image/jpeg" alt="author-img-6">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-arrow swiper-button-next"></div>
+                                        <div class="swiper-arrow swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex v w50 wmob space-btw">
+                                <div class="flex v gap mb-2r">
+                                    <div class="b-text b-text_1.5em b-text_400">
+                                        {{ __('The club’s creator, supplier, and leader of the YouTube channel') }}
+                                        <a target="_blank" href="https://www.youtube.com/@shkitov" class="mt-1">
+                                            <img src="{{ URL::asset('assets/images/yt-logo.jpg') }}" alt="youtube-logo" class="b-img b-img_v21">
+                                        </a>
+                                    </div>
+                                    <div class="b-text b-text_grey b-text_400">
+                                        {{ __('Daniil personally shares all the information in the club in the form of texts, audio, and video content.') }}
+                                    </div>
+                                </div>
+
+                                <div class="flex v">
+                                    <div class="b-text b-text_1.5em b-text_500">
+                                        <span class="b-text b-text_2em b-text_700">470</span> {{ __('graduates') }}
+                                    </div>
+                                    <div class="b-text b-text_1.5em b-text_500 mb-1r">
+                                        <span class="b-text b-text_2em b-text_700">295,000</span> {{ __('subscribers') }}
+                                    </div>
+                                    <div class="flex gap-2 h">
+                                        <div class="flex gap_05 h align">
+                                            <img src="{{ URL::asset('assets/images/min-webp/instagram.webp') }}" alt="instagram" class="b-img">
+                                            <a href="https://www.instagram.com/daniilshkit">daniilshkit</a>
+                                        </div>
+                                        <div class="flex gap_05 h align">
+                                            <img src="{{ URL::asset('assets/images/min-webp/telegram.webp') }}" alt="telegram" class="b-img b-img_v1">
+                                            <a href="https://t.me/daniilshkitov">daniilshkitov</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section class="b-section b-section_doted b-section_v5 b-section_visible">
             <div class="container container_v2 mob">
@@ -1393,118 +1521,6 @@
             <div class="fade-in"></div>
         </section>
 
-        <section class="b-section b-section_visible">
-            <div class="container container_v2 mob">
-                <div class="flex v">
-                    <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/star-sticker.webp') }}" alt="star-sticker" class="b-img b-img_v17">
-
-                    <div class="b-text b-text_uppercase b-text_2.5em b-text_700 b-text_center b-text_fit m-auto mb-6r">
-                        <span class="relative nowrap blue-marker">{{ __('With You') }}</span>
-                        {{ __('Sharing Knowledge') }}
-                    </div>
-
-                    <div class="flex v gap_2 mob">
-                        <div class="flex h gap_4 mob">
-
-                            <div class="flex v w30 mob gap_2">
-                                <div class="flex v">
-
-                                    {{-- Swiper_v4 Lopd25 --}}
-                                    <div wire:ignore class="swiper swiper_v4">
-                                        <div class="swiper-wrapper">
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/3.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-3">
-                                            </div>
-
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/2.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-2">
-                                            </div>
-
-
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/1.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-1">
-                                            </div>
-
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/4.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-4">
-                                            </div>
-
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/5.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-5">
-                                            </div>
-
-                                            <div class="flex v swiper-slide">
-                                                <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
-                                                    {!! __('Daniil<br /> Shkitov') !!}
-                                                </div>
-                                                <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author-img/6.jpg') }}" class="b-img b-img_v16 cursor_grab __slide-block mx-auto"
-                                                    type="image/jpeg" alt="author-img-6">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-arrow swiper-button-next"></div>
-                                        <div class="swiper-arrow swiper-button-prev"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex v w50 wmob space-btw">
-                                <div class="flex v gap mb-2r">
-                                    <div class="b-text b-text_1.5em b-text_400">
-                                        {{ __('The club’s creator, supplier, and leader of the YouTube channel') }}
-                                        <a target="_blank" href="https://www.youtube.com/@shkitov" class="mt-1">
-                                            <img src="{{ URL::asset('assets/images/yt-logo.jpg') }}" alt="youtube-logo" class="b-img b-img_v21">
-                                        </a>
-                                    </div>
-                                    <div class="b-text b-text_grey b-text_400">
-                                        {{ __('Daniil personally shares all the information in the club in the form of texts, audio, and video content.') }}
-                                    </div>
-                                </div>
-
-                                <div class="flex v">
-                                    <div class="b-text b-text_1.5em b-text_500">
-                                        <span class="b-text b-text_2em b-text_700">470</span> {{ __('graduates') }}
-                                    </div>
-                                    <div class="b-text b-text_1.5em b-text_500 mb-1r">
-                                        <span class="b-text b-text_2em b-text_700">295,000</span> {{ __('subscribers') }}
-                                    </div>
-                                    <div class="flex gap-2 h">
-                                        <div class="flex gap_05 h align">
-                                            <img src="{{ URL::asset('assets/images/min-webp/instagram.webp') }}" alt="instagram" class="b-img">
-                                            <a href="https://www.instagram.com/daniilshkit">daniilshkit</a>
-                                        </div>
-                                        <div class="flex gap_05 h align">
-                                            <img src="{{ URL::asset('assets/images/min-webp/telegram.webp') }}" alt="telegram" class="b-img b-img_v1">
-                                            <a href="https://t.me/daniilshkitov">daniilshkitov</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
 
         {{-- hook QsAAi29_1x --}}
@@ -1528,6 +1544,14 @@
 
     </div>
 
+    <div class="modal-container">
+        <div class="modal-background">
+            <div class="modal">
+                <!-- TO DO -->
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 
@@ -1543,6 +1567,7 @@
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/index/accordion.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/index/swiper.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/index/telegram-circle-video.css') }}">
+    <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/index/modals.css') }}">
 @stop
 
 {{-- javascript --}}
@@ -1553,4 +1578,5 @@
     <script src="{{ Vite::asset('resources/javascript/index/modules/sneaker.js') }}" type="module"></script>
     <script src="{{ Vite::asset('resources/javascript/index/modules/swiper.js') }}" type="module"></script>
     <script src="{{ Vite::asset('resources/javascript/index/telegram-circle-video.js') }}"></script>
+    <script src="{{ Vite::asset('resources/javascript/index/modals.js') }}"></script>
 @stop

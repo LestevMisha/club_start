@@ -40,7 +40,7 @@ class YooKassaServices
         if (!$isRecurrent) {
             $paymentData["confirmation"] = [
                 "type" => "redirect",
-                "return_url" => route("dashboard"),
+                "return_url" => route("private.dashboard"),
             ];
             $paymentData["save_payment_method"] = true;
         } else {

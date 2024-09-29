@@ -53,6 +53,12 @@
     "src": "resources/javascript/index/hooks.js",
     "isEntry": true
   },
+  "resources/javascript/index/modals.js": {
+    "file": "assets/modals-BnF9kO8S.js",
+    "name": "modals",
+    "src": "resources/javascript/index/modals.js",
+    "isEntry": true
+  },
   "resources/javascript/index/modules/sneaker.js": {
     "file": "assets/sneaker-B0xLs-Io.js",
     "name": "sneaker",
@@ -94,7 +100,7 @@
     "isEntry": true
   },
   "resources/styles/global/main.css": {
-    "file": "assets/main-BSb3PuU0.css",
+    "file": "assets/main-E68GZWl8.css",
     "src": "resources/styles/global/main.css",
     "isEntry": true
   },
@@ -106,6 +112,11 @@
   "resources/styles/index/accordion.css": {
     "file": "assets/accordion-CVRFMGha.css",
     "src": "resources/styles/index/accordion.css",
+    "isEntry": true
+  },
+  "resources/styles/index/modals.css": {
+    "file": "assets/modals-D2_XlB9s.css",
+    "src": "resources/styles/index/modals.css",
     "isEntry": true
   },
   "resources/styles/index/swiper.css": {
