@@ -12,6 +12,6 @@
 @include('components.theme-switcher.element')
 
 {{-- Add JS element --}}
-@pushOnce('scripts')
-    <script src="{{ Vite::asset('resources/views/components/theme-switcher/element.js') }}"></script>
+@pushOnce('components.scripts')
+    <script src="{{ Vite::asset('resources/views/components/theme-switcher/element.mjs') }}" type="module"></script>
 @endPushOnce

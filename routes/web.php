@@ -9,7 +9,6 @@ use App\Http\Middleware\Authentication;
 use App\Http\Controllers\TelegramController;
 
 // redis
-use App\Http\Controllers\YooKassaController;
 use App\Http\Controllers\RecaptchaController;
 
 // Public Pages
@@ -21,13 +20,19 @@ use App\Http\Controllers\Pages\Public\IndexController;
 use App\Http\Controllers\Pages\Auth\RegisterController;
 
 // Private Pages
+use App\Http\Controllers\Components\ReferralLinkController;
 use App\Http\Controllers\Redis\RedisLanguageController;
 use App\Http\Controllers\Pages\Private\ProfileController;
-use App\Http\Controllers\Components\ReferralLinkController;
 use App\Http\Controllers\Pages\Private\DashboardController;
-use App\Http\Controllers\Pages\Auth\ForgotPasswordController;
-use App\Http\Controllers\Pages\Auth\TelegramVerificationController;
 use App\Http\Controllers\Pages\Private\TransactionsController;
+use App\Http\Controllers\Pages\Auth\TelegramVerificationController;
+use App\Http\Controllers\Pages\Public\DocumentsController;
+use App\Http\Controllers\Pages\Public\PrivacyController;
+use App\Http\Controllers\Pages\Public\PublicOfferController;
+use App\Http\Controllers\Pages\Public\TermsController;
+use App\Http\Controllers\Pages\Public\ForgotPasswordController;
+use App\Http\Controllers\Pages\Public\ResetPasswordController;
+use App\Http\Controllers\UsersTransactionsController;
 
 // make all redirections using https !IMPORTANT
 URL::forceScheme("https");
@@ -35,7 +40,13 @@ URL::forceScheme("https");
 /* +++++++++++++++++++ PAGES +++++++++++++++++++ */
 
 Route::get('/', IndexController::class)->name('public.index');
+Route::get('/documents', DocumentsController::class)->name('public.documents');
 Route::get("/forgot-password", ForgotPasswordController::class)->name("public.password.forgot");
+Route::get("/reset-password/{token}", ResetPasswordController::class)->name("password.reset");
+// docs
+Route::get('/terms', TermsController::class)->name('public.terms');
+Route::get('/privacy', PrivacyController::class)->name('public.privacy');
+Route::get('/public-offer', PublicOfferController::class)->name('public.public-offer');
 
 Route::middleware(Authentication::class)->group(function () {
     Route::get('/login', LoginController::class)->name('auth.login');
@@ -44,6 +55,7 @@ Route::middleware(Authentication::class)->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('private.dashboard');
     Route::get('/profile', ProfileController::class)->name('private.profile');
     Route::get('/transactions', TransactionsController::class)->name('private.transactions');
+    Route::get('/referral-transactions', TransactionsController::class)->name('private.referral.transactions');
 });
 
 
@@ -52,12 +64,12 @@ Route::middleware(Authentication::class)->group(function () {
 
 Route::post("/post/recaptacha/verify", [RecaptchaController::class, "verify"])->name("post.recaptcha.verify");
 Route::post("/post/login/authenticate", [LoginController::class, "authenticate"])->name("post.login.authenticate");
-Route::post("/post/register/store", [RegisterController::class, "store"])->name("post.register.store");
-Route::post("/post/telegram/verify/delete", [TelegramVerificationController::class, "delete"])->name("post.telegram.verify.delete");
+Route::post("/post/register/store", action: [RegisterController::class, "store"])->name("post.register.store");
+Route::post("/post/telegram/verify/deleteUser", [TelegramVerificationController::class, "deleteUser"])->name("post.telegram.verify.deleteUser");
 Route::post("/post/redis/toggleState", [RedisController::class, "toggleState"])->name("post.redis.toggleState");
 Route::post("/post/forgot-password/sendResetLink", [ForgotPasswordController::class, "sendResetLink"])->name("post.forgot-password.sendResetLink");
-Route::post("/post/components/referral-link/saveCardCredentials", [ReferralLinkController::class, "saveCardCredentials"])->name("post.components.referral-link.saveCardCredentials");
-
+Route::post("/post/reset-password/resetPassword", [ResetPasswordController::class, "resetPassword"])->name("post.reset-password.resetPassword");
+Route::post("/post/components/referral-link/saveCardCredentials", action: [ReferralLinkController::class, "saveCardCredentials"])->name("post.components.referral-link.saveCardCredentials");
 
 
 /* +++++++++++++++++++ GET +++++++++++++++++++ */
@@ -69,14 +81,9 @@ Route::get('language/{locale}', RedisLanguageController::class);
 
 // authenticated layout
 // Route::get('/transactions', DashboardController::class)->name('transactions');
-Route::get('/referral-transactions', DashboardController::class)->name('referral.transactions');
+// Route::get('/referral-transactions', DashboardController::class)->name('referral.transactions');
 Route::get('/support', DashboardController::class)->name('support');
 Route::get('/email/verify', DashboardController::class)->name('email.verify');
-
-
-Route::get("/documents", function () {
-    // return view('layouts.app')->nest('content', 'register');
-})->name("documents");
 
 // methods
 Route::post("/logout", [ModelServices::class, "logout"])->name("logout");
@@ -97,7 +104,7 @@ Route::controller(EmailVerification::class)->group(function () {
 });
 
 // Payment Routes
-Route::controller(YooKassaController::class)->group(function () {
+Route::controller(UsersTransactionsController::class)->group(function () {
     Route::post("/yoocallback", "callback");
     Route::post("/payment/monthly", "monthlyPayment")->name("payment.monthly");
     Route::get("/payment/referral", "referralPayment")->name("payment.referral");

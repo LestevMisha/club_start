@@ -2,6 +2,6 @@
 @include('components.referral-link.element')
 
 {{-- Add JS element --}}
-@pushOnce('scripts')
-    <script src="{{ Vite::asset('resources/views/components/referral-link/element.js') }}"></script>
+@pushOnce('components.scripts')
+    <script src="{{ Vite::asset('resources/views/components/referral-link/element.mjs') }}" type="module"></script>
 @endPushOnce

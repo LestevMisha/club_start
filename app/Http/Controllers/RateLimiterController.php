@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Services\Partials\_InputErrorServices;
 
-
 class RateLimiterController extends Controller
 {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
@@ -24,7 +23,7 @@ class RateLimiterController extends Controller
 
         $availableIn = RateLimiter::availableIn($key);
         return $this->_inputErrorServices->getErrorViewJsonByString(
-            "You exceeded the limit, please try again later. Wait time: {$availableIn} seconds.",
+            __("login.limit_is_exceeded", ["seconds" => $availableIn]),
             $input_key,
             ['availableIn' => $availableIn]
         );

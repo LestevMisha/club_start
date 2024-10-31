@@ -1,7 +1,10 @@
-<modern-copy-input data-attribute="{{ $attribute }}" class="flex w100">
-    <label class="modern-copy-input-wrapper">
-        <input class="modern-copy-input" id="js-{{ $attribute }}-input" value="{{ $value }}" readonly>
-        <span class="modern-copy-input-label emphasize orange {{ $class ?? '' }}">{{ $inscription }}</span>
-        @svg('copy', ['class' => 'default-icon copy-icon', 'id' => "js-$attribute-button"])
+<modern-copy-input class="modern-family {{ $class }}" data-attribute="{{ $attribute }}" data-message="{{ __('Copied') }}" class="flex w100">
+    <label class="input-container">
+        <input class="input-field" id="js-{{ $attribute }}-input" value="{{ $value }}" readonly>
+        <div class="input-grad"></div>
+        <span class="input-label emphasize {{ $color }}">{{ $inscription }}</span>
+        <button id="js-{{ $attribute }}-button" class="input-button" type="submit">
+            @svg('copy', 'input-icon input-icon_copy')
+        </button>
     </label>
 </modern-copy-input>

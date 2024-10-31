@@ -3,5 +3,5 @@
     <span class="b-text b-text_08 b-text_lh-1 b-text_warning more mt-015">{{ $error }}</span>
 </div>
 
-@stack('scripts')
+@stack('components.scripts')
 @stack('components.styles')

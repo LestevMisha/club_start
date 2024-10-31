@@ -27,6 +27,7 @@
 .swiper-arrow {
     right: 0;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: none;
 }
 
 .swiper-arrow::after {
@@ -34,11 +35,11 @@
 }
 
 .swiper-button-prev {
-    background-image: url("../../assets/images/svg/img-case/arrow-prev.svg");
+    background-image: url("/resources/icons/arrow-prev.svg");
 }
 
 .swiper-button-next {
-    background-image: url("../../assets/images/svg/img-case/arrow-next.svg");
+    background-image: url("/resources/icons/arrow-next.svg");
 }
 
 .swiper-arrow:hover {
@@ -69,7 +70,7 @@
     margin: 0px !important;
 }
 
-.swiper_v2 {
+.swiper_v1, .swiper_v2, .swiper_v5 {
     padding-bottom: 2em !important;
 
 }

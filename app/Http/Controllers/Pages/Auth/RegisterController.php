@@ -7,9 +7,11 @@ use App\Services\ModelServices;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Cookie;
 use App\Services\Partials\_StepServices;
 use Illuminate\Support\Facades\Validator;
 use App\Services\Partials\_InputErrorServices;
+use App\Services\UsersServices;
 
 class RegisterController extends Controller
 {
@@ -17,7 +19,7 @@ class RegisterController extends Controller
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected ModelServices $modelServices,
+        protected UsersServices $usersServices,
         protected _InputErrorServices $_inputErrorServices,
         protected _StepServices $_stepServices,
     ) {}
@@ -36,6 +38,12 @@ class RegisterController extends Controller
         $name = $request->get("name");
         $email = $request->get("email");
         $password = $request->get("password");
+        // data for cookies
+        $transaction_reffered_by_id = $request->cookie("transaction_reffered_by_id", "");
+        $transaction_recurring_payment_flag = $request->get("transaction-recurring-payment-flag", "");
+
+        // set cookie for auto payment
+        if ($transaction_recurring_payment_flag) Cookie::queue("transaction_recurring_payment_flag", ($transaction_recurring_payment_flag === "on") ? true : false, 60 * 24); // 24 hours
 
         // check processing
         $response = $this->action("name", $request);
@@ -52,13 +60,13 @@ class RegisterController extends Controller
         } else return $this->_stepServices->getStep(3, ["name" => $name, "email" => $email]);
 
         // create a new user
-        $user = $this->modelServices->createUser($name, $email, $password, $request->cookie("referred_referral_id", ""));
+        $user = $this->usersServices->createUser($name, $email, $password, $transaction_reffered_by_id);
 
         // send verification letter
         event(new Registered($user));
 
         // authentificate user
-        if (Auth::attempt(compact('email', 'password'))) return response()->json(['reload' => true]);
+        if (Auth::attempt(compact('email', 'password'))) return redirect()->route("intermediate.telegram.verify");
     }
 
 
@@ -75,6 +83,6 @@ class RegisterController extends Controller
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        return view("pages.auth.register");
+        return view("pages.auth.register.bundled");
     }
 }

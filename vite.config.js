@@ -38,33 +38,42 @@ export default defineConfig({
                 "resources/javascript/laravel/requests.js",
                 "resources/javascript/laravel/helpers.js",
 
-
-                // MARK: dashboard
-                // js
-                "resources/javascript/dashboard/flexgridify.js",
-                // css
-
                 // components
-                "resources/views/components/modern-credit-card-input/element.js",
+                "resources/views/components/modern-credit-card-input/element.mjs",
                 "resources/views/components/modern-credit-card-input/element.css",
 
                 "resources/views/components/modern-input/element.css",
                 "resources/views/components/modern-password-input/element.css",
+                "resources/views/components/modern-copy-input/element.css",
+                "resources/views/components/dashboard-header/element.css",
 
-                "resources/views/components/modern-copy-input/element.js",
-                "resources/views/components/modern-password-input/element.js",
-                "resources/views/components/theme-switcher/element.js",
-                "resources/views/components/referral-link/element.js",
+                "resources/views/components/modern-copy-input/element.mjs",
+                "resources/views/components/modern-password-input/element.mjs",
+                "resources/views/components/theme-switcher/element.mjs",
+                "resources/views/components/referral-link/element.mjs",
+                "resources/views/components/side-menu/element.mjs",
+
+
+                /* PAGES */
+                "resources/views/pages/private/dashboard/page.mjs",
+                "resources/views/pages/auth/login/page.mjs",
+                "resources/views/pages/auth/register/page.mjs",
             ],
             refresh: false,
         }),
     ],
     resolve: {
         alias: {
+            /* FILES */
             "@flexgridify": "/node_modules/flexgridify/dist/bundle.js",
+            "@chart.js": "/node_modules/chart.js/dist/chart.umd.js",
             "@swiper": "/node_modules/swiper/swiper-bundle.min.mjs",
             "@swiper-css": "/node_modules/swiper/swiper-bundle.min.css",
             "@three": "/node_modules/three/build/three.module.min.js",
+
+            /* DIRECTORIES */
+            "@helpers": "/resources/javascript/helpers",
+            "@apis": "/resources/javascript/apis",
             "@three-jsm": "/node_modules/three/examples/jsm",
         }
     },

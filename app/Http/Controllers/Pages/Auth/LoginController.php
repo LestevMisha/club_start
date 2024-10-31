@@ -18,35 +18,32 @@ class LoginController extends RateLimiterController
      */
     public function authenticate(Request $request)
     {
-        // Rate limiting
+        // 1. Rate limiting
         $throttleKey = $this->generateThrottleKey("authenticate", "email", $request);
-        $executed = $this->rateLimiter($throttleKey, "email", 5, 300);
-
+        $executed = $this->rateLimiter($throttleKey, "email", 3, 300);
         if ($executed) return $executed;
 
-        // Validation
+        // 2. Validation
         $remember = $request->get("remember-me", false);
         $validator = Validator::make($request->all(), [
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],
         ]);
-
-        // Error handling
         if ($validator->fails()) return $this->_inputErrorServices->getMultiErrorViewJson($validator, "email", "password");
 
-        // Login attempt
+        // 3. Login attempt
         if (Auth::attempt($validator->validated(), $remember)) {
             $request->session()->regenerate();
-            return response()->json(['reload' => true]);
+            return redirect()->route("private.dashboard");
         }
         // Default authentication error
-        return $this->_inputErrorServices->getErrorViewJsonByString(__("login.records_not_matched"), "email");
+        return $this->_inputErrorServices->getMultiErrorViewJsonByString(__("login.invalid_credentials"), "email", "password");
     }
 
 
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        return view("pages.auth.login");
+        return view("pages.auth.login.bundled");
     }
 }

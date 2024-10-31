@@ -140,7 +140,7 @@ body.lightMode .b-img.b-img_open-book {
 }
 
 body.lightMode .b-section.b-section_v1 {
-    background: linear-gradient(97deg, #FFFFFF 40%, var(--blue-1) 100%);
+    background: linear-gradient(97deg, #FFFFFF 60%, var(--blue-1) 100%);
 }
 
 body.lightMode .b-text.b-text_v5 {
@@ -151,6 +151,14 @@ body.lightMode .b-text.b-text_v5 {
 
 body.lightMode .modeLight_darker {
     color: #666666 !important;
+}
+
+/* body.lightMode a {
+    color: #000000 !important;
+} */
+
+body.lightMode .dashboard-header {
+    background: #FFF;
 }
 
 body.lightMode .modern-header .flex_blured.login_cst {
@@ -291,12 +299,12 @@ body.lightMode .flex.v11 {
     background-color: rgba(10, 37, 64, 0.04);
 }
 
-body.lightMode .flex.v1 {
-    border-bottom: 0.1em solid rgba(10, 37, 64, 0.1);
-}
-
 body.lightMode .flex.v12:hover {
     background-color: rgba(10, 37, 64, 0.04) !important;
+}
+
+body.lightMode .canvas-grad {
+    background: linear-gradient(90deg, #FFFFFF 10%, #00000000 100%);
 }
 
 body.lightMode .go-button.v8:hover {
@@ -312,10 +320,6 @@ body.lightMode .flex.v100 {
 
 body.lightMode .ui-set-button {
     border: .1em solid #000000;
-}
-
-body.lightMode .ui-number-set-icon {
-    display: none;
 }
 
 body.lightMode .circle_overlap {

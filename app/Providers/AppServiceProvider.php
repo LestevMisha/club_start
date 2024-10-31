@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('components.language-switcher.compiled', function ($view) {
             $view->with('current_locale', app()->getLocale());
         });
-
+        
     }
 }

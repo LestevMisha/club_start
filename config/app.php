@@ -9,7 +9,14 @@ use LaravelLang\JsonFallback\TranslationServiceProvider as JsonTranslationServic
 return [
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        // default service providers
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
         // your service providers
+        App\Providers\ComponentServiceProvider::class
     ])->replace([
         BaseTranslationServiceProvider::class => JsonTranslationServiceProvider::class,
     ])->toArray(),
@@ -79,7 +86,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Moscow',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,22 +183,6 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
-    'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package Service Providers...
-         */
-
-        /*
-         * Application Service Providers...
-         */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        App\Providers\RecaptchaServiceProvider::class,
-    ])->toArray(),
 
     /*
     |--------------------------------------------------------------------------

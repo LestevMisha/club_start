@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    "1" => "Links for dropshipping work",
+    "2" => "👆 This is the main Telegram channel of the club for dropshipping.",
+    "3" => "The link to the club is available only during your subscription period. To avoid being removed from the channel, make sure the auto-payment is enabled. If you cancel the auto-payment, the bot will automatically remove all participants whose access expires.",
+    "4" => "Complete Training",
+    "5" => "By following the link, you can register for the \"Sneaker Seller\" marathon and receive training in real-time on creating your own sneaker online store in a group.",
+    "6" => "Get Archives",
+    "7" => "Access to the 3-year \"archive\" of the club (How we started and what steps led to success)",
+    "8" => "Activate Referral Link",
+    "9" => "The referral link is for those who want to sell the club and earn from it every month. For each person you bring to the club, you will receive 50%, as well as 3,000 ₽ monthly for their renewal.",
+    "10" => "To activate the referral link, provide your card number. This is where we will transfer funds for the people you bring. 👇",
+    "11" => "Website visits",
+    "12" => "Status",
+    "13" => "You are a unique user ✦, and there will be no more like you! From summer 2024, the Start club subscription will only be available through the website.",
+    "14" => "Purchasing through the bot, you receive a unique price for our product.",
+    "15" => "👆 This shows the period of your subscription. Three days before the end, money will be automatically deducted from your card.",
+    "16" => "To cancel auto-payment, go to",
+    "17" => "profile.",
+    "18" => "Visitors per day",
+    "19" => "Private Club",
+    "20" => "Referral Link",
+    "21" => "days",
+    "22" => "Remaining Days",
+    "23" => "Your browser does not support the canvas element.",
+    "24" => "How to open a sneaker store online?",
+    "25" => "Legendary video tutorial on selling sneakers online ⤵️",
+    "26" => "Congratulations! Here is your unique referral link.",
+    "27" => "Every time a customer purchases \"CLUB START\" using this link, you receive 50% of the cost of the club, as well as 3,000 ₽ monthly for renewing their subscription.",
+    "28" => "Referral program",
+    "29" => "More details",
+    "30" => "Active",
+    "31" => "Referred",
+    "32" => "Subscribers",
+];

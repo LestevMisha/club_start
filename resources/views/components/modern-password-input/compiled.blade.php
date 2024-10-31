@@ -13,8 +13,8 @@
 @include('components.modern-password-input.element', ['attribute' => $attribute, 'inscription' => $inscription])
 
 {{-- Add JS element --}}
-@pushOnce('scripts')
-    <script src="{{ Vite::asset('resources/views/components/modern-password-input/element.js') }}"></script>
+@pushOnce('components.scripts')
+    <script src="{{ Vite::asset('resources/views/components/modern-password-input/element.mjs') }}" type="module"></script>
 @endPushOnce
 
 {{-- Add CSS element --}}

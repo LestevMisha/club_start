@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('uuid')->unique();
 
             $table->integer('days_left')->default(0);
-            $table->integer('is_paid_10K')->default(0);
             $table->integer('withdrawal_notification_sent')->default(0);
-            $table->integer('amount')->default(0);
+            $table->integer('amount_earned')->default(0);
 
             $table->string('name');
             $table->string('email')->unique();
@@ -28,9 +27,9 @@ return new class extends Migration
 
             /* if empty (null) - user is not either verified/referred,
             if not empty (<value>) - user is either verified/referred  */
-            $table->string('referred_referral_id')->nullable();
-            $table->string('telegram_id')->nullable();
+            $table->string('referred_by_id')->nullable();
             $table->string('referral_id')->nullable();
+            $table->string('telegram_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
 
             $table->string('password');

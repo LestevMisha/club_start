@@ -11,7 +11,6 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class TelegramVerificationController extends Controller
 {
 
-
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected TelegramServices $telegramServices,
@@ -20,6 +19,7 @@ class TelegramVerificationController extends Controller
 
 
     /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
+
     // generate unique QR code image
     public function generateQRCode($url)
     {
@@ -33,17 +33,17 @@ class TelegramVerificationController extends Controller
     }
 
     // gives user the option to delete his registration
-    public function delete()
+    public function deleteUser()
     {
         $this->modelServices->deleteUser(Auth::user()->email);
         $this->modelServices->logout();
-        return response()->json(['reload' => true]);
+        return redirect()->back();
     }
 
 
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        return view("pages.intermediate.telegram-verification");
+        return view("pages.intermediate.telegram-verification.bundled");
     }
 }

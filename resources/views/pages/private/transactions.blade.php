@@ -1,5 +1,5 @@
-@extends('layouts.private')
-@section('content')
+@extends('sub-layouts.private')
+@section('sub-content')
     <div class="flex v gap pt-1">
         <div class="mb-2">
             <div class="b-text b-text_2em">Payment history</div>
@@ -20,12 +20,12 @@
                         <div class="b-text b-text_400">{{ $transaction->yookassa_transaction_id }}</div>
                     </div>
 
-                    <div class="b-text b-text_1.2em b-text_600">{{ $transaction->amount }}
+                    <div class="b-text b-text_1.2em b-text_600">{{ $transaction->transaction_amount }}
                         <span>&nbsp;₽</span>
                     </div>
                 </div>
                 <div class="flex v11">
-                    <div class="b-text b-text_grey-dark b-text_400">{{ $transaction->description }}</div>
+                    <div class="b-text b-text_grey-dark b-text_400">{{ $transaction->transaction_description }}</div>
                 </div>
             </div>
         @endforeach

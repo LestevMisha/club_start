@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="recaptcha-site-key" content="{{ config('services.google.recaptcha.site_key') }}" />
     <title>{{ $title ?? 'КЛУБ START' }}</title>
     {{-- preload --}}
     @yield('index-preload')

@@ -15,7 +15,7 @@
                             </span>
                         </div>
 
-                        <div class="b-text b-text_400 b-text_1.5em b-text_grey_mob br_remover_mob fmob3 tcmob mb-2">
+                        <div class="b-text b-text_400 b-text_1.5em b-text_grey_mob br_remover_mob fmob3 tcmob mb-2 modeLight_darker">
                             {!! __('Start earning without experience, warehouse,<br /> employees or investments in goods') !!}
                         </div>
 
@@ -175,7 +175,7 @@
                                 <div class="b-text b-text_nowrap">{{ __('Shooting expenses') }}</div>
                             </div>
                         </div>
-                        <div class="b-text b-text_1.3em b-text_700">{{ __('Total: 3 770 000 rub.') }}</div>
+                        <div class="b-text b-text_1.3em b-text_700">{{ __('Total: 3 670 000 rub.') }}</div>
                         @svg('red-cross', 'b-img b-img_cross-thick')
                     </div>
                 </div>
@@ -200,10 +200,10 @@
                     </div>
                 </div>
 
-                <div class="flex v">
-                    {{-- Swiper_v2 Klg4g --}}
-                    <div wire:ignore class="swiper swiper_v2 flex space-btw h mob gap_2 video-slider">
-                        <div class="swiper-wrapper">
+                {{-- Swiper_v2 Klg4g --}}
+                <div class="swiper-area relative">
+                    <div class="swiper swiper_v2 flex space-btw h mob gap_2 video-slider flex hidden">
+                        <div class="swiper-wrapper flex h">
                             <div class="flex v mobalign w100 mob swiper-slide">
                                 <div class="flex v hmin6 mb-1r __text-block">
                                     <div class="b-text b-text_v5 b-text_600 mb-05">
@@ -304,11 +304,11 @@
                             {!! __("No need to invest money in products! Thanks to the large number of partners in \"START CLUB,\" we have the opportunity to acquire the most in-demand sneakers.") !!}
                         </div>
 
-                        <div class="flex v">
 
-                            {{-- Swiper_v1 EDfa3d --}}
-                            <div wire:ignore class="swiper swiper_v1 video-slider">
-                                <div class="swiper-wrapper">
+                        {{-- Swiper_v1 EDfa3d --}}
+                        <div class="swiper-area relative">
+                            <div class="swiper swiper_v1 video-slider flex hidden">
+                                <div class="swiper-wrapper flex h w100">
                                     <div class="swiper-slide">
                                         <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/price-list/2.JPG') }}" class="b-img b-img_v5 cursor_grab __slide-block mx-auto"
                                             type="image/jpeg" alt="price-list-2">
@@ -396,6 +396,7 @@
                                 </div>
                                 <div class="swiper-arrow swiper-button-next"></div>
                                 <div class="swiper-arrow swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
                             </div>
                         </div>
                     </div>
@@ -482,7 +483,7 @@
             <div class="fade-in fade-in_v1 bottom z-0"></div>
         </section>
 
-        <section class="b-section pt-6 pb-6">
+        <section class="b-section pt-6">
 
             @svg('ui-set.hand-over', 'ui-hand-over-icon')
             <img class="ui-hand-over-icon" src="{{ URL::asset('assets/images/min-png/hand-over.png') }}" alt="hand-over">
@@ -824,58 +825,60 @@
                 </div>
 
                 {{-- hook klotMo33_nE --}}
-                <div class="swiper swiper_v5 flex h gap_2 w70 mx-auto wmob">
-                    <div class="swiper-wrapper">
+                <div class="swiper-area relative">
+                    <div class="swiper swiper_v5 flex h gap_2 w70 mx-auto wmob flex hidden">
+                        <div class="swiper-wrapper flex h">
 
-                        <div class="swiper-slide">
-                            <div class="flex h gap_4">
-                                <div class="block w50">
-                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_1.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                            <div class="swiper-slide">
+                                <div class="flex h gap_4">
+                                    <div class="block w50">
+                                        <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_1.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                                    </div>
+
+                                    <div class="block w50">
+                                        <video class="b-obj b-obj_v3" muted controls>
+                                            <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/1.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="block w50">
-                                    <div class="pointer-90"></div>
-                                    <video class="b-obj b-obj_v3" muted controls>
-                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/1.mp4') }}" type="video/mp4">
-                                    </video>
+                            <div class="swiper-slide">
+                                <div class="flex h gap_4">
+                                    <div class="block w50">
+                                        <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_2.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                                    </div>
+                                    <div class="block w50">
+                                        <video class="b-obj b-obj_v3" muted controls>
+                                            <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flex h gap_4">
+                                    <div class="block w50">
+                                        <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_3.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
+                                    </div>
+                                    <div class="block w50">
+                                        <video class="b-obj b-obj_v3" muted controls>
+                                            <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/3.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="swiper-slide">
-                            <div class="flex h gap_4">
-                                <div class="block w50">
-                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_2.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
-                                </div>
-                                <div class="block w50">
-                                    <div class="pointer-90"></div>
-                                    <video class="b-obj b-obj_v3" muted controls>
-                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/2.mp4') }}" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="flex h gap_4">
-                                <div class="block w50">
-                                    <img src="{{ URL::asset('assets/images/min-jpeg/edited/edited_3.jpeg') }}" class="b-obj b-obj_v3" type="image/jpeg" alt="sneak-edition-2" loading="lazy">
-                                </div>
-                                <div class="block w50">
-                                    <div class="pointer-90"></div>
-                                    <video class="b-obj b-obj_v3" muted controls>
-                                        <source src="{{ URL::asset('assets/videos/behind-the-scene-portview/3.mp4') }}" type="video/mp4">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="swiper-arrow swiper-button-next"></div>
+                        <div class="swiper-arrow swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
 
-                <img class="swipe_finger" src="{{ URL::asset('assets/images/finger-click.png') }}" alt="finger-click">
+                {{-- <img class="swipe_finger" src="{{ URL::asset('assets/images/finger-click.png') }}" alt="finger-click"> --}}
 
             </div>
-            
+
         </section>
 
         <section class="b-section b-section_visible pt-6">
@@ -932,7 +935,7 @@
                                 <div class="b-text b-text_grey b-text_center b-text_08">
                                     {!! __('By paying you accept the terms of the') !!}
                                     <br />
-                                    <a href="{{ route('documents') }}">{{ __('offer contract') }}</a>
+                                    <a href="{{ route('public.documents') }}">{{ __('offer contract') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -958,84 +961,86 @@
                     </div>
 
                     {{-- Swiper_v3 StWoom3s --}}
-                    <div wire:ignore class="swiper swiper_v3 relative video-slider">
-                        <div class="swiper-wrapper">
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_1.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_1.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
+                    <div class="swiper-area relative">
+                        <div class="swiper swiper_v3 relative video-slider flex hidden">
+                            <div class="swiper-wrapper flex h">
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_1.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_1.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
 
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_2.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_2.mp4') }}" type="video/mp4">
-                                </video>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_2.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_2.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_3.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_3.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_4.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_4.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_5.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_5.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_6.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_6.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_7.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_7.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_8.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_8.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_9.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_9.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_10.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_10.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_11.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_11.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="flex v w100 swiper-slide">
+                                    <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
+                                        poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_12.jpeg') }}">
+                                        <source src="{{ URL::asset('assets/videos/feedbacks/feedback_12.mp4') }}" type="video/mp4">
+                                    </video>
+                                </div>
                             </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_3.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_3.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_4.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_4.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_5.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_5.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_6.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_6.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_7.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_7.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_8.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_8.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_9.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_9.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_10.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_10.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_11.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_11.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="flex v w100 swiper-slide">
-                                <video class="b-video b-video_v4 __slide-block" muted controls preload="none"
-                                    poster="{{ URL::asset('assets/images/min-jpeg/feedback-posters/feedback-poster_12.jpeg') }}">
-                                    <source src="{{ URL::asset('assets/videos/feedbacks/feedback_12.mp4') }}" type="video/mp4">
-                                </video>
-                            </div>
+                            <div class="swiper-arrow swiper-button-next"></div>
+                            <div class="swiper-arrow swiper-button-prev"></div>
                         </div>
-                        <div class="swiper-arrow swiper-button-next"></div>
-                        <div class="swiper-arrow swiper-button-prev"></div>
                     </div>
                 </div>
             </div>
@@ -1213,11 +1218,11 @@
                         <div class="flex h gap_4 mob">
 
                             <div class="flex v w30 mob gap_2">
-                                <div class="flex v">
 
-                                    {{-- Swiper_v4 Lopd25 --}}
-                                    <div wire:ignore class="swiper swiper_v4">
-                                        <div class="swiper-wrapper">
+                                {{-- Swiper_v4 Lopd25 --}}
+                                <div class="swiper-area relative">
+                                    <div class="swiper swiper_v4 flex hidden">
+                                        <div class="swiper-wrapper flex h">
                                             <div class="flex v swiper-slide">
                                                 <div class="absolute bottom-0 left-0 b-text w b-text_2em b-text_lh-1em b-text_600 b-text_shadow4 b-text_uppercase ml-1.5">
                                                     {!! __('Daniil<br /> Shkitov') !!}

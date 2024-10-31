@@ -38,9 +38,21 @@ class BladeServices
         return $this->telegramServices->getTelegramVerificationLink($this->user->uuid, "changeEmail");
     }
 
+    // link with user id for verification (example: t.me/bot_name?start=user_id)
+    public function getTelegramLink(string $target)
+    {
+        return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, $target);
+    }
+
     // card verification status
     public function hasCardVerification(): bool
     {
         return (bool) $this->modelServices->getCardCredentials(Auth::user()->uuid);
+    }
+
+    // get visitors
+    public function getVisitorData()
+    {
+        return $this->modelServices->getVisitorData();
     }
 }

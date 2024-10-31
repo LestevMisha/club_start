@@ -5,7 +5,7 @@
                 Зарегистрироваться
             </div>
         </div>
-        <div class="b-text b-text_grey">
+        <div class="b-text b-text_grey-dark">
             Стать участником KLUB START
         </div>
 
@@ -28,12 +28,21 @@
 
             </div>
             <button type="submit" class="modern-button mt-1">
-                <div class="b-text ml-a">Продолжить</div>
+                <div class="b-text ml-a w">Продолжить</div>
                 @svg('next-arrow', 'modern-next ml-a')
             </button>
+
+            @if ($step === 3)
+                <div class="flex h align gap_05 mt-1">
+                    <input name="transaction-recurring-payment-flag" type="checkbox" id="transaction-recurring-payment-flag" checked>
+                    <label class="b-text b-text_grey-dark" for="transaction-recurring-payment-flag">Включить Автоплатеж</label>
+                </div>
+                <x-consent.compiled class="b-text b-text_grey-dark mt-1" />
+            @endif
+
         </div>
     </div>
 </div>
 
-@stack('scripts')
+@stack('components.scripts')
 @stack('components.styles')
