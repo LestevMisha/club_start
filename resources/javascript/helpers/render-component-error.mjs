@@ -1,5 +1,5 @@
 
-export default function renderInputError(component, error) {
+export default function renderComponentError(component, error) {
     const componentAttr = component.getAttribute("data-attribute");
 
     const inputField = component.querySelector(`#js-${componentAttr}-input`);

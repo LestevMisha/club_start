@@ -8,7 +8,6 @@ import getElements from "@helpers/get-elements.mjs";
         const uid = copyInput.getAttribute("data-uid");
         const attribute = copyInput.getAttribute("data-attribute");
         const message = copyInput.getAttribute("data-message");
-        console.log(uid, attribute);
 
         const copyButton = copyInput.querySelector(`modern-copy-input[data-uid='${uid}'] #js-${attribute}-button`);
         const input = copyInput.querySelector(`modern-copy-input[data-uid='${uid}']  #js-${attribute}-input`);

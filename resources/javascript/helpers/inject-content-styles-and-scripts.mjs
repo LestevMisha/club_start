@@ -4,7 +4,9 @@ import setHTML from "./set-html.mjs";
 const appendScript = (src, inlineContent) => {
     const script = document.createElement('script');
     if (src) {
-        script.src = src;
+        // Append a unique parameter to force re-fetching
+        const uniqueSrc = `${src}?_=${new Date().getTime()}`;
+        script.src = uniqueSrc;
 
         // Check if the script source ends with .mjs
         if (src.endsWith('.mjs')) {
@@ -40,12 +42,14 @@ export default function injectContentStylesAndScripts(target, htmlString) {
     const scripts = container.querySelectorAll('script');
     scripts.forEach(script => {
         const src = script.src || null;
-        const existingScript = document.querySelector(`script[src="${src}"]`);
-        if (!existingScript) {
-            appendScript(src, script.textContent);
+        if (src) {
+            const existingScript = document.querySelector(`script[src="${src}"]`);
+            if (existingScript) existingScript.remove(); // Remove existing script if found
         }
+        appendScript(src, script.textContent);
         script.remove(); // Clean up
     });
+
 
     // Process style tags
     const styles = container.querySelectorAll('style, link');

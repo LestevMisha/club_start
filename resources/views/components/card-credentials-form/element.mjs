@@ -4,7 +4,7 @@ import getElements from "@helpers/get-elements.mjs";
 import getReCAPTCHASiteKey from "@helpers/get-reCAPTCHA-site-key.mjs";
 import renderValidationErrors from "@helpers/render-validation-errors";
 import renderBlockTime from "@helpers/render-block-time.mjs";
-import renderInputError from "@helpers/render-input-error.mjs";
+import renderComponentError from "@helpers/render-component-error.mjs";
 
 (() => {
     const cardCredentialsForms = getElements("card-credentials-form");
@@ -12,7 +12,7 @@ import renderInputError from "@helpers/render-input-error.mjs";
         const uid = cardCredentialsForm.getAttribute("data-uid");
         const form = cardCredentialsForm.querySelector(`card-credentials-form[data-uid='${uid}'] form`);
         const modernLoader = cardCredentialsForm.querySelector(`modern-loader[data-uid='${uid}']`);
-        const modernCreditCardInput = cardCredentialsForm.querySelector(`modern-credit-card-input[data-uid='${uid}']`)
+        const modernCreditCardComponent = cardCredentialsForm.querySelector(`modern-credit-card-input[data-uid='${uid}']`)
         
         // Handle form submission
         form.addEventListener("submit", async (event) => {
@@ -30,7 +30,7 @@ import renderInputError from "@helpers/render-input-error.mjs";
                 // reCAPTCHA validation
                 const recaptchaResponse = await reCAPTCHA(getReCAPTCHASiteKey(), contentType);
                 if (!recaptchaResponse?.success) {
-                    renderInputError(modernCreditCardInput, recaptchaResponse?.errors?.endpoint);
+                    renderComponentError(modernCreditCardComponent, recaptchaResponse?.errors?.endpoint);
                     return;
                 }
 
@@ -39,7 +39,7 @@ import renderInputError from "@helpers/render-input-error.mjs";
 
                 // Render any errors or handle response
                 renderValidationErrors(form, response?.errors);
-                renderBlockTime(form, modernCreditCardInput, response?.availableIn);
+                renderBlockTime(form, modernCreditCardComponent, response?.availableIn);
 
             } catch (error) {
                 console.error("Form submission error:", error);

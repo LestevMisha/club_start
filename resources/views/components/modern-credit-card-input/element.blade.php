@@ -7,7 +7,7 @@
             <span class="input-label-fraction" id="js-{{ $attribute }}-amount">0/16</span>
         </span>
         <div class="input-button">
-            <x-modern-loader.compiled :uid="$uid" :attribute="$attribute" size="2rem" borderRadius="0.5rem" />
+            <x-modern-loader.compiled :uid="$uid" :attribute="$attribute" size="1.35rem" borderRadius="0.5rem" />
             <button id="js-{{ $attribute }}-button" type="submit" {{ $value ? '' : 'disabled' }}>
                 @svg('right-arrow', 'input-icon')
             </button>

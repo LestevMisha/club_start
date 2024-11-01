@@ -269,7 +269,7 @@ return [
         'value'                    => 'значение',
         'year'                     => 'год',
     ],
-
+    
     'credit_card' => [
         'card_invalid' => 'Карта недействительна.',
         'card_pattern_invalid' => 'Неверный шаблон карты.',

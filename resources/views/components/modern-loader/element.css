@@ -29,22 +29,32 @@
 
 
 .modern-loader {
-    z-index: 12;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c2;
+    z-index: 99;
+    transition: opacity 1s cubic-bezier(1, 0, 0, 1);
+    display: none;
+    opacity: 0;
+}
+
+.modern-loader .modern-spinner-container {
+    aspect-ratio: 1 / 1;
+    z-index: 100;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    display: none;
-    opacity: 0;
-    aspect-ratio: 1 / 1;
 }
 
 .modern-loader .modern-spinner {
-    top: 0;
-    left: 0;
-    height: 100%;
     width: 100%;
-    z-index: 100;
+    height: 100%;
     position: absolute;
     overflow: visible;
     transform-origin: center center;
@@ -58,24 +68,11 @@
     stroke-linecap: round;
 }
 
-.modern-loader .modern-curtain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000c2;
-    z-index: 99;
-    transition: opacity 1s cubic-bezier(1, 0, 0, 1);
-}
-
 .modern-loader.active {
     display: block !important;
     opacity: 1 !important;
 }
 
-body.lightMode .modern-loader .modern-curtain {
+body.lightMode .modern-loader {
     background-color: #00000030;
 }

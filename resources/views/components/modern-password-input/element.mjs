@@ -7,15 +7,17 @@ import getElements from "@helpers/get-elements.mjs";
     passwordInputs.forEach((passwordInput) => {
         const uid = passwordInput.getAttribute("data-uid");
         const globalName = passwordInput.getAttribute("data-name");
-        const attribute = component.getAttribute("data-attribute");
+        const attribute = passwordInput.getAttribute("data-attribute");
 
         const eye = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-eye`);
         const closedEye = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-closed-eye`);
         const input = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-input`);
-        const eyeButton = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #${globalName}`);
+        const eyeButton = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-button`);
+        const modernLoader = passwordInput.querySelector(`modern-loader[data-uid='${uid}']`);
 
         eyeButton.addEventListener("click", async function (event) {
             event.preventDefault();
+            modernLoader.classList.add("active");
             // toggle
             const url = `${window.location.origin}/post/redis/toggleState`;
             const contentType = "application/x-www-form-urlencoded";
@@ -24,18 +26,19 @@ import getElements from "@helpers/get-elements.mjs";
             };
             const response = await postRequest(url, contentType, data);
             setPasswordVisibility(response[globalName], input, eye, closedEye);
+            modernLoader.classList.remove("active");
         });
     });
 
     // helper functions
     function setPasswordVisibility(isPasswordVisible, input, eye, closedEye) {
-        const action = isPasswordVisible ? 'add' : 'remove';
-        const reverseAction = isPasswordVisible ? 'remove' : 'add';
+        const action = isPasswordVisible ? 'remove' : 'add';
+        const reverseAction = isPasswordVisible ? 'add' : 'remove';
 
         eye.classList[action]("icon-inactive");
         closedEye.classList[reverseAction]("icon-inactive");
 
-        input.type = isPasswordVisible ? "password" : "text";
+        input.type = isPasswordVisible ? "text" : "password";
     };
 
 })();

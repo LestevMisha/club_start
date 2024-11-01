@@ -4,11 +4,11 @@
         <div class="form-wrapper">
             <div class="form-body">
 
-                <x-modern-loader.compiled attribute="store" />
+                <x-modern-loader.compiled :uid="uniqid()" attribute="store" size="2.5rem" borderRadius="2.5rem" />
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
-                    <x-tools-stack.compiled class="flex h gap" />
+                    <x-tools-stack.compiled :uid="uniqid()" class="flex h gap" />
                 </div>
 
                 <form id="js-store-form">
@@ -19,20 +19,20 @@
                             <div class="flex v w50 mob mb-2">
                                 <div class="mb-1">
                                     <div class="b-text b-text_2em">
-                                        Зарегистрироваться
+                                        {{ __('pages/auth/register.1') }}
                                     </div>
                                 </div>
                                 <div class="b-text b-text_grey-dark">
-                                    Стать участником KLUB START
+                                    {{ __('pages/auth/register.2') }}
                                 </div>
                             </div>
                             <div class="flex v w50 mob">
                                 <div class="modern-form">
                                     <div class="flex static v w100">
-                                        <x-modern-input.compiled class="m-0" attribute="name" inscription="Ваше Имя" />
+                                        <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/auth/register.3')" attribute="name" />
                                     </div>
                                     <button type="submit" class="modern-button mt-1">
-                                        <div class="b-text w ml-a">Продолжить</div>
+                                        <div class="b-text w ml-a"> {{ __('pages/auth/register.4') }}</div>
                                         @svg('next-arrow', 'modern-next ml-a')
                                     </button>
                                 </div>
@@ -42,13 +42,7 @@
                 </form>
             </div>
 
-            <div class="flex h">
-                <div class="flex h ml-a my-05 gap_05">
-                    <a class="go-button v8" href="{{ route('auth.login') }}">Войти</a>
-                    <a class="go-button v8" href="{{ route('public.password.forgot') }}">Забыли Пароль?</a>
-                    <a class="go-button v8" target="_blank" href="{{ route('public.privacy') }}">Политика Конфиденциальности</a>
-                </div>
-            </div>
+            <x-page-suggestions.compiled :uid="uniqid()" />
         </div>
     </div>
 </div>
