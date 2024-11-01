@@ -46,18 +46,23 @@ export default defineConfig({
                 "resources/views/components/modern-password-input/element.css",
                 "resources/views/components/modern-copy-input/element.css",
                 "resources/views/components/dashboard-header/element.css",
+                "resources/views/components/modern-loader/element.css",
+                "resources/views/components/theme-switcher/element.css",
+                "resources/views/components/language-switcher/element.css",
 
                 "resources/views/components/modern-copy-input/element.mjs",
                 "resources/views/components/modern-password-input/element.mjs",
                 "resources/views/components/theme-switcher/element.mjs",
-                "resources/views/components/referral-link/element.mjs",
+                "resources/views/components/card-credentials-form/element.mjs",
                 "resources/views/components/side-menu/element.mjs",
+                "resources/views/components/modern-input/element.mjs",
 
 
                 /* PAGES */
                 "resources/views/pages/private/dashboard/page.mjs",
                 "resources/views/pages/auth/login/page.mjs",
                 "resources/views/pages/auth/register/page.mjs",
+                "resources/views/pages/intermediate/telegram-verification/page.mjs",
             ],
             refresh: false,
         }),

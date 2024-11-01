@@ -14,28 +14,22 @@
     @yield('login-styles')
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/main.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/light-mode.css') }}">
-    {{-- global script --}}
-    <script src="{{ Vite::asset('resources/javascript/laravel/requests.js') }}"></script>
-    <script src="{{ Vite::asset('resources/javascript/laravel/helpers.js') }}"></script>
+
     @stack('components.styles')
 </head>
 
 <body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }}">
 
-    <main class="main">
-        <x-header.compiled />
-        @yield('content')
-    </main>
+    @yield('content')
 
-    {{-- javascript --}}
-    @stack('scripts')
 
     @yield('index-script')
     @yield('forgot-password-script')
     @yield('card-credentials-script')
     @yield('reCAPTCHA-script')
 
-    @stack('scripts')
+    
+    @stack('components.scripts')
 </body>
 
 </html>

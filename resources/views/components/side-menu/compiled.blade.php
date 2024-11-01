@@ -1,11 +1,15 @@
+{{-- php prerequisites --}}
 @php
     $route = request()->route()->getName();
 @endphp
 
-{{-- Add Blade element --}}
-@include('components.side-menu.element')
+{{-- blade --}}
+@include('components.side-menu.element', ['uid' => $uid, 'attribute' => $attribute])
 
-{{-- Add JS element --}}
-@pushOnce('components.scripts')
-    <script src="{{ Vite::asset('resources/views/components/side-menu/element.mjs') }}" type="module"></script>
-@endPushOnce
+@once
+    {{-- javascript --}}
+    @push('components.scripts')
+        <script src="{{ Vite::asset('resources/views/components/side-menu/element.mjs') }}" type="module"></script>
+    @endPush
+
+@endonce

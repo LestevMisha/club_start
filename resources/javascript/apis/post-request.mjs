@@ -1,8 +1,6 @@
 import getCSRFToken from "../helpers/get-CSRF-token.mjs";
 
-export default async function postRequest(url, contentType, parameters = {}, loader = null) {
-    loader?.classList.add("modern-loader_active");
-
+export default async function postRequest(url, contentType, parameters = {}) {
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -23,7 +21,5 @@ export default async function postRequest(url, contentType, parameters = {}, loa
     } catch (error) {
         console.error("Request failed:", error);
         throw error;
-    } finally {
-        loader?.classList.remove("modern-loader_active");
     }
 };

@@ -11,7 +11,7 @@ export default function showMessage(text, seconds = 3) {
 
     // Create the inner content
     const innerDiv = document.createElement('div');
-    innerDiv.classList.add('flex', 'h', 'gap_05', 'align', 'justify');
+    innerDiv.classList.add('flex', 'h', 'gap_05', 'align', 'just-center');
     const textDiv = document.createElement('div');
     textDiv.classList.add('b-text', 'w');
     textDiv.textContent = text;

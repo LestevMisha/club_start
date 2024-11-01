@@ -1,36 +1,49 @@
-import getElement from "@helpers/get-element.mjs";
 import postRequest from "@apis/post-request.mjs";
+import getElements from "@helpers/get-elements.mjs";
 
 (() => {
-    // set default
-    const name = "js-theme-switcher";
+    const themeSwitchers = getElements("theme-switcher");
+    themeSwitchers.forEach(themeSwitcher => {
+        const uid = themeSwitcher.getAttribute("data-uid");
+        const attribute = themeSwitcher.getAttribute("data-attribute");
 
-    const themeSwitcher = getElement(`#${name}`);
-    const sunIcon = getElement("#js-sun");
-    const moonIcon = getElement("#js-moon");
+        const input = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-input`);
+        const sunIcon = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-sun`);
+        const moonIcon = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-moon`);
+        const modernLoader = themeSwitcher.querySelector(`modern-loader[data-uid='${uid}']#js-${attribute}-loader`);
 
-    themeSwitcher.addEventListener("change", async function (event) {
-        event.preventDefault();
-        // toggle
-        setCurrentTheme(themeSwitcher.checked);
-        const url = `${window.location.origin}/post/redis/toggleState`;
-        const contentType = "application/x-www-form-urlencoded";
-        const data = {
-            "name": name
-        };
-        await postRequest(url, contentType, data);
+
+        input.addEventListener("change", async function (event) {
+            event.preventDefault();
+
+            // Activate loader
+            modernLoader.classList.add("active");
+
+            // Prepare form data and API details
+            const url = `${window.location.origin}/post/redis/toggleState`;
+            const contentType = "application/x-www-form-urlencoded";
+            const globalName = "theme-state";
+            const data = { "name": globalName };
+
+            // Send form data
+            const response = await postRequest(url, contentType, data);
+            setCurrentTheme(response[globalName], themeSwitcher, moonIcon, sunIcon);
+
+            modernLoader.classList.remove("active");
+
+        });
     });
 
     // helper functions
-    function setCurrentTheme(isLightTheme) {
+    function setCurrentTheme(isLightTheme, switcher, icon1, icon2) {
         document.body.className = isLightTheme ? "lightMode" : "darkMode";
-        themeSwitcher.checked = isLightTheme;
+        switcher.checked = isLightTheme;
 
         const action = isLightTheme ? 'add' : 'remove';
         const reverseAction = isLightTheme ? 'remove' : 'add';
 
-        moonIcon.classList[action]("icon-inactive");
-        sunIcon.classList[reverseAction]("icon-inactive");
+        icon1.classList[action]("icon-inactive");
+        icon2.classList[reverseAction]("icon-inactive");
     };
 
 })();

@@ -20,7 +20,7 @@ use App\Http\Controllers\Pages\Public\IndexController;
 use App\Http\Controllers\Pages\Auth\RegisterController;
 
 // Private Pages
-use App\Http\Controllers\Components\ReferralLinkController;
+use App\Http\Controllers\Components\CardCredentialsFormController;
 use App\Http\Controllers\Redis\RedisLanguageController;
 use App\Http\Controllers\Pages\Private\ProfileController;
 use App\Http\Controllers\Pages\Private\DashboardController;
@@ -69,7 +69,7 @@ Route::post("/post/telegram/verify/deleteUser", [TelegramVerificationController:
 Route::post("/post/redis/toggleState", [RedisController::class, "toggleState"])->name("post.redis.toggleState");
 Route::post("/post/forgot-password/sendResetLink", [ForgotPasswordController::class, "sendResetLink"])->name("post.forgot-password.sendResetLink");
 Route::post("/post/reset-password/resetPassword", [ResetPasswordController::class, "resetPassword"])->name("post.reset-password.resetPassword");
-Route::post("/post/components/referral-link/saveCardCredentials", action: [ReferralLinkController::class, "saveCardCredentials"])->name("post.components.referral-link.saveCardCredentials");
+Route::post("/post/components/card-credentials-form/saveCardCredentials", action: [CardCredentialsFormController::class, "saveCardCredentials"])->name("post.components.card-credentials-form.saveCardCredentials");
 
 
 /* +++++++++++++++++++ GET +++++++++++++++++++ */

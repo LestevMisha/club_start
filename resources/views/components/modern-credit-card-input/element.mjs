@@ -1,27 +1,25 @@
-import getElement from "@helpers/get-element.mjs";
+import getElements from "@helpers/get-elements.mjs";
 
 (() => {
     // initialize
-    const component = getElement("modern-credit-card-input");
-    const attribute = component.getAttribute("data-attribute");
+    const components = getElements("modern-credit-card-input");
 
-    const input = getElement(`#js-${attribute}-input`);
-    const button = getElement(`#js-${attribute}-button`);
-    const amountDisplay = getElement('#js-amount');
-    const maxLength = 16;
+    components.forEach(component => {
+        const attribute = component.getAttribute("data-attribute");
+        const input = component.querySelector(`#js-${attribute}-input`);
+        const button = component.querySelector(`#js-${attribute}-button`);
+        const amountDisplay = component.querySelector(`#js-${attribute}-amount`);
+        const maxLength = 16;
 
-    input.addEventListener('input', e => {
-        const target = e.target;
-        const sanitizedValue = target.value.replace(/[^\d]/g, "").slice(0, 16); // Remove all whitespace
-        const formattedValue = sanitizedValue.replace(/(\d{4})(?=\d)/g, '$1 '); // Add spaces after every four digits
-        target.value = formattedValue;
+        input.addEventListener('input', e => {
+            const target = e.target;
+            const sanitizedValue = target.value.replace(/[^\d]/g, "").slice(0, 16);
+            const formattedValue = sanitizedValue.replace(/(\d{4})(?=\d)/g, '$1 ');
 
-        if (sanitizedValue.length === 16) {
-            button.removeAttribute("disabled");
-        } else {
-            button.setAttribute("disabled", true);
-        }
-        updateLength(amountDisplay, sanitizedValue.length, maxLength);
+            target.value = formattedValue;
+            button.disabled = sanitizedValue.length < maxLength;
+            updateLength(amountDisplay, sanitizedValue.length, maxLength);
+        });
     });
 
     function updateLength(target, length, maxLength) {

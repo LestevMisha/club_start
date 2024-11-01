@@ -7,6 +7,10 @@
     --input-button-top: calc((var(--input-field-height) / 2) - (var(--input-button-height) / 2));
 }
 
+.modern-family {
+    width: 100%;
+}
+
 .modern-family * {
     box-sizing: border-box !important;
 }
@@ -27,14 +31,16 @@
     position: absolute;
     right: 1rem;
     top: var(--input-button-top);
+    width: var(--input-button-height) !important;
+    height: var(--input-button-height) !important;
 }
 
 .modern-family svg.input-icon {
     color: #FFF;
     cursor: pointer;
     background-color: #0d6efd;
-    width: var(--input-button-height) !important;
-    height: var(--input-button-height) !important;
+    width: 100%;
+    height: 100%;
     border-radius: 0.5rem;
 }
 

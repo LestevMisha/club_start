@@ -1,4 +1,4 @@
-<div class="dashboard-header">
+<div class="dashboard-header" data-uid="{{ $uid }}">
     <div class="dashboard-wrapper">
         <div class="dashboard-content flex h gap w100 h100 align">
             <div class="b-text">{{ __('components/dashboard-header.1') }}</div>

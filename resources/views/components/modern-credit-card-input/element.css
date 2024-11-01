@@ -1,4 +1,4 @@
-.modern-family .input-button:disabled svg.input-icon {
+.modern-family button:disabled svg.input-icon {
     cursor: default;
     pointer-events: none !important;
     color: rgba(255, 255, 255, .4) !important;
@@ -42,7 +42,7 @@
 
 /* LIGHT MODE */
 
-body.lightMode .modern-family .input-button:disabled svg.input-icon {
+body.lightMode .modern-family button:disabled svg.input-icon {
     color: rgba(0, 0, 0, .4) !important;
 }
 

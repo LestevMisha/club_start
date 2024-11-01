@@ -4,11 +4,11 @@
         <div class="form-wrapper">
             <div class="form-body">
 
-                <x-modern-loader.compiled attribute="authenticate" />
+                <x-modern-loader.compiled :uid="uniqid()" attribute="authenticate" />
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
-                    <x-tools-stack.compiled class="flex h gap" />
+                    <x-tools-stack.compiled :uid="uniqid()" class="flex h gap" />
                 </div>
                 <div class="flex h mob">
                     <div class="flex v w50 mob mb-2">
@@ -26,8 +26,8 @@
                             @csrf
                             <div class="flex v w100">
                                 <div class="flex v gap">
-                                    <x-modern-input.compiled class="m-0" attribute="email" inscription="Email Адрес" />
-                                    <x-modern-password-input.compiled attribute="password" inscription="Пароль" />
+                                    <x-modern-input.compiled :uid="uniqid()" class="m-0" attribute="email" inscription="Email Адрес" />
+                                    <x-modern-password-input.compiled :uid="uniqid()" attribute="password" inscription="Пароль" />
 
 
                                     <button class="modern-submit-button" type="submit">Войти</button>

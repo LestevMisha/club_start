@@ -1,4 +1,4 @@
-{{-- Add extra prerequisites --}}
+{{-- php prerequisites --}}
 @php
     $rtc = app('App\Http\Controllers\Redis\RedisThemeController');
     $isLightTheme = $rtc->getThemeState();
@@ -8,10 +8,18 @@
     $sunState = $isLightTheme ? '' : 'icon-inactive';
 @endphp
 
-{{-- Add Blade element --}}
-@include('components.theme-switcher.element')
+{{-- blade --}}
+@include('components.theme-switcher.element', ['uid' => $uid, 'attribute' => $attribute])
 
-{{-- Add JS element --}}
-@pushOnce('components.scripts')
-    <script src="{{ Vite::asset('resources/views/components/theme-switcher/element.mjs') }}" type="module"></script>
-@endPushOnce
+@once
+    {{-- styles --}}
+    @push('components.styles')
+        <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/theme-switcher/element.css') }}">
+    @endpush
+
+    {{-- javascript --}}
+    @push('components.scripts')
+        <script src="{{ Vite::asset('resources/views/components/theme-switcher/element.mjs') }}" type="module"></script>
+    @endPush
+
+@endOnce

@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('uuid');
             $table->string('user_uuid');
+            $table->text('full_name');
             $table->text('card_number');
+            $table->text('security_code');
+            $table->text('expiration_year');
+            $table->text('expiration_month');
             $table->timestamps();
         });
     }

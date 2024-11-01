@@ -1,9 +1,10 @@
-<language-switcher class="switcher language">
-    @if ($current_locale === 'en')
-        <a class="language-switcher-a" href="/language/ru"></a>
-        @svg('us-flag', 'b-img b-img_moon')
-    @else
-        <a class="language-switcher-a" href="/language/en"></a>
-        @svg('ru-flag', 'b-img b-img_moon')
-    @endif
-</language-switcher>
+{{-- blade --}}
+@include('components.language-switcher.element', ["uid" => $uid])
+
+@once
+    {{-- styles --}}
+    @push('components.styles')
+        <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/theme-switcher/element.css') }}">
+        <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/language-switcher/element.css') }}">
+    @endpush
+@endOnce

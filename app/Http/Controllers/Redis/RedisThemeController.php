@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Redis;
 
 class RedisThemeController extends Controller
 {
+
+    protected $name = "theme-state";
+
     function getThemeState()
     {
-        return Redis::get("js-theme-switcher");
+        return Redis::get($this->name);
     }
 
     function getThemeStateClass()

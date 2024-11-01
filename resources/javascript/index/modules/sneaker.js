@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     respectiveMode();
     window.addEventListener("resize", onWindowResize, false);
 
-    const themeSwitcher = document.getElementById("js-theme-switcher");
+    const themeSwitcher = document.getElementById("js-switch-theme-input");
     themeSwitcher.addEventListener("change", function () {
         const canvasToRemove = anchorElement.querySelector("canvas");
         respectiveMode(function () {

@@ -1,13 +1,16 @@
-{{-- Add Blade element --}}
-@include('components.modern-credit-card-input.element', ['class' => $class, 'attribute' => $attribute, 'inscription' => $inscription])
+{{-- blade --}}
+@include('components.modern-credit-card-input.element', ['uid' => $uid, 'class' => $class ?? '', 'value' => $value ?? '', 'inscription' => $inscription])
 
-{{-- Add JS element --}}
-@pushOnce('components.scripts')
-    <script src="{{ Vite::asset('resources/views/components/modern-credit-card-input/element.mjs') }}" type="module"></script>
-@endPushOnce
+@once
+    {{-- javascript --}}
+    @push('components.scripts')
+        <script src="{{ Vite::asset('resources/views/components/modern-credit-card-input/element.mjs') }}" type="module"></script>
+    @endPush
 
-{{-- Add CSS element --}}
-@pushOnce('components.styles')
-    <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/modern-input/element.css') }}">
-    <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/modern-credit-card-input/element.css') }}">
-@endPushOnce
+    {{-- styles --}}
+    @push('components.styles')
+        <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/modern-input/element.css') }}">
+        <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/components/modern-credit-card-input/element.css') }}">
+    @endPush
+
+@endonce

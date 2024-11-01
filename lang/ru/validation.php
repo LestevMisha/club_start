@@ -269,4 +269,16 @@ return [
         'value'                    => 'значение',
         'year'                     => 'год',
     ],
+
+    'credit_card' => [
+        'card_invalid' => 'Карта недействительна.',
+        'card_pattern_invalid' => 'Неверный шаблон карты.',
+        'card_length_invalid' => 'Неверная длина карты.',
+        'card_checksum_invalid' => 'Неправильная контрольная сумма карты.',
+        'card_expiration_year_invalid' => 'Неверный год истечения срока действия.',
+        'card_expiration_month_invalid' => 'Неверный месяц истечения срока действия.',
+        'card_expiration_date_invalid' => 'Неверная дата истечения срока действия.',
+        'card_expiration_date_format_invalid' => 'Неверный формат даты истечения срока действия.',
+        'card_cvc_invalid' => 'Неверный CVC карты.'
+    ]
 ];

@@ -1,14 +1,17 @@
-import getElement from "@helpers/get-element.mjs";
 import showMessage from "@helpers/show-message.mjs";
+import getElements from "@helpers/get-elements.mjs";
 
 (() => {
-    const components = document.querySelectorAll("modern-copy-input");
-    components.forEach((component) => {
+    const copyInputs = getElements("modern-copy-input");
+    copyInputs.forEach((copyInput) => {
 
-        const attribute = component.getAttribute("data-attribute");
-        const message = component.getAttribute("data-message");
-        const copyButton = getElement(`#js-${attribute}-button`);
-        const input = getElement(`#js-${attribute}-input`);
+        const uid = copyInput.getAttribute("data-uid");
+        const attribute = copyInput.getAttribute("data-attribute");
+        const message = copyInput.getAttribute("data-message");
+        console.log(uid, attribute);
+
+        const copyButton = copyInput.querySelector(`modern-copy-input[data-uid='${uid}'] #js-${attribute}-button`);
+        const input = copyInput.querySelector(`modern-copy-input[data-uid='${uid}']  #js-${attribute}-input`);
 
         // Use async/await for clipboard operation
         copyButton.addEventListener("click", async () => {

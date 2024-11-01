@@ -15,20 +15,6 @@ use Illuminate\Support\Facades\Session;
 
 class ModelServices
 {
-
-    // Create a new user
-    public function createUser($name, $email, $password, $referred_referral_id)
-    {
-        return User::create([
-            'uuid' => Str::orderedUuid()->toString(),
-            'referral_id' => Str::orderedUuid()->toString(),
-            'referred_referral_id' => $referred_referral_id,
-            'name' => $name,
-            'email' => $email,
-            'password' => Hash::make($password),
-        ]);
-    }
-
     // Get every user waiting for withdrawal
     public function getWithdrawalUsers()
     {
@@ -85,14 +71,18 @@ class ModelServices
     }
 
     // Create a new card credentials
-    public function createCardCredentials($card_number)
+    public function createCardCredentials($full_name, $card_number, $security_code, $expiration_year, $expiration_month)
     {
         // block any duplicates
-        // if (CardCredentials::where("user_uuid", Auth::user()->uuid)->first()) return;
+        if (CardCredentials::where("user_uuid", Auth::user()->uuid)->first()) return;
         return CardCredentials::create([
             'uuid' => Str::orderedUuid()->toString(),
             'user_uuid' => Auth::user()->uuid,
+            'full_name' => $full_name,
             'card_number' => $card_number,
+            'security_code' => $security_code,
+            'expiration_year' => $expiration_year,
+            'expiration_month' => $expiration_month,
         ]);
     }
 

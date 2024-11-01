@@ -335,10 +335,6 @@ body.lightMode .flex.v2 {
     border: none;
 }
 
-body.lightMode .modern-loader {
-    background-color: #00000015;
-}
-
 body.lightMode .flex.v3 {
     background-color: #FFFFFF;
 }

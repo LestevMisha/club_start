@@ -1,4 +1,4 @@
-<modern-password-input class="modern-family" data-attribute="{{ $attribute }}" data-name="{{ $name }}">
+<modern-password-input class="modern-family" data-uid="{{ $uid }}" data-attribute="{{ $attribute }}" data-name="{{ $name }}">
     <label class="input-container {{ isset($class) ? $class : '' }}">
         <input id="js-{{ $attribute }}-input" class="input-field" type="{{ $isPasswordVisible ? 'text' : 'password' }}" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off"
             spellcheck="false" inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" required>

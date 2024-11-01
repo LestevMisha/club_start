@@ -5,10 +5,12 @@
 
 @extends('layouts.intermediate')
 @section('content')
-    {{-- Add Blade element --}}
+    {{-- blade --}}
     @include('pages.intermediate.telegram-verification.page')
-    {{-- Add JS element --}}
-    @push('pages.intermediate.scripts')
-        <script src="{{ Vite::asset('resources/views/pages/intermediate/telegram-verification/page.mjs') }}" type="module"></script>
-    @endpush
+    @once
+        {{-- javascript --}}
+        @push('pages.intermediate.scripts')
+            <script src="{{ Vite::asset('resources/views/pages/intermediate/telegram-verification/page.mjs') }}" type="module"></script>
+        @endpush
+    @endonce
 @endsection

@@ -1,9 +1,9 @@
-<div id="js-side-menu" class="side-container">
-    <div id="js-side-menu_header" class="flex gap align fit ml-1">
-        @svg('arrow-to-right', 'item-icon item-icon_v3 pointer', ['id' => 'js-squeeze-button'])
+<side-menu class="side-container" data-uid="{{ $uid }}" data-attribute="{{ $attribute }}">
+    <div id="js-{{ $attribute }}-header" class="flex gap align fit ml-1">
+        @svg('arrow-to-right', 'item-icon item-icon_v3 pointer', ['id' => "js-$attribute-squeeze-button"])
         <img class="item-icon item-icon_v2" src="data:image/png;base64,{{ app('App\Services\BladeServices')->getImage() }}" alt="{{ __('Image') }}">
-        <x-theme-switcher.compiled />
-        <x-language-switcher.compiled />
+        <x-theme-switcher.compiled :$uid attribute="switch-theme" />
+        <x-language-switcher.compiled :$uid />
     </div>
 
     <div class="item-divider"></div>
@@ -59,4 +59,4 @@
         <div class="b-text b-text_grey-dark_v1 reverse b-text_hovered">{{ __('Documents') }}</div>
     </a>
 
-</div>
+</side-menu>
