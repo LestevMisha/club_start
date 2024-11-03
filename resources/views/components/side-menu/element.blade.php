@@ -36,11 +36,12 @@
         </div>
     </a>
 
-    <form id="logout" class="d-inline flex v10 h align fit gap" method="POST" action="{{ route('logout') }}">
-        @csrf
-        @svg('exit', 'item-icon', ['onclick' => "document.getElementById('logout').submit()"])
-        <button type="submit" class="b-text b-text_grey-dark_v1 reverse b-text_hovered">{{ __('Log Out') }}</button>
-    </form>
+    <div class="flex v10 h align fit gap">
+        <x-logout-button.compiled :$uid attribute="user-logout" />
+        <div id="js-logout-trigger" class="b-text b-text_grey-dark_v1 reverse b-text_hovered pointer">
+            {{ __('Log Out') }}
+        </div>
+    </div>
 
     <div class="item-divider"></div>
 

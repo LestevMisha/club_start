@@ -1,0 +1,12 @@
+
+If problems with locale please tun these lines of code in the terminal:
+
+php artisan config:cache
+php artisan view:cache
+
+php artisan config:clear
+php artisan view:clear
+php artisan route:clear
+php artisan cache:clear
+
+it is likely due to chache issues unless you changed somthing accidently.

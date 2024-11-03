@@ -21,6 +21,7 @@ use App\Http\Controllers\Pages\Auth\RegisterController;
 
 // Private Pages
 use App\Http\Controllers\Components\CardCredentialsFormController;
+use App\Http\Controllers\Components\LogoutButtonController;
 use App\Http\Controllers\Redis\RedisLanguageController;
 use App\Http\Controllers\Pages\Private\ProfileController;
 use App\Http\Controllers\Pages\Private\DashboardController;
@@ -70,6 +71,7 @@ Route::post("/post/redis/toggleState", [RedisController::class, "toggleState"])-
 Route::post("/post/forgot-password/sendResetLink", [ForgotPasswordController::class, "sendResetLink"])->name("post.forgot-password.sendResetLink");
 Route::post("/post/reset-password/resetPassword", [ResetPasswordController::class, "resetPassword"])->name("post.reset-password.resetPassword");
 Route::post("/post/components/card-credentials-form/saveCardCredentials", action: [CardCredentialsFormController::class, "saveCardCredentials"])->name("post.components.card-credentials-form.saveCardCredentials");
+Route::post("/post/components/side-menu/logout", action: [LogoutButtonController::class, "logout"])->name("post.components.side-menu.logout");
 
 
 /* +++++++++++++++++++ GET +++++++++++++++++++ */
@@ -85,9 +87,9 @@ Route::get('language/{locale}', RedisLanguageController::class);
 Route::get('/support', DashboardController::class)->name('support');
 Route::get('/email/verify', DashboardController::class)->name('email.verify');
 
-// methods
-Route::post("/logout", [ModelServices::class, "logout"])->name("logout");
-Route::post("/logout/admin", [ModelServices::class, "logout_admin"])->name("logout.admin");
+// // methods
+// Route::post("/logout", [ModelServices::class, "logout"])->name("logout");
+// Route::post("/logout/admin", [ModelServices::class, "logout_admin"])->name("logout.admin");
 
 
 // Telegram Verification

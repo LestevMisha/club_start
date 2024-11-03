@@ -56,6 +56,7 @@ export default defineConfig({
                 "resources/views/components/card-credentials-form/element.mjs",
                 "resources/views/components/side-menu/element.mjs",
                 "resources/views/components/modern-input/element.mjs",
+                "resources/views/components/logout-button/element.mjs",
 
 
                 /* PAGES */
