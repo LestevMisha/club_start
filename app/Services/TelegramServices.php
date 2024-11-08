@@ -100,7 +100,7 @@ class TelegramServices
         ]);
     }
 
-    public function observeCurrentUserImage($user_id)
+    public function observeCurrentUserImage($user_id, $index)
     {
         // get user images
         $resp = Telegram::getUserProfilePhotos([
@@ -109,7 +109,7 @@ class TelegramServices
 
         // get path to last best-quality image
         $link = Telegram::getFile([
-            "file_id" => $resp["photos"][0][2]["file_id"],
+            "file_id" => $resp["photos"][$index][0]["file_id"],
         ]);
 
         // return binary code of image
@@ -119,10 +119,10 @@ class TelegramServices
         return $response->getBody()->getContents();
     }
 
-    public function observeSaveUserImage(string $telegram_id, string $uuid)
+    public function observeSaveUserImage(string $telegram_id, string $uuid, int $index = 0)
     {
         // get the latest user's profile photo/image
-        $binaryImage = $this->observeCurrentUserImage($telegram_id);
+        $binaryImage = $this->observeCurrentUserImage($telegram_id, $index);
         // save it to database
         $this->modelServices->updateOrCreateImage($uuid, $binaryImage);
         return $binaryImage;

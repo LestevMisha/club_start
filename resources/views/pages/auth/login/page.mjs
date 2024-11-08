@@ -1,15 +1,12 @@
-import postRequest from "@apis/post-request";
-import reCAPTCHA from "@apis/reCAPTCHA.mjs";
-import getElement from "@helpers/get-element.mjs";
-import getReCAPTCHASiteKey from "@helpers/get-reCAPTCHA-site-key.mjs";
-import renderValidationErrors from "@helpers/render-validation-errors";
-import renderBlockTime from "@helpers/render-block-time.mjs";
-import renderComponentError from "@helpers/render-component-error.mjs";
+import renderBlockTime from "@helpers/renderBlockTime.mjs";
+import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
+import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
+import renderValidationErrors from "@helpers/renderValidationErrors";
+import postRequest from "@apis/postRequest.mjs";
 
 (() => {
-    const form = getElement("#js-authenticate-form");
-    const emailComponent = form.querySelector("modern-input[data-atttribute='email']");
-    const modernLoader = getElement("modern-loader#js-authenticate-loader");
+    const form = document.querySelector("#js-authenticate-form");
+    const modernLoader = document.querySelector("modern-loader#js-authenticate-loader");
 
     // Handle form submission
     form.addEventListener("submit", async (event) => {
@@ -24,10 +21,12 @@ import renderComponentError from "@helpers/render-component-error.mjs";
             const url = `${window.location.origin}/post/login/authenticate`;
             const contentType = "application/x-www-form-urlencoded";
 
-            // reCAPTCHA validation
-            const { success, errors } = await reCAPTCHA(getReCAPTCHASiteKey(), contentType);
+            // reCAPTCHA verification
+            const { success, errors } = await verifyRecaptcha();
+
+            // Show error message if verification fails
             if (!success) {
-                renderComponentError(emailComponent, errors.endpoint);
+                injectContentStylesAndScripts(document.body, errors.error);
                 return;
             }
 
@@ -36,7 +35,7 @@ import renderComponentError from "@helpers/render-component-error.mjs";
 
             // Render any errors or handle response
             renderValidationErrors(form, response?.errors);
-            renderBlockTime(form, emailComponent, response?.availableIn);
+            renderBlockTime(form, "email", response?.availableIn);
 
         } catch (error) {
             console.error("Form submission error:", error);

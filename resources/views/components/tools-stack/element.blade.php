@@ -1,4 +1,4 @@
-<tools-stack class="{{ $class ?? '' }}" data-uid="{{ $uid }}">
+<tools-stack class="{{ $class ?? 'flex h gap' }}" data-uid="{{ $uid }}">
     <x-theme-switcher.compiled :$uid attribute="switch-theme" />
     <x-language-switcher.compiled :$uid />
 

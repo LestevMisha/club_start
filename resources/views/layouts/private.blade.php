@@ -12,28 +12,25 @@
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/main.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/light-mode.css') }}">
 
-
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha.site_key') }}"></script>
     <style>
         .grecaptcha-badge {
             visibility: hidden !important;
         }
     </style>
+
+    {{-- styles --}}
+    @stack('pages.private.styles')
     @stack('components.styles')
 </head>
 
 <body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }}">
 
     @yield('content')
-    @stack('pages.private.javascript')
+
+    {{-- javascript --}}
+    @stack('pages.private.scripts')
     @stack('components.scripts')
-
-
-
-
-
-    @yield('dashboard-script')
-    @yield('card-credentials-script')
 
 </body>
 

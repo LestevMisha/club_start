@@ -1,8 +1,8 @@
-<modern-credit-card-input class="modern-family" data-uid="{{ $uid }}" data-attribute="{{ $attribute }}">
+<modern-credit-card-input class="modern-family" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
     <label class="input-container {{ $class ?? '' }}">
-        <input id="js-{{ $attribute }}-input" class="input-field" maxlength="19" minlength="19" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off" spellcheck="false"
-            inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" value="{{ $value ?? old($attribute) }}" required>
-        <span id="js-{{ $attribute }}-label" class="input-label">
+        <input id="js-{{ $attribute }}-input" class="input-field js-input-field" maxlength="19" minlength="19" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off"
+            spellcheck="false" inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" value="{{ $value ?? old($attribute) }}" required>
+        <span id="js-{{ $attribute }}-label" class="input-label js-input-label">
             {{ $inscription }}
             <span class="input-label-fraction" id="js-{{ $attribute }}-amount">0/16</span>
         </span>
@@ -13,5 +13,5 @@
             </button>
         </div>
     </label>
-    <div id="js-{{ $attribute }}-error-label"></div>
+    <div class="error-label js-error-label" id="js-{{ $attribute }}-error-label"></div>
 </modern-credit-card-input>

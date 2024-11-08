@@ -1,28 +1,44 @@
-import postRequest from "@apis/post-request";
-import reCAPTCHA from "@apis/reCAPTCHA.mjs";
-import getElement from "@helpers/get-element.mjs";
-import handleFieldError from "@helpers/handle-field-error.mjs";
-import getReCAPTCHASiteKey from "@helpers/get-reCAPTCHA-site-key.mjs";
+import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
+import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
+import postRequest from "@apis/postRequest.mjs";
 
 (() => {
-    const button = getElement("#js-delete-registration");
-    const loader = getElement("#js-telegram-verification-loader");
-    const url = `${window.location.origin}/post/telegram/verify/deleteUser`;
-    const contentType = "application/x-www-form-urlencoded";
+    const button = document.querySelector("#js-delete-registration");
+    const modernLoader = document.querySelector("modern-loader#js-telegram-verification-loader");
 
+    // Handle delition request
     button.addEventListener("click", async (event) => {
         event.preventDefault();
 
-        // Handle deletion
+        // Confirm request
         const confirmText = button.getAttribute("data-message");
         if (!confirm(confirmText)) return;
 
-        // Handle reCAPTCHA
-        const { success, errors } = await reCAPTCHA(getReCAPTCHASiteKey(), contentType, loader);
-        if (!success) return handleFieldError(errorHandler, errors?.endpoint);
+        // Activate loader
+        modernLoader.classList.add("active");
 
-        // Handle redirect
-        await postRequest(url, contentType, {}, loader);
+        try {
+            // reCAPTCHA verification
+            const { success, errors } = await verifyRecaptcha();
+            // Show error message if verification fails
+            if (!success) {
+                injectContentStylesAndScripts(document.body, errors.error);
+                return;
+            }
+
+            // Prepare form data and API details
+            const url = `${window.location.origin}/post/telegram/verify/deleteUser`;
+            const contentType = "application/x-www-form-urlencoded";
+
+            // Handle redirect
+            await postRequest(url, contentType);
+
+        } catch (error) {
+            console.error("Form submission error:", error);
+        } finally {
+            // Deactivate loader
+            modernLoader.classList.remove("active");
+        }
 
     });
 })();

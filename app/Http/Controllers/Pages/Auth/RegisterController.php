@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Pages\Auth;
 
 use Illuminate\Http\Request;
-use App\Services\ModelServices;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Cookie;
 use App\Services\Partials\_StepServices;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Partials\_InputErrorServices;
+use App\Services\Partials\_ErrorServices;
 use App\Services\UsersServices;
 
 class RegisterController extends Controller
@@ -20,7 +19,7 @@ class RegisterController extends Controller
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected UsersServices $usersServices,
-        protected _InputErrorServices $_inputErrorServices,
+        protected _ErrorServices $_errorServices,
         protected _StepServices $_stepServices,
     ) {}
 
@@ -52,12 +51,12 @@ class RegisterController extends Controller
         if ($email) {
             $response = $this->action("email", $request);
             if ($response) return $response;
-        } else return $this->_stepServices->getStep(2, ["name" => $name]);
+        } else return $this->_stepServices->getStep(2);
 
         if ($password) {
             $response = $this->action("password", $request);
             if ($response) return $response;
-        } else return $this->_stepServices->getStep(3, ["name" => $name, "email" => $email]);
+        } else return $this->_stepServices->getStep(3);
 
         // create a new user
         $user = $this->usersServices->createUser($name, $email, $password, $transaction_reffered_by_id);
@@ -75,7 +74,7 @@ class RegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [$key => $this->rules[$key]]);
         if ($validator->fails()) {
-            return $this->_inputErrorServices->getSingleErrorViewJson($validator, $key);
+            return $this->_errorServices->getSingleErrorViewJson("partials._input-error", $validator, $key);
         }
     }
 

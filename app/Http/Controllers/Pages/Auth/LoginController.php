@@ -18,9 +18,9 @@ class LoginController extends RateLimiterController
      */
     public function authenticate(Request $request)
     {
-        // 1. Rate limiting
+        // 1. Rate limiting (up to 5 attempts)
         $throttleKey = $this->generateThrottleKey("authenticate", "email", $request);
-        $executed = $this->rateLimiter($throttleKey, "email", 3, 300);
+        $executed = $this->rateLimiter($throttleKey, "email", 5, 300);
         if ($executed) return $executed;
 
         // 2. Validation
@@ -29,15 +29,18 @@ class LoginController extends RateLimiterController
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],
         ]);
-        if ($validator->fails()) return $this->_inputErrorServices->getMultiErrorViewJson($validator, "email", "password");
+        if ($validator->fails()) return $this->_errorServices->getMultiErrorViewJson("partials._input-error", $validator, "email", "password");
 
         // 3. Login attempt
         if (Auth::attempt($validator->validated(), $remember)) {
             $request->session()->regenerate();
+
+            // Clear any existing rate limiting blocks
+            $this->clearRateLimit($throttleKey);
             return redirect()->route("private.dashboard");
         }
         // Default authentication error
-        return $this->_inputErrorServices->getMultiErrorViewJsonByString(__("login.invalid_credentials"), "email", "password");
+        return $this->_errorServices->getMultiErrorViewJsonByString("partials._input-error", __("login.invalid_credentials"), "email", "password");
     }
 
 

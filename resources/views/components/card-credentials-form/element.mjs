@@ -1,19 +1,22 @@
-import postRequest from "@apis/post-request.mjs";
-import reCAPTCHA from "@apis/reCAPTCHA.mjs";
-import getElements from "@helpers/get-elements.mjs";
-import getReCAPTCHASiteKey from "@helpers/get-reCAPTCHA-site-key.mjs";
-import renderValidationErrors from "@helpers/render-validation-errors";
-import renderBlockTime from "@helpers/render-block-time.mjs";
-import renderComponentError from "@helpers/render-component-error.mjs";
+import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
+import postRequest from "@apis/postRequest.mjs";
+import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
+import renderValidationErrors from "@helpers/renderValidationErrors";
+import renderBlockTime from "@helpers/renderBlockTime.mjs";
 
 (() => {
-    const cardCredentialsForms = getElements("card-credentials-form");
+    const cardCredentialsForms = document.querySelectorAll("card-credentials-form");
     cardCredentialsForms.forEach(cardCredentialsForm => {
-        const uid = cardCredentialsForm.getAttribute("data-uid");
-        const form = cardCredentialsForm.querySelector(`card-credentials-form[data-uid='${uid}'] form`);
-        const modernLoader = cardCredentialsForm.querySelector(`modern-loader[data-uid='${uid}']`);
-        const modernCreditCardComponent = cardCredentialsForm.querySelector(`modern-credit-card-input[data-uid='${uid}']`)
-        
+
+        // Run only for newly initialized elements
+        if (cardCredentialsForm.getAttribute("data-js-initialized") !== "false") return;
+        cardCredentialsForm.setAttribute("data-js-initialized", true);
+
+
+        const form = cardCredentialsForm.querySelector("form");
+        const modernLoader = cardCredentialsForm.querySelector("modern-loader");
+        const modernCreditCardComponent = cardCredentialsForm.querySelector("modern-credit-card-input")
+
         // Handle form submission
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
@@ -22,17 +25,19 @@ import renderComponentError from "@helpers/render-component-error.mjs";
             modernLoader.classList.add("active");
 
             try {
+                // reCAPTCHA verification
+                const { success, errors } = await verifyRecaptcha();
+
+                // Show error message if verification fails
+                if (!success) {
+                    injectContentStylesAndScripts(document.body, errors.error);
+                    return;
+                }
+
                 // Prepare form data and API details
                 const formData = new FormData(form);
                 const url = `${window.location.origin}/post/components/card-credentials-form/saveCardCredentials`;
                 const contentType = "application/x-www-form-urlencoded";
-
-                // reCAPTCHA validation
-                const recaptchaResponse = await reCAPTCHA(getReCAPTCHASiteKey(), contentType);
-                if (!recaptchaResponse?.success) {
-                    renderComponentError(modernCreditCardComponent, recaptchaResponse?.errors?.endpoint);
-                    return;
-                }
 
                 // Send form data
                 const response = await postRequest(url, contentType, formData);

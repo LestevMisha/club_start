@@ -19,6 +19,8 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
+        logger($request->getPreferredLanguage(['en', 'ru', 'es']));
+
         $locale = Redis::get("locale") ?? false;
         if ($locale) {
             App::setLocale($locale);

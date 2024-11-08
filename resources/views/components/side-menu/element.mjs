@@ -1,12 +1,15 @@
-import getElements from "@helpers/get-elements.mjs";
-
 (() => {
-    const sideMenus = getElements("side-menu");
+    const sideMenus = document.querySelectorAll("side-menu");
     sideMenus.forEach(sideMenu => {
-        const uid = sideMenu.getAttribute("data-uid");
+
+        // Run only for newly initialized elements
+        if (sideMenu.getAttribute("data-js-initialized") !== "false") return;
+        sideMenu.setAttribute("data-js-initialized", true);
+
+
         const attribute = sideMenu.getAttribute("data-attribute");
-        const sideMenuHeader = sideMenu.querySelector(`side-menu[data-uid='${uid}'] #js-${attribute}-header`);
-        const squeezeButton = sideMenu.querySelector(`side-menu[data-uid='${uid}'] #js-${attribute}-squeeze-button`);
+        const sideMenuHeader = sideMenu.querySelector(`#js-${attribute}-header`);
+        const squeezeButton = sideMenu.querySelector(`#js-${attribute}-squeeze-button`);
 
         squeezeButton.addEventListener("click", function () {
             sideMenu.classList.toggle("unfolded");

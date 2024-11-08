@@ -1,10 +1,15 @@
-import postRequest from "@apis/post-request";
-import getElements from "@helpers/get-elements.mjs";
+import postRequest from "@apis/postRequest";
 
 (() => {
 
-    const logoutButtons = getElements("logout-button");
+    const logoutButtons = document.querySelectorAll("logout-button");
     logoutButtons.forEach(logoutButton => {
+
+        // Run only for newly initialized elements
+        if (logoutButton.getAttribute("data-js-initialized") !== "false") return;
+        logoutButton.setAttribute("data-js-initialized", true);
+
+
         const form = logoutButton.querySelector("form");
         const modernLoader = logoutButton.querySelector("modern-loader");
         const confirmText = logoutButton.getAttribute("data-message");

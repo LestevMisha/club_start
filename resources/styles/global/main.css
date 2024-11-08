@@ -55,6 +55,13 @@ ul {
     color: #e31c1c;
 }
 
+.checkcircle-icon {
+    display: block;
+    height: 1em;
+    width: 1em;
+    color: #00FF75;
+}
+
 audio {
     width: 100%;
 }
@@ -220,41 +227,29 @@ input[type='checkbox'] {
     opacity: 0;
     position: fixed;
     width: fit-content;
-    height: 2.5em;
     top: -10%;
     right: 50%;
     transform: translate(50%, 0);
-    transition: all 0.225 ease-in;
-    border-radius: 2.5em;
+    border-radius: .5em;
     display: flex;
     padding: 1em;
-    background-color: var(--blue-1);
+    background-color: #000;
     z-index: 999;
+    max-width: 30rem;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    transition-property: opacity, top;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-duration: 0.5s;
 }
 
-.animate {
-    animation: animate var(--modal-duration, 1s) ease-in-out;
+.b-modal.b-modal_v1 {
+    background-color: #0d6efd;
+    padding: 0.6rem 1rem;
 }
 
-@keyframes animate {
-    0% {
-        top: 0;
-    }
-
-    4% {
-        opacity: 1;
-        top: 1em;
-    }
-
-    96% {
-        opacity: 1;
-        top: 1em;
-    }
-
-    100% {
-        opacity: 0;
-        top: 1em;
-    }
+.b-modal.active {
+    opacity: 1;
+    top: 1em;
 }
 
 .main-wrapper {
@@ -706,6 +701,10 @@ body {
 
 .b-text.b-text_warning {
     color: #e31c1c !important;
+}
+
+.b-text.b-text_success {
+    color: #00FF75 !important;
 }
 
 .b-text.b-text_exclusive {
@@ -2452,9 +2451,9 @@ body.lightMode .universal-wrapper .universal-label {
 }
 
 .b-img.b-img_v11 {
-    width: 100%;
-    height: 5em;
-    border-radius: 1em;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
     padding: 0;
 }
 
@@ -3057,6 +3056,7 @@ button:disabled {
     background-color: #666666 !important;
     color: #acacac !important;
     cursor: default !important;
+    pointer-events: none !important;
 }
 
 /* tinkoff input */
@@ -3299,6 +3299,7 @@ input[type=number] {
 .modern-form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 
@@ -3881,11 +3882,9 @@ input[type=number] {
 }
 
 .flex.v1 {
-    /* background-color: #090807; */
+    height: auto;
+    min-height: 100vh;
     background-color: #0e0e0e;
-    height: 100%;
-    min-height: 40em;
-    width: 100%;
     background-image: url("/resources/assets/images/svg/img-case/Knight.svg");
     background-repeat: no-repeat;
     background-position: -40%;
@@ -4250,6 +4249,16 @@ input[type=number] {
     opacity: 0.6;
 }
 
+.telegram-arrow-icon {
+    position: absolute;
+    top: 48%;
+    right: 100%;
+    margin-right: 1rem;
+    rotate: 17deg;
+    width: auto;
+    height: 4rem;
+}
+
 .particles-icon {
     position: absolute;
     top: 0;
@@ -4570,7 +4579,7 @@ input[type=number] {
 }
 
 .canvas_scale {
-   direction: ltr !important;
+    direction: ltr !important;
 }
 
 .fade-in {
@@ -4598,6 +4607,10 @@ video::-webkit-media-controls-panel {
 }
 
 @media (max-width: 1250px) {
+
+    .telegram-arrow-icon {
+        margin-right: 0;
+    }
 
     .privacy {
         width: 50% !important;

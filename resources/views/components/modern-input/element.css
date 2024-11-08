@@ -9,6 +9,9 @@
 
 .modern-family {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .modern-family * {
@@ -86,6 +89,10 @@
     padding: 0;
     padding-left: 1rem !important;
     padding-right: 4rem !important;
+}
+
+.modern-family .error-label:empty {
+    display: none;
 }
 
 .modern-family .input-field:focus~.input-label,

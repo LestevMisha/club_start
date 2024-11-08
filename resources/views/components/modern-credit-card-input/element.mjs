@@ -1,14 +1,18 @@
-import getElements from "@helpers/get-elements.mjs";
-
 (() => {
     // initialize
-    const components = getElements("modern-credit-card-input");
+    const modernCreditCardInputs = document.querySelectorAll("modern-credit-card-input");
 
-    components.forEach(component => {
-        const attribute = component.getAttribute("data-attribute");
-        const input = component.querySelector(`#js-${attribute}-input`);
-        const button = component.querySelector(`#js-${attribute}-button`);
-        const amountDisplay = component.querySelector(`#js-${attribute}-amount`);
+    modernCreditCardInputs.forEach(modernCreditCardInput => {
+
+        // Run only for newly initialized elements
+        if (modernCreditCardInput.getAttribute("data-js-initialized") !== "false") return;
+        modernCreditCardInput.setAttribute("data-js-initialized", true);
+
+        
+        const attribute = modernCreditCardInput.getAttribute("data-attribute");
+        const input = modernCreditCardInput.querySelector(`#js-${attribute}-input`);
+        const button = modernCreditCardInput.querySelector(`#js-${attribute}-button`);
+        const amountDisplay = modernCreditCardInput.querySelector(`#js-${attribute}-amount`);
         const maxLength = 16;
 
         input.addEventListener('input', e => {

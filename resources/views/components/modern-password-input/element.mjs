@@ -1,18 +1,23 @@
-import postRequest from "@apis/post-request.mjs";
-import getElements from "@helpers/get-elements.mjs";
+import postRequest from "@apis/postRequest.mjs";
 
 (() => {
     // set default
-    const passwordInputs = getElements("modern-password-input");
+    const passwordInputs = document.querySelectorAll("modern-password-input");
     passwordInputs.forEach((passwordInput) => {
+
+        // Run only for newly initialized elements
+        if (passwordInput.getAttribute("data-js-initialized") !== "false") return;
+        passwordInput.setAttribute("data-js-initialized", true);
+
+
         const uid = passwordInput.getAttribute("data-uid");
         const globalName = passwordInput.getAttribute("data-name");
         const attribute = passwordInput.getAttribute("data-attribute");
 
-        const eye = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-eye`);
-        const closedEye = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-closed-eye`);
-        const input = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-input`);
-        const eyeButton = passwordInput.querySelector(`modern-password-input[data-uid='${uid}'] #js-${attribute}-button`);
+        const eye = passwordInput.querySelector(`#js-${attribute}-eye`);
+        const closedEye = passwordInput.querySelector(`#js-${attribute}-closed-eye`);
+        const input = passwordInput.querySelector(`#js-${attribute}-input`);
+        const eyeButton = passwordInput.querySelector(`#js-${attribute}-button`);
         const modernLoader = passwordInput.querySelector(`modern-loader[data-uid='${uid}']`);
 
         eyeButton.addEventListener("click", async function (event) {

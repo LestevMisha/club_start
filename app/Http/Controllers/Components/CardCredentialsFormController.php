@@ -11,7 +11,7 @@ use App\Services\ModelServices;
 use LVR\CreditCard\CardExpirationYear;
 use LVR\CreditCard\CardExpirationMonth;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Partials\_InputErrorServices;
+use App\Services\Partials\_ErrorServices;
 use App\Http\Controllers\RateLimiterController;
 
 class CardCredentialsFormController extends RateLimiterController
@@ -19,7 +19,7 @@ class CardCredentialsFormController extends RateLimiterController
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected ModelServices $modelServices,
-        protected _InputErrorServices $_inputErrorServices,
+        protected _ErrorServices $errorServices,
     ) {}
 
 
@@ -51,7 +51,7 @@ class CardCredentialsFormController extends RateLimiterController
         ]);
 
         // Error handling
-        if ($validator->fails()) return $this->_inputErrorServices->getMultiErrorViewJson($validator, "card-name", "card-number", "expiration-year", "expiration-month", "cvc");
+        if ($validator->fails()) return $this->errorServices->getMultiErrorViewJson("partials._input-error", $validator, "card-name", "card-number", "expiration-year", "expiration-month", "cvc");
 
         // Register credit card on a user
         $this->modelServices->createCardCredentials(

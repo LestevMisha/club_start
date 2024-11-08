@@ -6,9 +6,9 @@ class _StepServices
 {
 
     // 1. Get rendered error view by string argument.
-    public function getStep($step, $data)
+    public function getStep($step)
     {
-        $stepView = view("partials._register-steps", ['step' => $step, 'data' => $data])->render();
+        $stepView = view("partials._register-step-$step")->render();
         return response()->json(['view' => $stepView], 200);
     }
 

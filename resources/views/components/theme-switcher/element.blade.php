@@ -1,4 +1,4 @@
-<theme-switcher data-uid="{{ $uid }}" data-attribute="{{ $attribute }}">
+<theme-switcher data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
     <x-modern-loader.compiled :uid="$uid" :attribute="$attribute" size="2.5rem" borderRadius="2.5rem" />
     <div class="switcher">
         @svg('sun', "b-img b-img_sun $sunState", ['id' => "js-$attribute-sun"])

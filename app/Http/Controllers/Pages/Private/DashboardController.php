@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function __construct() {}
 
 
-    /* +++++++++++++++++++ HELPER SECTION +++++++++++++++++++ */
+    /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
         return view("pages.private.dashboard.bundled");

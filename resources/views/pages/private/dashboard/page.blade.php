@@ -1,4 +1,4 @@
-<div class="grid" id="flexGridify">
+<div class="grid" id="flexGridify" class="flexGridify flexGridify-init">
 
     <div class="grid-item">
         <div class="flex v h100 w100 ds-row mob grid-stack-item-content">
@@ -119,10 +119,10 @@
             </div>
             <div class="flex h w100 h100">
                 <div class="flex v13">
-                    <canvas id="referral_plot_values">{{ __('pages/private/dashboard.23') }}</canvas>
+                    <canvas id="js-referral-plot-values">{{ __('pages/private/dashboard.23') }}</canvas>
                 </div>
                 <div class="flex w100 h100 flex_xscroll flex_xscroll_rtl pb-1">
-                    <canvas class="canvas_scale" id="referral_plot">{{ __('pages/private/dashboard.23') }}</canvas>
+                    <canvas class="canvas_scale" id="js-referral-plot">{{ __('pages/private/dashboard.23') }}</canvas>
                 </div>
             </div>
         </div>
@@ -140,7 +140,7 @@
             <div class="flex gap v">
                 @if (Auth::user()->telegram_channel_exempted)
                     <div class="flex v gap_05">
-                        <x-modern-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.22')" attribute="remaining-days" value="{{ Auth::user()->days_left }} {{ __('pages.dashboard.21') }}"
+                        <x-modern-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.22')" attribute="remaining-days" value="{{ Auth::user()->days_left }} {{ __('pages/private/dashboard.21') }}"
                             color="green" />
                         <div class="b-text b-text_08 b-text_400 b-text_grey-dark b-text_grey-dark-to-grey_light-mode">
                             {{ __('pages/private/dashboard.13') }}

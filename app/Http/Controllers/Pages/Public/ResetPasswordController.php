@@ -30,7 +30,7 @@ class ResetPasswordController extends RateLimiterController
             'email' => "required|email",
             'password' => "required|min:8|confirmed",
         ]);
-        if ($validator->fails()) return $this->_inputErrorServices->getMultiErrorViewJson($validator, "email", "password");
+        if ($validator->fails()) return $this->_errorServices->getMultiErrorViewJson("partials._input-error", $validator, "email", "password");
 
         // 3. Reset attempt
         $status = Password::reset(
@@ -49,7 +49,7 @@ class ResetPasswordController extends RateLimiterController
         // Default authentication error
         return $status === Password::PASSWORD_RESET
             ? redirect()->route("auth.login")->with("status", __($status))
-            : $this->_inputErrorServices->getErrorViewJsonByString(__("login.invalid_credentials"), "email");
+            : $this->_errorServices->getErrorViewJsonByString("partials._input-error", __("login.invalid_credentials"), "email");
     }
 
 

@@ -1,36 +1,44 @@
-import postRequest from "@apis/post-request.mjs";
-import getElements from "@helpers/get-elements.mjs";
+import postRequest from "@apis/postRequest.mjs";
 
 (() => {
-    const themeSwitchers = getElements("theme-switcher");
+    const themeSwitchers = document.querySelectorAll("theme-switcher");
     themeSwitchers.forEach(themeSwitcher => {
-        const uid = themeSwitcher.getAttribute("data-uid");
+
+        // Run only for newly initialized elements
+        if (themeSwitcher.getAttribute("data-js-initialized") !== "false") return;
+        themeSwitcher.setAttribute("data-js-initialized", true);
+
+
         const attribute = themeSwitcher.getAttribute("data-attribute");
+        const input = themeSwitcher.querySelector(`#js-${attribute}-input`);
+        const sunIcon = themeSwitcher.querySelector(`#js-${attribute}-sun`);
+        const moonIcon = themeSwitcher.querySelector(`#js-${attribute}-moon`);
+        const modernLoader = themeSwitcher.querySelector(`modern-loader`);
 
-        const input = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-input`);
-        const sunIcon = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-sun`);
-        const moonIcon = themeSwitcher.querySelector(`theme-switcher[data-uid='${uid}'] #js-${attribute}-moon`);
-        const modernLoader = themeSwitcher.querySelector(`modern-loader[data-uid='${uid}']#js-${attribute}-loader`);
-
-
-        input.addEventListener("change", async function (event) {
+        // Handle form submission
+        input.addEventListener("change", async (event) => {
             event.preventDefault();
 
             // Activate loader
             modernLoader.classList.add("active");
 
-            // Prepare form data and API details
-            const url = `${window.location.origin}/post/redis/toggleState`;
-            const contentType = "application/x-www-form-urlencoded";
-            const globalName = "theme-state";
-            const data = { "name": globalName };
+            try {
+                // Prepare form data and API details
+                const url = `${window.location.origin}/post/redis/toggleState`;
+                const contentType = "application/x-www-form-urlencoded";
+                const globalName = "theme-state";
+                const data = { "name": globalName };
 
-            // Send form data
-            const response = await postRequest(url, contentType, data);
-            setCurrentTheme(response[globalName], themeSwitcher, moonIcon, sunIcon);
+                // Send form data
+                const response = await postRequest(url, contentType, data);
+                setCurrentTheme(response[globalName], themeSwitcher, moonIcon, sunIcon);
 
-            modernLoader.classList.remove("active");
-
+            } catch (error) {
+                console.error("Form submission error:", error);
+            } finally {
+                // Deactivate loader
+                modernLoader.classList.remove("active");
+            }
         });
     });
 

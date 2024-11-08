@@ -1,11 +1,16 @@
-import getElements from "@helpers/get-elements.mjs";
-import resetInput from "@helpers/reset-input.mjs";
+import resetInput from "@helpers/resetInput.mjs";
 
 (() => {
-    const components = getElements("modern-input");
-    components.forEach(component => {
-        const attribute = component.getAttribute("data-attribute");
-        const button = component.querySelector(`#js-${attribute}-button`);
+    const modernInputs = document.querySelectorAll("modern-input");
+    modernInputs.forEach(modernInput => {
+
+        // Run only for newly initialized elements
+        if (modernInput.getAttribute("data-js-initialized") !== "false") return;
+        modernInput.setAttribute("data-js-initialized", true);
+
+
+        const attribute = modernInput.getAttribute("data-attribute");
+        const button = modernInput.querySelector(`#js-${attribute}-button`);
         button.addEventListener("click", (e) => {
             resetInput(e);
         });

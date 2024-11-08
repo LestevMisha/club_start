@@ -1,16 +1,19 @@
-import showMessage from "@helpers/show-message.mjs";
-import getElements from "@helpers/get-elements.mjs";
+import showMessage from "@helpers/showMessage.mjs";
 
 (() => {
-    const copyInputs = getElements("modern-copy-input");
+    const copyInputs = document.querySelectorAll("modern-copy-input");
     copyInputs.forEach((copyInput) => {
 
-        const uid = copyInput.getAttribute("data-uid");
+        // Run only for newly initialized elements
+        if (copyInput.getAttribute("data-js-initialized") !== "false") return;
+        copyInput.setAttribute("data-js-initialized", true);
+
+
         const attribute = copyInput.getAttribute("data-attribute");
         const message = copyInput.getAttribute("data-message");
 
-        const copyButton = copyInput.querySelector(`modern-copy-input[data-uid='${uid}'] #js-${attribute}-button`);
-        const input = copyInput.querySelector(`modern-copy-input[data-uid='${uid}']  #js-${attribute}-input`);
+        const copyButton = copyInput.querySelector(`#js-${attribute}-button`);
+        const input = copyInput.querySelector(` #js-${attribute}-input`);
 
         // Use async/await for clipboard operation
         copyButton.addEventListener("click", async () => {

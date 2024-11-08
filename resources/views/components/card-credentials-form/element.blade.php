@@ -1,4 +1,4 @@
-<card-credentials-form data-uid="{{ $uid }}">
+<card-credentials-form data-uid="{{ $uid }}" data-js-initialized="false">
     <form class="flex gap_05 v">
         @csrf
         <div class="flex h gap_05 mob">

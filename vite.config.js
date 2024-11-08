@@ -49,6 +49,9 @@ export default defineConfig({
                 "resources/views/components/modern-loader/element.css",
                 "resources/views/components/theme-switcher/element.css",
                 "resources/views/components/language-switcher/element.css",
+                "resources/views/components/read-more/element.css",
+                "resources/views/components/countdown-circle/element.css",
+                "resources/views/components/modern-submit-input/element.css",
 
                 "resources/views/components/modern-copy-input/element.mjs",
                 "resources/views/components/modern-password-input/element.mjs",
@@ -57,13 +60,20 @@ export default defineConfig({
                 "resources/views/components/side-menu/element.mjs",
                 "resources/views/components/modern-input/element.mjs",
                 "resources/views/components/logout-button/element.mjs",
-
+                "resources/views/components/read-more/element.mjs",
+                "resources/views/components/countdown-circle/element.mjs",
+                "resources/views/components/message/element.mjs",
 
                 /* PAGES */
+                "resources/views/pages/private/dashboard/page.css",
+                "resources/views/pages/public/forgot-password/page.css",
+
                 "resources/views/pages/private/dashboard/page.mjs",
+                "resources/views/pages/private/profile/page.mjs",
                 "resources/views/pages/auth/login/page.mjs",
                 "resources/views/pages/auth/register/page.mjs",
                 "resources/views/pages/intermediate/telegram-verification/page.mjs",
+                "resources/views/pages/public/forgot-password/page.mjs",
             ],
             refresh: false,
         }),
@@ -80,6 +90,7 @@ export default defineConfig({
             /* DIRECTORIES */
             "@helpers": "/resources/javascript/helpers",
             "@apis": "/resources/javascript/apis",
+            "@api-deps": "/resources/javascript/api-deps",
             "@three-jsm": "/node_modules/three/examples/jsm",
         }
     },

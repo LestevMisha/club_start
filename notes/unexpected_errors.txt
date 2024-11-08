@@ -1,0 +1,3 @@
+When there's a file such as lang/profile.php matches in json files key such as "Profile" it prioritizes 
+the file rather then the key in `lang/ru.json`, os it returns error saying "Argument #1 ($string) must be of type string, array given"
+To fix this you must remove the key from `lang/ru.json` and use separate files for each page (future goal btw).

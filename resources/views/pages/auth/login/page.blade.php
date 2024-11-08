@@ -7,7 +7,7 @@
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
-                    <x-tools-stack.compiled :uid="uniqid()" class="flex h gap" />
+                    <x-tools-stack.compiled :uid="uniqid()" />
                 </div>
                 <div class="flex h mob">
                     <div class="flex v w50 mob mb-2">
@@ -28,7 +28,7 @@
                                     <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
                                     <x-modern-password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
 
-                                    <button class="modern-submit-button" type="submit">{{ __('pages/auth/login.1') }}</button>
+                                    <button id="js-submit-button" class="modern-submit-button" type="submit">{{ __('pages/auth/login.1') }}</button>
                                     <div class="flex h align gap_05">
                                         <input name="remember-me" type="checkbox" id="remember-me" checked>
                                         <label class="b-text b-text_grey-dark b-text_lh-1" for="remember-me">{{ __('pages/auth/login.5') }}</label>
