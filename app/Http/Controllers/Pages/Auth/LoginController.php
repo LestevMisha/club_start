@@ -29,7 +29,7 @@ class LoginController extends RateLimiterController
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],
         ]);
-        if ($validator->fails()) return $this->_errorServices->getMultiErrorViewJson("partials._input-error", $validator, "email", "password");
+        if ($validator->fails()) return $this->respond->renderValidatorErrors("partials._input-error-message", $validator);
 
         // 3. Login attempt
         if (Auth::attempt($validator->validated(), $remember)) {
@@ -40,7 +40,7 @@ class LoginController extends RateLimiterController
             return redirect()->route("private.dashboard");
         }
         // Default authentication error
-        return $this->_errorServices->getMultiErrorViewJsonByString("partials._input-error", __("login.invalid_credentials"), "email", "password");
+        return $this->respond->renderErrors(["email" => __("login.invalid_credentials"), "password" => ""], "partials._input-error-message");
     }
 
 

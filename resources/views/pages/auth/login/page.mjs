@@ -1,12 +1,14 @@
-import renderBlockTime from "@helpers/renderBlockTime.mjs";
 import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
 import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
-import renderValidationErrors from "@helpers/renderValidationErrors";
 import postRequest from "@apis/postRequest.mjs";
+import renderBlockTime from "@helpers/renderBlockTime.mjs";
+import renderValidationErrors from "@helpers/renderValidationErrors";
 
 (() => {
     const form = document.querySelector("#js-authenticate-form");
     const modernLoader = document.querySelector("modern-loader#js-authenticate-loader");
+    const component = form.querySelector("modern-input[data-attribute='email']");
+    const button = form.querySelector("#js-submit-button");
 
     // Handle form submission
     form.addEventListener("submit", async (event) => {
@@ -22,20 +24,15 @@ import postRequest from "@apis/postRequest.mjs";
             const contentType = "application/x-www-form-urlencoded";
 
             // reCAPTCHA verification
-            const { success, errors } = await verifyRecaptcha();
-
-            // Show error message if verification fails
-            if (!success) {
-                injectContentStylesAndScripts(document.body, errors.error);
-                return;
-            }
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
 
             // Render any errors or handle response
-            renderValidationErrors(form, response?.errors);
-            renderBlockTime(form, "email", response?.availableIn);
+            renderValidationErrors(form, response?.backend?.errors);
+            renderBlockTime(component, button, response?.backend?.availableIn);
 
         } catch (error) {
             console.error("Form submission error:", error);

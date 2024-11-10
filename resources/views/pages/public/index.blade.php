@@ -1,5 +1,6 @@
 @extends('sub-layouts.public')
 @section('sub-content')
+
     <div>
         <section class="b-section b-section_visible b-section_v1 pt-12 pb-12" id="section-target-1">
             <div class="container container_v2 mob">

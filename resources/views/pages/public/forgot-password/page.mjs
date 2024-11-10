@@ -21,16 +21,16 @@ import postRequest from "@apis/postRequest.mjs";
             const contentType = "application/x-www-form-urlencoded";
 
             // reCAPTCHA verification
-            const { success, errors } = await verifyRecaptcha();
-            if (!success) return injectContentStylesAndScripts(document.body, errors.error);
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
 
             // Render any errors or handle response
-            renderValidationErrors(form, response?.errors);
-            renderBlockTime(component, button, response?.availableIn);
-            injectContentStylesAndScripts(document.body, response?.errors?.error || response?.data?.message);
+            renderValidationErrors(form, response?.backend?.errors);
+            renderBlockTime(component, button, response?.backend?.availableIn);
+            injectContentStylesAndScripts(document.body, response?.backend?.message);
         } catch (error) {
             console.error("Form submission error:", error);
         } finally {

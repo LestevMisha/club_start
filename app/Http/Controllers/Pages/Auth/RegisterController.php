@@ -9,7 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Cookie;
 use App\Services\Partials\_StepServices;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Partials\_ErrorServices;
+use App\Services\Partials\_PartialServices;
 use App\Services\UsersServices;
 
 class RegisterController extends Controller
@@ -19,7 +19,7 @@ class RegisterController extends Controller
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected UsersServices $usersServices,
-        protected _ErrorServices $_errorServices,
+        protected _PartialServices $respond,
         protected _StepServices $_stepServices,
     ) {}
 
@@ -73,8 +73,9 @@ class RegisterController extends Controller
     public function action($key, Request $request)
     {
         $validator = Validator::make($request->all(), [$key => $this->rules[$key]]);
+        $error = $validator->errors()->first($key);
         if ($validator->fails()) {
-            return $this->_errorServices->getSingleErrorViewJson("partials._input-error", $validator, $key);
+            return $this->respond->renderErrors([$key => $error], "partials._input-error-message");
         }
     }
 

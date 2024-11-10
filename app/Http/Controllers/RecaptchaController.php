@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Services\Partials\_ErrorServices;
+use App\Services\Partials\_PartialServices;
 
 class RecaptchaController extends Controller
 {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected _ErrorServices $_errorServices
+        protected _PartialServices $respond
     ) {}
 
     public function verify(Request $request)
@@ -29,10 +30,9 @@ class RecaptchaController extends Controller
 
         // Check if the API response indicates a successful verification
         if (!isset($response['success']) || !$response['success']) {
-            return $this->_errorServices->getErrorViewJsonByString(
-                "partials._error-message",
+            return $this->respond->renderMessage(
+                "partials._modal-error-message",
                 __("recaptcha.request_failed"),
-                'error'
             );
         }
 
@@ -41,16 +41,14 @@ class RecaptchaController extends Controller
 
         // Handle different score scenarios
         if ($captchaScore <= $lowScoreThreshold) {
-            return $this->_errorServices->getErrorViewJsonByString(
-                "partials._error-message",
+            return $this->respond->renderMessage(
+                "partials._modal-error-message",
                 __("recaptcha.bot_detected"),
-                'error'
             );
         } elseif ($captchaScore <= $mediumScoreThreshold) {
-            return $this->_errorServices->getErrorViewJsonByString(
-                "partials._error-message",
+            return $this->respond->renderMessage(
+                "partials._modal-error-message",
                 __("recaptcha.inconclusive_result"),
-                'error'
             );
         }
 

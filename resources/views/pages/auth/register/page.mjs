@@ -1,7 +1,7 @@
-import renderValidationErrors from "@helpers/renderValidationErrors";
-import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
 import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
 import postRequest from "@apis/postRequest.mjs";
+import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
+import renderValidationErrors from "@helpers/renderValidationErrors";
 
 (() => {
     const form = document.querySelector("#js-store-form");
@@ -17,13 +17,8 @@ import postRequest from "@apis/postRequest.mjs";
 
         try {
             // reCAPTCHA verification
-            const { success, errors } = await verifyRecaptcha();
-
-            // Show error message if verification fails
-            if (!success) {
-                injectContentStylesAndScripts(document.body, errors.error);
-                return;
-            }
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
             // Prepare form data and API details
             const formData = new FormData(form);
@@ -35,7 +30,8 @@ import postRequest from "@apis/postRequest.mjs";
             if (response?.view) injectContentStylesAndScripts(injectionElement, response.view);
 
             // Render any errors or handle response
-            renderValidationErrors(form, response?.errors);
+            renderValidationErrors(form, response?.backend?.errors);
+
         } catch (error) {
             console.error("Form submission error:", error);
         } finally {

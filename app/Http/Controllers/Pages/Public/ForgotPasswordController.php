@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\RateLimiterController;
+use App\Services\Partials\_PartialServices;
 
 class ForgotPasswordController extends RateLimiterController
 {
@@ -18,37 +19,35 @@ class ForgotPasswordController extends RateLimiterController
     {
         // 1. Rate limiting
         $throttleKey = $this->generateThrottleKey("forgot-password", "email", $request);
-        $executed = $this->rateLimiter($throttleKey, "email", 3, 300);
+        $executed = $this->rateLimiter($throttleKey, "email", 5, 300);
         if ($executed) return $executed;
 
         // 2. Validation
-        $validator = Validator::make($request->all(), [
-            'email' => "required|email",
-        ]);
-        if ($validator->fails()) return $this->_errorServices->getSingleErrorViewJson("partials._input-error", $validator, "email");
+        $validator = Validator::make($request->all(), ['email' => "required|email"]);
+        if ($validator->fails()) {
+            return $this->respond->renderValidatorErrors(
+                "partials._input-error-message",
+                $validator,
+            );
+        }
 
         // 3. Send link attempt
         $email = request()->get("email");
         $status = Password::sendResetLink(compact('email'));
 
         if ($status === Password::RESET_LINK_SENT) {
+
             // Clear any existing rate limiting blocks
             $this->clearRateLimit($throttleKey);
 
-            // restrict from multiple reset links being sent
-            $this->rateGeometricLimiter("reset-link-sent", "email");
-
-            return $this->_partialServices->getViewJsonByString(
-                "partials._success-message",
-                ["dataMessage" => __("forgot-password.reset_link_is_sent")],
-                "data",
-                'message'
+            return $this->respond->renderMessage(
+                "partials._modal-success-message",
+                __("forgot-password.reset_link_is_sent"),
             );
         } else {
-            return $this->_errorServices->getErrorViewJsonByString(
-                "partials._error-message",
+            return $this->respond->renderMessage(
+                "partials._modal-error-message",
                 __("forgot-password.reset_failed"),
-                'error'
             );
         }
     }

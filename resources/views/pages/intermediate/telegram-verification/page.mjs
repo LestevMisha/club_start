@@ -1,6 +1,7 @@
 import verifyRecaptcha from "@api-deps/verifyRecaptcha.mjs";
-import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
 import postRequest from "@apis/postRequest.mjs";
+import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScripts.mjs";
+
 
 (() => {
     const button = document.querySelector("#js-delete-registration");
@@ -19,12 +20,8 @@ import postRequest from "@apis/postRequest.mjs";
 
         try {
             // reCAPTCHA verification
-            const { success, errors } = await verifyRecaptcha();
-            // Show error message if verification fails
-            if (!success) {
-                injectContentStylesAndScripts(document.body, errors.error);
-                return;
-            }
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
             // Prepare form data and API details
             const url = `${window.location.origin}/post/telegram/verify/deleteUser`;

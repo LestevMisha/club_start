@@ -6,42 +6,71 @@ use Illuminate\Http\JsonResponse;
 
 class _PartialServices
 {
-    /* GLOBAL */
-    public function getViewByString(string $view, array $data): string
+    /**
+     * Summary of renderViewToString
+     * @param string $view
+     * @param array $data
+     * @return string
+     */
+    public function renderViewToString(string $viewName, string $data): string
     {
-        return view($view, $data)->render();
+        return view($viewName, ["data" => $data])->render();
     }
 
-
-    /* ANY */
-    public function getViewJsonByString(string $view, array $data, string $keyScope, string $key, array $params = []): JsonResponse
+    /**
+     * Summary of renderMessage
+     * @param string $viewName
+     * @param string $message
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function renderMessage(string $viewName, string $message): JsonResponse
     {
-        return response()->json(array_merge([$keyScope => [$key => $this->getViewByString($view, $data)]], $params), 200);
+        // Render the view to a string
+        $renderedView = $this->renderViewToString($viewName, $message);
+
+        // Create the JSON response structure
+        $responseData = array_merge(["backend" => ["message" => $renderedView]]);
+        return response()->json($responseData, 200);
     }
 
-    public function getMultiErrorViewJsonByString(string $view, array $data, string $keyScope, string $key, ...$args): JsonResponse
-    {
-        $array = [$key => $this->getViewByString($view, $data)];
-        foreach ($args as $key_) $array[$key_] = "";
-        return response()->json(array_merge([$keyScope => $array]), 200);
-    }
-
-
-    /* ERRORS */
-    public function getErrorView(string $view, object $validator, string $key): string
-    {
-        return $this->getViewByString($view, ["error" => $validator->errors()->first($key)]);
-    }
-
-    public function getSingleErrorViewJson(string $view, object $validator, string $key): JsonResponse
-    {
-        return response()->json(['errors' => [$key => $this->getErrorView($view, $validator, $key)]], 200);
-    }
-
-    public function getMultiErrorViewJson(string $view, object $validator, ...$args): JsonResponse
+    /**
+     * Summary of renderValidatorErrors
+     * @param string $viewName
+     * @param object $validator
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function renderValidatorErrors(string $viewName, object $validator): JsonResponse
     {
         $errors_array = [];
-        foreach ($args as $key) $errors_array[$key] = $this->getErrorView($view, $validator, $key);
-        return response()->json(['errors' => $errors_array], 200);
+        // Iterate through each field
+        foreach ($validator->errors()->getMessages() as $field => $errors) {
+            // Render each message for the field
+            foreach ($errors as $error) {
+                $errors_array[$field] = $this->renderViewToString($viewName, $error);
+            }
+        }
+        return response()->json(["backend" => ['errors' => $errors_array]], 200);
+    }
+
+
+    /**
+     * Summary of renderErrors
+     * @param array $errors
+     * @param string $viewName
+     * @param array $params
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function renderErrors(array $errors, string $viewName, array $params = []): JsonResponse
+    {
+        $errors_array = [];
+        // Iterate through each error
+        foreach ($errors as $key => $error) {
+            $errors_array[$key] = $error === "" ? "" : $this->renderViewToString($viewName, $error);
+        }
+
+        // Create JSON response structure, incorporate additional parameters if needed
+        $responseData = ["backend" => array_merge(['errors' => $errors_array], $params)];
+
+        return response()->json($responseData, 200);
     }
 }
