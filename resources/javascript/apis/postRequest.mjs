@@ -11,6 +11,7 @@ export default async function postRequest(url, contentType, parameters = {}) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
+                'X-Requested-With': 'XMLHttpRequest', // Custom header to identify AJAX requests (for Laravel)
                 "X-CSRF-TOKEN": getCsrfToken(),
                 'Content-Type': contentType,
             },
@@ -19,6 +20,14 @@ export default async function postRequest(url, contentType, parameters = {}) {
 
         // Handle redirection
         if (response.redirected) {
+
+            // Bypassing CORS using 303 for the different website redirection
+            if (response.status === 303) {
+                const redirectUrl = response.headers.get('X-Redirect-URL');
+                if (redirectUrl) {
+                    return window.location.replace(redirectUrl);
+                }
+            }
             return window.location.replace(response.url);
         }
 

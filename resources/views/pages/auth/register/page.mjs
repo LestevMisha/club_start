@@ -27,7 +27,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
-            if (response?.view) injectContentStylesAndScripts(injectionElement, response.view);
+            if (response?.backend?.view) injectContentStylesAndScripts(injectionElement, response.backend.view);
 
             // Render any errors or handle response
             renderValidationErrors(form, response?.backend?.errors);

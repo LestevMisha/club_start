@@ -18,7 +18,7 @@ class ForgotPasswordController extends RateLimiterController
     public function sendResetLink(Request $request)
     {
         // 1. Rate limiting
-        $throttleKey = $this->generateThrottleKey("forgot-password", "email", $request);
+        $throttleKey = $this->generateThrottleKey("sendResetLink", "email", $request);
         $executed = $this->rateLimiter($throttleKey, "email", 5, 300);
         if ($executed) return $executed;
 

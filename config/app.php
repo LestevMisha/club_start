@@ -15,8 +15,6 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // your service providers
-        App\Providers\ComponentServiceProvider::class
     ])->replace([
         BaseTranslationServiceProvider::class => JsonTranslationServiceProvider::class,
     ])->toArray(),

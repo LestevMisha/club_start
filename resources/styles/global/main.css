@@ -3397,7 +3397,7 @@ input[type=number] {
     transition-timing-function: ease-in-out;
 }
 
-.modern-submit-button {
+.submit-button {
     font-size: 1rem;
     position: relative;
     display: flex;
@@ -3413,7 +3413,7 @@ input[type=number] {
     transition-timing-function: ease-in-out;
 }
 
-.modern-submit-button:hover {
+.submit-button:hover {
     background-color: #0d59fd;
     scale: 1.01;
 }

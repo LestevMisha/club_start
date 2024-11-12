@@ -28,7 +28,7 @@
                                     <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
                                     <x-modern-password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
 
-                                    <button id="js-submit-button" class="modern-submit-button" type="submit">{{ __('pages/auth/login.1') }}</button>
+                                    <button id="js-submit-button" class="submit-button" type="submit">{{ __('pages/auth/login.1') }}</button>
                                     <div class="flex h align gap_05">
                                         <input name="remember-me" type="checkbox" id="remember-me" checked>
                                         <label class="b-text b-text_grey-dark b-text_lh-1" for="remember-me">{{ __('pages/auth/login.5') }}</label>

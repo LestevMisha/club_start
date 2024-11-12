@@ -1,23 +1,7 @@
-.modern-family button:disabled svg.input-icon {
+.modern-family .input-field:placeholder-shown~.input-button svg {
     cursor: default;
-    pointer-events: none !important;
     color: rgba(255, 255, 255, .4) !important;
     background-color: rgb(128 128 128 / 15%) !important;
-}
-
-.modern-family button {
-    border-width: 0;
-    padding: 0;
-    cursor: pointer;
-    background-color: #00000000;
-    width: fit-content;
-}
-
-.modern-family button:disabled {
-    cursor: default;
-    pointer-events: none !important;
-    background-color: #00000000 !important;
-    color: #00000000 !important;
 }
 
 /* LIGHT MODE */

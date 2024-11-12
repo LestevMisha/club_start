@@ -19,4 +19,6 @@ return [
     "15" => "Email changes are exclusively processed through your linked Telegram account. Attempts via any other account will not be recognized by the bot.",
     "16" => "Change email",
     "17" => "Current email",
+    "18" => "Reset the password",
+    "19" => "You will receive a letter on your email address, follow the link and create a new password.",
 ];

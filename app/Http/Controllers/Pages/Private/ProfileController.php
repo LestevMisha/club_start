@@ -4,22 +4,19 @@ namespace App\Http\Controllers\Pages\Private;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use App\Services\TelegramServices;
 use App\Http\Controllers\RateLimiterController;
 use App\Services\ModelServices;
-use App\Services\Partials\_ErrorServices;
+use App\Services\Partials\_PartialServices;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
-use function PHPSTORM_META\type;
 
 class ProfileController extends RateLimiterController
 {
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected TelegramServices $telegramServices,
         protected ModelServices $modelServices,
-        protected _ErrorServices $_errorServices
+        protected _PartialServices $respond
     ) {}
 
 
@@ -40,10 +37,10 @@ class ProfileController extends RateLimiterController
         $photos = Telegram::getUserProfilePhotos(["user_id" => auth()->user()->telegram_id]);
 
         if (!isset($photos["photos"][$index][0])) {
-            return $this->_errorServices->getMultiErrorViewJsonByString(
-                "partials._input-error",
-                __("profile.invalid_index"),
-                "image-index"
+            // Log and handle incorrect index
+            return $this->respond->renderErrors(
+                ["image-index" => __("profile.invalid_index")],
+                "partials._input-error-message",
             );
         }
 
@@ -66,10 +63,9 @@ class ProfileController extends RateLimiterController
             return redirect()->route("private.profile");
         } catch (\Exception $e) {
             // Log and handle unexpected errors
-            return $this->_errorServices->getMultiErrorViewJsonByString(
-                "partials._input-error",
-                "profile.unexpected_error",
-                "image-index"
+            return $this->respond->renderErrors(
+                ["image-index" => __("profile.unexpected_error")],
+                "partials._input-error-message",
             );
         }
     }

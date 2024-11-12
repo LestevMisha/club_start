@@ -11,11 +11,11 @@
                 <div class="flex v w50 mob mb-2">
                     <div class="mb-1">
                         <div class="b-text b-text_2em">
-                            Восстановление Пароля
+                            {{ __('pages/public/forgot-password.1') }}
                         </div>
                     </div>
                     <div class="b-text b-text_grey-dark">
-                        Используйте Email привязанный к аккаунту
+                        {{ __('pages/public/forgot-password.2') }}
                     </div>
                 </div>
                 <div class="flex v w50 mob">
@@ -24,9 +24,9 @@
                         @csrf
                         <div class="flex v w100">
                             <div class="flex v gap">
-                                <x-modern-input.compiled :uid="uniqid()" attribute="email" inscription="Email Адрес" />
-                                <button id="js-submit-button" class="modern-submit-button" type="submit">Востановить Пароль</button>
-                                <a class="b-text mt-1" href="https://mail.ru/" target="_blank">Перейти в Mail.ru</a>
+                                <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/public/forgot-password.5')" :value="auth()?->user()?->email" attribute="email" />
+                                <button id="js-submit-button" class="submit-button" type="submit">{{ __('pages/public/forgot-password.3') }}</button>
+                                <a class="b-text mt-1" href="https://mail.ru/" target="_blank">{{ __('pages/public/forgot-password.4') }}</a>
                             </div>
                         </div>
                     </form>
@@ -34,12 +34,6 @@
             </div>
 
         </div>
-        <div class="flex h">
-            <div class="flex h ml-a my-05 gap_05">
-                <a class="go-button v8" href="{{ route('auth.register') }}">Создать Аккаунт</a>
-                <a class="go-button v8" href="{{ route('auth.login') }}">Войти</a>
-                <a class="go-button v8" target="_blank" href="{{ route('public.privacy') }}">Политика Конфиденциальности</a>
-            </div>
-        </div>
+        <x-page-suggestions.compiled :uid="uniqid()" />
     </div>
 </div>

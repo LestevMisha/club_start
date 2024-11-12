@@ -52,6 +52,7 @@ export default defineConfig({
                 "resources/views/components/read-more/element.css",
                 "resources/views/components/countdown-circle/element.css",
                 "resources/views/components/modern-submit-input/element.css",
+                "resources/views/components/modern-submit-button/element.css",
 
                 "resources/views/components/modern-copy-input/element.mjs",
                 "resources/views/components/modern-password-input/element.mjs",
@@ -67,6 +68,7 @@ export default defineConfig({
                 /* PAGES */
                 "resources/views/pages/private/dashboard/page.css",
                 "resources/views/pages/public/forgot-password/page.css",
+                "resources/views/pages/public/reset-password/page.css",
 
                 "resources/views/pages/private/dashboard/page.mjs",
                 "resources/views/pages/private/profile/page.mjs",
@@ -74,6 +76,7 @@ export default defineConfig({
                 "resources/views/pages/auth/register/page.mjs",
                 "resources/views/pages/intermediate/telegram-verification/page.mjs",
                 "resources/views/pages/public/forgot-password/page.mjs",
+                "resources/views/pages/public/reset-password/page.mjs",
             ],
             refresh: false,
         }),

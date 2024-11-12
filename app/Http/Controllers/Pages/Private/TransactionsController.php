@@ -13,7 +13,6 @@ class TransactionsController extends Controller
     public function __invoke()
     {
         $users_transactions = UsersTransactions::where('user_uuid', Auth::user()->uuid)->orderBy("created_at", "desc")->get();
-        logger($users_transactions);
         return view("pages.private.transactions", ["users_transactions" => $users_transactions]);
     }
 }

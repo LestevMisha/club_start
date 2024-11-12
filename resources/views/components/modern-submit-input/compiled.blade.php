@@ -1,5 +1,12 @@
 {{-- blade --}}
-@include('components.modern-submit-input.element', ['uid' => $uid, 'inscription' => $inscription, 'class' => $class ?? null, 'value' => $value ?? null])
+@include('components.modern-submit-input.element', [
+    'uid' => $uid,
+    'inscription' => $inscription,
+    'attribute' => $attribute,
+    'class' => $class ?? null,
+    'value' => $value ?? null,
+    'inputAttrs' => $inputAttrs ?? null,
+])
 
 @once
     {{-- styles --}}

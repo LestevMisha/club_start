@@ -7,8 +7,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 (() => {
     const updateImageForm = document.querySelector("#js-update-image-form");
     const modernLoader = updateImageForm.querySelector("modern-loader");
-    //
-    const component = updateImageForm.querySelector("modern-submit-button");
+    const component = updateImageForm.querySelector("modern-submit-input");
     const submitButton = component.querySelector("button[type='submit']");
 
     // Handle form submission
@@ -20,31 +19,25 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
         try {
             // Prepare form data and API details
+            const formData = new FormData(updateImageForm);
             const url = `${window.location.origin}/post/profile/updateImage`;
             const contentType = "application/x-www-form-urlencoded";
-            const formData = new FormData(updateImageForm);
 
             // reCAPTCHA verification
-            const { success, errors } = await verifyRecaptcha();
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
-            // Show error message if verification fails
-            if (!success) {
-                injectContentStylesAndScripts(document.body, errors.error);
-                return;
-            }
-
-            // Request update
+            // Send form data
             const response = await postRequest(url, contentType, formData);
 
             // Render any errors or handle response
-            renderValidationErrors(updateImageForm, response?.errors);
+            renderValidationErrors(updateImageForm, response?.backend?.errors);
             renderBlockTime(component, submitButton, response?.availableIn);
-
         } catch (error) {
             console.error("Form submission error:", error);
         } finally {
-            // Deactivate loader
             modernLoader.classList.remove("active");
         }
+
     });
 })();

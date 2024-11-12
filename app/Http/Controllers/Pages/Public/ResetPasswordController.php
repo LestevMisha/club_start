@@ -17,45 +17,39 @@ class ResetPasswordController extends RateLimiterController
     /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
     /**
      * Handle an password reset attempt.
+     * Rate limiting is exempted here, since there's no need to limit a person doing a password reset.
      */
     public function resetPassword(Request $request)
     {
-        // 1. Rate limiting
-        $throttleKey = $this->generateThrottleKey("reset-password", "email", $request);
-        $executed = $this->rateLimiter($throttleKey, "email", 3, 300);
-        if ($executed) return $executed;
-
-        // 2. Validation
+        // 1. Validation
         $validator = Validator::make($request->all(), [
             'email' => "required|email",
             'password' => "required|min:8|confirmed",
         ]);
-        if ($validator->fails()) return $this->_errorServices->getMultiErrorViewJson("partials._input-error", $validator, "email", "password");
+        if ($validator->fails()) return $this->respond->renderValidatorErrors("partials._input-error-message", $validator);
 
-        // 3. Reset attempt
+        // 2. Reset attempt
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user, string $password) {
                 $user->forceFill([
                     'password' => Hash::make($password)
                 ])->setRememberToken(Str::random(60));
-
                 $user->save();
-
                 event(new PasswordReset($user));
             }
         );
 
         // Default authentication error
         return $status === Password::PASSWORD_RESET
-            ? redirect()->route("auth.login")->with("status", __($status))
-            : $this->_errorServices->getErrorViewJsonByString("partials._input-error", __("login.invalid_credentials"), "email");
+            ? redirect()->route("auth.login")
+            : $this->respond->renderMessage("partials._modal-error-message", __("login.invalid_credentials"));
     }
 
 
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke(string $token)
     {
-        return view("pages.public.reset-password", ["token" => $token]);
+        return view("pages.public.reset-password.bundled", ["token" => $token]);
     }
 }

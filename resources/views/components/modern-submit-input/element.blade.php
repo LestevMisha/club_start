@@ -1,7 +1,7 @@
-<modern-submit-button class="modern-family" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
-    <label class="input-container {{ $class ?? '' }}">
+<modern-submit-input class="modern-family" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
+    <label class="input-container {{ $class }}">
         <input id="js-{{ $attribute }}-input" class="input-field js-input-field" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off" spellcheck="false"
-            inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" value="{{ $value }}" required>
+            inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" value="{{ $value }}" required {{ $inputAttrs }}>
         <span id="js-{{ $attribute }}-label" class="input-label js-input-label">
             {{ $inscription }}
         </span>
@@ -13,4 +13,4 @@
         </div>
     </label>
     <div class="error-label js-error-label" id="js-{{ $attribute }}-error-label"></div>
-</modern-submit-button>
+</modern-submit-input>

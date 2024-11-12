@@ -9,7 +9,6 @@ class _StepServices
     public function getStep($step)
     {
         $stepView = view("partials._register-step-$step")->render();
-        return response()->json(['view' => $stepView], 200);
+        return response()->json(["backend" => ['view' => $stepView]], 200);
     }
-
 }

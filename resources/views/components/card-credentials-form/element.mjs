@@ -15,7 +15,8 @@ import renderBlockTime from "@helpers/renderBlockTime.mjs";
 
         const form = cardCredentialsForm.querySelector("form");
         const modernLoader = cardCredentialsForm.querySelector("modern-loader");
-        const modernCreditCardComponent = cardCredentialsForm.querySelector("modern-credit-card-input")
+        const component = form.querySelector("modern-credit-card-input[data-attribute='card-number']");
+        const button = form.querySelector("#js-card-number-button");
 
         // Handle form submission
         form.addEventListener("submit", async (event) => {
@@ -26,13 +27,8 @@ import renderBlockTime from "@helpers/renderBlockTime.mjs";
 
             try {
                 // reCAPTCHA verification
-                const { success, errors } = await verifyRecaptcha();
-
-                // Show error message if verification fails
-                if (!success) {
-                    injectContentStylesAndScripts(document.body, errors.error);
-                    return;
-                }
+                const captchaResponse = await verifyRecaptcha();
+                if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
 
                 // Prepare form data and API details
                 const formData = new FormData(form);
@@ -43,8 +39,8 @@ import renderBlockTime from "@helpers/renderBlockTime.mjs";
                 const response = await postRequest(url, contentType, formData);
 
                 // Render any errors or handle response
-                renderValidationErrors(form, response?.errors);
-                renderBlockTime(form, modernCreditCardComponent, response?.availableIn);
+                renderValidationErrors(form, response?.backend?.errors);
+                renderBlockTime(component, button, response?.backend?.availableIn);
 
             } catch (error) {
                 console.error("Form submission error:", error);

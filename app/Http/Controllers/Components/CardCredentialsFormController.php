@@ -11,15 +11,15 @@ use App\Services\ModelServices;
 use LVR\CreditCard\CardExpirationYear;
 use LVR\CreditCard\CardExpirationMonth;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Partials\_ErrorServices;
 use App\Http\Controllers\RateLimiterController;
+use App\Services\Partials\_PartialServices;
 
 class CardCredentialsFormController extends RateLimiterController
 {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected ModelServices $modelServices,
-        protected _ErrorServices $errorServices,
+        protected _PartialServices $respond,
     ) {}
 
 
@@ -28,9 +28,8 @@ class CardCredentialsFormController extends RateLimiterController
     public function saveCardCredentials(Request $request)
     {
         // Rate limiting
-        $throttleKey = $this->generateUserThrottleKey("authenticate_card_credentials", $request);
+        $throttleKey = $this->generateUserThrottleKey("saveCardCredentials", $request);
         $executed = $this->rateLimiter($throttleKey, "card-number", 5, 300);
-
         if ($executed) return $executed;
 
         // Validation
@@ -51,7 +50,7 @@ class CardCredentialsFormController extends RateLimiterController
         ]);
 
         // Error handling
-        if ($validator->fails()) return $this->errorServices->getMultiErrorViewJson("partials._input-error", $validator, "card-name", "card-number", "expiration-year", "expiration-month", "cvc");
+        if ($validator->fails()) return $this->respond->renderValidatorErrors("partials._input-error-message", $validator);
 
         // Register credit card on a user
         $this->modelServices->createCardCredentials(

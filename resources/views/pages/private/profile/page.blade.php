@@ -11,7 +11,7 @@
         </button>
     </div> --}}
     <form class="flex v gap_05" id="js-update-image-form">
-        <x-modern-submit-input.compiled :uid="uniqid()" :inscription="__('pages/private/profile.2')" attribute="image-index"  />
+        <x-modern-submit-input.compiled :uid="uniqid()" :inscription="__('pages/private/profile.2')" attribute="image-index" />
         <div class="b-text b-text_08 b-text_400 b-text_grey-dark b-text_grey-dark-to-grey_light-mode">
             {{ __('pages/private/profile.9') }}
         </div>
@@ -24,7 +24,7 @@
         {{ __('pages/private/profile.3') }}
         @svg('right-arrow', 'right-arrow-icon')
     </a>
-
+    
 
     {{-- Autopayment Setting --}}
     <div class="b-text b-text_fith b-text_grey b-text_600 modeLight_darker"> {{ __('pages/private/profile.4') }}</div>

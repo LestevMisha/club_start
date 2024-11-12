@@ -66,13 +66,13 @@ Route::middleware(Authentication::class)->group(function () {
 Route::post("/post/recaptacha/verify", [RecaptchaController::class, "verify"])->name("post.recaptcha.verify");
 Route::post("/post/redis/toggleState", [RedisController::class, "toggleState"])->name("post.redis.toggleState");
 Route::post("/post/login/authenticate", [LoginController::class, "authenticate"])->name("post.login.authenticate");
-Route::post("/post/register/store", action: [RegisterController::class, "store"])->name("post.register.store");
+Route::post("/post/register/store", [RegisterController::class, "store"])->name("post.register.store");
 Route::post("/post/telegram/verify/deleteUser", [TelegramVerificationController::class, "deleteUser"])->name("post.telegram.verify.deleteUser");
 Route::post("/post/forgot-password/sendResetLink", [ForgotPasswordController::class, "sendResetLink"])->name("post.forgot-password.sendResetLink");
 Route::post("/post/reset-password/resetPassword", [ResetPasswordController::class, "resetPassword"])->name("post.reset-password.resetPassword");
 Route::post("/post/profile/updateImage", [ProfileController::class, "updateImage"])->name("post.profile.updateImage");
 Route::post("/post/components/card-credentials-form/saveCardCredentials", action: [CardCredentialsFormController::class, "saveCardCredentials"])->name("post.components.card-credentials-form.saveCardCredentials");
-Route::post("/post/components/side-menu/logout", action: [LogoutButtonController::class, "logout"])->name("post.components.side-menu.logout");
+Route::post("/post/components/side-menu/logout", [LogoutButtonController::class, "logout"])->name("post.components.side-menu.logout");
 
 
 /* +++++++++++++++++++ GET +++++++++++++++++++ */

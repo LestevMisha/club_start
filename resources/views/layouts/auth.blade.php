@@ -20,9 +20,11 @@
 
 <body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }}">
 
-    <main class="main">
+    <main>
         @yield('content')
     </main>
+
+    {{-- javascript --}}
     @stack('pages.auth.scripts')
     @stack('components.scripts')
 

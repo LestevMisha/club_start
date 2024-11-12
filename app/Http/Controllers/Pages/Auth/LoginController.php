@@ -37,7 +37,7 @@ class LoginController extends RateLimiterController
 
             // Clear any existing rate limiting blocks
             $this->clearRateLimit($throttleKey);
-            return redirect()->route("private.dashboard");
+            return redirect()->back();
         }
         // Default authentication error
         return $this->respond->renderErrors(["email" => __("login.invalid_credentials"), "password" => ""], "partials._input-error-message");
