@@ -5,7 +5,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
 (() => {
     const form = document.querySelector("#js-store-form");
-    const modernLoader = document.querySelector("modern-loader#js-store-loader");
+    const xloader = document.querySelector("xloader#js-store-loader");
     const injectionElement = document.querySelector("#js-next-step");
 
     // Handle form submission
@@ -13,12 +13,12 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
         event.preventDefault();
 
         // Activate loader
-        modernLoader.classList.add("active");
+        xloader.classList.add("active");
 
         try {
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
             // Prepare form data and API details
             const formData = new FormData(form);
@@ -27,7 +27,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
-            if (response?.backend?.view) injectContentStylesAndScripts(injectionElement, response.backend.view);
+            if (response?.backend?.view) {injectContentStylesAndScripts(injectionElement, response.backend.view);}
 
             // Render any errors or handle response
             renderValidationErrors(form, response?.backend?.errors);
@@ -36,7 +36,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
             console.error("Form submission error:", error);
         } finally {
             // Deactivate loader
-            modernLoader.classList.remove("active");
+            xloader.classList.remove("active");
         }
     });
 

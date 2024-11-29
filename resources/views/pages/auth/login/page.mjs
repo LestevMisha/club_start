@@ -6,8 +6,8 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
 (() => {
     const form = document.querySelector("#js-authenticate-form");
-    const modernLoader = document.querySelector("modern-loader#js-authenticate-loader");
-    const component = form.querySelector("modern-input[data-attribute='email']");
+    const xloader = document.querySelector("xloader#js-authenticate-loader");
+    const component = form.querySelector("xinput[data-attribute='email']");
     const button = form.querySelector("#js-submit-button");
 
     // Handle form submission
@@ -15,7 +15,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
         event.preventDefault();
 
         // Activate loader
-        modernLoader.classList.add("active");
+        xloader.classList.add("active");
 
         try {
             // Prepare form data and API details
@@ -25,7 +25,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
@@ -38,7 +38,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
             console.error("Form submission error:", error);
         } finally {
             // Deactivate loader
-            modernLoader.classList.remove("active");
+            xloader.classList.remove("active");
         }
     });
 })();

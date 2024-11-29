@@ -66,3 +66,10 @@ each component has to have uid
 parent tag of every `element.blade.php` must correspond to the folder name.
 Order of `compiled.blade.php`. First goes `php` prerequisites, then `@include`, then in `@once` first `stlyes` then `javascript` (for all only if applicable)
 optional arguments should be out in the end, and should be replaced by null (unless otherwise indicated)
+
+
+
+1. every component parent html class should start with an "x".
+2. every component parent html class should have "coponent" class.
+3. every css component style should have first selector as ".component ".
+4. `js-validation` class has to be on each component that renders errors.

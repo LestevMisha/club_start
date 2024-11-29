@@ -12,6 +12,7 @@
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/main.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/light-mode.css') }}">
 
+    @vite('resources/styles/uikit.css')
     @stack('components.styles')
 
 

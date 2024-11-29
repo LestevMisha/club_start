@@ -4,7 +4,7 @@
         <div class="form-wrapper">
             <div class="form-body">
 
-                <x-modern-loader.compiled :uid="uniqid()" attribute="store" size="2.5rem" borderRadius="2.5rem" />
+                <x-loader.compiled :uid="uniqid()" attribute="store" size="2.5rem" borderRadius="2.5rem" />
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
@@ -28,7 +28,7 @@
                         <div class="flex v w50 mob">
                             <div class="modern-form">
                                 <div class="flex gap v w100" id="js-next-step">
-                                    <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/auth/register.3')" attribute="name" />
+                                    <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/register.3')" attribute="name" />
                                 </div>
                                 <button type="submit" class="modern-button">
                                     <div class="b-text w ml-a"> {{ __('pages/auth/register.4') }}</div>

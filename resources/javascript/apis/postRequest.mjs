@@ -3,17 +3,17 @@ import getCsrfToken from "../helpers/getCsrfToken.mjs";
 export default async function postRequest(url, contentType, parameters = {}) {
     try {
         // Prepare the body based on content type
-        const body = contentType === 'application/json'
+        const body = contentType === "application/json"
             ? JSON.stringify(parameters)
             : new URLSearchParams(parameters);
 
         // Send POST request
         const response = await fetch(url, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'X-Requested-With': 'XMLHttpRequest', // Custom header to identify AJAX requests (for Laravel)
+                "X-Requested-With": "XMLHttpRequest", // Custom header to identify AJAX requests (for Laravel)
                 "X-CSRF-TOKEN": getCsrfToken(),
-                'Content-Type': contentType,
+                "Content-Type": contentType,
             },
             body: body,
         });
@@ -23,7 +23,7 @@ export default async function postRequest(url, contentType, parameters = {}) {
 
             // Bypassing CORS using 303 for the different website redirection
             if (response.status === 303) {
-                const redirectUrl = response.headers.get('X-Redirect-URL');
+                const redirectUrl = response.headers.get("X-Redirect-URL");
                 if (redirectUrl) {
                     return window.location.replace(redirectUrl);
                 }

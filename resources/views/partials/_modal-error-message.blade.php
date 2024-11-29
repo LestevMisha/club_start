@@ -1,8 +1,8 @@
 <x-message.compiled :uid="uniqid()" seconds="10">
     <x-read-more.compiled :uid="uniqid()">
-        <div class="flex h gap_05">
+        <div class="flex flex-row gap-2">
             @svg('exclamation-point', 'exclamation-point-icon')
-            <span class="b-text b-text_08 b-text_lh-1 b-text_warning more mt-015">{{ $data }}</span>
+            <span class="more mt-[0.15rem] text-[0.8rem] font-normal leading-none text-[#e31c1c]">{{ $data }}</span>
         </div>
     </x-read-more.compiled>
 </x-message.compiled>

@@ -1,9 +1,9 @@
-<logout-button class="relative" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}" data-message="{{ __('components/logout-button.1') }}">
-    <x-modern-loader.compiled :$uid :$attribute size="1.35rem" borderRadius="0.5rem" />
-    <form class="flex v">
+<xlogout-button class="relative" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}" data-message="{{ __('components/logout-button.1') }}">
+    <x-loader.compiled :$uid :$attribute size="1.35rem" borderRadius="0.5rem" />
+    <form class="flex flex-col">
         @csrf
         <button type="submit">
-            @svg('exit', 'item-icon')
+            @svg('logout', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2')
         </button>
     </form>
-</logout-button>
+</xlogout-button>

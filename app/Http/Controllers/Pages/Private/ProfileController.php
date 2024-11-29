@@ -70,6 +70,14 @@ class ProfileController extends RateLimiterController
         }
     }
 
+    public function verifyEmail(Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+        return $this->respond->renderMessage(
+            "partials._modal-success-message",
+            __("profile.email_sent"),
+        );
+    }
+
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {

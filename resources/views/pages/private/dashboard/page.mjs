@@ -6,11 +6,11 @@ const flexGridifyOptions = {
     enableSmoothLoading: true,
     enableResponsiveLayout: true,
     enableDragAndDrop: true,
-    dragAndDropSelector: ".drag-handler",
+    dragAndDropSelector: ".js-drag-handler",
     columnBreakpoints: { 620: 2, },
     defaultColumnsCount: 1,
     onDragStartChange: (e, childItem) => setupDragImage(e, childItem),
-}
+};
 
 new FlexGridify("#flexGridify", flexGridifyOptions);
 
@@ -35,13 +35,13 @@ const data = visitorData.original.map(row => row.visit_count);
 
 // Create referral plot
 const referralPlotConfig = {
-    type: 'bar',
+    type: "bar",
     data: {
         labels: labels, // Use formatted dates
         datasets: [{
             label: legendLabel, // Label in Russian
             data: data,
-            backgroundColor: '#0d6efd',
+            backgroundColor: "#0d6efd",
         }]
     },
     options: {
@@ -59,12 +59,12 @@ const referralPlotConfig = {
             }
         }
     }
-}
-new Chart(document.querySelector('#js-referral-plot'), referralPlotConfig);
+};
+new Chart(document.querySelector("#js-referral-plot"), referralPlotConfig);
 
 // Create referral vlaues data
 const referralPlotValuesConfig = {
-    type: 'bar',
+    type: "bar",
     data: {
         datasets: [{
             data: data,
@@ -100,15 +100,15 @@ const referralPlotValuesConfig = {
             }
         }
     },
-}
-new Chart(document.querySelector('#js-referral-plot-values'), referralPlotValuesConfig);
+};
+new Chart(document.querySelector("#js-referral-plot-values"), referralPlotValuesConfig);
 
 // Function to format dates in English/Russian
-function formatDateByLocale(dateString, locale) {
-    return new Intl.DateTimeFormat(locale === 'en' ? 'en-EN' : 'ru-RU', {
-        timeZone: 'Europe/Moscow',
-        day: 'numeric',
-        month: 'short',
+function formatDateByLocale(dateString, locale_) {
+    return new Intl.DateTimeFormat(locale_ === "en" ? "en-EN" : "ru-RU", {
+        timeZone: "Europe/Moscow",
+        day: "numeric",
+        month: "short",
         hour12: false
     }).format(new Date(dateString)).trim();
 }

@@ -1,12 +1,12 @@
 <?php
 
-use App\Services\ModelServices;
 use App\Livewire\EmailVerification;
 use Illuminate\Support\Facades\URL;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authentication;
 use App\Http\Controllers\TelegramController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 // redis
 use App\Http\Controllers\RecaptchaController;
@@ -27,6 +27,7 @@ use App\Http\Controllers\Pages\Private\ProfileController;
 use App\Http\Controllers\Pages\Private\DashboardController;
 use App\Http\Controllers\Pages\Private\TransactionsController;
 use App\Http\Controllers\Pages\Auth\TelegramVerificationController;
+use App\Http\Controllers\Pages\Private\EmailVerificationController;
 use App\Http\Controllers\Pages\Public\DocumentsController;
 use App\Http\Controllers\Pages\Public\PrivacyController;
 use App\Http\Controllers\Pages\Public\PublicOfferController;
@@ -57,6 +58,7 @@ Route::middleware(Authentication::class)->group(function () {
     Route::get('/profile', ProfileController::class)->name('private.profile');
     Route::get('/transactions', TransactionsController::class)->name('private.transactions');
     Route::get('/referral-transactions', TransactionsController::class)->name('private.referral.transactions');
+    Route::get('/email-verification', EmailVerificationController::class)->name('private.email.verification');
 });
 
 
@@ -71,6 +73,7 @@ Route::post("/post/telegram/verify/deleteUser", [TelegramVerificationController:
 Route::post("/post/forgot-password/sendResetLink", [ForgotPasswordController::class, "sendResetLink"])->name("post.forgot-password.sendResetLink");
 Route::post("/post/reset-password/resetPassword", [ResetPasswordController::class, "resetPassword"])->name("post.reset-password.resetPassword");
 Route::post("/post/profile/updateImage", [ProfileController::class, "updateImage"])->name("post.profile.updateImage");
+Route::post("/post/profile/verifyEmail", [ProfileController::class, "verifyEmail"])->name("post.profile.verifyEmail");
 Route::post("/post/components/card-credentials-form/saveCardCredentials", action: [CardCredentialsFormController::class, "saveCardCredentials"])->name("post.components.card-credentials-form.saveCardCredentials");
 Route::post("/post/components/side-menu/logout", [LogoutButtonController::class, "logout"])->name("post.components.side-menu.logout");
 
@@ -78,6 +81,24 @@ Route::post("/post/components/side-menu/logout", [LogoutButtonController::class,
 /* +++++++++++++++++++ GET +++++++++++++++++++ */
 
 Route::get('language/{locale}', RedisLanguageController::class);
+
+
+
+
+/* +++++++++++++++++++ EMAIL VERIFICATION ROUTE +++++++++++++++++++ */
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect()->route("private.dashboard");
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+
+
+
+
+
+
 
 
 
@@ -100,11 +121,11 @@ Route::controller(TelegramController::class)->group(function () {
     Route::post("/1MIIJRAIBADANBgkqhkiG9w0BAQEFAASCCS4wggkqAgEAAoICAQC0dr14WFaDsDJsGvjxdCA8sD9GHD3/webhook", "handle");
 });
 
-// E-mail Verification
-Route::controller(EmailVerification::class)->group(function () {
-    Route::get("/email/verify/{id}/{hash}", "verify")->name("verification.verify");
-    Route::post("/email/resend", "resend")->name("verification.resend");
-});
+// // E-mail Verification
+// Route::controller(EmailVerification::class)->group(function () {
+//     Route::get("/email/verify/{id}/{hash}", "verify")->name("verification.verify");
+//     Route::post("/email/resend", "resend")->name("verification.resend");
+// });
 
 // Payment Routes
 Route::controller(UsersTransactionsController::class)->group(function () {

@@ -5,7 +5,7 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
 
 (() => {
     const button = document.querySelector("#js-delete-registration");
-    const modernLoader = document.querySelector("modern-loader#js-telegram-verification-loader");
+    const xloader = document.querySelector("xloader#js-telegram-verification-loader");
 
     // Handle delition request
     button.addEventListener("click", async (event) => {
@@ -13,15 +13,15 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
 
         // Confirm request
         const confirmText = button.getAttribute("data-message");
-        if (!confirm(confirmText)) return;
+        if (!confirm(confirmText)) {return;}
 
         // Activate loader
-        modernLoader.classList.add("active");
+        xloader.classList.add("active");
 
         try {
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
             // Prepare form data and API details
             const url = `${window.location.origin}/post/telegram/verify/deleteUser`;
@@ -34,7 +34,7 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
             console.error("Form submission error:", error);
         } finally {
             // Deactivate loader
-            modernLoader.classList.remove("active");
+            xloader.classList.remove("active");
         }
 
     });

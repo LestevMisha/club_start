@@ -16,7 +16,9 @@
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/light-mode.css') }}">
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha.site_key') }}"></script>
+
     {{-- styles --}}
+    @vite('resources/styles/uikit.css')
     @stack('pages.public.styles')
     @stack('components.styles')
 </head>

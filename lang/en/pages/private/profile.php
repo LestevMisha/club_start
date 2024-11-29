@@ -21,4 +21,9 @@ return [
     "17" => "Current email",
     "18" => "Reset the password",
     "19" => "You will receive a letter on your email address, follow the link and create a new password.",
+    "20" => "Go to gmail",
+    "21" => "Name",
+    "22" => "Linked Telegram",
+    "23" => "General Information",
+    "24" => "or",
 ];

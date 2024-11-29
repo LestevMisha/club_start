@@ -124,7 +124,7 @@ body.lightMode h1 {
     color: #000;
 }
 
-body.lightMode .right-arrow-icon {
+body.lightMode .arrow-forward-icon {
     color: #00000080;
 }
 
@@ -204,10 +204,6 @@ body.lightMode .card {
 
 body.lightMode .slight-bg {
     background-color: #e8e8e869;
-}
-
-body.lightMode .side-container {
-    background-color: #ffffff;
 }
 
 body.lightMode #custom-target-01:hover~.card_v1-danger {
@@ -392,7 +388,7 @@ body.lightMode .eye-icon {
     color: rgba(0, 0, 0, .4);
 }
 
-body.lightMode .right-arrow-icon,
+body.lightMode .arrow-forward-icon,
 body.lightMode .copy-icon,
 body.lightMode .copy-icon-normal {
     color: rgba(0, 0, 0, .4);

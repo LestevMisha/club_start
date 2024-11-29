@@ -17,6 +17,6 @@ class RedisThemeController extends Controller
 
     function getThemeStateClass()
     {
-        return $this->getThemeState() ? 'lightMode' : 'darkMode';
+        return $this->getThemeState() ? 'light' : 'dark';
     }
 }

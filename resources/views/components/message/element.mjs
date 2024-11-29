@@ -1,26 +1,26 @@
 (() => {
-    const messages = document.querySelectorAll("message");
-    messages.forEach(message => {
+    const xmessages = document.querySelectorAll("xmessage");
+    xmessages.forEach(xmessage => {
 
         // Run only for newly initialized elements
-        if (message.getAttribute("data-js-initialized") !== "false") return;
-        message.setAttribute("data-js-initialized", true);
+        if (xmessage.getAttribute("data-js-initialized") !== "false") {return;}
+        xmessage.setAttribute("data-js-initialized", true);
 
 
         // provide smooth appearance
-        message.classList.add("active");
+        xmessage.classList.add("!opacity-100", "!top-4");
 
-        const seconds = parseInt(message.getAttribute("data-seconds")) * 1000;
+        const seconds = parseInt(xmessage.getAttribute("data-seconds")) * 1000;
         const fadeOutTime = seconds - 500;
 
         // provide smooth vanishing
         setTimeout(() => {
-            message.style.opacity = 0;
+            xmessage.style.opacity = 0;
         }, fadeOutTime);
 
-        // remove message
+        // remove xmessage
         setTimeout(() => {
-            document.body.removeChild(message);
+            document.body.removeChild(xmessage);
         }, seconds);
     });
 })();

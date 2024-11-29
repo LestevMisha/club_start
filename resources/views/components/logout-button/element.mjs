@@ -2,26 +2,26 @@ import postRequest from "@apis/postRequest";
 
 (() => {
 
-    const logoutButtons = document.querySelectorAll("logout-button");
-    logoutButtons.forEach(logoutButton => {
+    const xlogoutButtons = document.querySelectorAll("xlogout-button");
+    xlogoutButtons.forEach(xlogoutButton => {
 
         // Run only for newly initialized elements
-        if (logoutButton.getAttribute("data-js-initialized") !== "false") return;
-        logoutButton.setAttribute("data-js-initialized", true);
+        if (xlogoutButton.getAttribute("data-js-initialized") !== "false") {return;}
+        xlogoutButton.setAttribute("data-js-initialized", true);
 
 
-        const form = logoutButton.querySelector("form");
-        const modernLoader = logoutButton.querySelector("modern-loader");
-        const confirmText = logoutButton.getAttribute("data-message");
+        const form = xlogoutButton.querySelector("form");
+        const xloader = xlogoutButton.querySelector("xloader");
+        const confirmText = xlogoutButton.getAttribute("data-message");
 
         // Handle form submission
-        form.addEventListener("submit", async function (event) {
+        form.addEventListener("submit", async (event) => {
             event.preventDefault();
 
             // Warn user about logout
-            if (!confirm(confirmText)) return;
+            if (!confirm(confirmText)) {return;}
 
-            modernLoader.classList.add("active");
+            xloader.classList.add("active");
 
             try {
                 // Prepare API details
@@ -35,8 +35,8 @@ import postRequest from "@apis/postRequest";
                 console.error("Form submission error:", error);
             } finally {
                 // Deactivate loader
-                modernLoader.classList.remove("active");
+                xloader.classList.remove("active");
             }
         });
     });
-})()
+})();

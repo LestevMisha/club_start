@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.read-more.element', ['uid' => $uid, 'ellipsisText' => $ellipsisText ?? "...", 'charsToShow' => $charsToShow ?? 50])
+@include('components.read-more.element', ['uid' => $uid, 'ellipsisText' => $ellipsisText ?? "...", 'charsToShow' => $charsToShow ?? 35])
 
 @once
     {{-- styles --}}

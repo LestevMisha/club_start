@@ -7,7 +7,7 @@ import postRequest from "@apis/postRequest.mjs";
 (() => {
     const form = document.querySelector("#js-forgot-password-form");
     const loader = document.querySelector("#js-forgot-password-loader");
-    const component = form.querySelector("modern-input[data-attribute='email']");
+    const component = form.querySelector("xinput[data-attribute='email']");
     const button = form.querySelector("#js-submit-button");
 
     form.addEventListener("submit", async (event) => {
@@ -22,7 +22,7 @@ import postRequest from "@apis/postRequest.mjs";
 
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
             // Send form data
             const response = await postRequest(url, contentType, formData);

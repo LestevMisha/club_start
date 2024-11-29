@@ -1,7 +1,7 @@
 // Function to update the countdown timer
 export default function renderBlockTime(component, button, availableIn) {
 
-    if (!availableIn) return;
+    if (!availableIn) { return; }
     let seconds = parseInt(availableIn, 10);
     const input = component.querySelector(".js-input-field");
     const errorLabel = component.querySelector(".js-error-label");
@@ -18,7 +18,7 @@ export default function renderBlockTime(component, button, availableIn) {
 
         if (seconds <= 0) {
             clearInterval(intervalId);
-            errorLabel.textContent = ''; // Clear error message
+            errorLabel.textContent = ""; // Clear error message
             input.classList.remove("input-field-error");
             button.disabled = false;
         }
@@ -27,7 +27,7 @@ export default function renderBlockTime(component, button, availableIn) {
 
 // Helper function to find and update the numeric span
 function updateNumericSpan(node, seconds) {
-    if (!node) return;
+    if (!node) { return; }
     node.childNodes.forEach(child => {
         if (child.nodeType === Node.TEXT_NODE && /\d+/.test(child.textContent)) {
             child.textContent = child.textContent.replace(/\d+/, seconds);

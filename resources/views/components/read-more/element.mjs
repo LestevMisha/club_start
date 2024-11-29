@@ -1,10 +1,10 @@
 (() => {
 
     const readMores = document.querySelectorAll("read-more");
-    readMores.forEach(function (readMore) {
+    readMores.forEach((readMore) => {
 
         // Run only for newly initialized elements
-        if (readMore.getAttribute("data-js-initialized") !== "false") return;
+        if (readMore.getAttribute("data-js-initialized") !== "false") {return;}
         readMore.setAttribute("data-js-initialized", true);
 
 
@@ -14,9 +14,9 @@
             ellipsesText: readMore.getAttribute("data-ellipses-text"),
             moreText: readMore.getAttribute("data-read-more"),
             lessText: readMore.getAttribute("data-read-less"),
-        }
+        };
 
-        const textElement = readMore.querySelector(".b-text");
+        const textElement = readMore.querySelector(".more");
         const content = textElement.innerHTML;
 
         if (content.length > config.showChar) {
@@ -29,9 +29,10 @@
             // Create ellipses and link elements
             const ellipses = document.createElement("span");
             ellipses.classList = "moreellipses active";
-            ellipses.innerHTML = config.ellipsesText + "&nbsp;";
+            ellipses.innerHTML = `${config.ellipsesText  }&nbsp;`;
 
             const moreLink = document.createElement("a");
+            moreLink.classList.add("text-[#0d6efd]");
             moreLink.href = "#";
             moreLink.innerHTML = config.moreText;
 
@@ -43,9 +44,9 @@
             textElement.appendChild(moreLink);
 
             // Event delegation to handle clicks on "morelink" links
-            moreLink.addEventListener("click", function (event) {
+            moreLink.addEventListener("click", (event) => {
                 event.preventDefault();
-                moreLink.innerHTML = "&nbsp;" + (moreLink.classList.contains("less") ? config.moreText : config.lessText);
+                moreLink.innerHTML = `&nbsp;${  moreLink.classList.contains("less") ? config.moreText : config.lessText}`;
                 moreLink.classList.toggle("less");
                 hiddenContent.classList.toggle("active");
                 ellipses.classList.toggle("active");

@@ -1,62 +1,60 @@
-<div class="flex v w50 gap hidden ds-row mob">
+<div class="cell mob flex w-1/2 flex-col gap-4">
 
-    {{-- <x-modern-loader.compiled :uid="uniqid()" attribute="profile" size="2.5rem" /> --}}
+
+    {{-- General Information --}}
+    <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.23') }}</div>
+    <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.21')" attribute="current-name" :value="auth()->user()->name" />
+    <x-inputs.copy-input.compiled :uid="uniqid()" :inscription="__('pages/private/profile.22')" attribute="current-telegram" :value="'@' . auth()->user()->telegram_username" />
+
 
     {{-- Image Settings --}}
-    <div class="b-text b-text_fith b-text_grey b-text_600 modeLight_darker"> {{ __('pages/private/profile.1') }}</div>
-    {{-- <div class="flex h gap_05 mob">
-        <button id="js-update-image-button" class="ui-button mt-a">
-            <div class="b-text b-text_nowrap b-text_fith">{{ __('pages/private/profile.2') }}</div>
-            @svg('right-arrow', 'right-arrow-icon')
-        </button>
-    </div> --}}
-    <form class="flex v gap_05" id="js-update-image-form">
-        <x-modern-submit-input.compiled :uid="uniqid()" :inscription="__('pages/private/profile.2')" attribute="image-index" />
-        <div class="b-text b-text_08 b-text_400 b-text_grey-dark b-text_grey-dark-to-grey_light-mode">
+    <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.1') }}</div>
+    <form class="flex flex-col gap-2" id="js-update-image-form">
+        <x-inputs.submit-input.compiled :uid="uniqid()" :inscription="__('pages/private/profile.2')" attribute="image-index" />
+        <div class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac]">
             {{ __('pages/private/profile.9') }}
         </div>
     </form>
 
 
     {{-- Passsword Settings --}}
-    <div class="b-text b-text_fith b-text_grey b-text_600 modeLight_darker"> {{ __('pages/private/profile.8') }}</div>
-    <a href="{{ route('public.password.forgot') }}" class="ui-button mt-a">
-        {{ __('pages/private/profile.3') }}
-        @svg('right-arrow', 'right-arrow-icon')
-    </a>
-    
+    <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.8') }}</div>
+    <x-button.compiled :uid="uniqid()" :title="__('pages/private/profile.3')" :url="route('public.password.forgot')" />
+
 
     {{-- Autopayment Setting --}}
-    <div class="b-text b-text_fith b-text_grey b-text_600 modeLight_darker"> {{ __('pages/private/profile.4') }}</div>
-    <div class="flex v gap_05">
-        <a href="{{ route('email.verify') }}" class="ui-button mt-a">
-            {{ __('pages/private/profile.6') }}
-            @svg('right-arrow', 'right-arrow-icon')
-        </a>
-        <div class="b-text b-text_08 b-text_400 b-text_grey-dark b-text_grey-dark-to-grey_light-mode">
+    <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.4') }}</div>
+    <div class="flex flex-col gap-2">
+        <x-button.compiled :uid="uniqid()" :title="__('pages/private/profile.6')" :url="config('services.telegram.bot_url') . '?start=' . auth()->user()->uuid . '_' . 'changeEmail'" />
+        <div class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac]">
             {{ __('pages/private/profile.5') }}
         </div>
     </div>
 
 
     {{-- Email Setting --}}
-    <div class="b-text b-text_fith b-text_grey b-text_600 modeLight_darker"> {{ __('pages/private/profile.7') }}</div>
-    <x-modern-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.17')" attribute="current-email" :value="Auth::user()->email" />
-    <x-modern-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.11')" attribute="email-verified"
-        value="{{ auth()->user()->hasVerifiedEmail() ? __('pages/private/profile.12') : __('pages/private/profile.13') }}" />
-    @if (!Auth::user()->hasVerifiedEmail())
-        <a href="{{ route('email.verify') }}" class="ui-button mt-a">
-            {{ __('pages/private/profile.14') }}
-            @svg('right-arrow', 'right-arrow-icon')
-        </a>
+    <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.7') }}</div>
+    <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.17')" attribute="current-email" :value="auth()->user()->email" />
+    <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.11')" attribute="email-verified" :value="__($isVerifiedLabel)" />
+    @if ($isVerified)
+        <div class="flex flex-col gap-2">
+            <x-button.compiled :uid="uniqid()" attribute="emailVerify" :title="__('pages/private/profile.14')" />
+            <div class="flex flex-row gap-1">
+                <span class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac]">
+                    {{ __('pages/private/profile.20') }}
+                </span>
+                <a class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac] underline" href="https://mail.ru/" target="_blank">mail.ru</a>
+                <span class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac]">{{ __('pages/private/profile.24') }}</span>
+                <a class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac] underline" href="https://gmail.com/" target="_blank">gmail.com</a>
+            </div>
+        </div>
     @endif
-    <div class="flex v gap_05">
-        <a target="_blank" href="{{ app('App\Services\BladeServices')->getTelegramChangeEmailLink() }}" class="ui-button">
-            {{ __('pages/private/profile.16') }}
-            @svg('right-arrow', 'right-arrow-icon')
-        </a>
-        <div class="b-text b-text_08 b-text_400 b-text_grey-dark b-text_grey-dark-to-grey_light-mode">
+    <div class="flex flex-col gap-2">
+        <x-button.compiled :uid="uniqid()" :title="__('pages/private/profile.16')" :url="app('App\Services\BladeServices')->getTelegramChangeEmailLink()" />
+        <div class="dark:text-[#666666] text-[0.8rem] font-normal text-[#acacac]">
             {{ __('pages/private/profile.15') }}
         </div>
     </div>
+
+
 </div>

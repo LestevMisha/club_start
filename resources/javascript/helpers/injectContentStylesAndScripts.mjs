@@ -1,15 +1,15 @@
 // Function to create and append a script
 const appendScript = (src, inlineContent) => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     if (src) {
         // Append a unique parameter to force re-fetching
         const uniqueSrc = `${src}?_=${new Date().getTime()}`;
         script.src = uniqueSrc;
 
         // Check if the script source ends with .mjs
-        if (src.endsWith('.mjs')) {
+        if (src.endsWith(".mjs")) {
             // Add any specific handling for .mjs files if needed
-            script.type = 'module'; // Set type to 'module' for ES modules
+            script.type = "module"; // Set type to 'module' for ES modules
         }
     } else {
         script.textContent = inlineContent;
@@ -19,12 +19,12 @@ const appendScript = (src, inlineContent) => {
 
 // Function to create and append a style
 const appendStyle = (href, inlineContent) => {
-    const style = document.createElement(href ? 'link' : 'style');
+    const style = document.createElement(href ? "link" : "style");
     if (href) {
         style.href = href;
-        style.type = 'text/css';
-        style.rel = 'stylesheet';
-        style.setAttribute('fetchpriority', 'low'); // Optional attribute for optimization
+        style.type = "text/css";
+        style.rel = "stylesheet";
+        style.setAttribute("fetchpriority", "low"); // Optional attribute for optimization
     } else {
         style.textContent = inlineContent;
     }
@@ -33,16 +33,16 @@ const appendStyle = (href, inlineContent) => {
 
 // loadHTMLAndExecuteScriptsAndStyles
 export default function injectContentStylesAndScripts(element, htmlString, replace = false) {
-    const container = document.createElement('div');
+    const container = document.createElement("div");
     container.innerHTML = htmlString;
 
     // Process script tags
-    const scripts = container.querySelectorAll('script');
+    const scripts = container.querySelectorAll("script");
     scripts.forEach(script => {
         const src = script.src || null;
         if (src) {
             const existingScript = document.querySelector(`script[src="${src}"]`);
-            if (existingScript) existingScript.remove(); // Remove existing script if found
+            if (existingScript) { existingScript.remove(); } // Remove existing script if found
         }
         appendScript(src, script.textContent);
         script.remove(); // Clean up
@@ -50,7 +50,7 @@ export default function injectContentStylesAndScripts(element, htmlString, repla
 
 
     // Process style tags
-    const styles = container.querySelectorAll('style, link');
+    const styles = container.querySelectorAll("style, link");
     styles.forEach(style => {
         const href = style.href || null;
         const existingStyle = document.querySelector(`link[rel='stylesheet'][href='${href}']`);

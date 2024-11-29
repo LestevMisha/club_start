@@ -5,17 +5,17 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 import renderBlockTime from "@helpers/renderBlockTime.mjs";
 
 (() => {
-    const cardCredentialsForms = document.querySelectorAll("card-credentials-form");
-    cardCredentialsForms.forEach(cardCredentialsForm => {
+    const xcardCredentialsForms = document.querySelectorAll("xcard-credentials-form");
+    xcardCredentialsForms.forEach(xcardCredentialsForm => {
 
         // Run only for newly initialized elements
-        if (cardCredentialsForm.getAttribute("data-js-initialized") !== "false") return;
-        cardCredentialsForm.setAttribute("data-js-initialized", true);
+        if (xcardCredentialsForm.getAttribute("data-js-initialized") !== "false") {return;}
+        xcardCredentialsForm.setAttribute("data-js-initialized", true);
 
 
-        const form = cardCredentialsForm.querySelector("form");
-        const modernLoader = cardCredentialsForm.querySelector("modern-loader");
-        const component = form.querySelector("modern-credit-card-input[data-attribute='card-number']");
+        const form = xcardCredentialsForm.querySelector("form");
+        const xloader = xcardCredentialsForm.querySelector("xloader");
+        const component = form.querySelector("xcredit-card-input[data-attribute='card-number']");
         const button = form.querySelector("#js-card-number-button");
 
         // Handle form submission
@@ -23,12 +23,12 @@ import renderBlockTime from "@helpers/renderBlockTime.mjs";
             event.preventDefault();
 
             // Activate loader
-            modernLoader.classList.add("active");
+            xloader.classList.add("active");
 
             try {
                 // reCAPTCHA verification
                 const captchaResponse = await verifyRecaptcha();
-                if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+                if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
                 // Prepare form data and API details
                 const formData = new FormData(form);
@@ -46,7 +46,7 @@ import renderBlockTime from "@helpers/renderBlockTime.mjs";
                 console.error("Form submission error:", error);
             } finally {
                 // Deactivate loader
-                modernLoader.classList.remove("active");
+                xloader.classList.remove("active");
             }
         });
 

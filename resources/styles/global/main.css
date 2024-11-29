@@ -48,13 +48,6 @@ ul {
     transition: all .225s ease-in-out;
 }
 
-.exclamation-point-icon {
-    display: block;
-    height: 1em;
-    width: 1em;
-    color: #e31c1c;
-}
-
 .checkcircle-icon {
     display: block;
     height: 1em;
@@ -69,7 +62,7 @@ audio {
 
 a {
     text-decoration: none;
-    color: var(--blue-1) !important;
+    color: var(--blue-1);
 }
 
 html {
@@ -257,35 +250,6 @@ input[type='checkbox'] {
     margin-top: 4.5em;
     padding: 1em !important;
     max-width: 1440px;
-}
-
-.side-container {
-    position: fixed;
-    left: 0;
-    max-width: 4.5rem;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: calc(1rem + 4.5rem);
-    padding-bottom: 2rem;
-    overflow: hidden;
-    overflow-y: visible !important;
-    z-index: 100;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-}
-
-.side-container::-webkit-scrollbar {
-    display: none;
-    /* Safari and Chrome */
-}
-
-
-.side-container.unfolded {
-    max-width: 15rem;
 }
 
 
@@ -1294,10 +1258,6 @@ body {
     margin-left: 3rem !important;
 }
 
-.ml-4 {
-    margin-left: 4rem !important;
-}
-
 .ml-5 {
     margin-left: 5rem !important;
 }
@@ -1406,13 +1366,13 @@ body {
     margin-bottom: 3rem !important;
 }
 
-.mb-4 {
+/* .mb-4 {
     margin-bottom: 4em !important;
 }
 
 .mb-4r {
     margin-bottom: 4rem !important;
-}
+} */
 
 .mb-5 {
     margin-bottom: 5em !important;
@@ -1469,11 +1429,6 @@ body {
 .mx-3 {
     margin-right: 3rem !important;
     margin-left: 3rem !important;
-}
-
-.mx-4 {
-    margin-right: 4rem !important;
-    margin-left: 4rem !important;
 }
 
 .mx-5 {
@@ -3052,12 +3007,12 @@ button {
     width: fit-content;
 }
 
-button:disabled {
+/* button:disabled {
     background-color: #666666 !important;
     color: #acacac !important;
     cursor: default !important;
     pointer-events: none !important;
-}
+} */
 
 /* tinkoff input */
 .modern-label {
@@ -3243,7 +3198,7 @@ input[type=number] {
 }
 
 
-.right-arrow-icon {
+.arrow-forward-icon {
     display: flex;
     background-color: var(--slightly-transparent);
     border-radius: .5em;
@@ -5065,7 +5020,6 @@ video::-webkit-media-controls-panel {
     .b-img.b-img_v6 {
         opacity: 0.3;
     }
-
 
     .flex.h.mob {
         flex-direction: column;

@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TODO */
+
+@layer base {
+	html {
+		scrollbar-color: #0d6efd #66666666;
+	}
+
+	@media (max-width: 1250px) {
+		.flex-row.mob {
+			width: 100%;
+			flex-direction: column;
+		}
+	}
+}
+
+@layer base {
+
+	.icon {
+		position: relative;
+		width: 0.75rem;
+		height: 0.75rem;
+		color: #ffffff66;
+		transition: all 0.225s ease-in-out;
+	}
+
+	/* sizes */
+	.icon.icon_2rem {
+		width: 2rem;
+		min-width: 2rem;
+		height: 2rem;
+		min-height: 2rem;
+	}
+
+	.icon.icon_2\.5rem {
+		width: 2.5rem;
+		min-width: 2.5rem;
+		height: 2.5rem;
+		min-height: 2.5rem;
+	}
+
+	/* paddings */
+	.icon.icon_p6 {
+		padding: 0.6rem;
+	}
+
+	.icon.icon_p7 {
+		padding: 0.7rem;
+	}
+
+	/* raduis */
+	.icon.icon_radius-0\.5rem {
+		border-radius: 0.5rem;
+	}
+
+	.icon.icon_radius-full {
+		border-radius: 9999px;
+	}
+
+	/* colors */
+	.icon.icon_grey {
+		background-color: #80808026;
+		color: #00000066;
+	}
+
+	.icon.icon_red {
+		color: #e31c1c;
+	}
+
+	body.dark .icon.icon_grey {
+		color: #ffffff66;
+		background-color: #80808026;
+	}
+
+	/* hovers */
+	.icon.icon_hover-v1:hover {
+		scale: 1.05 !important;
+		color: #ffffff !important;
+		background-color: #0d6efd !important;
+	}
+
+	.icon.icon_hover-v2:hover {
+		scale: 1.05 !important;
+		background-color: #80808059 !important;
+	}
+
+	.default-icon.circle-icon {
+		border-radius: 50%;
+	}
+
+	.default-icon.circle-icon:hover,
+	.default-icon.item-icon:hover {
+		background-color: #80808059;
+		scale: 1.02;
+	}
+
+	.component {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.cell {
+		position: relative !important;
+		padding: 1em !important;
+		inset: unset !important;
+		min-width: 255px;
+        background-color: #FFFFFF;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+		border-radius: 0.4em;
+	}
+
+    body.dark .cell {
+        background-color: #171717;
+    }
+
+	.emphasize {
+		background-image: linear-gradient(155deg, #E94094 10%, #FDBB6A 30%, #75C9C6 40%, #A0D081 50%, #5DC7DE 60%, #4357A4 79%, #E94094);
+		background-size: 100%;
+		background-repeat: repeat;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.emphasize.blue {
+		background-image: linear-gradient(135deg, #00ffbd, #0d6efd);
+	}
+
+	.emphasize.orange {
+		background-image: linear-gradient(155deg, #ee0979 50%, #ff6a00);
+	}
+
+	.emphasize.green {
+		background-image: linear-gradient(155deg, #09e3ee 50%, #00ff0c);
+	}
+}

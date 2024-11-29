@@ -4,12 +4,12 @@
 
     @if ($currentRoute !== 'public.index')
         @if ($telegramId)
-            <a href="{{ route('private.dashboard') }}" class="cr-button">
-                @svg('cross', 'reset-icon')
+            <a href="{{ route('private.dashboard') }}" class="icon icon_2.5rem icon_grey icon_p7 icon_radius-full icon_hover-v2">
+                @svg('close', 'w-full h-full')
             </a>
         @else
-            <a href="{{ route('public.index') }}" class="cr-button">
-                @svg('cross', 'reset-icon')
+            <a href="{{ route('public.index') }}" class="icon icon_2.5rem icon_grey icon_p7 icon_radius-full icon_hover-v2">
+                @svg('close', 'w-full h-full')
             </a>
         @endif
     @endif

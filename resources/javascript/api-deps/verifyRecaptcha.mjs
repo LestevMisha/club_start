@@ -3,14 +3,16 @@ import getReCAPTCHASiteKey from "../helpers/getReCAPTCHASiteKey.mjs";
 
 export default function verifyRecaptcha() {
     return new Promise((resolve, reject) => {
+        // eslint-disable-next-line no-undef
         grecaptcha.ready(() => {
 
             // Execute reCAPTCHA with 'submit' action
-            grecaptcha.execute(getReCAPTCHASiteKey(), { action: 'submit' })
+            // eslint-disable-next-line no-undef
+            grecaptcha.execute(getReCAPTCHASiteKey(), { action: "submit" })
                 .then(async (token) => {
                     try {
                         // Define reCAPTCHA verification URL and request payload
-                        const contentType = 'application/x-www-form-urlencoded';
+                        const contentType = "application/x-www-form-urlencoded";
                         const url = `${window.location.origin}/post/recaptacha/verify`;
 
                         // Perform fetch request for reCAPTCHA verification

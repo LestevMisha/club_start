@@ -1,9 +1,9 @@
 body.lightMode {
-    background-color: #f8f8f8 !important;
+    background-color: #f8f8f8;
 }
 
 body {
-    background-color: #0c0c0c !important;
+    background-color: #0c0c0c;
 }
 
 body.lightMode .ds-notice {

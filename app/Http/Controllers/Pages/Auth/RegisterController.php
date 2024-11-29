@@ -39,10 +39,6 @@ class RegisterController extends Controller
         $password = $request->get("password");
         // data for cookies
         $transaction_reffered_by_id = $request->cookie("transaction_reffered_by_id", "");
-        $transaction_recurring_payment_flag = $request->get("transaction-recurring-payment-flag", "");
-
-        // set cookie for auto payment
-        if ($transaction_recurring_payment_flag) Cookie::queue("transaction_recurring_payment_flag", ($transaction_recurring_payment_flag === "on") ? true : false, 60 * 24); // 24 hours
 
         // check processing
         $response = $this->action("name", $request);

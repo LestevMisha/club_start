@@ -3,7 +3,7 @@
 
         <div class="form-wrapper">
             <div class="form-body">
-                <x-modern-loader.compiled :uid="uniqid()" attribute="authenticate" size="2.5rem" borderRadius="2.5rem" />
+                <x-loader.compiled :uid="uniqid()" attribute="authenticate" size="2.5rem" borderRadius="2.5rem" />
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">
@@ -25,8 +25,8 @@
                             @csrf
                             <div class="flex v w100">
                                 <div class="flex v gap">
-                                    <x-modern-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
-                                    <x-modern-password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
+                                    <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
+                                    <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
 
                                     <button id="js-submit-button" class="submit-button" type="submit">{{ __('pages/auth/login.1') }}</button>
                                     <div class="flex h align gap_05">

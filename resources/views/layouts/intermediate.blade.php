@@ -7,10 +7,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="recaptcha-site-key" content="{{ config('services.google.recaptcha.site_key') }}" />
     <title>{{ $title ?? 'КЛУБ START' }}</title>
-    {{-- styles --}}
+    
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/authorization.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/main.css') }}">
     <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/styles/global/light-mode.css') }}">
+
+    {{-- styles --}}
+    @vite('resources/styles/uikit.css')
     @stack('components.styles')
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha.site_key') }}"></script>
 </head>

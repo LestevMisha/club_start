@@ -6,16 +6,16 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
 (() => {
     const updateImageForm = document.querySelector("#js-update-image-form");
-    const modernLoader = updateImageForm.querySelector("modern-loader");
-    const component = updateImageForm.querySelector("modern-submit-input");
-    const submitButton = component.querySelector("button[type='submit']");
+    const xloader = updateImageForm.querySelector("xloader");
+    const component = updateImageForm.querySelector("xsubmit-input");
+    const submitButton = component.querySelector(".js-button[type='submit']");
 
     // Handle form submission
     updateImageForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         // Activate loader
-        modernLoader.classList.add("active");
+        xloader.classList.add("active");
 
         try {
             // Prepare form data and API details
@@ -25,7 +25,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
 
             // Send form data
             const response = await postRequest(url, contentType, formData);
@@ -36,8 +36,40 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
         } catch (error) {
             console.error("Form submission error:", error);
         } finally {
-            modernLoader.classList.remove("active");
+            xloader.classList.remove("active");
         }
 
     });
+
+    const verifyEmailButton = document.querySelector("xbutton[data-attribute='emailVerify']");
+    const verifyEmailXloader = verifyEmailButton.querySelector("xloader");
+
+    // Handle form submission
+    verifyEmailButton.addEventListener("click", async () => {
+
+        // Activate loader
+        verifyEmailXloader.classList.add("active");
+        verifyEmailButton.classList.add("pointer-events-none");
+
+        try {
+            // Prepare form data and API details
+            const url = `${window.location.origin}/post/profile/verifyEmail`;
+            const contentType = "application/x-www-form-urlencoded";
+
+            // reCAPTCHA verification
+            const captchaResponse = await verifyRecaptcha();
+            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
+
+            // Send form data
+            const response = await postRequest(url, contentType);
+            if (response) {return injectContentStylesAndScripts(document.body, response?.backend?.message);}
+
+        } catch (error) {
+            console.error("Form submission error:", error);
+        } finally {
+            verifyEmailXloader.classList.remove("active");
+            verifyEmailButton.classList.remove("pointer-events-none");
+        }
+
+    });    
 })();

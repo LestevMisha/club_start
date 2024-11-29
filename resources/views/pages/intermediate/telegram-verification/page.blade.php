@@ -3,7 +3,7 @@
         <div class="form-wrapper">
             <div class="form-body">
 
-                <x-modern-loader.compiled :uid="uniqid()" attribute="telegram-verification" size="2.5rem" borderRadius="2.5rem" />
+                <x-loader.compiled :uid="uniqid()" attribute="telegram-verification" size="2.5rem" borderRadius="2.5rem" />
 
                 <div class="flex h space-btw mb-2">
                     <img class="b-img b-img_3em b-img_border-radius-100" src="{{ URL::asset('favicon.ico') }}" alt="logo">

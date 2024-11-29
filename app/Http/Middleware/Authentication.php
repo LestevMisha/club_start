@@ -40,7 +40,7 @@ class Authentication
                 6000,
                 "Регистрация оплата 6 000 руб.",
                 $request->cookie("transaction_referred_by_id", ""),
-                $request->cookie("transaction_recurring_payment_flag", 0),
+                true, // recurrent payment set to `true` be default (later can be changed in the settings)
                 auth()->user()->uuid,
                 $request->ip(),
                 "",
