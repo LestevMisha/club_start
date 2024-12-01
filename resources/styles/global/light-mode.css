@@ -104,8 +104,8 @@ body.lightMode .vignette.vignette_v1::before {
         inset -20px 18px 90px 20px #FFFFFF;
 }
 
-body.lightMode .b-section.b-section_v4 {
-    background-color: #f0f0f1;
+body.dark .b-section.b-section_v4 {
+    background-color: #171717;
 }
 
 body.lightMode .grad-block {
@@ -151,8 +151,8 @@ body.lightMode .b-img.b-img_open-book {
     background-color: #0000000f;
 }
 
-body.lightMode .b-section.b-section_v1 {
-    background: linear-gradient(97deg, #FFFFFF 60%, var(--blue-1) 100%);
+body.dark .b-section.b-section_v1 {
+    background: linear-gradient(97deg, #000 40%, var(--blue-1) 100%);
 }
 
 body.lightMode .b-text.b-text_v5 {
@@ -177,9 +177,8 @@ body.lightMode .modern-header .flex_blured.login_cst {
     background-color: #ffffff1f;
 }
 
-body.lightMode .b-section.b-section_v3 {
-    background: #f6f7f8;
-
+body.dark .b-section.b-section_v3 {
+    background: #0e0e0e;
 }
 
 body.lightMode .b-text.b-text_grey-dark_v1.reverse {
@@ -190,12 +189,12 @@ body.lightMode .b-text.b-text_blue {
     color: var(--blue-1) !important;
 }
 
-body.lightMode .b-section {
-    background-color: #FFFFFF;
+body.dark .b-section {
+    background-color: #000000;
 }
 
-body.lightMode .b-section.b-section_v5 {
-    background-color: #FFF;
+body.dark .b-section.b-section_v5 {
+    background-color: #000000;
 }
 
 body.lightMode .card {
@@ -220,24 +219,18 @@ body.lightMode .overlay {
     background-color: #ffffff;
 }
 
-body.lightMode .b-section.b-section_v2 {
-    background-color: #ffffff;
+body.dark .b-section.b-section_v2 {
+    background-color: #080808;
 }
 
-body.lightMode .b-section_doted {
-    background-image: radial-gradient(#e6e6e6 2px, transparent 2px);
+body.dark .b-section_doted {
+    background-image: radial-gradient(#191919 2px, transparent 2px);
     background-size: 32px 32px;
-    background-color: #ffffff;
+    background-color: #000000;
 }
 
 body.lightMode .laid_card {
     background-color: #FFFFFF;
-}
-
-body.lightMode .b-section_crosses {
-    background: radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 0% 0% / 64px 64px, radial-gradient(circle, transparent 20%, #f9f9f9 20%, #f9f9f9 80%, transparent 80%, transparent) 32px 32px / 64px 64px, linear-gradient(#f0f0f0 2px, transparent 2px) 0px -1px / 32px 32px, linear-gradient(90deg, #f0f0f0 2px, #f9f9f9 2px) -1px 0px / 32px 32px #f9f9f9;
-    background-size: 64px 64px, 64px 64px, 32px 32px, 32px 32px;
-    background-color: #f9f9f9;
 }
 
 ul.slick-dots li button {

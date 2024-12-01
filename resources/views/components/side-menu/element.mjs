@@ -15,7 +15,17 @@
         const closeFullscreen = xsideMenu.querySelector(`#js-${attribute}-close-fullscreen-button`);
         const input = xsideMenu.querySelector(`#js-${attribute}-input`);
 
-        input.addEventListener("click", () => {
+        const showDocsButton = document.querySelector("#js-show-docs");
+        const docsContent = document.querySelector("#js-docs-content");
+
+        showDocsButton.addEventListener("click", () => {
+            if (!xsideMenu.classList.contains("unfolded")) {handler();}           
+        });
+
+        input.addEventListener("click", handler);
+
+        // helper function
+        function handler() {
             xsideMenu.classList.toggle("unfolded");
             
             // Dynamically set style properties instead of using a non-existent class
@@ -23,6 +33,17 @@
             xsideMenuHeader.style.flexDirection = isUnfolded ? "row" : "column";
 
             setCurrentState(closeFullscreen.classList.contains("hidden"), openInFullButton, closeFullscreen);
+
+            // Dynamically close documents folder if opened
+            if (docsContent.classList.contains("!h-20")) {
+                docsContent.classList.toggle("!h-20");
+            }
+        }
+
+        showDocsButton.addEventListener("click", (e) => {
+            if (!docsContent.contains(e.target) && e.target !== docsContent) {
+                docsContent.classList.toggle("!h-20");
+            }
         });
 
         // Logout chain for the text
@@ -42,13 +63,4 @@
         icon1.classList[action]("hidden");
         icon2.classList[reverseAction]("hidden");
     };
-
-
-    const showDocsButton = document.querySelector("#js-show-docs");
-    const docsContent = document.querySelector("#js-docs-content");
-    showDocsButton.addEventListener("click", (e) => {
-        if (!docsContent.contains(e.target) && e.target !== docsContent) {
-            docsContent.classList.toggle("!h-20");
-        }
-    });
 })();
