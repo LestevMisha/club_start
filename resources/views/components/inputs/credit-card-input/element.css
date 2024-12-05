@@ -4,7 +4,7 @@
 
 .component .button button:not(:disabled) .icon {
 	color: #ffffff;
-	background-color: rgba(13, 110, 253, 0.8);
+	background-color: rgba(13, 110, 253, 0.9);
     cursor: pointer;
 }
 

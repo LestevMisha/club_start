@@ -4,7 +4,7 @@ import pluginJs from "@eslint/js";
 export default [
     {
         ...pluginJs.configs.recommended,  // Merge recommended rules here
-        files: ["resources/**/*.mjs"],
+        files: ["resources/**/*.mjs", "resources/**/*.js"],
         languageOptions: {
             globals: globals.browser  // Correct placement for globals
         },

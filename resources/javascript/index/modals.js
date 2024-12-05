@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     (() => {
         const modalContainer = document.querySelector(".modal-container");
 
-        document.querySelectorAll(".modal-button").forEach(button =>
+        document.querySelectorAll(".js-modal-button").forEach(button =>
             button.addEventListener("click", toggleModal.bind(null, true))
         );
 

@@ -1,1 +1,0 @@
-document.querySelectorAll("xmessage").forEach(t=>{if(t.getAttribute("data-js-initialized")!=="false")return;t.setAttribute("data-js-initialized",!0),t.classList.add("opacity-100","top-4");const e=parseInt(t.getAttribute("data-seconds"))*1e3,i=e-500;setTimeout(()=>{t.style.opacity=0},i),setTimeout(()=>{document.body.removeChild(t)},e)});

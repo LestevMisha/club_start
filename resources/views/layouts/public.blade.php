@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="overflow-x-hidden" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="recaptcha-site-key" content="{{ config('services.google.recaptcha.site_key') }}" />
     <title>{{ $title ?? 'КЛУБ START' }}</title>
     {{-- preload --}}
-    @yield('index-preload')
+    {{-- @yield('index-preload') --}}
     {{-- styles --}}
     @yield('index-styles')
     @yield('login-styles')
@@ -17,13 +17,19 @@
 
     <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha.site_key') }}"></script>
 
+    <style>
+        .grecaptcha-badge {
+            visibility: hidden !important;
+        }
+    </style>
+    
     {{-- styles --}}
     @vite('resources/styles/uikit.css')
     @stack('pages.public.styles')
     @stack('components.styles')
 </head>
 
-<body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }}">
+<body class="overflow-hidden {{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }}">
 
     @yield('content')
 
@@ -31,10 +37,12 @@
     @stack('pages.public.scripts')
     @stack('components.scripts')
 
+    
+    @yield('index-script')
+
     {{-- @yield('content')
 
 
-    @yield('index-script')
     @yield('forgot-password-script')
     @yield('card-credentials-script')
     @yield('reCAPTCHA-script')

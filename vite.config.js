@@ -27,10 +27,10 @@ export default defineConfig({
                 "resources/styles/index/modals.css",
 
                 // css
-                "resources/styles/global/authorization.css",
+                // "resources/styles/global/authorization.css",
                 "resources/styles/global/main.css",
                 "resources/styles/global/light-mode.css",
-                "resources/styles/global/user-panel.css",
+                // "resources/styles/global/user-panel.css",
                 "resources/styles/uikit.css",
                 "resources/styles/fonts.css",
 

@@ -73,3 +73,5 @@ optional arguments should be out in the end, and should be replaced by null (unl
 2. every component parent html class should have "coponent" class.
 3. every css component style should have first selector as ".component ".
 4. `js-validation` class has to be on each component that renders errors.
+5. tailwind renders every blade file inside `/resources` directory, any partials
+will have their styles since they're seen by the tailwind compiler.

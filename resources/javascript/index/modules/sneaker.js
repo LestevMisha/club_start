@@ -1,4 +1,4 @@
-import { Scene, PerspectiveCamera, WebGLRenderer, Clock, Group, AmbientLight, DirectionalLight } from '@three';
+import { Scene, PerspectiveCamera, WebGLRenderer, Clock, Group, AmbientLight, DirectionalLight, Box3, Vector3 } from '@three';
 import { OrbitControls } from '@three-jsm/controls/OrbitControls.js';
 import { GLTFLoader } from '@three-jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from '@three-jsm/postprocessing/EffectComposer.js';
@@ -7,15 +7,18 @@ import { FilmPass } from '@three-jsm/postprocessing/FilmPass.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // disable 3D model for mobile devices
+    if (window.screen.width < 1280) return;
+
     // GLOBAL
     let scene, camera, renderer, controls, gltfObject, clock;
-    const anchorElement = document.getElementById("anchor");
-    const loadingOverlay = document.getElementById("loadingOverlay");
+    const sneaker = document.getElementById("js-sneaker");
+    const lightSneaker = document.getElementById("js-light-sneaker");
 
     // init
     function init(lightColor1, lightIntensity1, lightColor2, lightIntensity2, lightColor3, lightIntensity3) {
         scene = new Scene();
-        camera = new PerspectiveCamera(75, anchorElement.getBoundingClientRect().width / anchorElement.getBoundingClientRect().height, 0.1, 1000);
+        camera = new PerspectiveCamera(75, sneaker.getBoundingClientRect().width / sneaker.getBoundingClientRect().height, 0.1, 1000);
         renderer = new WebGLRenderer({ antialias: true, alpha: true });
         controls = new OrbitControls(camera, renderer.domElement);
         clock = new Clock();
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // renderer settings
         renderer.setPixelRatio(window.devicePixelRatio); // Set the pixel ratio to match the device's
         renderer.setClearColor(0x000000, 0);
-        renderer.setSize(anchorElement.getBoundingClientRect().width, anchorElement.getBoundingClientRect().height);
+        renderer.setSize(sneaker.getBoundingClientRect().width, sneaker.getBoundingClientRect().height);
 
         // camera settings
         camera.position.set(0, 9, 0);
@@ -41,18 +44,36 @@ document.addEventListener("DOMContentLoaded", function () {
         const loader = new GLTFLoader().setPath('assets/3D-models/Nike/');
         loader.load('NikeAirMag-scene.gltf', function (gltf) {
             gltfObject = gltf.scene;
-            gltf.scene.scale.set(8.0, 8.0, 8.0);
-            gltf.scene.position.set(0, 0, 0);
-            gltfObject.position.z = -4;
-            pivot.rotateY(-2);
-
-            scene.add(pivot);
+        
+            // Scale the model
+            gltfObject.scale.set(10.0, 10.0, 10.0);
+        
+            // Compute bounding box to determine the center
+            const boundingBox = new Box3().setFromObject(gltfObject);
+            const center = new Vector3();
+            boundingBox.getCenter(center);
+        
+            // Offset the model by its center
+            gltfObject.position.set(-center.x, -center.y, -center.z);
+        
+            // Add the model to the pivot group
             pivot.add(gltfObject);
 
-            anchorElement.style.opacity = 1;
-            anchorElement.style.visibility = "visible";
-            loadingOverlay.style.visibility = "hidden"; // Hide the loading overlay
+            // customize position
+            pivot.position.y = -2;
+            pivot.rotateY(-2);
+        
+            // Add the pivot group to the scene
+            scene.add(pivot);
+        
+            // Show the sneaker and hide the loading overlay
+            sneaker.style.opacity = 1;
+            sneaker.style.visibility = "visible";
+            lightSneaker.remove();
         });
+        
+        
+        
         const light = new AmbientLight(lightColor1, lightIntensity1); // soft white light
         scene.add(light);
         const light2 = new AmbientLight(lightColor2, lightIntensity2); // soft white light
@@ -88,23 +109,23 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         composer.addPass(glitchPass);
 
-        anchorElement.appendChild(renderer.domElement);
+        sneaker.appendChild(renderer.domElement);
         renderer.setAnimationLoop(animate);
     }
 
     function onWindowResize() {
-        camera.aspect = anchorElement.getBoundingClientRect().width / anchorElement.getBoundingClientRect().height;
+        camera.aspect = sneaker.getBoundingClientRect().width / sneaker.getBoundingClientRect().height;
         camera.updateProjectionMatrix();
-        renderer.setSize(anchorElement.getBoundingClientRect().width, anchorElement.getBoundingClientRect().height);
+        renderer.setSize(sneaker.getBoundingClientRect().width, sneaker.getBoundingClientRect().height);
     }
 
     function respectiveMode(callback = null) {
-        anchorElement.style.opacity = 0;
+        sneaker.style.opacity = 0;
         setTimeout(function () {
             if (callback !== null) {
                 callback();
             }
-            if (document.body.classList.contains("lightMode") === true) {
+            if (document.body.classList.contains("dark") !== true) {
                 init(0x0d6efd, 1, 0xffffff, 3, 0x0d6efd, 10);
             } else {
                 init(0x0d6efd, 5, 0xffffff, 0.5, 0x0d6efd, 2.5);
@@ -117,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const themeSwitcher = document.getElementById("js-switch-theme-input");
     themeSwitcher.addEventListener("change", function () {
-        const canvasToRemove = anchorElement.querySelector("canvas");
+        const canvasToRemove = sneaker.querySelector("canvas");
         respectiveMode(function () {
-            anchorElement.removeChild(canvasToRemove);
+            sneaker.removeChild(canvasToRemove);
         });
     });
 

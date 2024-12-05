@@ -1,4 +1,4 @@
-console.log("✅ Developed by Ebenezer Team.");
+console.log("✅ Developed by Ebednezer Team. https://ebednezer.com");
 
 // keep scroll position when reloaded
 window.onbeforeunload = function (e) {

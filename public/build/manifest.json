@@ -86,7 +86,7 @@
     "src": "resources/icons/arrow-prev.svg"
   },
   "resources/javascript/global/main.js": {
-    "file": "assets/main-DV23kmLT.js",
+    "file": "assets/main-C3f59HVF.js",
     "name": "main",
     "src": "resources/javascript/global/main.js",
     "isEntry": true
@@ -98,31 +98,31 @@
     "isEntry": true
   },
   "resources/javascript/index/hooks.js": {
-    "file": "assets/hooks-fVbSyLqN.js",
+    "file": "assets/hooks-Dy828dRf.js",
     "name": "hooks",
     "src": "resources/javascript/index/hooks.js",
     "isEntry": true
   },
   "resources/javascript/index/modals.js": {
-    "file": "assets/modals-Cjmix8Yo.js",
+    "file": "assets/modals-DFcgQC_Y.js",
     "name": "modals",
     "src": "resources/javascript/index/modals.js",
     "isEntry": true
   },
   "resources/javascript/index/modules/sneaker.js": {
-    "file": "assets/sneaker-BDycNPPG.js",
+    "file": "assets/sneaker-CE4UFEzS.js",
     "name": "sneaker",
     "src": "resources/javascript/index/modules/sneaker.js",
     "isEntry": true
   },
   "resources/javascript/index/modules/swiper.js": {
-    "file": "assets/swiper-H6CbhjnU.js",
+    "file": "assets/swiper-DhV1h4vU.js",
     "name": "swiper",
     "src": "resources/javascript/index/modules/swiper.js",
     "isEntry": true
   },
   "resources/javascript/index/telegram-circle-video.js": {
-    "file": "assets/telegram-circle-video-C7xKB7pt.js",
+    "file": "assets/telegram-circle-video-BS5wA15g.js",
     "name": "telegram-circle-video",
     "src": "resources/javascript/index/telegram-circle-video.js",
     "isEntry": true
@@ -132,28 +132,18 @@
     "src": "resources/styles/fonts.css",
     "isEntry": true
   },
-  "resources/styles/global/authorization.css": {
-    "file": "assets/authorization-DYlHAR6J.css",
-    "src": "resources/styles/global/authorization.css",
-    "isEntry": true
-  },
   "resources/styles/global/light-mode.css": {
-    "file": "assets/light-mode-DlnCSWTW.css",
+    "file": "assets/light-mode-BqbWGCl0.css",
     "src": "resources/styles/global/light-mode.css",
     "isEntry": true
   },
   "resources/styles/global/main.css": {
-    "file": "assets/main-DpCm96xG.css",
+    "file": "assets/main-PfyLRfcU.css",
     "src": "resources/styles/global/main.css",
     "isEntry": true
   },
-  "resources/styles/global/user-panel.css": {
-    "file": "assets/user-panel-BhW2PPh2.css",
-    "src": "resources/styles/global/user-panel.css",
-    "isEntry": true
-  },
   "resources/styles/index/accordion.css": {
-    "file": "assets/accordion-B07gNX1Y.css",
+    "file": "assets/accordion-BUM1usYc.css",
     "src": "resources/styles/index/accordion.css",
     "isEntry": true
   },
@@ -163,7 +153,7 @@
     "isEntry": true
   },
   "resources/styles/index/swiper.css": {
-    "file": "assets/swiper-B1JAQ1lb.css",
+    "file": "assets/swiper-DvvNnbmY.css",
     "src": "resources/styles/index/swiper.css",
     "isEntry": true
   },
@@ -173,7 +163,7 @@
     "isEntry": true
   },
   "resources/styles/uikit.css": {
-    "file": "assets/uikit-BIbbWrcl.css",
+    "file": "assets/uikit-OVRqJnxb.css",
     "src": "resources/styles/uikit.css",
     "isEntry": true
   },
@@ -212,7 +202,7 @@
     "isEntry": true
   },
   "resources/views/components/inputs/copy-input/element.mjs": {
-    "file": "assets/element-BA-T4qVZ.js",
+    "file": "assets/element-DxlcX9LS.js",
     "name": "element",
     "src": "resources/views/components/inputs/copy-input/element.mjs",
     "isEntry": true,
@@ -221,7 +211,7 @@
     ]
   },
   "resources/views/components/inputs/credit-card-input/element.css": {
-    "file": "assets/element-TTRPi4Dc.css",
+    "file": "assets/element-CL1Lh9qN.css",
     "src": "resources/views/components/inputs/credit-card-input/element.css",
     "isEntry": true
   },
@@ -249,12 +239,12 @@
     "isEntry": true
   },
   "resources/views/components/loader/element.css": {
-    "file": "assets/element-BmbpxfOC.css",
+    "file": "assets/element-IjdODDH4.css",
     "src": "resources/views/components/loader/element.css",
     "isEntry": true
   },
   "resources/views/components/logout-button/element.mjs": {
-    "file": "assets/element-C02gzbO7.js",
+    "file": "assets/element-2mhqnEqO.js",
     "name": "element",
     "src": "resources/views/components/logout-button/element.mjs",
     "isEntry": true,
@@ -263,7 +253,7 @@
     ]
   },
   "resources/views/components/message/element.mjs": {
-    "file": "assets/element-LSTJrhhb.js",
+    "file": "assets/element-Cbr6tFBc.js",
     "name": "element",
     "src": "resources/views/components/message/element.mjs",
     "isEntry": true
@@ -285,7 +275,7 @@
     "isEntry": true
   },
   "resources/views/components/side-menu/element.mjs": {
-    "file": "assets/element-DMH1Er1W.js",
+    "file": "assets/element-Knh806bg.js",
     "name": "element",
     "src": "resources/views/components/side-menu/element.mjs",
     "isEntry": true

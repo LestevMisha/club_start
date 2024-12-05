@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const playCircles_1Atel = document.querySelectorAll('.MAIN__1Atel.video-container_1Atel');
+    const circles = document.querySelectorAll('.js-tg-circle');
 
-    playCircles_1Atel.forEach(playCircle => {
-        var video = playCircle.querySelector('.video_1Atel');
-        var circle = playCircle.querySelector('.circle_1Atel');
+    circles.forEach(circle => {
+        var video = circle.querySelector('.js-tg-video');
+        var circle = circle.querySelector('.js-tg-sub-circle');
         var prev = 0;
         var debouncer = true;
 
-        playCircle.addEventListener("click", function () {
+        circle.addEventListener("click", function () {
+            console.log("clicked");
             if (video.paused) {
                 video.play();
             } else {
