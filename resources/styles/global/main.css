@@ -1283,9 +1283,9 @@ body {
 	padding-bottom: 12em !important;
 }
 
-.mt-6 {
+/* .mt-6 {
 	margin-top: 6rem !important;
-}
+} */
 
 .mb-1r {
 	margin-bottom: 1rem !important;
@@ -1392,20 +1392,20 @@ body {
 	padding-left: 3rem !important;
 }
 
-.px-4 {
+/* .px-4 {
 	padding-right: 4rem !important;
 	padding-left: 4rem !important;
-}
+} */
 
 .px-5 {
 	padding-right: 5rem !important;
 	padding-left: 5rem !important;
 }
 
-.py-2 {
+/* .py-2 {
 	padding-top: 2em !important;
 	padding-bottom: 2em !important;
-}
+} */
 
 /* .py-3 {
 	padding-top: 3rem !important;
@@ -2358,21 +2358,21 @@ body.lightMode .universal-wrapper .universal-label {
 	color: #16d118;
 }
 
-.flex.gap_05 {
+/* .flex.gap_05 {
 	gap: 0.5em;
 }
 
 .flex.gap_2 {
 	gap: 2em;
-}
+} */
 
-.flex.gap_4 {
+/* .flex.gap_4 {
 	gap: 4em;
 }
 
 .flex.gap-2 {
 	gap: 2em;
-}
+} */
 
 .slight-bg.slight-bg_blured {
 	backdrop-filter: blur(1em);
@@ -2639,7 +2639,7 @@ table.transactions_table {
 	background: url(/resources/assets/images/min-gif/noise.gif);
 }
 
-.slider {
+/* .slider {
 	-webkit-appearance: none;
     appearance: none;
 	width: 100%;
@@ -2663,7 +2663,7 @@ table.transactions_table {
 	background-repeat: no-repeat;
 	border: none;
 	transition: .2s ease-in-out;
-}
+} */
 
 /* 
 .abs_container {
@@ -4114,13 +4114,13 @@ input[type=number] {
 	margin-left: 0.5em;
 	color: var(--blue-1);
 }
-/* 
+
 .qr-code-icon svg {
 	position: relative;
 	height: fit-content;
 	border: 0.225em solid #FFF;
 	border-radius: 0.225em;
-} */
+}
 
 .arrow-icon {
 	position: absolute;

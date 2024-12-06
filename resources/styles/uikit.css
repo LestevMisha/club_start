@@ -110,14 +110,14 @@
 		padding: 1em !important;
 		inset: unset !important;
 		min-width: 255px;
-        background-color: #FFFFFF;
+		background-color: #FFFFFF;
 		box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
 		border-radius: 0.4em;
 	}
 
-    body.dark .cell {
-        background-color: #171717;
-    }
+	body.dark .cell {
+		background-color: #171717;
+	}
 
 	.emphasize {
 		background-image: linear-gradient(155deg, #E94094 10%, #FDBB6A 30%, #75C9C6 40%, #A0D081 50%, #5DC7DE 60%, #4357A4 79%, #E94094);
@@ -140,16 +140,16 @@
 		background-image: linear-gradient(155deg, #09e3ee 50%, #00ff0c);
 	}
 
-    .noise {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 0;
-        opacity: 0.05;
-        background: url(/resources/assets/images/noise.gif);
-    }
+	.noise {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+		opacity: 0.05;
+		background: url(/resources/assets/images/noise.gif);
+	}
 
 	.noise-before::before {
 		position: absolute;
@@ -168,6 +168,20 @@
 
 	body.dark .noise-before {
 		background-color: #FFFFFF08;
+	}
+
+	.slider-thumb-sneaker::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		transform: translateY(-0.5rem) rotate(-22.5deg);
+		cursor: grab;
+		height: 2.5rem;
+		width: 5rem;
+		border: none;
+		background-image: url(/resources/assets/images/min-png/sneaker-main.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		transition: 0.2s ease-in-out;
 	}
 }
 

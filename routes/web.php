@@ -27,8 +27,7 @@ use App\Http\Controllers\Pages\Private\ProfileController;
 use App\Http\Controllers\Pages\Private\DashboardController;
 use App\Http\Controllers\Pages\Private\TransactionsController;
 use App\Http\Controllers\Pages\Auth\TelegramVerificationController;
-use App\Http\Controllers\Pages\Private\EmailVerificationController;
-use App\Http\Controllers\Pages\Public\DocumentsController;
+use App\Http\Controllers\Pages\Private\ReferralTransactionsController;
 use App\Http\Controllers\Pages\Public\PrivacyController;
 use App\Http\Controllers\Pages\Public\PublicOfferController;
 use App\Http\Controllers\Pages\Public\TermsController;
@@ -37,12 +36,11 @@ use App\Http\Controllers\Pages\Public\ResetPasswordController;
 use App\Http\Controllers\UsersTransactionsController;
 
 // make all redirections using https !IMPORTANT
-URL::forceScheme("https");
+// URL::forceScheme("https");
 
 /* +++++++++++++++++++ PAGES +++++++++++++++++++ */
 
 Route::get('/', IndexController::class)->name('public.index');
-Route::get('/documents', DocumentsController::class)->name('public.documents');
 Route::get("/forgot-password", ForgotPasswordController::class)->name("public.password.forgot");
 Route::get("/reset-password/{token}", ResetPasswordController::class)->name("password.reset");
 // docs
@@ -57,8 +55,7 @@ Route::middleware(Authentication::class)->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('private.dashboard');
     Route::get('/profile', ProfileController::class)->name('private.profile');
     Route::get('/transactions', TransactionsController::class)->name('private.transactions');
-    Route::get('/referral-transactions', TransactionsController::class)->name('private.referral.transactions');
-    Route::get('/email-verification', EmailVerificationController::class)->name('private.email.verification');
+    Route::get('/referral-transactions', ReferralTransactionsController::class)->name('private.referral.transactions');
 });
 
 

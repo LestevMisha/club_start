@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\UsersImages;
+use App\Services\UsersServices;
 use Illuminate\Support\Facades\Auth;
 
 class BladeServices
@@ -11,6 +12,7 @@ class BladeServices
     protected $user;
 
     public function __construct(
+        protected UsersServices $usersServices,
         protected UsersImages $usersImages,
         protected ModelServices $modelServices,
         protected TelegramServices $telegramServices,
@@ -54,5 +56,11 @@ class BladeServices
     public function getVisitorData()
     {
         return $this->modelServices->getVisitorData();
+    }
+
+    // get current amount of active/overall referred users
+    public function getReferredUsersData()
+    {
+        return $this->usersServices->checkUserReferrals();
     }
 }

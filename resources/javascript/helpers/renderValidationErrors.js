@@ -10,7 +10,6 @@ export default function renderValidationErrors(target, errorsObj = {}) {
         const label = modernInput.querySelector(".js-label");
         const input = modernInput.querySelector(".js-input");
         const errorLabel = modernInput.querySelector(".js-error-label");
-        console.log(label, input, errorLabel);
 
         if (error) {
             injectContentStylesAndScripts(errorLabel, error, true);

@@ -1,0 +1,1 @@
+console.log("✅ Developed by Ebednezer Team. https://ebednezer.com");window.onbeforeunload=function(o){localStorage.setItem("scrollpos",window.scrollY)};document.addEventListener("DOMContentLoaded",o=>{const e=localStorage.getItem("scrollpos");e&&window.scrollTo(0,e)});

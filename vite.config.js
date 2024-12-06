@@ -11,28 +11,27 @@ export default defineConfig({
         laravel({
             input: [
 
-                // js
-                "resources/javascript/global/main.js",
-                "resources/javascript/index/accordion.js",
-                "resources/javascript/index/hooks.js",
-                "resources/javascript/index/modules/swiper.js",
-                "resources/javascript/index/modules/sneaker.js",
-                "resources/javascript/index/telegram-circle-video.js",
-                "resources/javascript/index/modals.js",
+                // index js
+                "resources/views/pages/public/index/scripts/accordion.js",
+                "resources/views/pages/public/index/scripts/hooks.js",
+                "resources/views/pages/public/index/scripts/telegram-circle-video.js",
+                "resources/views/pages/public/index/scripts/modals.js",
+                "resources/views/pages/public/index/scripts/modules/sneaker.js",
+                "resources/views/pages/public/index/scripts/modules/swiper.js",
+                // index css
+                "resources/views/pages/public/index/styles/swiper.css",
+                "resources/views/pages/public/index/styles/modals.css",
 
-                // css
-                "resources/styles/index/accordion.css",
-                "resources/styles/index/swiper.css",
-                "resources/styles/index/telegram-circle-video.css",
-                "resources/styles/index/modals.css",
-
-                // css
-                // "resources/styles/global/authorization.css",
-                "resources/styles/global/main.css",
-                "resources/styles/global/light-mode.css",
-                // "resources/styles/global/user-panel.css",
+                // global css
                 "resources/styles/uikit.css",
                 "resources/styles/fonts.css",
+                // global js
+                "resources/javascript/main.js",
+
+                // delete soon
+                "resources/styles/global/main.css",
+                "resources/styles/global/light-mode.css",
+
 
                 // components
                 "resources/views/components/dashboard-header/element.css",

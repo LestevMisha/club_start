@@ -1,7 +1,7 @@
 <div class="grid" id="flexGridify" class="flexGridify flexGridify-init">
 
     <div class="grid-item">
-        <div class="mob cell flex h-full w-full flex-col">
+        <div class="cell flex h-full w-full flex-col">
             <div class="align-center mb-4 flex flex-row justify-between">
                 <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/dashboard.1') }}</div>
                 <div class="js-drag-handler">
@@ -36,7 +36,7 @@
 
 
     <div class="grid-item">
-        <div class="mob cell flex h-full w-full flex-col">
+        <div class="cell flex h-full w-full flex-col">
             @if (!app('App\Services\BladeServices')->hasCardVerification())
                 <div class="align-center mb-4 flex flex-row justify-between">
                     <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]">{{ __('pages/private/dashboard.8') }}</div>
@@ -80,7 +80,7 @@
 
     @if (app('App\Services\BladeServices')->hasCardVerification())
         <div class="grid-item">
-            <div class="mob cell flex h-full w-full flex-col">
+            <div class="cell flex h-full w-full flex-col">
                 <div class="align-center mb-4 flex flex-row justify-between">
                     <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]">{{ __('pages/private/dashboard.32') }}</div>
                     <div class="js-drag-handler">
@@ -88,13 +88,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <div class="h gap_05 mob flex">
-                        <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.30')" attribute="subscribers" value="0" color="green" />
-                        <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.31')" attribute="referred-partners" value="0" color="blue" />
-                        <a href="{{ route('private.referral.transactions') }}" class="ui-button">
-                            {{ __('pages/private/dashboard.29') }}
-                            @svg('arrow-forward', 'icon_grey icon_2rem icon_p6 icon_radius-0.5rem')
-                        </a>
+                    <div class="flex-col xl:flex-row gap-2 flex">
+                        <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.30')" attribute="subscribers" :value="$activeReferred" color="green" />
+                        <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/dashboard.31')" attribute="referred-partners" :value="$totalReferred" color="blue" />
+                        <x-button.compiled :uid="uniqid()" :title="__('pages/private/dashboard.29')" :url="route('private.referral.transactions')" />
                     </div>
                 </div>
             </div>
@@ -104,7 +101,7 @@
 
 
     <div id="js-chart-item" class="grid-item" data-locale="{{ app()->getLocale() }}" data-legend-label="{{ __('pages/private/dashboard.18') }}" data-visitor-data='{!! json_encode(app('App\Services\BladeServices')->getVisitorData(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}'>
-        <div class="mob cell flex h-full w-full flex-col">
+        <div class="cell flex h-full w-full flex-col">
             <div class="align-center mb-4 flex flex-row justify-between">
                 <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]">{{ __('pages/private/dashboard.11') }}</div>
                 <div class="js-drag-handler">
@@ -124,7 +121,7 @@
 
 
     <div class="grid-item">
-        <div class="mob cell flex h-full w-full flex-col">
+        <div class="cell flex h-full w-full flex-col">
             <div class="align-center mb-4 flex flex-row justify-between">
                 <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]">{{ __('pages/private/dashboard.12') }}</div>
                 <div class="js-drag-handler">
@@ -164,7 +161,7 @@
 
 
     <div class="grid-item">
-        <div class="mob cell flex h-full w-full flex-col">
+        <div class="cell flex h-full w-full flex-col">
             <div class="flex flex-col">
                 <div class="align-center mb-4 flex flex-row justify-between">
                     <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]">{{ __('pages/private/dashboard.24') }}</div>

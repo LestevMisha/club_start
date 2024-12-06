@@ -36,7 +36,7 @@
     <div class="dark:text-[#acacac] h-fit font-semibold text-[#666666]"> {{ __('pages/private/profile.7') }}</div>
     <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.17')" attribute="current-email" :value="auth()->user()->email" />
     <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.11')" attribute="email-verified" :value="__($isVerifiedLabel)" />
-    @if ($isVerified)
+    @if (!$isVerified)
         <div class="flex flex-col gap-2">
             <x-button.compiled :uid="uniqid()" attribute="emailVerify" :title="__('pages/private/profile.14')" />
             <div class="flex flex-row gap-1">

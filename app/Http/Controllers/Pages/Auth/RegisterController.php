@@ -38,7 +38,7 @@ class RegisterController extends Controller
         $email = $request->get("email");
         $password = $request->get("password");
         // data for cookies
-        $transaction_reffered_by_id = $request->cookie("transaction_reffered_by_id", "");
+        $transaction_referred_by_id = $request->cookie("transaction_referred_by_id", "");
 
         // check processing
         $response = $this->action("name", $request);
@@ -55,7 +55,7 @@ class RegisterController extends Controller
         } else return $this->_stepServices->getStep(3);
 
         // create a new user
-        $user = $this->usersServices->createUser($name, $email, $password, $transaction_reffered_by_id);
+        $user = $this->usersServices->createUser($name, $email, $password, $transaction_referred_by_id);
 
         // send verification letter
         event(new Registered($user));

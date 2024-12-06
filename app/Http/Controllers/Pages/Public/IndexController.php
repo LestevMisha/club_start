@@ -28,6 +28,6 @@ class IndexController extends Controller
 
 
 
-        return view("pages.public.index");
+        return view("pages.public.index.bundled");
     }
 }

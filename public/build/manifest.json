@@ -11,8 +11,8 @@
     "file": "assets/renderBlockTime-CAqihYew.js",
     "name": "renderBlockTime"
   },
-  "_renderValidationErrors-BvGcpzpq.js": {
-    "file": "assets/renderValidationErrors-BvGcpzpq.js",
+  "_renderValidationErrors-Bt-wEaES.js": {
+    "file": "assets/renderValidationErrors-Bt-wEaES.js",
     "name": "renderValidationErrors",
     "imports": [
       "_injectContentStylesAndScripts-Hbh6Pqhu.js"
@@ -85,46 +85,10 @@
     "file": "assets/arrow-prev-Cb7S_ilc.svg",
     "src": "resources/icons/arrow-prev.svg"
   },
-  "resources/javascript/global/main.js": {
-    "file": "assets/main-C3f59HVF.js",
+  "resources/javascript/main.js": {
+    "file": "assets/main-Cj4c2QEn.js",
     "name": "main",
-    "src": "resources/javascript/global/main.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/accordion.js": {
-    "file": "assets/accordion-DesKQQq8.js",
-    "name": "accordion",
-    "src": "resources/javascript/index/accordion.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/hooks.js": {
-    "file": "assets/hooks-Dy828dRf.js",
-    "name": "hooks",
-    "src": "resources/javascript/index/hooks.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/modals.js": {
-    "file": "assets/modals-DFcgQC_Y.js",
-    "name": "modals",
-    "src": "resources/javascript/index/modals.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/modules/sneaker.js": {
-    "file": "assets/sneaker-CE4UFEzS.js",
-    "name": "sneaker",
-    "src": "resources/javascript/index/modules/sneaker.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/modules/swiper.js": {
-    "file": "assets/swiper-DhV1h4vU.js",
-    "name": "swiper",
-    "src": "resources/javascript/index/modules/swiper.js",
-    "isEntry": true
-  },
-  "resources/javascript/index/telegram-circle-video.js": {
-    "file": "assets/telegram-circle-video-BS5wA15g.js",
-    "name": "telegram-circle-video",
-    "src": "resources/javascript/index/telegram-circle-video.js",
+    "src": "resources/javascript/main.js",
     "isEntry": true
   },
   "resources/styles/fonts.css": {
@@ -138,37 +102,17 @@
     "isEntry": true
   },
   "resources/styles/global/main.css": {
-    "file": "assets/main-PfyLRfcU.css",
+    "file": "assets/main-BwWqug1x.css",
     "src": "resources/styles/global/main.css",
     "isEntry": true
   },
-  "resources/styles/index/accordion.css": {
-    "file": "assets/accordion-BUM1usYc.css",
-    "src": "resources/styles/index/accordion.css",
-    "isEntry": true
-  },
-  "resources/styles/index/modals.css": {
-    "file": "assets/modals-C6ZgVIPp.css",
-    "src": "resources/styles/index/modals.css",
-    "isEntry": true
-  },
-  "resources/styles/index/swiper.css": {
-    "file": "assets/swiper-DvvNnbmY.css",
-    "src": "resources/styles/index/swiper.css",
-    "isEntry": true
-  },
-  "resources/styles/index/telegram-circle-video.css": {
-    "file": "assets/telegram-circle-video-Alcs8xTv.css",
-    "src": "resources/styles/index/telegram-circle-video.css",
-    "isEntry": true
-  },
   "resources/styles/uikit.css": {
-    "file": "assets/uikit-OVRqJnxb.css",
+    "file": "assets/uikit-CegNSk9t.css",
     "src": "resources/styles/uikit.css",
     "isEntry": true
   },
   "resources/views/components/card-credentials-form/element.mjs": {
-    "file": "assets/element-CmWRVsN-.js",
+    "file": "assets/element-SY9NjH0a.js",
     "name": "element",
     "src": "resources/views/components/card-credentials-form/element.mjs",
     "isEntry": true,
@@ -176,7 +120,7 @@
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_postRequest-CW2Znu5J.js",
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
-      "_renderValidationErrors-BvGcpzpq.js",
+      "_renderValidationErrors-Bt-wEaES.js",
       "_renderBlockTime-CAqihYew.js"
     ]
   },
@@ -290,7 +234,7 @@
     ]
   },
   "resources/views/pages/auth/login/page.mjs": {
-    "file": "assets/page-Crqb48kS.js",
+    "file": "assets/page-Dt0tGO1G.js",
     "name": "page",
     "src": "resources/views/pages/auth/login/page.mjs",
     "isEntry": true,
@@ -299,11 +243,11 @@
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
       "_postRequest-CW2Znu5J.js",
       "_renderBlockTime-CAqihYew.js",
-      "_renderValidationErrors-BvGcpzpq.js"
+      "_renderValidationErrors-Bt-wEaES.js"
     ]
   },
   "resources/views/pages/auth/register/page.mjs": {
-    "file": "assets/page-76Le0bL4.js",
+    "file": "assets/page-Bi0Dj75c.js",
     "name": "page",
     "src": "resources/views/pages/auth/register/page.mjs",
     "isEntry": true,
@@ -311,7 +255,7 @@
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_postRequest-CW2Znu5J.js",
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
-      "_renderValidationErrors-BvGcpzpq.js"
+      "_renderValidationErrors-Bt-wEaES.js"
     ]
   },
   "resources/views/pages/intermediate/telegram-verification/page.mjs": {
@@ -337,7 +281,7 @@
     "isEntry": true
   },
   "resources/views/pages/private/profile/page.mjs": {
-    "file": "assets/page-CCWmWj4V.js",
+    "file": "assets/page-DMPmRf8I.js",
     "name": "page",
     "src": "resources/views/pages/private/profile/page.mjs",
     "isEntry": true,
@@ -346,7 +290,7 @@
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
       "_postRequest-CW2Znu5J.js",
       "_renderBlockTime-CAqihYew.js",
-      "_renderValidationErrors-BvGcpzpq.js"
+      "_renderValidationErrors-Bt-wEaES.js"
     ]
   },
   "resources/views/pages/public/forgot-password/page.css": {
@@ -356,7 +300,7 @@
     "isEntry": true
   },
   "resources/views/pages/public/forgot-password/page.mjs": {
-    "file": "assets/page-BzNBH8tP.js",
+    "file": "assets/page-B6MNHrlI.js",
     "name": "page",
     "src": "resources/views/pages/public/forgot-password/page.mjs",
     "isEntry": true,
@@ -364,9 +308,55 @@
       "_renderBlockTime-CAqihYew.js",
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
-      "_renderValidationErrors-BvGcpzpq.js",
+      "_renderValidationErrors-Bt-wEaES.js",
       "_postRequest-CW2Znu5J.js"
     ]
+  },
+  "resources/views/pages/public/index/scripts/accordion.js": {
+    "file": "assets/accordion-DlRFrxqO.js",
+    "name": "accordion",
+    "src": "resources/views/pages/public/index/scripts/accordion.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/scripts/hooks.js": {
+    "file": "assets/hooks-jQZWpV0U.js",
+    "name": "hooks",
+    "src": "resources/views/pages/public/index/scripts/hooks.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/scripts/modals.js": {
+    "file": "assets/modals-DFcgQC_Y.js",
+    "name": "modals",
+    "src": "resources/views/pages/public/index/scripts/modals.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/scripts/modules/sneaker.js": {
+    "file": "assets/sneaker-CE4UFEzS.js",
+    "name": "sneaker",
+    "src": "resources/views/pages/public/index/scripts/modules/sneaker.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/scripts/modules/swiper.js": {
+    "file": "assets/swiper-k5x9r5ps.js",
+    "name": "swiper",
+    "src": "resources/views/pages/public/index/scripts/modules/swiper.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/scripts/telegram-circle-video.js": {
+    "file": "assets/telegram-circle-video-C43q64CJ.js",
+    "name": "telegram-circle-video",
+    "src": "resources/views/pages/public/index/scripts/telegram-circle-video.js",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/styles/modals.css": {
+    "file": "assets/modals-CE8olj0U.css",
+    "src": "resources/views/pages/public/index/styles/modals.css",
+    "isEntry": true
+  },
+  "resources/views/pages/public/index/styles/swiper.css": {
+    "file": "assets/swiper-CsC0D_PO.css",
+    "src": "resources/views/pages/public/index/styles/swiper.css",
+    "isEntry": true
   },
   "resources/views/pages/public/reset-password/page.css": {
     "file": "assets/page-DP2rzg_V.js",
@@ -375,14 +365,14 @@
     "isEntry": true
   },
   "resources/views/pages/public/reset-password/page.mjs": {
-    "file": "assets/page-B76OeIL9.js",
+    "file": "assets/page-CsRuQSJB.js",
     "name": "page",
     "src": "resources/views/pages/public/reset-password/page.mjs",
     "isEntry": true,
     "imports": [
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_injectContentStylesAndScripts-Hbh6Pqhu.js",
-      "_renderValidationErrors-BvGcpzpq.js",
+      "_renderValidationErrors-Bt-wEaES.js",
       "_postRequest-CW2Znu5J.js"
     ]
   }

@@ -52,7 +52,7 @@ class ModelServices
     {
         $user = User::where("referral_id", $referred_referral_id)?->first();
         if ($user) {
-            $user->increment('amount', $amount);
+            $user->increment('amount_earned', $amount);
         } else {
             // TODO
         }

@@ -17,12 +17,20 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+   
     protected $fillable = [
-        'name',
         'uuid',
-        'referral_id',
-        'referred_referral_id',
+        'days_left',
+        'withdrawal_notification_sent',
+        'amount_earned',
+        'name',
         'email',
+        'telegram_username',
+        'telegram_channel_exempted',
+        'telegram_channel_status',
+        'referred_by_id',
+        'referral_id',
+        'telegram_id',
         'password',
     ];
 
