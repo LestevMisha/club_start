@@ -1,320 +1,92 @@
-@extends('layouts.public')
-@section('content')
-    <section class="b-section b-section_visible b-section_v6 mt-12">
-        <div class="container container_v2 mob">
-            <div class="flex v gap_05">
-                <div class="flex v">
-                    <div class="mb-05">
-                        <div class="b-text b-text_2em b-text_700">Публичная оферта</div>
-                    </div>
-                    <div class="b-text b-text_grey modeLight_darker">Дата последнего обновления: <i>21 Октября 2024 года</i></div>
+@extends('sub-layouts.public')
+@section('sub-content')
+    <section class="relative bg-white p-0 py-8 !pt-32 dark:bg-black">
+        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+            <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-1">
+                    <div class="mb-1 text-[2rem] font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_3741662a2ebe06800431c8e440705a69') }}</div>
+                    <div class="text-base text-[#666666]">
+                        {{ __('pages/public/public-offer.key_3f70bceca226a19744f6233cd90c9091') }}<i>{{ __('pages/public/public-offer.key_d53bc929476b458fd6588e75e115716a') }}</i></div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="b-section pt-2 pb-12">
-        <div class="container container_v2 mob">
-
-            <div class="flex v gap w85 mob">
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    Индивидуальный предприниматель ИП Шкитов Даниил Алексеевич, зарегистрированный в реестре индивидуальных предпринимателей под № 322325600026496 (далее – «Администрация»), размещает
-                    настоящую публичную оферту в соответствии со ст. 435 и 437 Гражданского Кодекса Российской Федерации (далее – «Оферта») с предложением физическим и (или) юридическим лицам, действующим
-                    в лице представителя, заключить Договор на нижеследующих условиях:
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">1. Термины</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    1.1. В целях единого толкования и понимания, нижеприведенные термины используются в следующем значении:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    1.1.1. Акцепт публичной оферты – полное и безоговорочное принятие Пользователем условий настоящей публичной Оферты (далее – «Акцепт»).
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    1.1.2. Договор – возмездное соглашение между Администрацией и Пользователем, заключенное посредством Акцепта публичной Оферты (далее – «Договор» или «Оферта», в зависимости от
-                    контекста).
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    1.1.3. Пользователь – физическое лицо, заключившее с Администрацией Договор на условиях, содержащихся в настоящей публичной Оферте (далее – «Пользователь»).
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    1.1.4. Сервис – веб-сайт, расположенный в сети интернет по адресу https://klubstart.com/ (далее – «Сервис»).
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">2. Предмет договора и общие положения</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.1. В соответствии с настоящим Договором-Офертой Администрация обязуется оказать Пользователю информационные услуги. Во исполнение настоящего Договора Администрация обязуется
-                    предоставить доступ к онлайн-дашборду, доступ в закрытую группу в Telegram, персональную реферальную ссылку (смотрите пункт 9. Условия реферальной программы) и доступ к марафону (если полная сумма была оплачена) , оказывать иные услуги в соответствии с
-                    информацией, представленной в Сервисе.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.2. Пользователь получает доступ к Сервису через доступ к персональному аккаунту.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.3. Пользователь обязуется обновлять персональные данные, предоставленные при регистрации, в случае их изменения; обеспечивать сохранность персональных данных от доступа третьих лиц;
-                    не передавать в пользование свой персональный аккаунт и/или логин и пароль своего персонального аккаунта третьим лицам.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.4. Пользователь предоставляет Администрации Ф. И. О., адрес электронной почты, номер мобильного телефона, данные Telegram аккаунта для регистрации персонального аккаунта
-                    Пользователя.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.5. Пользователь на собственное усмотрение устанавливает логин и пароль персонального аккаунта. Выбирая пароль для персонального аккаунта, Пользователь самостоятельно обеспечивает его
-                    конфиденциальность и несет ответственность за его надежность (устойчивость к взлому).
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.6. Стороны не вправе ссылаться на незаключенность настоящего Договора при встречном предоставлении в порядке статьи 432 ГК РФ.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    2.7. Новая редакция Договора (Оферты) вступает в силу в день ее опубликования.
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">3. Акцепт оферты</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.1. Акцептом Договора-Оферты является факт оплаты Пользователем Договора; конклюдентные действия Пользователя или любое взаимодействие Пользователя с функционалом Сервиса в любом
-                    объеме, иное волеизъявление, исходя существа правоотношений Сторон.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.2. До Акцепта настоящей оферты Пользователь обязуется ознакомиться с ее содержанием. При наличии каких-либо сомнений в толковании условий настоящей Оферты Пользователь вправе до
-                    совершения Акцепта обратиться к Администрации с письменным запросом, в том числе посредством сети интернет, иным способом, исходя из существа правоотношений, в ином случае Пользователь
-                    не имеет права ссылаться на незнание Оферты, если иное не установлено императивными нормами законодательства РФ.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.3. Администрация вправе по своему усмотрению создавать, изменять или отменять условия настоящей Оферты, если иное не предусмотрено императивными нормами законодательства РФ.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.4. Совершая Акцепт, Пользователь подтверждает свою полную дееспособность. Акцепт не может считаться совершенным в случае, если совершен недееспособным лицом, а также лицом, не
-                    достигшим возраста 18 лет (исключая случай эмансипации). Риск совершения Акцепта недееспособным лицом или лицом, не достигшим совершеннолетия, лежит на законных представителях такого
-                    лица.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.5. Администрация сообщает, что данная Оферта действует совместно с Политикой конфиденциальности, принимая условия настоящей Оферты, Пользователь также ознакомился с условиями
-                    Политики конфиденциальности и безоговорочно принимает их в полном объеме.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.6. В случае если Политика конфиденциальности противоречит Оферте, приоритет следует отдавать условиям Оферты.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    3.7. Оплата Договора Пользователем производится посредством сервиса приема платежей (платежной системы) в соответствии с информацией, представленной на соответствующих страницах
-                    (разделах) Сервиса Администрации. Пользователь Акцептом настоящей Оферты подтверждает также, что ознакомился с офертой, политикой конфиденциальности и иными документами сервиса приема
-                    платежей (платежной системы).
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">4. Финансовые условия</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    4.1. Цена настоящего Договора равняется 6000 (шесть тысяч рублей ноль копеек) рублей за каждый календарный месяц.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    4.2. Дальнейший доступ к Сервису осуществляется на основании автоматического рекуррентного платежа в соответствии с условиями и информацией, указанной в Сервисе. Сумма автоматического
-                    рекуррентного платежа определяется и изменяется Администрацией в одностороннем порядке. Срок (интервалы) автоматического рекуррентного платежа определяется и изменяется Администрацией
-                    в одностороннем порядке
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    4.3. Моментом исполнения обязательства Пользователя по уплате денежных средств в пользу Администрации считается момент поступления денежных средств на расчетный счет Администрации.
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">5. Срок действия договора</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    5.1. Настоящий Договор вступает в силу с даты его Акцепта и заключен на неопределенный срок.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    5.2. Расторжение (прекращение действия) настоящего Договора означает, в том числе, прекращение действия всех приложений, дополнительных соглашений и иных документов к нему, если иное
-                    не предусмотрено в соответствующих приложениях и дополнительных соглашениях (иных документах) к Договору.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    5.3. Администрация вправе в одностороннем внесудебном порядке отказаться от Договора, уведомив Пользователя за 10 календарных дней до отказа. Договор считается прекращенным по
-                    истечении указанного срока (включительно).
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    5.4. Администрация вправе:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    5.4.1. Временно приостановить исполнение Договора по техническим, технологическим или иным причинам, препятствующим его исполнению, на время устранения таких причин.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    5.4.2. Приостановить исполнение Договора в одностороннем внесудебном порядке при нарушении Пользователем иных обязательств, принятых в соответствии с Офертой в порядке ст. 328 ГК РФ.
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">6. Ответственность сторон</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.1. Сторона, не исполнившая (равно – ненадлежащим образом исполнившая) обязательства по Договору, обязана возместить другой Стороне причиненные таким неисполнением убытки в полном
-                    объеме.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.2. Пользователь несет полную ответственность за:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    6.2.1. Соблюдение требований законодательства.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    6.2.2. Достоверность сведений, предоставляемых для исполнения Договора.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    6.2.3. Достоверность сведений, указанных при совершении Акцепта.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.3. Администрация не несет ответственности за:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    6.3.1. Какие-либо действия, являющиеся прямым или косвенным результатом действий Пользователя.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    6.3.2. Какие-либо убытки Пользователя вне зависимости от того, могла ли Администрация предвидеть возможность возникновения убытков, кроме прямых виновных действий.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.4. Вся информация предоставляется в исходном виде, без гарантий полноты или своевременности, без иных, явно выраженных или подразумеваемых гарантий. Доступ к Сервису, а также
-                    использование его содержимого осуществляются исключительно по усмотрению и под ответственность Пользователя.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.5. Пользователь осознает, что все материалы Сервиса или любая их часть могут сопровождаться рекламой. Пользователь согласен с тем, что Администрация не несет какой-либо
-                    ответственности и не имеет каких-либо обязательств в связи с такой рекламой.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.6. Ответственность Сторон по Договору ограничена ценой настоящего Договора, Сторона не вправе предъявить иной Стороне требование стоимостью свыше цены Договора (если иное не
-                    установлено императивными нормами законодательства Российской Федерации.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.7. Пользователь заверяет Администрацию о достоверности предоставляемой информации.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.8. Пользователь обязуется не использовать программное обеспечение (и иной код) для автоматизированного сбора информации и (или) взаимодействия с Сервисом, в ином случае Пользователь
-                    обязан возместить Администрации убытки, причиненные указанными действиями, в полном объеме.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    6.9. Пользователь при взаимодействии с Администрацией обязуется не распространять информацию, которая направлена на пропаганду войны, разжигание национальной, расовой или религиозной
-                    ненависти и вражды, а также иной информации, за распространение которой предусмотрена уголовная или административная ответственность.
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">7. Разрешение споров</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    7.1. Все споры и разногласия, которые могут возникнуть между сторонами по настоящему договору, будут разрешаться путем переговоров по законодательству Российской Федерации.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    7.2. Спорные вопросы, не урегулированные сторонами в досудебном порядке, подлежат разрешению в суде по следующим правилам подсудности:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    7.2.1. Спор, подведомственный арбитражному суду и относящийся к компетенции арбитражного суда, подлежит рассмотрению в арбитражном суде по месту нахождения Администрации.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    7.2.2. Спор, подведомственный суду общей юрисдикции и относящийся к компетенции суда общей юрисдикции, подлежит рассмотрению в суде общей юрисдикции
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">8. Заключительные положения</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    8.1. В случае признания недействительным какого-либо положения настоящего Договора, остальные его положения не утрачивают свою силу.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    8.2. Если иное прямо не предусмотрено Договором, ничто в Договоре не может пониматься как установление между Сторонами агентских отношений, отношений товарищества, отношений по
-                    совместной деятельности, отношений личного найма, либо каких-то иных отношений, прямо не предусмотренных Договором.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    8.3. Обо всех изменениях своего местонахождения или банковских реквизитов, а равно других обстоятельств, имеющих значение для надлежащего исполнения настоящего Договора, Стороны
-                    обязаны извещать друг друга незамедлительно.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    8.4. В случае изменения каких-либо сведений о Стороне в период действия настоящего Договора, такая Сторона обязуется уведомить об этом другую Сторону в течение 5 календарных дней, в
-                    противном случае, все связанные с отсутствием такого уведомления риски Сторона несет самостоятельно.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    8.5. Принимая настоящую Оферту, Стороны подтверждают, что:
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    8.5.1. ознакомились с Договором и им понятны значения используемых в Договоре терминов, слов и выражений согласно их нормативно-правовому определению или толкованию, указанному в
-                    Договоре;
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    8.5.2. заключают Договор добровольно и согласны с его условиями;
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em ml-1">
-                    8.5.3. имеют право на самостоятельное совершение сделки (в частности, заключение Договора) и действий, предусмотренных Договором.
-                </div>
-
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">9. Условия реферальной программы</div>
-
-
-
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    9.1. Пользователь, привлечший нового клиента на Сервис, получает вознаграждение в размере 50% от стоимости подписки, оплаченной данным клиентом.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    9.2. В случае, если привлеченный клиент продолжает оплачивать подписку ежемесячно, Пользователь получает дополнительное вознаграждение в размере 50% от каждого платежа данного клиента.
-                </div>
-                <div class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                    9.3. Администрация вправе проверять и подтверждать факт привлечения клиента через предоставленную реферальную ссылку. Вознаграждение выплачивается только при выполнении всех условий, указанных в настоящей Оферте.
-                </div>
-                
-
-
-                <div class="b-text b-text_1.5em b-text_700 ml-1 my-1">10. Реквизиты администрации</div>
-
-
-
+    <section class="relative bg-white py-8 dark:bg-black">
+        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+            <div class="flex w-full flex-col gap-4 xl:w-[85%]">
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_d1dc572281a4e3c1e5490e395b8ba4c4') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_80870472c695b6416a40770d74737f5b') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_25718270e01634ec1d003837dff3f673') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_3eb53eb21aad42a9bc43f5de74aba875') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_d539d4e9619aac55685d9bb8e3825b44') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_fac663ff0cf2af7e95dd198e112625b5') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_c7c9776192377ba19a52b38a63641e55') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_a16fb7c9c06852351f299477918014dd') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_53d6f4f298e234a20ad0be5b09ed3920') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_e1cdf08282f64de5e6796283e0d6de22') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_8b4fdbfc72833d86c6bbfcac2644c7f0') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_5809d0d35a95e0a384026f84cf79aae5') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2e64ff973293968bd4a14e08a08699b3') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_17708e3f7cf9432e0d712aa8bf75d2d6') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_c97b42bb0d55532d95bdbc7abafc2b8a') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_c476f8147bfe2b7e609d9e4366feb114') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_7ba27d7699ba32ec4f97ed742d98e9a3') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_bc37bb1839c07150118fb7cadf878ee6') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_bf4bae9b765f407cdbe74a6c8adaaff8') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_3cf4fe49eac0d8236afb9962e62bddac') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2b99a3c176d782b430228d91b07f28d2') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_ca84ea1f7ca69e71130910c52696d58f') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_a43b9299e42c36b67582396e458b615e') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_a2c4a72d00956e2adf37bfb823efaff8') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_bc28118a3bfbeb3947cc65112d169517') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_b49531b1d7432f8c1416dafac5327175') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_98824d8feade90616d0f743eae270ec4') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_75707921bd7c89eff861c43908adfebb') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_1aae3791d378352a30e73f589edeac5a') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_e65b075902384310f08d115b353b579b') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_7cc8dbb471b71b2784946526552ef4de') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_347cc79493accc82847ed04f6a167dea') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_6fd6625c5eb42c6394b24e57f3ef3db0') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_4607ece77184a36c30ac8040c80bb72e') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_ed09a9eae24aae0326f362cb9a7a3890') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_b53c02fb235ec2be86c7a4601fd7b462') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_82c8bdfbf14a991cba05b80559a2ccf3') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_b992b26a3758dd3a147899bde52c719f') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_1a0f746e5fdfad905de72bf1ec943ecd') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_376c6ab5ddb5d3571c1e37dd9d600213') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_33c9607ee3000c7e88845a1fe6357e7c') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_7b8631c829871f6ec791a34d08c3a3f3') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_af5fe207ddb7d805f47f08ed81c625d5') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_906dde0baafa8d3e4c70c4b5ce44128d') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_24b4d7cb1d0ebf5a22426d625301ff6a') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_0569861dba5b31b0af61329ef89c8aa6') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_786339411e5c3d2cd32b60edaf8a224f') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_3b39dd632500fdcbeb1ee44ccf65f198') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_ac49f56a568357820eec449a84256ea0') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_b2288341be810af22d60a8eadebc1a7f') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_ca03a00ef1b83cc2981e6abf7954205b') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_beee05fafa61bb6ad6a15e1c1264787a') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_fbc88cae5918d54342a22d2f74651748') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_e54ffe36a32c27c8e0ba27397fdda22c') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_f98475408a0a85e9389ac29b7eb9477e') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_6e6e727241cb032b5a7b1768e652809a') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_1d09558fd76aeb9255ef3ab4341c992b') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_964d603ef863724e3c846580e010eeb9') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_04e6c54192d36523aa0711b816ec3453') }}</div>
+                <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_64fcacea46676e96efdb904e20ded87a') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_afbc29aeca9df832f8e3f37ec8e785f9') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_371b392192ba2a0ae6a04a138ba14654') }}</div>
+                <div class="ml-1 text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_7b45faf76db8931c3f1e48da35af3996') }}</div>
+                <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_e124f5e82e05a799a1677fdc0e4cc608') }}</div>
                 <ul>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        ИП Шкитов Даниил Алексеевич
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        Адрес регистрации: 241000, Брянская обл, г Брянск
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        ОГРНИП 322325600026496, ИНН 325704482456
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        Банк укажите наименование банка, БИК 041501601, кор/счет 30101810400000000601
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        Расчётный счёт 40817810308007337829
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        Телефон: +79992211222
-                    </li>
-                    <li class="b-text b-text_grey modeLight_darker b-text_lh-1.5em">
-                        Адрес электронной почты danya.shkitov@bk.ru
-                    </li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_12fe566495f4578ab55234d1a3ff1dcc') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_c82bbf60bcfbefcaf1575930a55641af') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_244edfbefee683fac20d61ddb88a0228') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_71ae7d3eab0e7f568e09a12023901c48') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2067d3bd7810f392f80a9a96d2ceba30') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2e89a0556e17fc34d288a28bc053be4c') }}</li>
+                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_858d40593205d7d9a107dc84f109aa32') }}</li>
                 </ul>
-
-
             </div>
         </div>
     </section>

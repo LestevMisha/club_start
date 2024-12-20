@@ -18,7 +18,6 @@
                 <div class="dark:text-white relative mb-4 w-fit text-center text-4xl font-bold uppercase text-black xl:text-[2.5rem] leading-tight">
                     {{ __('pages/public/index.46') }}
                     <br class="hidden xl:block" />
-                    В КОТОРЫЙ
                     <span
                         class="text-nowrap dark:before:bg-[#0d6efd] relative !-z-[1] uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg]">
                         {{ __('pages/public/index.47') }}
@@ -53,20 +52,26 @@
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <div class="dark:text-white relative mb-4 text-center text-xl text-black">
-                                {!! __('Monthly subscription to<br /> "START CLUB"') !!}
+                            <div class="dark:text-white relative mb-4 text-center text-xl font-bold text-black">
+                                {{ __('pages/public/index.84') }}
+                                <br class="hidden xl:block" />
+                                {{ __('pages/public/index.85') }}
                             </div>
-                            <div class="dark:text-white relative mb-8 text-center text-[4rem] font-bold text-black">{{ __('6,000 ₽') }}</div>
+                            <div class="dark:text-white relative mb-8 text-center text-[4rem] font-bold text-black">
+                                6,000 ₽
+                            </div>
                             <a class="group relative mb-4 flex h-20 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#0d6efde6] text-xl text-white no-underline [transition:all_0.225s_ease-in-out] hover:scale-105 hover:bg-[#0d6efd]"
                                 href="{{ route('auth.register') }}">
-                                {{ __('Ready to start') }}
-                                <img class="absolute -bottom-7 -right-4 h-10 w-10 opacity-0 [transition:all_0.225s_ease-in-out] group-hover:-translate-x-4 group-hover:-translate-y-4 group-hover:opacity-100"
-                                    src="{{ URL::asset('assets/images/finger-click.png') }}" alt="finger-click">
+                                {{ __('pages/public/index.86') }}
+                                <img class="absolute -bottom-7 -right-4 h-12 w-12 opacity-0 [transition:all_0.225s_ease-in-out] group-hover:-translate-x-4 group-hover:-translate-y-4 group-hover:opacity-100"
+                                    src="{{ URL::asset('assets/images/min-webp/pointer.webp') }}" alt="finger-click">
                             </a>
                             <div class="relative text-center leading-none text-base text-[#acacac]">
-                                {!! __('By paying you accept the terms of the') !!}
+                                {{ __('pages/public/index.87') }}
                                 <br />
-                                <a class="underline" href="{{ route('public.public-offer') }}" target="_blank">{{ __('offer contract') }}</a>
+                                <a class="underline" href="{{ route('public.public-offer') }}" target="_blank">
+                                    {{ __('pages/public/index.88') }}
+                                </a>
                             </div>
                         </div>
                     </div>

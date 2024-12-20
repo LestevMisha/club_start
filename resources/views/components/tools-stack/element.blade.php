@@ -1,4 +1,4 @@
-<tools-stack class="{{ $class ?? 'flex h gap' }}" data-uid="{{ $uid }}">
+<tools-stack class="{{ $class ?? 'flex flex-row gap-4' }}" data-uid="{{ $uid }}">
     <x-theme-switcher.compiled :$uid attribute="switch-theme" />
     <x-language-switcher.compiled :$uid />
 
@@ -8,8 +8,8 @@
                 @svg('close', 'w-full h-full')
             </a>
         @else
-            <a href="{{ route('public.index') }}" class="icon icon_2.5rem icon_grey icon_p7 icon_radius-full icon_hover-v2">
-                @svg('close', 'w-full h-full')
+            <a href="{{ route('public.index') }}">
+                @svg('close', 'icon icon_2.5rem icon_grey icon_p7 icon_radius-full icon_hover-v2')
             </a>
         @endif
     @endif

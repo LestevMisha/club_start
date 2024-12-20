@@ -1,21 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
     (() => {
-        const modalContainer = document.querySelector(".modal-container");
+        const modalOuter = document.querySelector(".js-modal-outer");
 
-        document.querySelectorAll(".js-modal-button").forEach(button =>
-            button.addEventListener("click", toggleModal.bind(null, true))
-        );
+        document.querySelectorAll(".js-modal-button").forEach(button => {
+            button.addEventListener("click", () => {
+                toggleModal();
+                const content = button.querySelector(".js-modal-content");
+                const modalInner = modalOuter.querySelector(".js-modal-inner");
+                if (modalInner && content) {
+                    modalInner.innerHTML = content.innerHTML;
+                }
+            });
+        });
 
-        modalContainer.addEventListener("click", (event) => {
-            if (event.target.classList.contains("modal-background")) {
-                toggleModal(false);
+        modalOuter.addEventListener("click", (event) => {
+            if (event.target.classList.contains("js-modal-middle")) {
+                toggleModal();
             }
         });
 
-        function toggleModal(state) {
-            modalContainer.classList.toggle("active", state);
-            modalContainer.classList.toggle("inactive", !state);
-            document.querySelector("html").classList.toggle("modal-active", state);
+        document.querySelectorAll(".js-modal-close").forEach((modalClose) => {
+            modalClose.addEventListener("click", () => {
+                toggleModal();
+            });
+        });
+
+        function toggleModal() {
+            modalOuter.classList.toggle("hidden");
+            document.querySelector("html").classList.toggle("!overflow-hidden");
         }
     })();
 });

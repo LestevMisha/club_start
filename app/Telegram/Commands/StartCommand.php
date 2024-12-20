@@ -21,7 +21,22 @@ class StartCommand extends Command
         $user->telegram_username = $telegram_username;
         $user->save();
         // reply with the message
-        $this->replyWithMessage(['text' => $message, "parse_mode" => "MarkdownV2"]);
+        $this->replyWithMessage([
+            'text' => $message,
+            "parse_mode" => "MarkdownV2",
+            'reply_markup' => json_encode([
+                'inline_keyboard' => [
+                    [
+                        [
+                            'text' => 'Перейти на сайт', // Button text
+                            'url' => config('services.website.url') . '/dashboard' // URL for the button
+                        ]
+                    ]
+                ]
+            ])
+        ]);
+        
+        // $this->replyWithMessage(['text' => $message, "parse_mode" => "MarkdownV2"]);
     }
 
     public function handle()
@@ -110,37 +125,37 @@ class StartCommand extends Command
                         if ($request_chat_member->status === "creator") {
                             $userByUuid->telegram_channel_status = "creator";
                             $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ ⭐ Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь создателем канала.\nДля вас регистрация завершена, пожалуйста перейдите по этой ссылке " . config("services.website.url") . "/dashboard"));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ ⭐ Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь создателем канала.\n\n*Следуйщий Шаг* 👇👇👇"));
                             return;
                         };
                         if ($request_chat_member->status === "administrator") {
                             $userByUuid->telegram_channel_status = "administrator";
                             $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🌟 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим администратором канала.\nДля вас регистрация завершена, пожалуйста перейдите по этой ссылке " . config("services.website.url") . "/dashboard"));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🌟 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим администратором канала.\n\n*Следуйщий Шаг* 👇👇👇"));
                             return;
                         };
                         if ($request_chat_member->status === "member") {
                             $userByUuid->telegram_channel_status = "member";
                             $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\nДля вас регистрация завершена, пожалуйста перейдите по этой ссылке " . config("services.website.url") . "/dashboard"));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
                             return;
                         };
                         if ($request_chat_member->status === "restricted") {
                             $userByUuid->telegram_channel_status = "restricted";
                             $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим (restricted) участником канала.\nДля вас регистрация завершена, пожалуйста перейдите по этой ссылке " . config("services.website.url") . "/dashboard"));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
                             return;
                         };
                         // those who are not in the chat
                         if ($request_chat_member->status === "left") {
                             $userByUuid->telegram_channel_status = "left";
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
                             // throw new \Exception('User isn\'t exempted');
                             return;
                         };
                         if ($request_chat_member->status === "kicked") {
                             $userByUuid->telegram_channel_status = "kicked";
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылке" . config("services.website.url")));
+                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
                             // throw new \Exception('User isn\'t exempted');
                             return;
                         };
@@ -150,7 +165,7 @@ class StartCommand extends Command
                 }
 
                 // update user
-                $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ Приветствуем " . $telegram_user_full_name . "! Вы успешно зарегестрировались на оффициальном веб-сайте *Club Start*! Чтобы продолжить регистрацию, пожалуйста перейдите по этой ссылк " . config("services.website.url")));
+                $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ Приветствуем " . $telegram_user_full_name . "! Вы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
             } else if ($target === "information") {
                 if ($userByUuid->uuid === $userByTg?->uuid) {
                     $this->replyWithMessage(['text' => "✅" . $telegram_user_full_name . " " . file_get_contents(__DIR__ . "/messages/registerResponse.txt")]);
@@ -170,7 +185,7 @@ class StartCommand extends Command
             }
         } catch (\Exception $e) {
             // Check if user wasn't transferred, if so REPLY
-            $this->replyWithMessage(['text' => $telegramServices->markdownv2("Хотите стать участником *Клуба Start*? 😃 Подробнее здесь 👉" . " " . config("services.website.url")), "parse_mode" => "MarkdownV2"]);
+            $this->replyWithMessage(['text' => $telegramServices->markdownv2("Хотите стать участником *Клуба Start*? 😃 Подробнее здесь 👉" . " "), "parse_mode" => "MarkdownV2"]);
             return;
         }
     }

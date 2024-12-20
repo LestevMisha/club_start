@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const screenWidth = window.innerWidth;
 
         if (screenWidth < 1250) {
-            imgElement.src = "assets/images/dan-6.png";
+            imgElement.src = "assets/images/min-png/dan-fade.png";
         } else {
-            imgElement.src = "assets/images/dan-4.png";
+            imgElement.src = "assets/images/min-png/dan.png";
         }
     }
     // Initial check

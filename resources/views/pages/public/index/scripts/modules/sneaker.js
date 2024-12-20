@@ -1,14 +1,14 @@
-import { Scene, PerspectiveCamera, WebGLRenderer, Clock, Group, AmbientLight, DirectionalLight, Box3, Vector3 } from '@three';
-import { OrbitControls } from '@three-jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '@three-jsm/loaders/GLTFLoader.js';
-import { EffectComposer } from '@three-jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '@three-jsm/postprocessing/RenderPass.js';
-import { FilmPass } from '@three-jsm/postprocessing/FilmPass.js';
+import { Scene, PerspectiveCamera, WebGLRenderer, Clock, Group, AmbientLight, DirectionalLight, Box3, Vector3 } from "@three";
+import { OrbitControls } from "@three-jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "@three-jsm/loaders/GLTFLoader.js";
+import { EffectComposer } from "@three-jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "@three-jsm/postprocessing/RenderPass.js";
+import { FilmPass } from "@three-jsm/postprocessing/FilmPass.js";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
     // disable 3D model for mobile devices
-    if (window.screen.width < 1280) return;
+    // if (window.screen.width < 1280) {return;}
 
     // GLOBAL
     let scene, camera, renderer, controls, gltfObject, clock;
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
         controls.update();
 
         // elements
-        var pivot = new Group();
-        const loader = new GLTFLoader().setPath('assets/3D-models/Nike/');
-        loader.load('NikeAirMag-scene.gltf', function (gltf) {
+        const pivot = new Group();
+        const loader = new GLTFLoader().setPath("assets/3D-models/Nike/");
+        loader.load("NikeAirMag-scene.gltf", (gltf) => {
             gltfObject = gltf.scene;
         
             // Scale the model
@@ -61,14 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // customize position
             pivot.position.y = -2;
-            pivot.rotateY(-2);
+            pivot.rotateY(-1.5);
         
             // Add the pivot group to the scene
             scene.add(pivot);
         
             // Show the sneaker and hide the loading overlay
-            sneaker.style.opacity = 1;
-            sneaker.style.visibility = "visible";
+            setTimeout(() => {
+                sneaker.style.opacity = 1;
+                sneaker.style.visibility = "visible";
+            }, 225);
             lightSneaker.remove();
         });
         
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function respectiveMode(callback = null) {
         sneaker.style.opacity = 0;
-        setTimeout(function () {
+        setTimeout(() => {
             if (callback !== null) {
                 callback();
             }
@@ -137,9 +139,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", onWindowResize, false);
 
     const themeSwitcher = document.getElementById("js-switch-theme-input");
-    themeSwitcher.addEventListener("change", function () {
+    themeSwitcher.addEventListener("change", () => {
         const canvasToRemove = sneaker.querySelector("canvas");
-        respectiveMode(function () {
+        respectiveMode(() => {
             sneaker.removeChild(canvasToRemove);
         });
     });

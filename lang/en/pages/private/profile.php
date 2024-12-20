@@ -11,7 +11,7 @@ return [
     "6" => "Cancel subscription",
     "7" => "Email settings",
     "8" => "Password settings",
-    "9" => "Select the current image index that is currently used as your primary profile image.",
+    "9" => "Enter the number of the image you want to use from Telegram in this field and click \"Save\". The avatar will be updated automatically.",
     "11" => "Verification Status",
     "12" => "Verified",
     "13" => "Not verified",

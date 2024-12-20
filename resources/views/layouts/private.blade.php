@@ -31,6 +31,7 @@
     @yield('content')
 
     {{-- javascript --}}
+    <script src="{{ Vite::asset('resources/javascript/main.js') }}"></script>
     @stack('pages.private.scripts')
     @stack('components.scripts')
 

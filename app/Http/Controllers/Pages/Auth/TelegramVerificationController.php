@@ -6,6 +6,7 @@ use App\Services\ModelServices;
 use App\Services\TelegramServices;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\HtmlString;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TelegramVerificationController extends Controller
@@ -21,10 +22,15 @@ class TelegramVerificationController extends Controller
     /* +++++++++++++++++++ PUBLIC METHODS +++++++++++++++++++ */
 
     // generate unique QR code image
-    public function generateQRCode($url)
+    public function generateQRCode($url, $class = null): HtmlString|string
     {
-        return QrCode::generate($url);
+        $svg = QrCode::generate($url);
+        if ($class) {
+            $svg = new HtmlString(str_replace('<svg', "<svg class='$class'", $svg));
+        }
+        return $svg;
     }
+
 
     // link with user id for verification (example: t.me/bot_name?start=user_id)
     public function getTelegramVerificationLink()

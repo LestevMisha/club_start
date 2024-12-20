@@ -176,7 +176,7 @@
                 </div>
             </div>
             <a target="_blank" href="https://youtu.be/Vn0n9QbC4oI">
-                <img class="h-full w-full rounded-lg object-cover" src="{{ URL::asset('assets/images/min-jpeg/how-to-open-sneakers-shop.jpg') }}" alt="how-to-open-sneakers-shop">
+                <img class="h-full w-full rounded-lg object-cover" src="{{ URL::asset('assets/images/min-jpeg/how-to-open-sneakers-shop.jpeg') }}" alt="how-to-open-sneakers-shop">
             </a>
         </div>
     </div>

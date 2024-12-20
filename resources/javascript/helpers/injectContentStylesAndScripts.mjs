@@ -2,10 +2,7 @@
 const appendScript = (src, inlineContent) => {
     const script = document.createElement("script");
     if (src) {
-        // Append a unique parameter to force re-fetching
-        const uniqueSrc = `${src}?_=${new Date().getTime()}`;
-        script.src = uniqueSrc;
-
+        script.src = src;
         // Check if the script source ends with .mjs
         if (src.endsWith(".mjs")) {
             // Add any specific handling for .mjs files if needed

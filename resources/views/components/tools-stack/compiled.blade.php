@@ -1,6 +1,6 @@
 {{-- php prerequisites --}}
 @php
-    $currentRoute = Route::current()->getName();
+    $currentRoute = Route::current()?->getName();
     $telegramId = auth()->user()?->telegram_id;
 @endphp
 

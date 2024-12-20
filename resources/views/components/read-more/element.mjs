@@ -1,40 +1,69 @@
 (() => {
 
+    // Select the node that will be observed for mutations
+    const targetNode = document.body;
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: true };
+
+    // Callback function to execute when mutations are observed
+    const callback = (mutationList, observer) => {
+        for (const mutation of mutationList) {
+            const readMore = mutation.target.querySelector("read-more");
+            if (readMore) {
+                if (readMore.getAttribute("data-js-initialized") === "false") {
+                    readMore.setAttribute("data-js-initialized", true);
+                    initialize(readMore);
+                    console.log(readMore);
+                }
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+    // init
     const readMores = document.querySelectorAll("read-more");
     readMores.forEach((readMore) => {
-
         // Run only for newly initialized elements
         if (readMore.getAttribute("data-js-initialized") !== "false") {return;}
         readMore.setAttribute("data-js-initialized", true);
+        initialize(readMore);
+    });
 
+    // initizlize any read-more element
+    function initialize(element) {
 
-        // Config
-        const config = {
-            showChar: readMore.getAttribute("data-show-char"),
-            ellipsesText: readMore.getAttribute("data-ellipses-text"),
-            moreText: readMore.getAttribute("data-read-more"),
-            lessText: readMore.getAttribute("data-read-less"),
+        const elementConfig = {
+            showChar: element.getAttribute("data-show-char"),
+            ellipsesText: element.getAttribute("data-ellipses-text"),
+            moreText: element.getAttribute("data-read-more"),
+            lessText: element.getAttribute("data-read-less"),
         };
 
-        const textElement = readMore.querySelector(".more");
+        const textElement = element.querySelector(".more");
         const content = textElement.innerHTML;
 
-        if (content.length > config.showChar) {
+        if (content.length > elementConfig.showChar) {
             // Create the truncated and hidden content elements
-            const visibleContent = document.createTextNode(content.slice(0, config.showChar));
+            const visibleContent = document.createTextNode(content.slice(0, elementConfig.showChar));
             const hiddenContent = document.createElement("span");
             hiddenContent.classList = "morecontent active";
-            hiddenContent.innerHTML = content.slice(config.showChar);
+            hiddenContent.innerHTML = content.slice(elementConfig.showChar);
 
             // Create ellipses and link elements
             const ellipses = document.createElement("span");
             ellipses.classList = "moreellipses active";
-            ellipses.innerHTML = `${config.ellipsesText  }&nbsp;`;
+            ellipses.innerHTML = `${elementConfig.ellipsesText  }&nbsp;`;
 
             const moreLink = document.createElement("a");
             moreLink.classList.add("text-[#0d6efd]");
             moreLink.href = "#";
-            moreLink.innerHTML = config.moreText;
+            moreLink.innerHTML = elementConfig.moreText;
 
             // Append all elements dynamically
             textElement.innerHTML = ""; // Clear original content
@@ -46,13 +75,12 @@
             // Event delegation to handle clicks on "morelink" links
             moreLink.addEventListener("click", (event) => {
                 event.preventDefault();
-                moreLink.innerHTML = `&nbsp;${  moreLink.classList.contains("less") ? config.moreText : config.lessText}`;
+                moreLink.innerHTML = `&nbsp;${  moreLink.classList.contains("less") ? elementConfig.moreText : elementConfig.lessText}`;
                 moreLink.classList.toggle("less");
                 hiddenContent.classList.toggle("active");
                 ellipses.classList.toggle("active");
             });
         }
-    });
-
+    }
 
 })();

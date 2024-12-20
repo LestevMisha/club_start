@@ -3746,15 +3746,11 @@ input[type=number] {
 	height: auto;
 	min-height: 100vh;
     background-color: #f8f7f6;
-	background-image: url("/resources/assets/images/svg/img-case/Knight.svg");
+	background-image: url("/assets/images/svg/knight.svg");
 	background-repeat: no-repeat;
 	background-position: -40%;
 	background-size: 59% 90%;
 	padding: 6em 0;
-}
-
-.flex.v1.v1_v1 {
-	background-image: url("/resources/assets/images/svg/img-case/DebitCard.svg");
 }
 
 .flex.v2 {

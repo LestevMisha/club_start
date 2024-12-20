@@ -8,12 +8,12 @@
             <link rel="preload" fetchpriority="high" as="image" type="image/png" href="{{ URL::asset('assets/images/min-png/sneaker-in-motion.png') }}" />
             <link rel="preload" fetchpriority="high" as="image" type="image/png" href="{{ URL::asset('assets/images/min-png/shipping-box.png') }}" />
             <link rel="preload" fetchpriority="high" as="image" type="image/png" href="{{ URL::asset('assets/images/min-png/shipping-box-cut.png') }}" />
+            <link rel="preload" fetchpriority="high" as="image" type="image/png" href="{{ URL::asset('assets/images/min-png/hand.png') }}" />
         @endpush
 
         {{-- styles --}}
         @push('pages.public.styles')
             <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/pages/public/index/styles/swiper.css') }}">
-            <link fetchpriority="low" type="text/css" rel="stylesheet" href="{{ Vite::asset('resources/views/pages/public/index/styles/modals.css') }}">
         @endpush
 
         {{-- javascript --}}

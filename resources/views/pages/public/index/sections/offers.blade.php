@@ -1,5 +1,5 @@
 <section
-    class="dark:bg-black relative -top-16 m-0 -mb-16 h-full w-full overflow-visible bg-white p-0 py-32 !pb-64 [mask:radial-gradient(67.08px_at_50%_90px,#000_99%,#0000_101%)_calc(50%_-_60px)_0/_120px_100%_,_radial-gradient(67.08px_at_50%_calc(-60px),#0000_99%,#000_101%)_50%_30px/_120px_100%_repeat-x]">
+    class="dark:bg-black z-20 relative -top-16 m-0 -mb-16 h-full w-full overflow-visible bg-white p-0 py-32 !pb-40 [mask:radial-gradient(67.08px_at_50%_90px,#000_99%,#0000_101%)_calc(50%_-_60px)_0/_120px_100%_,_radial-gradient(67.08px_at_50%_calc(-60px),#0000_99%,#000_101%)_50%_30px/_120px_100%_repeat-x]">
     <div class="min-w-96 max-w-96 relative z-10 m-auto w-full pb-8 xl:max-w-[1200px]">
         <div class="mb-12 flex h-fit flex-col items-center justify-center">
             <div class="dark:text-white relative w-fit text-center text-[2.5rem] font-bold uppercase text-black">
@@ -123,8 +123,8 @@
                 <a class="group/button relative flex h-20 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#ffffffe6] text-xl text-black no-underline [transition:all_0.225s_ease-in-out] hover:scale-105 hover:bg-[#ffffff]"
                     href="{{ route('auth.register') }}">
                     {{ __('pages/public/index.6') }}
-                    <img class="absolute -bottom-7 -right-4 h-10 w-10 opacity-0 [transition:all_0.225s_ease-in-out] group-hover/button:-translate-x-4 group-hover/button:-translate-y-4 group-hover/button:opacity-100"
-                        src="{{ URL::asset('assets/images/finger-click.png') }}" alt="finger-click">
+                    <img class="absolute -bottom-7 -right-4 h-12 w-12 opacity-0 [transition:all_0.225s_ease-in-out] group-hover/button:-translate-x-4 group-hover/button:-translate-y-4 group-hover/button:opacity-100"
+                        src="{{ URL::asset('assets/images/min-webp/pointer.webp') }}" alt="finger-click">
                 </a>
                 <img src="{{ URL::asset('assets/images/min-png/thumb-up.png') }}"
                     class="absolute -left-14 -top-2 h-32 w-32 scale-x-[-1] opacity-0 [transition:all_0.225s_ease-in-out] [rotate:20deg] group-hover/card:opacity-100" alt="thumb-up" loading="lazy">

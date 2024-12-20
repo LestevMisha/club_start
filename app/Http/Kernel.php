@@ -14,24 +14,6 @@ class Kernel extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
-
-        // Middleware to minify CSS
-        // \Fahlisaputra\Minify\Middleware\MinifyCss::class,
-        // Middleware to minify Javascript
-        // \Fahlisaputra\Minify\Middleware\MinifyJavascript::class,
-        // Middleware to minify Blade
-        // \Fahlisaputra\Minify\Middleware\MinifyHtml::class,
-
-        // optimizations
-        \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
-        \RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
-        \RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
-        // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
-        // //\RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class, 
-        // //\RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
-        // \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class, // Note: This middleware invokes "RemoveComments::class" before it runs.
-        // \RenatoMarinho\LaravelPageSpeed\Middleware\DeferJavascript::class,
-
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -39,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\Localization::class,
     ];
 
     /**
@@ -56,7 +39,6 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             
             \App\Http\Middleware\CheckReferralId::class,
-            \App\Http\Middleware\Localization::class,
         ],
 
         'admin' => [

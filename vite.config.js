@@ -5,6 +5,7 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 export default defineConfig({
     server: {
         hmr: false,
+        // hmr: true,
     },
     plugins: [
         cssInjectedByJsPlugin({ relativeCSSInjection: true }),
@@ -20,11 +21,9 @@ export default defineConfig({
                 "resources/views/pages/public/index/scripts/modules/swiper.js",
                 // index css
                 "resources/views/pages/public/index/styles/swiper.css",
-                "resources/views/pages/public/index/styles/modals.css",
 
                 // global css
                 "resources/styles/uikit.css",
-                "resources/styles/fonts.css",
                 // global js
                 "resources/javascript/main.js",
 
@@ -71,6 +70,7 @@ export default defineConfig({
                 "resources/views/pages/public/reset-password/page.mjs",
             ],
             refresh: false,
+            transformOnServe: (code) => code.replaceAll('/assets', 'https://klub.com/assets'),
         }),
     ],
     resolve: {

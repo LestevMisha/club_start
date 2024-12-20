@@ -58,7 +58,7 @@
 	display: none;
 }
 
-.component .input:placeholder-shown ~ .button .icon {
+.component .input:placeholder-shown ~ .button {
 	display: none;
 }
 

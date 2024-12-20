@@ -23,7 +23,7 @@
 		position: relative;
 		width: 0.75rem;
 		height: 0.75rem;
-		color: #ffffff66;
+		/* color: #ffffff66; */
 		transition: all 0.225s ease-in-out;
 	}
 
@@ -66,6 +66,11 @@
 		color: #00000066;
 	}
 
+	body.dark .icon.icon_grey {
+		background-color: #00000026;
+		color: #ffffff66;
+	}
+
 	.icon.icon_red {
 		color: #e31c1c;
 	}
@@ -85,6 +90,10 @@
 	.icon.icon_hover-v2:hover {
 		scale: 1.05 !important;
 		background-color: #80808059 !important;
+	}
+
+	.icon.icon_hover-v3:hover {
+		scale: 1.05 !important;
 	}
 
 	.default-icon.circle-icon {
@@ -148,7 +157,7 @@
 		bottom: 0;
 		z-index: 0;
 		opacity: 0.05;
-		background: url(/resources/assets/images/noise.gif);
+		background: url("/assets/images/min-gif/noise.gif");
 	}
 
 	.noise-before::before {
@@ -159,11 +168,10 @@
 		height: 100%;
 		border-radius: 1em;
 		content: "";
-		/* you can control opacity of noise  */
 		opacity: .05;
-		z-index: 1000;
+		z-index: 100;
 		pointer-events: none;
-		background: url(/resources/assets/images/min-gif/noise.gif);
+		background: url("/assets/images/min-gif/noise.gif");
 	}
 
 	body.dark .noise-before {
@@ -178,10 +186,34 @@
 		height: 2.5rem;
 		width: 5rem;
 		border: none;
-		background-image: url(/resources/assets/images/min-png/sneaker-main.png);
+		background-image: url("/assets/images/min-png/sneaker-main.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		transition: 0.2s ease-in-out;
+	}
+
+	.bg-knight {
+		position: relative;
+		display: flex;
+		height: auto;
+		min-height: 100vh;
+		background-color: #f8f7f6;
+		background-image: url("/assets/images/svg/knight.svg");
+		background-repeat: no-repeat;
+		background-position: -40%;
+		background-size: 59% 90%;
+		padding: 6em 0;
+	}
+
+	body.dark .bg-knight {
+		background-color: #0e0e0e;
+	}
+
+	.QR-code svg {
+		position: relative;
+		height: fit-content;
+		border: 0.225rem solid #FFF;
+		border-radius: 0.225rem;
 	}
 }
 
@@ -189,4 +221,39 @@
 	html {
 		font-size: 10px;
 	}
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url("/assets/fonts/Gilroy-Light.woff2");
+	font-weight: 300;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url("/assets/fonts/Gilroy-Regular.woff2");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url("/assets/fonts/Gilroy-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url("/assets/fonts/Gilroy-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url("/assets/fonts/Gilroy-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-display: swap;
 }
