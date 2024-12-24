@@ -69,12 +69,12 @@
     "isEntry": true
   },
   "resources/styles/global/main.css": {
-    "file": "assets/main-CfbG4cwt.css",
+    "file": "assets/main-B2wfb8nJ.css",
     "src": "resources/styles/global/main.css",
     "isEntry": true
   },
   "resources/styles/uikit.css": {
-    "file": "assets/uikit-BPvT5BhO.css",
+    "file": "assets/uikit-B_gFyM2h.css",
     "src": "resources/styles/uikit.css",
     "isEntry": true
   },
@@ -298,7 +298,7 @@
     "isEntry": true
   },
   "resources/views/pages/public/index/scripts/modules/sneaker.js": {
-    "file": "assets/sneaker-BIluMUfo.js",
+    "file": "assets/sneaker-SxAuJYVo.js",
     "name": "sneaker",
     "src": "resources/views/pages/public/index/scripts/modules/sneaker.js",
     "isEntry": true

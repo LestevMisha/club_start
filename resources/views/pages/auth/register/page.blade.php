@@ -22,11 +22,7 @@
                             <div class="flex w-full flex-col gap-4" id="js-next-step">
                                 <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/register.3')" attribute="name" />
                             </div>
-                            <button id="js-submit-button" type="submit"
-                                class="group/button relative flex h-16 w-full cursor-pointer items-center justify-center rounded-lg bg-[#0d6efde6] text-base text-white [transition:all_0.225s_ease-in-out] hover:scale-[1.025] hover:bg-[#0d6efd]">
-                                {{ __('pages/auth/register.4') }}
-                                @svg('arrow-forward', 'w-4 h-4 ml-1 text-white group-hover/button:ml-2')
-                            </button>
+                            <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/auth/register.4')" iconName="arrow-forward" />
                             <x-consent.compiled :uid="uniqid()" class="text-base text-[#666666]" />
                         </div>
                     </form>

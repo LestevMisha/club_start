@@ -21,11 +21,7 @@
                         <div class="flex flex-col gap-4">
                             <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
                             <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
-                            <button id="js-submit-button" type="submit"
-                                class="group/button relative flex h-16 w-full cursor-pointer items-center justify-center rounded-lg bg-[#0d6efde6] text-base text-white [transition:all_0.225s_ease-in-out] hover:scale-[1.025] hover:bg-[#0d6efd]">
-                                {{ __('pages/auth/login.1') }}
-                                @svg('arrow-forward', 'w-4 h-4 ml-1 text-white group-hover/button:ml-2')
-                            </button>
+                            <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/auth/login.1')" iconName="arrow-forward" />
                             <div class="flex flex-row items-center gap-2">
                                 <input name="remember-me" type="checkbox" id="remember-me" checked>
                                 <label class="text-base leading-none text-[#666666]" for="remember-me">{{ __('pages/auth/login.5') }}</label>

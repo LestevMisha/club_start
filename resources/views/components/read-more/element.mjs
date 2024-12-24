@@ -9,12 +9,11 @@
     // Callback function to execute when mutations are observed
     const callback = (mutationList, observer) => {
         for (const mutation of mutationList) {
-            const readMore = mutation.target.querySelector("read-more");
-            if (readMore) {
-                if (readMore.getAttribute("data-js-initialized") === "false") {
-                    readMore.setAttribute("data-js-initialized", true);
-                    initialize(readMore);
-                    console.log(readMore);
+            const xreadMore = mutation.target.querySelector("xread-more");
+            if (xreadMore) {
+                if (xreadMore.getAttribute("data-js-initialized") === "false") {
+                    xreadMore.setAttribute("data-js-initialized", true);
+                    initialize(xreadMore);
                 }
             }
         }
@@ -27,12 +26,12 @@
     observer.observe(targetNode, config);
 
     // init
-    const readMores = document.querySelectorAll("read-more");
-    readMores.forEach((readMore) => {
+    const xreadMores = document.querySelectorAll("xread-more");
+    xreadMores.forEach((xreadMore) => {
         // Run only for newly initialized elements
-        if (readMore.getAttribute("data-js-initialized") !== "false") {return;}
-        readMore.setAttribute("data-js-initialized", true);
-        initialize(readMore);
+        if (xreadMore.getAttribute("data-js-initialized") !== "false") {return;}
+        xreadMore.setAttribute("data-js-initialized", true);
+        initialize(xreadMore);
     });
 
     // initizlize any read-more element
@@ -52,12 +51,12 @@
             // Create the truncated and hidden content elements
             const visibleContent = document.createTextNode(content.slice(0, elementConfig.showChar));
             const hiddenContent = document.createElement("span");
-            hiddenContent.classList = "morecontent active";
+            hiddenContent.classList = "inline hidden";
             hiddenContent.innerHTML = content.slice(elementConfig.showChar);
 
             // Create ellipses and link elements
             const ellipses = document.createElement("span");
-            ellipses.classList = "moreellipses active";
+            ellipses.classList = "hidden !inline";
             ellipses.innerHTML = `${elementConfig.ellipsesText  }&nbsp;`;
 
             const moreLink = document.createElement("a");
@@ -77,8 +76,8 @@
                 event.preventDefault();
                 moreLink.innerHTML = `&nbsp;${  moreLink.classList.contains("less") ? elementConfig.moreText : elementConfig.lessText}`;
                 moreLink.classList.toggle("less");
-                hiddenContent.classList.toggle("active");
-                ellipses.classList.toggle("active");
+                hiddenContent.classList.toggle("hidden");
+                ellipses.classList.toggle("!inline");
             });
         }
     }

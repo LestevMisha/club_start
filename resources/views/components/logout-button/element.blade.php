@@ -1,4 +1,4 @@
-<xlogout-button class="relative" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}" data-message="{{ __('components/logout-button.1') }}">
+<xlogout-button class="component relative" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}" data-message="{{ __('components/logout-button.1') }}">
     <x-loader.compiled :$uid :$attribute size="1.35rem" borderRadius="0.5rem" />
     <form class="flex flex-col">
         @csrf

@@ -8,13 +8,6 @@
 	html {
 		scrollbar-color: #0d6efd #66666666;
 	}
-
-	@media (max-width: 1250px) {
-		.flex-row.mob {
-			width: 100%;
-			flex-direction: column;
-		}
-	}
 }
 
 @layer base {

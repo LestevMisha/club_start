@@ -33,9 +33,7 @@ export default defineConfig({
 
 
                 // components
-                "resources/views/components/dashboard-header/element.css",
                 "resources/views/components/loader/element.css",
-                "resources/views/components/read-more/element.css",
                 "resources/views/components/countdown-circle/element.css",
                 "resources/views/components/side-menu/element.css",
                 "resources/views/components/theme-switcher/element.mjs",

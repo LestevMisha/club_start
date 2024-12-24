@@ -11,6 +11,6 @@
         </div>
 
         <x-inputs.credit-card-input.compiled :$uid :inscription="__('components/card-credentials-form.5')" attribute="card-number" />
-        <x-consent.compiled :$uid class="dark:text-[#666666] font-normal text-[#acacac]" consentClass="text-[0.8rem] font-normal" />
+        <x-consent.compiled :$uid class="font-normal text-[#acacac] dark:text-[#666666]" consentClass="text-[0.8rem] font-normal" />
     </form>
 </xcard-credentials-form>

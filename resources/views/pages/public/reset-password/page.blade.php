@@ -23,11 +23,7 @@
                         <div class="flex flex-col gap-4">
                             <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/public/reset-password.3')" attribute="password" />
                             <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/public/reset-password.4')" attribute="password_confirmation" />
-                            <button id="js-submit-button" type="submit"
-                                class="group/button relative flex h-16 w-full cursor-pointer items-center justify-center rounded-lg bg-[#0d6efde6] text-base text-white [transition:all_0.225s_ease-in-out] hover:scale-[1.025] hover:bg-[#0d6efd]">
-                                {{ __('pages/public/reset-password.5') }}
-                                @svg('arrow-forward', 'w-4 h-4 ml-1 text-white group-hover/button:ml-2')
-                            </button>
+                            <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/public/reset-password.5')" iconName="arrow-forward" />
                         </div>
                     </form>
                 </div>

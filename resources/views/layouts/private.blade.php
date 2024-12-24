@@ -20,7 +20,6 @@
     </style>
 
     {{-- styles --}}
-    @vite('resources/styles/fonts.css')
     @vite('resources/styles/uikit.css')
     @stack('pages.private.styles')
     @stack('components.styles')

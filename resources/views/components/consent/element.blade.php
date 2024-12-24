@@ -1,4 +1,4 @@
-<xconsent class="{{ $consentClass }}" data-uid="{{ $uid }}">
+<xconsent class="component {{ $consentClass }}" data-uid="{{ $uid }}">
     <div class="{{ $class }}">
         {{ __('components/consent.1') }}
         <u><a class="{{ $class }}" target="_blank" href="{{ route('public.privacy') }}">{{ __('components/consent.2') }}</a></u>
