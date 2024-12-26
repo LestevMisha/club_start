@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.inputs.input.element', ['uid' => $uid, 'attribute' => $attribute, 'inscription' => $inscription, 'value' => $value ?? ''])
+@include('components.inputs.input.element')
 
 @once
     {{-- styles --}}

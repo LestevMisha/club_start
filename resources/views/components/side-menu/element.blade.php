@@ -1,4 +1,4 @@
-<xside-menu class="component side-container" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
+<xside-menu {{ $attributes->merge(['class' => 'component side-container']) }} data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
     <div id="js-{{ $attribute }}-header" class="ml-4 flex h-fit w-fit flex-col items-center gap-4">
         <div class="icon icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2">
             @svg('open-in-full', 'w-full h-full text-[#7f7f7f]', ['id' => "js-$attribute-open-in-full-button"])

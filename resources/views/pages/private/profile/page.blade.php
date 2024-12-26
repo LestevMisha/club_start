@@ -41,7 +41,7 @@
             <x-button.compiled :uid="uniqid()" attribute="emailVerify" :title="__('pages/private/profile.14')" />
             <div class="flex flex-row gap-1">
                 <span class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">
-                    {{ __('pages/private/profile.20') }}
+                    {{ __('app.1') }}
                 </span>
                 <a class="text-[0.8rem] font-normal text-[#acacac] underline dark:text-[#666666]" href="https://mail.ru/" target="_blank">mail.ru</a>
                 <span class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">{{ __('pages/private/profile.24') }}</span>

@@ -1,4 +1,4 @@
-<x-message.compiled :uid="uniqid()" seconds="10">
+<x-message.compiled :uid="uniqid()">
     <x-read-more.compiled :uid="uniqid()">
         <div class="flex flex-row gap-2">
             @svg('exclamation-point', 'exclamation-point-icon')

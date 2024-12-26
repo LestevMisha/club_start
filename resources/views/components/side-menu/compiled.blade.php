@@ -4,7 +4,7 @@
 @endphp
 
 {{-- blade --}}
-@include('components.side-menu.element', ['uid' => $uid, 'attribute' => $attribute])
+@include('components.side-menu.element')
 
 @once
     {{-- styles --}}

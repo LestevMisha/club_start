@@ -5,4 +5,4 @@
 @endphp
 
 {{-- blade --}}
-@include('components.tools-stack.element', ['uid' => $uid])
+@include('components.tools-stack.element')

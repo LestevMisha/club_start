@@ -13,6 +13,7 @@
         "laravel-lang/locales": "^2.5",
         "laravel-validation-rules/credit-card": "^1.9",
         "laravel/framework": "^11.0",
+        "laravel/reverb": "^1.4",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "mishalestev/laravel-files-translator": "^1.0.1",

@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.field.element', ["uid" => $uid, 'attribute' => $attribute, 'inscription' => $inscription, 'value' => $value, 'class' => $class ?? '', 'color' => $color ?? 'blue'])
+@include('components.field.element')
 
 @once
     {{-- styles --}}

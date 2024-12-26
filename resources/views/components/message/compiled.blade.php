@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.message.element', ['uid' => $uid, 'seconds' => $seconds ?? 10])
+@include('components.message.element')
 
 @once
     {{-- javascript --}}

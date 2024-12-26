@@ -1,6 +1,6 @@
 <div class="bg-knight">
     <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
-        <div class="m-auto min-h-[384px] w-full max-w-[938px]">
+        <div class="m-auto w-full max-w-[938px]">
             <div class="relative flex h-fit w-full flex-col overflow-visible rounded-3xl bg-white p-8 dark:bg-black">
                 <x-loader.compiled :uid="uniqid()" attribute="telegram-verification" size="2.5rem" borderRadius="2.5rem" />
                 <div class="mb-8 flex flex-row justify-between">

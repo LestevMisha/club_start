@@ -35,7 +35,7 @@ class StartCommand extends Command
                 ]
             ])
         ]);
-        
+
         // $this->replyWithMessage(['text' => $message, "parse_mode" => "MarkdownV2"]);
     }
 
@@ -168,7 +168,8 @@ class StartCommand extends Command
                 $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ Приветствуем " . $telegram_user_full_name . "! Вы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
             } else if ($target === "information") {
                 if ($userByUuid->uuid === $userByTg?->uuid) {
-                    $this->replyWithMessage(['text' => "✅" . $telegram_user_full_name . " " . file_get_contents(__DIR__ . "/messages/registerResponse.txt")]);
+                    $this->replyWithMessage(['text' => "✅" . " " . $telegram_user_full_name . " " . file_get_contents(__DIR__ . "/messages/information-part-1.txt")]);
+                    $this->replyWithMessage(['text' => file_get_contents(__DIR__ . "/messages/information-part-2.txt")]);
                     return;
                 } else {
                     $this->replyWithMessage(['text' => $telegramServices->markdownv2("❌ Выберите правильный телеграм аккаунт (если их несколько) и попробуйте еще раз.\n__Данный телеграм аккаунт__ не соответствует __start-аккаунту__ с которого вы запросили команду."), "parse_mode" => "MarkdownV2"]);

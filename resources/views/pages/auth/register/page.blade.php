@@ -1,6 +1,6 @@
 <div class="bg-knight">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
-        <div class="m-auto min-h-[384px] w-full max-w-[938px]">
+    <div class="relative z-10 m-auto w-full min-w-96 max-w-96 xl:max-w-[1200px]">
+        <div class="m-auto w-full max-w-[938px]">
             <div class="relative flex h-fit w-full flex-col overflow-hidden rounded-3xl bg-white p-8 dark:bg-black">
                 <x-loader.compiled :uid="uniqid()" attribute="store" size="2.5rem" borderRadius="2.5rem" />
                 <div class="mb-8 flex flex-row justify-between">
@@ -23,7 +23,7 @@
                                 <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/register.3')" attribute="name" />
                             </div>
                             <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/auth/register.4')" iconName="arrow-forward" />
-                            <x-consent.compiled :uid="uniqid()" class="text-base text-[#666666]" />
+                            <x-consent.compiled :uid="uniqid()" aclass="text-base text-[#666666]" />
                         </div>
                     </form>
                 </div>

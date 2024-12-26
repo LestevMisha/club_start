@@ -1,4 +1,4 @@
-<xcredit-card-input class="component" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
+<xcredit-card-input {{ $attributes->merge(['class' => 'component relative w-full']) }} data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
     <input id="js-{{ $attribute }}-input" class="input js-input" maxlength="19" minlength="19" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off" spellcheck="false"
         inputmode="{{ $attribute }}" name="{{ $attribute }}" placeholder="" value="{{ $value ?? old($attribute) }}" required>
     <span id="js-{{ $attribute }}-label" class="label js-label">

@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.loader.element', ['uid' => $uid, 'attribute' => $attribute, 'size' => $size ?? "2.5rem", 'borderRadius' => $borderRadius ?? "0"])
+@include('components.loader.element')
 
 @once
     {{-- styles --}}

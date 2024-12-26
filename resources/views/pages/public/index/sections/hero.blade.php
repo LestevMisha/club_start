@@ -25,8 +25,8 @@
                         <img class="absolute -bottom-7 -right-4 h-12 w-12 opacity-0 [transition:all_0.225s_ease-in-out] group-hover:-translate-x-4 group-hover:-translate-y-4 group-hover:opacity-100"
                             src="{{ URL::asset('assets/images/min-webp/pointer.webp') }}" alt="finger-click">
                     </a>
-                    <div class="flex flex-row gap-4 items-center">
-                        <img src="{{ URL::asset('assets/images/min-png/hand.png') }}" class="w-16 h-16 xl:-scale-x-100 xl:-rotate-90" alt="hand">
+                    <div class="flex flex-row gap-2 items-center">
+                        <img src="{{ URL::asset('assets/images/min-png/box.png') }}" class="w-16 h-16" alt="box">
                         <div class="text-nowrap text-font-light relative text-[#666666] dark:text-[#acacac]">
                             {{ __('pages/public/index.7') }}
                             <br />
@@ -36,12 +36,12 @@
                 </div>
             </div>
             <div class="min-h-64 relative flex h-64 w-full flex-col xl:h-auto xl:w-[30%]">
-                <div id="js-sneaker" class="invisible absolute w-80 h-80 bottom-[5%] left-[10%] xl:-bottom-[40%] xl:left-0 z-10 xl:h-[35rem] xl:w-[35rem] translate-y-0 cursor-grab [transition:all_0.225s_ease-in-out]"></div>
+                <div id="js-sneaker" class="invisible absolute w-80 h-80 bottom-[5%] left-[10%] xl:-bottom-[20%] xl:-left-[20%] z-10 xl:h-[35rem] xl:w-[35rem] translate-y-0 cursor-grab [transition:all_0.225s_ease-in-out]"></div>
                 <img id="js-light-sneaker" class="animate-levitation pointer-events-none visible absolute right-20 top-20 z-10 h-auto w-60 rotate-45 scale-x-100 xl:top-28 xl:w-96 xl:rotate-[34deg]"
                     src="{{ URL::asset('assets/images/min-png/sneaker-in-motion.png') }}" alt="sneaker-in-motion">
-                <img class="pointer-events-none absolute -top-8 bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 select-none overflow-visible [rotate:-22.5deg] sm:top-[unset] xl:-bottom-[70%] xl:left-[17%] xl:h-[30rem] xl:!min-h-[30rem] xl:w-[30rem] xl:!min-w-[30rem] xl:translate-x-0"
+                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:!min-h-[34rem] xl:w-[34rem] xl:!min-w-[34rem] xl:translate-x-0"
                     src="{{ URL::asset('assets/images/min-png/shipping-box.png') }}" alt="shipping-box">
-                <img class="pointer-events-none absolute -top-8 bottom-0 left-1/2 z-20 h-72 w-72 -translate-x-1/2 select-none overflow-visible [rotate:-22.5deg] sm:top-[unset] xl:-bottom-[70%] xl:left-[17%] xl:h-[30rem] xl:!min-h-[30rem] xl:w-[30rem] xl:!min-w-[30rem] xl:translate-x-0"
+                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 z-20 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:!min-h-[34rem] xl:w-[34rem] xl:!min-w-[34rem] xl:translate-x-0"
                     src="{{ URL::asset('assets/images/min-png/shipping-box-cut.png') }}" alt="shipping-box-cut">
             </div>
         </div>

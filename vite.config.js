@@ -25,7 +25,7 @@ export default defineConfig({
                 // global css
                 "resources/styles/uikit.css",
                 // global js
-                "resources/javascript/main.js",
+                "resources/javascript/main.mjs",
 
                 // delete soon
                 "resources/styles/global/main.css",
@@ -34,14 +34,12 @@ export default defineConfig({
 
                 // components
                 "resources/views/components/loader/element.css",
-                "resources/views/components/countdown-circle/element.css",
                 "resources/views/components/side-menu/element.css",
                 "resources/views/components/theme-switcher/element.mjs",
                 "resources/views/components/card-credentials-form/element.mjs",
                 "resources/views/components/side-menu/element.mjs",
                 "resources/views/components/logout-button/element.mjs",
                 "resources/views/components/read-more/element.mjs",
-                "resources/views/components/countdown-circle/element.mjs",
                 "resources/views/components/message/element.mjs",
 
                 /* --- INPUTS --- */

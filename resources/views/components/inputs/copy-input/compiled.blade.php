@@ -1,11 +1,5 @@
 {{-- blade --}}
-@include('components.inputs.copy-input.element', [
-    'uid' => $uid,
-    'attribute' => $attribute,
-    'inscription' => $inscription,
-    'value' => $value,
-    'color' => $color ?? 'blue',
-])
+@include('components.inputs.copy-input.element')
 
 @once
     {{-- styles --}}

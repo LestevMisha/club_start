@@ -1,2 +1,2 @@
 {{-- blade --}}
-@include('components.language-switcher.element', ["uid" => $uid])
+@include('components.language-switcher.element')

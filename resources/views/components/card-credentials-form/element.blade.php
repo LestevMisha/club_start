@@ -1,4 +1,4 @@
-<xcard-credentials-form class="component" data-uid="{{ $uid }}" data-js-initialized="false">
+<xcard-credentials-form {{ $attributes->merge(['class' => 'component']) }} data-uid="{{ $uid }}" data-js-initialized="false">
     <form class="flex flex-col gap-2">
         @csrf
         <div class="mob flex flex-row gap-2">
@@ -11,6 +11,6 @@
         </div>
 
         <x-inputs.credit-card-input.compiled :$uid :inscription="__('components/card-credentials-form.5')" attribute="card-number" />
-        <x-consent.compiled :$uid class="font-normal text-[#acacac] dark:text-[#666666]" consentClass="text-[0.8rem] font-normal" />
+        <x-consent.compiled :$uid aclass="font-normal text-[#acacac] dark:text-[#666666]" class="text-[0.8rem] font-normal" />
     </form>
 </xcard-credentials-form>

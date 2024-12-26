@@ -1,2 +1,2 @@
 {{--  blade --}}
-@include('components.header.element', ['uid' => $uid])
+@include('components.header.element')

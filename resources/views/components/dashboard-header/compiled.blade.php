@@ -1,3 +1,2 @@
 {{-- blade --}}
-@include('components.dashboard-header.element', ['uid' => $uid])
-
+@include('components.dashboard-header.element')

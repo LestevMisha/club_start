@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.card-credentials-form.element', ['uid' => $uid])
+@include('components.card-credentials-form.element')
 
 @once
     {{-- javascript --}}

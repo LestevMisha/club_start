@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.inputs.credit-card-input.element', ['uid' => $uid, 'class' => $class ?? '', 'value' => $value ?? '', 'inscription' => $inscription])
+@include('components.inputs.credit-card-input.element')
 
 @once
     {{-- styles --}}

@@ -1,4 +1,4 @@
-<xtools-stack class="component {{ $class ?? 'flex flex-row gap-4' }}" data-uid="{{ $uid }}">
+<xtools-stack {{ $attributes->merge(['class' => 'component flex flex-row gap-4']) }} data-uid="{{ $uid }}">
     <x-theme-switcher.compiled :$uid attribute="switch-theme" />
     <x-language-switcher.compiled :$uid />
 

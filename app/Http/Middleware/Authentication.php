@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Services\GlobalServices;
 use App\Services\UsersTransactionsServices;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class Authentication
@@ -34,14 +35,14 @@ class Authentication
         if (!$this->globalServices->isTelegramVerified()) return $isIntermediate ? $next($request) : redirect()->route("intermediate.telegram.verify"); // if user has unverified telegram
 
         // Handle a payment
-        if (!$this->usersTransactionsServices->checkIfSubscriptionIsPaid(auth()->user())) {
+        if (!$this->usersTransactionsServices->checkIfSubscriptionIsPaid(Auth::user())) {
 
             $redirectUrl = $this->usersTransactionsServices->createUserTransactionWithPayment(
                 6000,
                 "Регистрация оплата 6 000 руб.",
                 $request->cookie("transaction_referred_by_id", ""),
                 true, // recurrent payment set to `true` be default (later can be changed in the settings)
-                auth()->user()->uuid,
+                Auth::user()->uuid,
                 $request->ip(),
                 "",
                 ""

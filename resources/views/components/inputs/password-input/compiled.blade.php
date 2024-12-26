@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.inputs.password-input.element', ['uid' => $uid, 'attribute' => $attribute, 'inscription' => $inscription])
+@include('components.inputs.password-input.element')
 
 @once
     {{-- styles --}}

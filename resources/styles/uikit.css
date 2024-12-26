@@ -101,10 +101,7 @@
 
 	.component {
 		position: relative;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+		display: block;
 	}
 
 	.cell {

@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const textElement = item.querySelector(".js-accordion-text");
                 const buttonElement = item.querySelector(".js-accordion-button");
                 const isExpanded = buttonElement.classList.contains("expanded");
-        
+
+                // prevent expanding when clicking on content that was hidden
+                const hiddenContent = buttonElement.nextElementSibling;
+                if (hiddenContent === e.target || hiddenContent.contains(e.target)) {return;}
+
                 // block multiple attempts
                 if (isExpanded) {
                     truncateText(textElement, 40);

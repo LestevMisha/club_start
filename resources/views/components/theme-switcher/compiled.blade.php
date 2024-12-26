@@ -9,7 +9,7 @@
 @endphp
 
 {{-- blade --}}
-@include('components.theme-switcher.element', ['uid' => $uid, 'attribute' => $attribute])
+@include('components.theme-switcher.element')
 
 @once
     {{-- javascript --}}

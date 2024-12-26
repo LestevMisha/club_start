@@ -1,5 +1,5 @@
 {{-- blade --}}
-@include('components.logout-button.element', ['uid' => $uid])
+@include('components.logout-button.element')
 
 @once
     {{-- javascript --}}

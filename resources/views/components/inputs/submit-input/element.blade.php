@@ -1,6 +1,6 @@
-<xsubmit-input class="component js-validation" data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
+<xsubmit-input {{ $attributes->merge(['class' => 'component js-validation relative w-full']) }} data-uid="{{ $uid }}" data-js-initialized="false" data-attribute="{{ $attribute }}">
     <input id="js-{{ $attribute }}-input" class="input js-input" autocomplete="{{ $attribute }}" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="{{ $attribute }}"
-        name="{{ $attribute }}" placeholder="" value="{{ $value }}" required {{ $inputAttrs }}>
+        name="{{ $attribute }}" placeholder="" value="{{ $value ?? '' }}" required {{ $inputAttrs ?? '' }}>
     <span id="js-{{ $attribute }}-label" class="label js-label">
         {{ $inscription }}
     </span>
