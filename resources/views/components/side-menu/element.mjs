@@ -35,14 +35,14 @@
             setCurrentState(closeFullscreen.classList.contains("hidden"), openInFullButton, closeFullscreen);
 
             // Dynamically close documents folder if opened
-            if (docsContent.classList.contains("!h-20")) {
-                docsContent.classList.toggle("!h-20");
+            if (docsContent.classList.contains("!max-h-40")) {
+                docsContent.classList.toggle("!max-h-40");
             }
         }
 
         showDocsButton.addEventListener("click", (e) => {
             if (!docsContent.contains(e.target) && e.target !== docsContent) {
-                docsContent.classList.toggle("!h-20");
+                docsContent.classList.toggle("!max-h-40");
             }
         });
 

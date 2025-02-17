@@ -56,7 +56,7 @@
 
             // Create ellipses and link elements
             const ellipses = document.createElement("span");
-            ellipses.classList = "hidden !inline";
+            ellipses.classList = "hidden inline!";
             ellipses.innerHTML = `${elementConfig.ellipsesText  }&nbsp;`;
 
             const moreLink = document.createElement("a");
@@ -77,7 +77,7 @@
                 moreLink.innerHTML = `&nbsp;${  moreLink.classList.contains("less") ? elementConfig.moreText : elementConfig.lessText}`;
                 moreLink.classList.toggle("less");
                 hiddenContent.classList.toggle("hidden");
-                ellipses.classList.toggle("!inline");
+                ellipses.classList.toggle("inline!");
             });
         }
     }

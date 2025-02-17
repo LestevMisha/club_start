@@ -13,7 +13,7 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
 
         // Confirm request
         const confirmText = button.getAttribute("data-message");
-        if (!confirm(confirmText)) {return;}
+        if (!confirm(confirmText)) { return; }
 
         // Activate loader
         xloader.classList.add("active");
@@ -21,7 +21,7 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
         try {
             // reCAPTCHA verification
             const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
+            if (!captchaResponse?.success) { return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message); }
 
             // Prepare form data and API details
             const url = `${window.location.origin}/post/telegram/verify/deleteUser`;
@@ -38,4 +38,12 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
         }
 
     });
+
+    // Listen for Telegram verification event
+    const verificationContainer = document.getElementById("js-telegram-verification-container");
+    window.Echo.private(`App.Models.User.${verificationContainer.getAttribute("data-uuid")}`)
+        .listen("FireTelegramVerified", (_) => {
+            location.reload();
+        });
+
 })();

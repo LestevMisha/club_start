@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Pages\Private;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\RateLimiterController;
-use App\Services\ModelServices;
-use App\Services\Partials\_PartialServices;
+use Illuminate\Support\Facades\Auth;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 
@@ -15,8 +14,8 @@ class ProfileController extends RateLimiterController
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected ModelServices $modelServices,
-        protected _PartialServices $respond
+        protected \App\Services\Models\AvatarServices $avatarServices,
+        protected \App\Services\Partials\_PartialServices $respond
     ) {}
 
 
@@ -34,7 +33,7 @@ class ProfileController extends RateLimiterController
 
         // 2. Validate index
         $index = $request->get("image-index");
-        $photos = Telegram::getUserProfilePhotos(["user_id" => auth()->user()->telegram_id]);
+        $photos = Telegram::getUserProfilePhotos(["user_id" => Auth::user()->telegram_id]);
 
         if (!isset($photos["photos"][$index][0])) {
             // Log and handle incorrect index
@@ -54,7 +53,7 @@ class ProfileController extends RateLimiterController
             $response = $client->get($url);
             $binaryImage = $response->getBody()->getContents();
 
-            $this->modelServices->updateOrCreateImage(auth()->user()->uuid, $binaryImage);
+            $this->avatarServices->updateOrCreateAvatar(Auth::user()->uuid, $binaryImage);
 
             // Clear any existing rate limiting blocks
             $this->clearRateLimit($throttleKey);
@@ -70,7 +69,8 @@ class ProfileController extends RateLimiterController
         }
     }
 
-    public function verifyEmail(Request $request) {
+    public function verifyEmail(Request $request)
+    {
         $request->user()->sendEmailVerificationNotification();
         return $this->respond->renderMessage(
             "partials._modal-success-message",

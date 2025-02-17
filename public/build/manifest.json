@@ -1,4 +1,8 @@
 {
+  "__commonjsHelpers-Cpj98o6Y.js": {
+    "file": "assets/_commonjsHelpers-Cpj98o6Y.js",
+    "name": "_commonjsHelpers"
+  },
   "_injectContentStylesAndScripts-NbC_EnnH.js": {
     "file": "assets/injectContentStylesAndScripts-NbC_EnnH.js",
     "name": "injectContentStylesAndScripts"
@@ -7,8 +11,8 @@
     "file": "assets/postRequest-CW2Znu5J.js",
     "name": "postRequest"
   },
-  "_renderBlockTime-CAqihYew.js": {
-    "file": "assets/renderBlockTime-CAqihYew.js",
+  "_renderBlockTime-CIrHWHiX.js": {
+    "file": "assets/renderBlockTime-CIrHWHiX.js",
     "name": "renderBlockTime"
   },
   "_renderValidationErrors-DOB4wUku.js": {
@@ -25,30 +29,6 @@
       "_postRequest-CW2Znu5J.js"
     ]
   },
-  "resources/fonts/gilroy/Gilroy-Black.ttf": {
-    "file": "assets/Gilroy-Black-CUfVRAQt.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-Black.ttf"
-  },
-  "resources/fonts/gilroy/Gilroy-Bold.ttf": {
-    "file": "assets/Gilroy-Bold-yXpx-Icw.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-Bold.ttf"
-  },
-  "resources/fonts/gilroy/Gilroy-ExtraBold.ttf": {
-    "file": "assets/Gilroy-ExtraBold-C3mOj7sV.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-ExtraBold.ttf"
-  },
-  "resources/fonts/gilroy/Gilroy-Light.ttf": {
-    "file": "assets/Gilroy-Light-DVwvzZ-0.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-Light.ttf"
-  },
-  "resources/fonts/gilroy/Gilroy-Medium.ttf": {
-    "file": "assets/Gilroy-Medium-D7PbV1sv.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-Medium.ttf"
-  },
-  "resources/fonts/gilroy/Gilroy-SemiBold.ttf": {
-    "file": "assets/Gilroy-SemiBold-Rj2UL15y.ttf",
-    "src": "resources/fonts/gilroy/Gilroy-SemiBold.ttf"
-  },
   "resources/icons/arrow-next.svg": {
     "file": "assets/arrow-next-9kKvz0Vx.svg",
     "src": "resources/icons/arrow-next.svg"
@@ -58,46 +38,49 @@
     "src": "resources/icons/arrow-prev.svg"
   },
   "resources/javascript/main.mjs": {
-    "file": "assets/main-BQqTSIeL.js",
+    "file": "assets/main-CYdzFfit.js",
     "name": "main",
     "src": "resources/javascript/main.mjs",
-    "isEntry": true
-  },
-  "resources/styles/global/light-mode.css": {
-    "file": "assets/light-mode-BqbWGCl0.css",
-    "src": "resources/styles/global/light-mode.css",
-    "isEntry": true
-  },
-  "resources/styles/global/main.css": {
-    "file": "assets/main-B2wfb8nJ.css",
-    "src": "resources/styles/global/main.css",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers-Cpj98o6Y.js"
+    ]
   },
   "resources/styles/uikit.css": {
-    "file": "assets/uikit-BRjMI6oT.css",
+    "file": "assets/uikit-BNbMTKyC.css",
     "src": "resources/styles/uikit.css",
     "isEntry": true
   },
   "resources/views/components/card-credentials-form/element.mjs": {
-    "file": "assets/element-BtnDg6py.js",
+    "file": "assets/element-CdyjkZ7d.js",
     "name": "element",
     "src": "resources/views/components/card-credentials-form/element.mjs",
     "isEntry": true,
     "imports": [
-      "_verifyRecaptcha-DmfFc_Y8.js",
-      "_postRequest-CW2Znu5J.js",
-      "_injectContentStylesAndScripts-NbC_EnnH.js",
-      "_renderValidationErrors-DOB4wUku.js",
-      "_renderBlockTime-CAqihYew.js"
+      "_postRequest-CW2Znu5J.js"
+    ]
+  },
+  "resources/views/components/checkbox/element.css": {
+    "file": "assets/element-Q67FUFLD.css",
+    "src": "resources/views/components/checkbox/element.css",
+    "isEntry": true
+  },
+  "resources/views/components/checkbox/element.mjs": {
+    "file": "assets/element-B7RLDfGZ.js",
+    "name": "element",
+    "src": "resources/views/components/checkbox/element.mjs",
+    "isEntry": true,
+    "imports": [
+      "_postRequest-CW2Znu5J.js"
     ]
   },
   "resources/views/components/inputs/copy-input/element.css": {
-    "file": "assets/element-Dy-52bvk.css",
+    "file": "assets/element-Nd3tDz-I.css",
     "src": "resources/views/components/inputs/copy-input/element.css",
     "isEntry": true
   },
   "resources/views/components/inputs/copy-input/element.mjs": {
-    "file": "assets/element-6opXCFZR.js",
+    "file": "assets/element-ixr4t-Vf.js",
     "name": "element",
     "src": "resources/views/components/inputs/copy-input/element.mjs",
     "isEntry": true,
@@ -106,18 +89,18 @@
     ]
   },
   "resources/views/components/inputs/credit-card-input/element.css": {
-    "file": "assets/element-CL1Lh9qN.css",
+    "file": "assets/element-DvvIl0HZ.css",
     "src": "resources/views/components/inputs/credit-card-input/element.css",
     "isEntry": true
   },
   "resources/views/components/inputs/credit-card-input/element.mjs": {
-    "file": "assets/element-_351cEty.js",
+    "file": "assets/element-Sxh4Pj5U.js",
     "name": "element",
     "src": "resources/views/components/inputs/credit-card-input/element.mjs",
     "isEntry": true
   },
   "resources/views/components/inputs/input/element.css": {
-    "file": "assets/element-BOlroCl_.css",
+    "file": "assets/element-t32k-SaX.css",
     "src": "resources/views/components/inputs/input/element.css",
     "isEntry": true
   },
@@ -128,7 +111,7 @@
     "isEntry": true
   },
   "resources/views/components/inputs/password-input/element.mjs": {
-    "file": "assets/element-B4_0GMqp.js",
+    "file": "assets/element-C4c_Ex7N.js",
     "name": "element",
     "src": "resources/views/components/inputs/password-input/element.mjs",
     "isEntry": true
@@ -148,13 +131,13 @@
     ]
   },
   "resources/views/components/message/element.mjs": {
-    "file": "assets/element-BAew8PjZ.js",
+    "file": "assets/element-1YN98NAW.js",
     "name": "element",
     "src": "resources/views/components/message/element.mjs",
     "isEntry": true
   },
   "resources/views/components/read-more/element.mjs": {
-    "file": "assets/element-CGUqoV-G.js",
+    "file": "assets/element-BTWTdvX3.js",
     "name": "element",
     "src": "resources/views/components/read-more/element.mjs",
     "isEntry": true
@@ -165,9 +148,14 @@
     "isEntry": true
   },
   "resources/views/components/side-menu/element.mjs": {
-    "file": "assets/element-Knh806bg.js",
+    "file": "assets/element-DbBiXAr4.js",
     "name": "element",
     "src": "resources/views/components/side-menu/element.mjs",
+    "isEntry": true
+  },
+  "resources/views/components/telegram-button/element.css": {
+    "file": "assets/element-Bm3MF5Xf.css",
+    "src": "resources/views/components/telegram-button/element.css",
     "isEntry": true
   },
   "resources/views/components/theme-switcher/element.mjs": {
@@ -180,7 +168,7 @@
     ]
   },
   "resources/views/pages/auth/login/page.mjs": {
-    "file": "assets/page-DOOvx1Xl.js",
+    "file": "assets/page-8U3OSQ69.js",
     "name": "page",
     "src": "resources/views/pages/auth/login/page.mjs",
     "isEntry": true,
@@ -188,7 +176,7 @@
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_injectContentStylesAndScripts-NbC_EnnH.js",
       "_postRequest-CW2Znu5J.js",
-      "_renderBlockTime-CAqihYew.js",
+      "_renderBlockTime-CIrHWHiX.js",
       "_renderValidationErrors-DOB4wUku.js"
     ]
   },
@@ -204,8 +192,14 @@
       "_renderValidationErrors-DOB4wUku.js"
     ]
   },
+  "resources/views/pages/intermediate/payment/page.mjs": {
+    "file": "assets/page-l0sNRNKZ.js",
+    "name": "page",
+    "src": "resources/views/pages/intermediate/payment/page.mjs",
+    "isEntry": true
+  },
   "resources/views/pages/intermediate/telegram-verification/page.mjs": {
-    "file": "assets/page-3sAxNGce.js",
+    "file": "assets/page-DQ0BXMiM.js",
     "name": "page",
     "src": "resources/views/pages/intermediate/telegram-verification/page.mjs",
     "isEntry": true,
@@ -221,13 +215,16 @@
     "isEntry": true
   },
   "resources/views/pages/private/dashboard/page.mjs": {
-    "file": "assets/page-BwJ8puqc.js",
+    "file": "assets/page-D990OAFL.js",
     "name": "page",
     "src": "resources/views/pages/private/dashboard/page.mjs",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers-Cpj98o6Y.js"
+    ]
   },
   "resources/views/pages/private/profile/page.mjs": {
-    "file": "assets/page-DtLIXzWj.js",
+    "file": "assets/page-DColxstc.js",
     "name": "page",
     "src": "resources/views/pages/private/profile/page.mjs",
     "isEntry": true,
@@ -235,23 +232,23 @@
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_injectContentStylesAndScripts-NbC_EnnH.js",
       "_postRequest-CW2Znu5J.js",
-      "_renderBlockTime-CAqihYew.js",
+      "_renderBlockTime-CIrHWHiX.js",
       "_renderValidationErrors-DOB4wUku.js"
     ]
   },
   "resources/views/pages/public/forgot-password/page.css": {
-    "file": "assets/page-l0sNRNKZ.js",
+    "file": "assets/page-DP2rzg_V.js",
     "name": "page",
     "src": "resources/views/pages/public/forgot-password/page.css",
     "isEntry": true
   },
   "resources/views/pages/public/forgot-password/page.mjs": {
-    "file": "assets/page-DVfQe0dU.js",
+    "file": "assets/page-PHGAXGV-.js",
     "name": "page",
     "src": "resources/views/pages/public/forgot-password/page.mjs",
     "isEntry": true,
     "imports": [
-      "_renderBlockTime-CAqihYew.js",
+      "_renderBlockTime-CIrHWHiX.js",
       "_verifyRecaptcha-DmfFc_Y8.js",
       "_injectContentStylesAndScripts-NbC_EnnH.js",
       "_renderValidationErrors-DOB4wUku.js",
@@ -271,7 +268,7 @@
     "isEntry": true
   },
   "resources/views/pages/public/index/scripts/modals.js": {
-    "file": "assets/modals-B8kA07pQ.js",
+    "file": "assets/modals-BVrqcgy2.js",
     "name": "modals",
     "src": "resources/views/pages/public/index/scripts/modals.js",
     "isEntry": true
@@ -283,7 +280,7 @@
     "isEntry": true
   },
   "resources/views/pages/public/index/scripts/modules/swiper.js": {
-    "file": "assets/swiper-k5x9r5ps.js",
+    "file": "assets/swiper-Bk7LkwdF.js",
     "name": "swiper",
     "src": "resources/views/pages/public/index/scripts/modules/swiper.js",
     "isEntry": true
@@ -300,7 +297,7 @@
     "isEntry": true
   },
   "resources/views/pages/public/reset-password/page.css": {
-    "file": "assets/page-DP2rzg_V.js",
+    "file": "assets/page-K6Dvbx-E.js",
     "name": "page",
     "src": "resources/views/pages/public/reset-password/page.css",
     "isEntry": true

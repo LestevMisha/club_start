@@ -6,8 +6,8 @@
 @extends('layouts.public')
 @section('content')
     <div class="bg-knight">
-        <div class="relative z-10 m-auto w-full min-w-96 max-w-96 xl:max-w-[1200px]">
-            <div class="m-auto w-full max-w-[938px]">
+        <div class="relative z-10 m-auto w-full min-w-96 max-w-96 xl:max-w-[75rem]">
+            <div class="m-auto w-full xl:max-w-[58.625rem]">
                 <div class="relative flex h-fit w-full flex-col overflow-hidden rounded-3xl bg-white p-8 dark:bg-black">
                     <p class="text-sm font-medium text-blue-500 dark:text-blue-400">{{ __('errors/404.key_c62420fe56ba1bd9be3bad2d6203a28e') }}</p>
                     <h1 class="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">{{ __('errors/404.key_d0fbda9855d118740f1105334305c126') }}</h1>

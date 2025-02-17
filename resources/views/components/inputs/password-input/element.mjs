@@ -16,7 +16,7 @@
         const eyeButton = xpasswordInput.querySelector(`#js-${attribute}-button`);
 
         eyeButton.addEventListener("click", () => {
-            setPasswordVisibility(eye.classList.contains("!hidden"), input, eye, closedEye);
+            setPasswordVisibility(eye.classList.contains("hidden!"), input, eye, closedEye);
         });
     });
 
@@ -25,8 +25,8 @@
         const action = isPasswordVisible ? "remove" : "add";
         const reverseAction = isPasswordVisible ? "add" : "remove";
 
-        eye.classList[action]("!hidden");
-        closedEye.classList[reverseAction]("!hidden");
+        eye.classList[action]("hidden!");
+        closedEye.classList[reverseAction]("hidden!");
 
         input.type = isPasswordVisible ? "text" : "password";
     };

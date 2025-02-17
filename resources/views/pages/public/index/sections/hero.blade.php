@@ -1,9 +1,9 @@
 <section class="relative m-0 h-full w-full bg-white bg-[linear-gradient(97deg,_#FFFFFF_60%,_#0d6efd_100%)] p-0 py-48 dark:bg-[linear-gradient(97deg,_#000000_40%,_#0d6efd_100%)]">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
         <div class="flex flex-col-reverse xl:flex-row">
             <div class="z-30 flex w-full flex-col xl:w-[70%]">
                 <div
-                    class="text-font-medium relative mx-auto my-0 !mb-4 h-[fit-content] w-[fit-content] rounded-3xl border-[0.1rem] border-solid border-[#00000033] bg-[linear-gradient(0.303turn,_#000000_1%,_#00000033_100%)] bg-clip-text px-6 py-[0.6rem] uppercase text-transparent backdrop-blur-lg dark:border-[#ffffff33] dark:bg-[linear-gradient(0.303turn,_#ffffff_1%,_#00000000_100%)] xl:m-0">
+                    class="text-font-medium relative mx-auto my-0 mb-4! h-[fit-content] w-[fit-content] rounded-3xl border-[0.1rem] border-solid border-[#00000033] bg-[linear-gradient(0.303turn,_#000000_1%,_#00000033_100%)] bg-clip-text px-6 py-[0.6rem] uppercase text-transparent backdrop-blur-lg dark:border-[#ffffff33] dark:bg-[linear-gradient(0.303turn,_#ffffff_1%,_#00000000_100%)] xl:m-0">
                     {{ __('pages/public/index.1') }}
                 </div>
                 <div class="relative mb-8 text-center text-4xl font-semibold leading-none dark:text-white xl:text-left xl:text-7xl">
@@ -27,7 +27,7 @@
                     </a>
                     <div class="flex flex-row gap-2 items-center">
                         <img src="{{ URL::asset('assets/images/min-png/box.png') }}" class="w-16 h-16" alt="box">
-                        <div class="text-nowrap text-font-light relative text-[#666666] dark:text-[#acacac]">
+                        <div class="text-nowrap text-font-light relative text-[#666666] dark:text-[#acacac] leading-none">
                             {{ __('pages/public/index.7') }}
                             <br />
                             {{ __('pages/public/index.30') }}
@@ -39,9 +39,9 @@
                 <div id="js-sneaker" class="invisible absolute w-80 h-80 bottom-[5%] left-[10%] xl:-bottom-[20%] xl:-left-[20%] z-10 xl:h-[35rem] xl:w-[35rem] translate-y-0 cursor-grab [transition:all_0.225s_ease-in-out]"></div>
                 <img id="js-light-sneaker" class="animate-levitation pointer-events-none visible absolute right-20 top-20 z-10 h-auto w-60 rotate-45 scale-x-100 xl:top-28 xl:w-96 xl:rotate-[34deg]"
                     src="{{ URL::asset('assets/images/min-png/sneaker-in-motion.png') }}" alt="sneaker-in-motion">
-                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:!min-h-[34rem] xl:w-[34rem] xl:!min-w-[34rem] xl:translate-x-0"
+                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:min-h-[34rem]! xl:w-[34rem] xl:min-w-[34rem]! xl:translate-x-0"
                     src="{{ URL::asset('assets/images/min-png/shipping-box.png') }}" alt="shipping-box">
-                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 z-20 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:!min-h-[34rem] xl:w-[34rem] xl:!min-w-[34rem] xl:translate-x-0"
+                <img class="pointer-events-none absolute top-4 -rotate-12 xl:-rotate-0 bottom-0 left-1/2 z-20 h-72 w-72 -translate-x-1/2 select-none overflow-visible sm:top-[unset] xl:-bottom-[65%] dark:brightness-75 xl:-left-[20%] xl:h-[34rem] xl:min-h-[34rem]! xl:w-[34rem] xl:min-w-[34rem]! xl:translate-x-0"
                     src="{{ URL::asset('assets/images/min-png/shipping-box-cut.png') }}" alt="shipping-box-cut">
             </div>
         </div>

@@ -27,45 +27,46 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 bg-white dark:divide-[#292929] dark:bg-[#1c1c1c]">
-                                @foreach ($users_transactions as $key => $transaction)
+                                @foreach ($transactions as $key => $transaction)
                                     <tr>
                                         <td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200">
                                             <div class="inline-flex items-center gap-x-3">
                                                 <span>
-                                                    {{ $transaction->transaction_uuid }}
+                                                    {{ $transaction->uuid }}
                                                 </span>
                                             </div>
                                         </td>
 
                                         <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                            {{ $transaction->transaction_amount }}
+                                            {{ $transaction->amount }}
                                             <span>₽</span>
                                         </td>
 
                                         <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                            {{ $transaction->transaction_description }}
+                                            {{ $transaction->description }}
                                         </td>
 
                                         <td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-700">
-                                            @if ($transaction->transaction_status === 'created')
+                                            @if ($transaction->status === 'created')
                                                 <div
                                                     class="inline-flex items-center gap-x-2 rounded-full bg-gray-50 px-3 py-1 text-gray-600 ring-1 ring-inset ring-gray-600/10 dark:bg-gray-400/10 dark:text-gray-400 dark:ring-gray-400/30">
                                                     @svg('contract-edit', 'w-4 h-4')
                                                     <h2 class="text-sm font-normal">{{ __('pages/public/transactions.key_0eceeb45861f9585dd7a97a3e36f85c6') }}</h2>
                                                 </div>
-                                            @elseif ($transaction->transaction_status === 'succeeded')
+                                            @elseif ($transaction->status === 'Authorized')
+                                            {{-- @elseif ($transaction->status === 'succeeded') --}}
                                                 <div
                                                     class="inline-flex items-center gap-x-2 rounded-full bg-green-50 px-3 py-1 text-green-600 ring-1 ring-inset ring-green-600/10 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30">
                                                     @svg('custom.check', 'w-4 h-4')
                                                     <h2 class="text-sm font-normal">{{ __('pages/public/transactions.key_66d02c2f8a582446f8dd8752366002b5') }}</h2>
                                                 </div>
-                                            @elseif($transaction->transaction_status === 'pending')
+                                            @elseif($transaction->status === 'pending')
                                                 <div
                                                     class="inline-flex items-center gap-x-2 rounded-full bg-yellow-50 px-3 py-1 text-yellow-600 ring-1 ring-inset ring-yellow-600/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30">
                                                     @svg('work-history', 'w-4 h-4')
                                                     <h2 class="text-sm font-normal">{{ __('pages/public/transactions.key_2d13df6f8b5e4c5af9f87e0dc39df69d') }}</h2>
                                                 </div>
-                                            @elseif($transaction->transaction_status === 'canceled')
+                                            @elseif($transaction->status === 'canceled')
                                                 <div
                                                     class="inline-flex items-center gap-x-2 rounded-full bg-red-50 px-3 py-1 text-red-600 ring-1 ring-inset ring-red-600/10 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30">
                                                     @svg('custom.cross', 'w-4 h-4')

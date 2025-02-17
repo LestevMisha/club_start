@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function toggleModal() {
             modalOuter.classList.toggle("hidden");
-            document.querySelector("html").classList.toggle("!overflow-hidden");
+            document.querySelector("html").classList.toggle("overflow-hidden!");
         }
     })();
 });

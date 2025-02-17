@@ -3,10 +3,18 @@ import laravel from 'laravel-vite-plugin';
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 export default defineConfig({
+    // NPM Server
     server: {
+        host: '127.0.0.1',
+        port: 4006,
         hmr: false,
-        // hmr: true,
+        strictPort: true,
+        cors: {
+            origin: "https://klub.com",
+            credentials: true,
+        }
     },
+
     plugins: [
         cssInjectedByJsPlugin({ relativeCSSInjection: true }),
         laravel({
@@ -27,25 +35,23 @@ export default defineConfig({
                 // global js
                 "resources/javascript/main.mjs",
 
-                // delete soon
-                "resources/styles/global/main.css",
-                "resources/styles/global/light-mode.css",
-
-
                 // components
                 "resources/views/components/loader/element.css",
                 "resources/views/components/side-menu/element.css",
+                "resources/views/components/checkbox/element.css",
                 "resources/views/components/theme-switcher/element.mjs",
                 "resources/views/components/card-credentials-form/element.mjs",
                 "resources/views/components/side-menu/element.mjs",
                 "resources/views/components/logout-button/element.mjs",
                 "resources/views/components/read-more/element.mjs",
                 "resources/views/components/message/element.mjs",
+                "resources/views/components/checkbox/element.mjs",
 
                 /* --- INPUTS --- */
                 "resources/views/components/inputs/copy-input/element.css",
                 "resources/views/components/inputs/credit-card-input/element.css",
                 "resources/views/components/inputs/input/element.css",
+                "resources/views/components/telegram-button/element.css",
 
                 "resources/views/components/inputs/copy-input/element.mjs",
                 "resources/views/components/inputs/password-input/element.mjs",
@@ -64,6 +70,7 @@ export default defineConfig({
                 "resources/views/pages/intermediate/telegram-verification/page.mjs",
                 "resources/views/pages/public/forgot-password/page.mjs",
                 "resources/views/pages/public/reset-password/page.mjs",
+                "resources/views/pages/intermediate/payment/page.mjs",
             ],
             refresh: false,
             transformOnServe: (code) => code.replaceAll('/assets', 'https://klub.com/assets'),

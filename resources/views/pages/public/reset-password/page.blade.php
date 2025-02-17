@@ -1,6 +1,6 @@
 <div class="bg-knight">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
-        <div class="m-auto w-full max-w-[938px]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
+        <div class="m-auto w-full xl:max-w-[58.625rem]">
             <div class="relative flex h-fit w-full flex-col overflow-hidden rounded-3xl bg-white p-8 dark:bg-black">
                 <x-loader.compiled :uid="uniqid()" attribute="reset-password" />
                 <div class="mb-8 flex flex-row justify-between">

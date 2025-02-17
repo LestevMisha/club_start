@@ -1,6 +1,6 @@
-<div class="bg-knight">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
-        <div class="m-auto w-full max-w-[938px]">
+<div id="js-telegram-verification-container" class="bg-knight" data-uuid="{{ auth()->user()->uuid }}">
+    <div class="relative z-10 m-auto w-full min-w-96 max-w-96 xl:max-w-[75rem]">
+        <div class="m-auto w-full xl:max-w-[58.625rem]">
             <div class="relative flex h-fit w-full flex-col overflow-visible rounded-3xl bg-white p-8 dark:bg-black">
                 <x-loader.compiled :uid="uniqid()" attribute="telegram-verification" size="2.5rem" borderRadius="2.5rem" />
                 <div class="mb-8 flex flex-row justify-between">
@@ -14,7 +14,8 @@
                         </div>
                         <div class="text-base text-[#666666]">
                             {{ __('pages/intermediate/telegram-verification.2') }}<br />
-                            <u id="js-delete-registration" data-message="{{ __('You confirm the deletion of registration. Please note that this process cannot be undone.') }}"
+                            <u id="js-delete-registration" data-uuid="{{ auth()->user()->uuid }}"
+                                data-message="{{ __('You confirm the deletion of registration. Please note that this process cannot be undone.') }}"
                                 class="cursor-pointer">{{ __('pages/intermediate/telegram-verification.3') }}</u>
                         </div>
                     </div>

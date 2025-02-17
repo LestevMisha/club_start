@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Pages\Auth;
 
-use App\Services\ModelServices;
-use App\Services\TelegramServices;
+use Illuminate\Support\HtmlString;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\HtmlString;
+use Illuminate\Support\Facades\Session;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TelegramVerificationController extends Controller
@@ -14,8 +13,8 @@ class TelegramVerificationController extends Controller
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected TelegramServices $telegramServices,
-        protected ModelServices $modelServices,
+        protected \App\Services\TelegramServices $telegramServices,
+        protected \App\Services\Models\UserServices $userServices,
     ) {}
 
 
@@ -41,8 +40,9 @@ class TelegramVerificationController extends Controller
     // gives user the option to delete his registration
     public function deleteUser()
     {
-        $this->modelServices->deleteUser(Auth::user()->email);
-        $this->modelServices->logout();
+        $this->userServices->deleteUser(Auth::user()->email);
+        Auth::logout();
+        Session::flush();
         return redirect()->back();
     }
 

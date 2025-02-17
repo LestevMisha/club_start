@@ -2,27 +2,36 @@
 export default function renderBlockTime(component, button, availableIn) {
 
     if (!availableIn) { return; }
-    let seconds = parseInt(availableIn, 10);
-    const input = component.querySelector(".js-input-field");
+    const seconds = parseInt(availableIn, 10);
+    const input = component.querySelector(".js-input");
     const errorLabel = component.querySelector(".js-error-label");
 
     // Disable input and button initially
     button.disabled = true;
 
-    // Update countdown every second
-    const intervalId = setInterval(() => {
-        seconds--;
+    // Store the start time
+    const startTime = Date.now();
+
+    // Function to update the countdown
+    const updateCountdown = () => {
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        const remainingTime = seconds - elapsedTime;
 
         // Update the countdown text in error label
-        updateNumericSpan(errorLabel.querySelector(".b-text"), seconds);
+        updateNumericSpan(errorLabel.querySelector("#availableIn"), remainingTime);
 
-        if (seconds <= 0) {
-            clearInterval(intervalId);
+        if (remainingTime <= 0) {
             errorLabel.textContent = ""; // Clear error message
-            input.classList.remove("input-field-error");
+            input.classList.remove("error");
             button.disabled = false;
+        } else {
+            // Call updateCountdown again after 1 second
+            setTimeout(updateCountdown, 1000);
         }
-    }, 1000);
+    };
+
+    // Start the countdown
+    updateCountdown();
 }
 
 // Helper function to find and update the numeric span

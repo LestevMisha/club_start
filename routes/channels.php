@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('App.Models.User.{uuid}', function (User $user, $uuid) {
+    return (int) $user->uuid === (int) $uuid;
+});
+
+Broadcast::channel("TelegramVerified", function () {
+    //
 });

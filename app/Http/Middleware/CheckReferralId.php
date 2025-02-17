@@ -16,11 +16,11 @@ class CheckReferralId
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $referralId = $request->query('transaction_referred_by_id');
+        $referralId = $request->query('referred_by_uuid');
 
         // If referral ID is present, queue the cookie
         if ($referralId) {
-            Cookie::queue("transaction_referred_by_id", $referralId, 60 * 24); // 24 hours
+            Cookie::queue("referred_by_uuid", $referralId, 60 * 24); // 24 hours
         }
         return $next($request);
     }

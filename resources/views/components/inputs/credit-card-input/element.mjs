@@ -15,7 +15,7 @@
         const amountDisplay = xCreditCardInput.querySelector(`#js-${attribute}-amount`);
         const maxLength = 16;
 
-        input.addEventListener("input", e => {
+        const handleInput = (e) => {
             const target = e.target;
             const sanitizedValue = target.value.replace(/[^\d]/g, "").slice(0, 16);
             const formattedValue = sanitizedValue.replace(/(\d{4})(?=\d)/g, "$1 ");
@@ -23,7 +23,10 @@
             target.value = formattedValue;
             button.disabled = sanitizedValue.length < maxLength;
             updateLength(amountDisplay, sanitizedValue.length, maxLength);
-        });
+        };
+
+        handleInput({target: input});
+        input.addEventListener("input", handleInput);
     });
 
     function updateLength(target, length, maxLength) {

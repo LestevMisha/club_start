@@ -21,17 +21,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'uuid',
         'days_left',
-        'withdrawal_notification_sent',
-        'amount_earned',
         'name',
         'email',
         'telegram_username',
         'telegram_channel_exempted',
         'telegram_channel_status',
-        'referred_by_id',
-        'referral_id',
+        'referred_by_uuid',
+        'referral_uuid',
         'telegram_id',
         'password',
+        'google_id',
     ];
 
     /**

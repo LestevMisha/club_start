@@ -1,7 +1,7 @@
 @extends('sub-layouts.public')
 @section('sub-content')
     <section class="relative bg-white p-0 py-8 !pt-32 dark:bg-black">
-        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
             <div class="flex flex-col gap-2">
                 <div class="flex flex-col gap-1">
                     <div class="mb-1 text-[2rem] font-bold text-black dark:text-white">{{ __('pages/public/terms.key_bdeb8fb02326bd4bc9f1736e31218913') }}</div>
@@ -14,7 +14,7 @@
         </div>
     </section>
     <section class="relative bg-white py-8 dark:bg-black">
-        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+        <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
             <div class="flex w-full flex-col gap-4 xl:w-[85%]">
                 <div class="text-base leading-6 text-[#666666]">{{ __('pages/public/terms.key_ccd6836738bf38d2619f480dcdd8a2fd') }}</div>
                 <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/terms.key_f573eee17a3f48e9e187912de28ec13e') }}</div>

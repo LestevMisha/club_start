@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\UsersImages;
-use App\Services\UsersServices;
 use Illuminate\Support\Facades\Auth;
 
 class BladeServices
@@ -12,9 +10,9 @@ class BladeServices
     protected $user;
 
     public function __construct(
-        protected UsersServices $usersServices,
-        protected UsersImages $usersImages,
-        protected ModelServices $modelServices,
+        protected \App\Services\Models\UserServices $userServices,
+        protected \App\Services\Models\AvatarServices $avatarServices,
+        protected \App\Services\Models\WebsiteVisitorsDataServices $websiteVisitorsDataServices,
         protected TelegramServices $telegramServices,
     ) {
         $this->user = Auth::user();
@@ -24,14 +22,14 @@ class BladeServices
     {
 
         // Observe telegram image if the user does not have an image
-        if (!$this->modelServices->hasImage()) {
+        if (!$this->avatarServices->hasAvatar($this->user->uuid)) {
             $this->telegramServices->observeSaveUserImage($this->user->telegram_id, $this->user->uuid);
         }
 
         // Retrieve the image data and return as base64 encoded string
-        $binaryImage = $this->usersImages->where('user_uuid', $this->user->uuid)->first()?->image_data;
+        $binaryAvatar = $this->avatarServices->getAvatar('user_uuid', $this->user->uuid)?->image_data;
 
-        return $binaryImage ? base64_encode($binaryImage) : null;
+        return $binaryAvatar ? base64_encode($binaryAvatar) : null;
     }
 
     // link with user id for verification (example: t.me/bot_name?start=user_id)
@@ -46,21 +44,15 @@ class BladeServices
         return $this->telegramServices->getTelegramVerificationLink(Auth::user()->uuid, $target);
     }
 
-    // card verification status
-    public function hasCardVerification(): bool
-    {
-        return (bool) $this->modelServices->getCardCredentials(Auth::user()->uuid);
-    }
-
     // get visitors
     public function getVisitorData()
     {
-        return $this->modelServices->getVisitorData();
+        return $this->websiteVisitorsDataServices->getVisitorData();
     }
 
     // get current amount of active/overall referred users
     public function getReferredUsersData()
     {
-        return $this->usersServices->checkUserReferrals();
+        return $this->userServices->checkUserReferrals();
     }
 }

@@ -1,6 +1,6 @@
 <div class="bg-knight">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
-        <div class="m-auto w-full max-w-[938px]">
+    <div class="relative z-10 m-auto w-full min-w-96 max-w-96 xl:max-w-[75rem]">
+        <div class="m-auto w-full xl:max-w-[58.625rem]">
             <div class="relative flex h-fit w-full flex-col overflow-hidden rounded-3xl bg-white p-8 dark:bg-black">
                 <x-loader.compiled :uid="uniqid()" attribute="authenticate" size="2.5rem" borderRadius="2.5rem" />
                 <div class="mb-8 flex flex-row justify-between">
@@ -22,10 +22,16 @@
                             <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
                             <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
                             <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/auth/login.1')" iconName="arrow-forward" />
-                            <div class="flex flex-row items-center gap-2">
-                                <input name="remember-me" type="checkbox" id="remember-me" checked>
-                                <label class="text-base leading-none text-[#666666]" for="remember-me">{{ __('pages/auth/login.5') }}</label>
+                            <div class="flex flex-col gap-2">
+                                <div class="text-base text-[#666666]">
+                                    {{ __('pages/auth/login.6') }}
+                                </div>
+                                <div class="flex flex-col gap-4 xl:flex-row">
+                                    <x-telegram-button.compiled :uid="uniqid()" :url="route('auth.login.telegram')" :title="__('app.3')" icon="logos/telegram" target="" />
+                                    <x-button.compiled :uid="uniqid()" :url="route('auth.login.google')" :title="__('app.2')" icon="logos/google" target="" />
+                                </div>
                             </div>
+                            <x-checkbox.compiled :uid="uniqid()" :title="__('app.4')" checked="true" />
                         </div>
                     </form>
                 </div>

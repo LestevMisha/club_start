@@ -1,10 +1,10 @@
 <section class="dark:bg-black relative m-0 h-full w-full bg-white p-0 py-24">
     @svg('nike-pair', 'top-0 right-0 absolute w-[30em] h-[30em] dark:text-[#ffffff0D] text-[#0000000D]')
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
         <div class="mb-4 flex h-fit flex-col items-center justify-center">
             <div class="dark:text-white relative mb-4 w-fit text-center text-4xl font-bold uppercase text-black xl:text-[2.5rem]">
                 <span
-                    class="text-nowrap dark:before:bg-[#0d6efd] relative !-z-[1] uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg]">
+                    class="text-nowrap dark:before:bg-[#0d6efd] relative -z-1! uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg]">
                     {{ __('pages/public/index.93') }}
                 </span>
                 {{ __('pages/public/index.85') }}
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/coin.webp') }}" alt="coin" class="absolute -right-8 top-7 -z-[1] h-32 w-auto xl:right-0 xl:top-0 xl:h-40"
+                <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/coin.webp') }}" alt="coin" class="absolute -right-8 top-7 -z-1 h-32 w-auto xl:right-0 xl:top-0 xl:h-40"
                     type="image/webp">
             </div>
             <div class="js-accordion-item noise-before relative rounded-2xl bg-[#00000008] p-6 backdrop-blur-[2rem] backdrop-filter">
@@ -132,7 +132,7 @@
                         </div>
                     </div>
                 </div>
-                <img loading="lazy" src="{{ URL::asset('assets/images/min-png/heart.png') }}" alt="heart" class="absolute -right-8 top-7 -z-[1] h-32 w-auto xl:right-0 xl:top-0 xl:h-40"
+                <img loading="lazy" src="{{ URL::asset('assets/images/min-png/heart.png') }}" alt="heart" class="absolute -right-8 top-7 -z-1 h-32 w-auto xl:right-0 xl:top-0 xl:h-40"
                     type="image/png">
             </div>
             <div class="js-accordion-item noise-before relative rounded-2xl bg-[#00000008] p-6 backdrop-blur-[2rem] backdrop-filter">
@@ -187,7 +187,7 @@
                     </div>
                 </div>
                 <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/deal-glasses.webp') }}" alt="deal-glasses"
-                    class="b-img_v15_1 absolute -right-8 top-7 -z-[1] h-32 w-auto xl:right-0 xl:top-0 xl:h-40" type="image/webp">
+                    class="b-img_v15_1 absolute -right-8 top-7 -z-1 h-32 w-auto xl:right-0 xl:top-0 xl:h-40" type="image/webp">
             </div>
         </div>
     </div>

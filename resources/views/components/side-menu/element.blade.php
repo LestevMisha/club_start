@@ -3,7 +3,7 @@
         <div class="icon icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2">
             @svg('open-in-full', 'w-full h-full text-[#7f7f7f]', ['id' => "js-$attribute-open-in-full-button"])
             @svg('close-fullscreen', 'w-full h-full text-[#7f7f7f] hidden', ['id' => "js-$attribute-close-fullscreen-button"])
-            <input id="js-{{ $attribute }}-input" class="!absolute !left-0 !top-0 !m-0 !h-full !w-full !cursor-pointer !outline-none [all:unset]" type="checkbox">
+            <input id="js-{{ $attribute }}-input" class="absolute! left-0! top-0! m-0! h-full! w-full! cursor-pointer! outline-hidden! [all:unset]" type="checkbox">
         </div>
         <img class="icon icon_2.5rem icon_radius-full" src="data:image/png;base64,{{ app('App\Services\BladeServices')->getImage() }}">
         <x-theme-switcher.compiled :$uid attribute="switch-theme" />
@@ -13,7 +13,7 @@
     <div class="h-4"></div>
 
     <a class="{{ $route === 'private.dashboard' ? 'active' : '' }} group mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="{{ route('private.dashboard') }}">
-        @svg('home', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:!text-white group-[.active]:!bg-[#0d6efd]')
+        @svg('home', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]!')
         <div
             class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.1') }}
@@ -21,7 +21,7 @@
     </a>
 
     <a class="{{ $route === 'private.profile' ? 'active' : '' }} group mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="{{ route('private.profile') }}">
-        @svg('user-manage', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:!text-white group-[.active]:!bg-[#0d6efd]')
+        @svg('user-manage', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]!')
         <div
             class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.2') }}
@@ -29,7 +29,7 @@
     </a>
 
     <a class="{{ $route === 'private.transactions' ? 'active' : '' }} group mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="{{ route('private.transactions') }}">
-        @svg('receipt', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:!text-white group-[.active]:!bg-[#0d6efd]')
+        @svg('receipt', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]!')
         <div
             class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.3') }}
@@ -37,7 +37,7 @@
     </a>
 
     <a class="{{ $route === 'private.referral.transactions' ? 'active' : '' }} group mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="{{ route('private.referral.transactions') }}">
-        @svg('link', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:!text-white group-[.active]:!bg-[#0d6efd]')
+        @svg('link', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]!')
         <div
             class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.4') }}
@@ -60,7 +60,7 @@
             {{ __('components/side-menu.6') }}</div>
     </a>
 
-    <a class="mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="{{ route('support') }}">
+    <a class="mx-4 flex w-full min-w-[14em] flex-row items-center gap-4" href="https://t.me/@ClubStarthelp_bot">
         @svg('support-agent', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2')
         <div class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.7') }}</div>
@@ -68,21 +68,21 @@
 
     <div id="js-show-docs" class="mx-4 flex w-full min-w-[14em] cursor-pointer flex-col gap-2">
         <div class="flex w-full flex-row items-center gap-4">
-            @svg('docs', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 !h-full transition-all duration-[525ms] ease-[cubic-bezier(1, .47, .2, .85)]')
+            @svg('docs', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 h-full! transition-all duration-[525ms] ease-[cubic-bezier(1, .47, .2, .85)]')
             <div class="flex w-full flex-col">
                 <div class="text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]">
                     {{ __('components/side-menu.8') }}
                 </div>
-                <div id="js-docs-content" class="ease-[cubic-bezier(1, .47, .2, .85)] ml-2 flex h-0 w-full flex-col justify-center gap-1 overflow-hidden transition-all duration-[525ms]">
-                    <a class="text-[0.8rem] font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
+                <div id="js-docs-content" class="ease-[cubic-bezier(1, .47, .2, .85)] ml-2 flex h-auto max-h-0 w-full flex-col justify-center gap-2 overflow-hidden transition-all duration-[525ms]">
+                    <a class="mt-2 text-[0.8rem] font-medium leading-4 text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
                         target="_blank" href="{{ route('public.public-offer') }}">
                         {{ __('components/side-menu.9') }}
                     </a>
-                    <a class="text-[0.8rem] font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
+                    <a class="text-[0.8rem] font-medium leading-4 text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
                         target="_blank" href="{{ route('public.privacy') }}">
                         {{ __('components/side-menu.10') }}
                     </a>
-                    <a class="text-[0.8rem] font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
+                    <a class="text-[0.8rem] font-medium leading-4 text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] dark:text-[#444444] dark:hover:text-[#666666]"
                         target="_blank" href="{{ route('public.terms') }}">
                         {{ __('components/side-menu.11') }}
                     </a>

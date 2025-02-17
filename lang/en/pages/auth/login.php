@@ -8,4 +8,5 @@ return [
     "3" => "Email",
     "4" => "Password",
     "5" => "Remember me",
+    "6" => "Or login with",
 ];

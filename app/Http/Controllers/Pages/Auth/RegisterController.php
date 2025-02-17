@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Cookie;
-use App\Services\Partials\_StepServices;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Partials\_PartialServices;
-use App\Services\UsersServices;
 
 class RegisterController extends Controller
 {
@@ -18,9 +14,9 @@ class RegisterController extends Controller
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected UsersServices $usersServices,
-        protected _PartialServices $respond,
-        protected _StepServices $_stepServices,
+        protected \App\Services\Models\UserServices $userServices,
+        protected \App\Services\Partials\_PartialServices $respond,
+        protected \App\Services\Partials\_StepServices $_stepServices,
     ) {}
 
     protected $rules = [
@@ -37,8 +33,8 @@ class RegisterController extends Controller
         $name = $request->get("name");
         $email = $request->get("email");
         $password = $request->get("password");
-        // data for cookies
-        $transaction_referred_by_id = $request->cookie("transaction_referred_by_id", "");
+        // data from cookies
+        $referred_by_uuid = $request->cookie("referred_by_uuid", "");
 
         // check processing
         $response = $this->action("name", $request);
@@ -55,7 +51,12 @@ class RegisterController extends Controller
         } else return $this->_stepServices->getStep(3);
 
         // create a new user
-        $user = $this->usersServices->createUser($name, $email, $password, $transaction_referred_by_id);
+        $userData = [
+            "name" => $name,
+            "email" => $email,
+            "referred_by_uuid" => $referred_by_uuid,
+        ];
+        $user = $this->userServices->createUser($userData, $password);
 
         // send verification letter
         event(new Registered($user));

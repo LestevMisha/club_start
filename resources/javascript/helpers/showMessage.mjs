@@ -4,7 +4,7 @@ import injectContentStylesAndScripts from "./injectContentStylesAndScripts.mjs";
 export default function showMessage(content, seconds = 3, isHTML = false) {
     // Create the modal element
     const modal = document.createElement("div");
-    modal.classList.add("bg-[#0d6efd]", "fixed", "right-1/2", "top-[-10%]", "z-[999]", "flex", "w-fit", "max-w-[30rem]", "translate-x-1/2", "rounded-lg", "px-4", "py-2", "opacity-0", "shadow-sm", "transition-all", "duration-500", "ease-[cubic-bezier(0.165,0.84,0.44,1)");
+    modal.classList.add("bg-[#0d6efd]", "fixed", "right-1/2", "top-[-10%]", "z-999", "flex", "w-fit", "max-w-[30rem]", "translate-x-1/2", "rounded-lg", "px-4", "py-2", "opacity-0", "shadow-xs", "transition-all", "duration-500", "ease-[cubic-bezier(0.165,0.84,0.44,1)");
     modal.id = "modal";
 
     // Create the inner content
@@ -28,7 +28,7 @@ export default function showMessage(content, seconds = 3, isHTML = false) {
     // Add a slight delay to ensure the animation starts from scratch
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            modal.classList.add("!opacity-100", "!top-4");
+            modal.classList.add("opacity-100!", "top-4!");
         });
     });
 
@@ -36,7 +36,7 @@ export default function showMessage(content, seconds = 3, isHTML = false) {
     const milliseconds = seconds * 1000;
 
     setTimeout(() => {
-        modal.classList.remove("!opacity-100", "!top-4");
+        modal.classList.remove("opacity-100!", "top-4!");
     }, milliseconds - 500);
 
     setTimeout(() => {

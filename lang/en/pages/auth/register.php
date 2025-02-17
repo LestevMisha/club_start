@@ -7,4 +7,5 @@ return [
     "2" => "Become a member of KLUB START",
     "3" => "Your Name",
     "4" => "Continue",
+    "5" => "Or register with",
 ];

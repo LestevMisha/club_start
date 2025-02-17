@@ -1,13 +1,13 @@
 <section class="dark:bg-[#0e0e0e] relative m-0 h-full w-full bg-[#f6f7f8] p-0 pb-36 pt-12">
     <div class="dark:bg-[linear-gradient(180deg,_#000000,_#00000000)] absolute left-0 right-0 top-0 !-z-[1] h-1/2 bg-[linear-gradient(180deg,_#FFFFFF,_#00000000)]"></div>
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
         <div class="flex flex-col">
             <img loading="lazy" src="{{ URL::asset('assets/images/min-webp/star-sticker.webp') }}" alt="star-sticker"
                 class="absolute -top-[5%] left-2/4 h-28 w-auto translate-x-[70%] rotate-[156deg] opacity-20">
             <div class="mb-12 flex h-fit flex-col items-center justify-center">
                 <div class="dark:text-white relative mb-4 w-fit text-center text-4xl font-bold uppercase text-black xl:text-[2.5rem]">
                     <span
-                        class="text-nowrap dark:before:bg-[#0d6efd] relative !-z-[1] uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg]">
+                        class="text-nowrap dark:before:bg-[#0d6efd] relative -z-1! uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg]">
                         {{ __('pages/public/index.122') }}
                     </span>
                     {{ __('pages/public/index.131') }}
@@ -17,9 +17,9 @@
                 <div class="flex w-full flex-col gap-8 xl:w-[30%]">
                     <!-- Swiper_v4 Lopd25 -->
                     <div class="relative">
-                        <div class="js-swiper-v4 m-0 flex flex-col justify-between !overflow-visible !px-4 pb-8 xl:flex-row xl:!overflow-hidden">
+                        <div class="js-swiper-v4 m-0 flex flex-col justify-between overflow-visible! px-4! pb-8 xl:flex-row xl:overflow-hidden!">
                             <div class="js-justify-arrows swiper-wrapper flex w-full flex-row justify-between [transition:all_0.225s_ease-in-out]">
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />
@@ -28,7 +28,7 @@
                                     <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author/3.jpeg') }}" class="mx-auto block h-[25rem] w-72 cursor-grab rounded-2xl object-cover"
                                         type="image/jpeg" alt="author-3">
                                 </div>
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />
@@ -37,7 +37,7 @@
                                     <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author/2.jpeg') }}" class="mx-auto block h-[25rem] w-72 cursor-grab rounded-2xl object-cover"
                                         type="image/jpeg" alt="author-2">
                                 </div>
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />
@@ -46,7 +46,7 @@
                                     <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author/1.jpeg') }}" class="mx-auto block h-[25rem] w-72 cursor-grab rounded-2xl object-cover"
                                         type="image/jpeg" alt="author-1">
                                 </div>
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />
@@ -55,7 +55,7 @@
                                     <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author/4.jpeg') }}" class="mx-auto block h-[25rem] w-72 cursor-grab rounded-2xl object-cover"
                                         type="image/jpeg" alt="author-4">
                                 </div>
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />
@@ -64,7 +64,7 @@
                                     <img loading="lazy" src="{{ URL::asset('assets/images/min-jpeg/author/5.jpeg') }}" class="mx-auto block h-[25rem] w-72 cursor-grab rounded-2xl object-cover"
                                         type="image/jpeg" alt="author-5">
                                 </div>
-                                <div class="swiper-slide [&.swiper-slide-active]:!opacity-100 opacity-10 ![transition:opacity_0.225s_ease-in-out] xl:opacity-100">
+                                <div class="swiper-slide [&.swiper-slide-active]:opacity-100! opacity-10 [transition:opacity_0.225s_ease-in-out]! xl:opacity-100">
                                     <div class="absolute bottom-0 left-1/2 w-72 -translate-x-1/2 text-3xl font-semibold uppercase text-white [text-shadow:20px_0px_20px_black]">
                                         {{ __('pages/public/index.132') }}
                                         <br class="hidden xl:block" />

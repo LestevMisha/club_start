@@ -1,6 +1,6 @@
 <section
-    class="dark:bg-black z-20 relative -top-16 m-0 -mb-16 h-full w-full overflow-visible bg-white p-0 py-32 !pb-40 [mask:radial-gradient(67.08px_at_50%_90px,#000_99%,#0000_101%)_calc(50%_-_60px)_0/_120px_100%_,_radial-gradient(67.08px_at_50%_calc(-60px),#0000_99%,#000_101%)_50%_30px/_120px_100%_repeat-x]">
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full pb-8 xl:max-w-[1200px]">
+    class="dark:bg-black z-20 relative -top-16 m-0 -mb-16 h-full w-full overflow-visible bg-white p-0 py-32 !pb-12 [mask:radial-gradient(67.08px_at_50%_90px,#000_99%,#0000_101%)_calc(50%_-_60px)_0/_120px_100%_,_radial-gradient(67.08px_at_50%_calc(-60px),#0000_99%,#000_101%)_50%_30px/_120px_100%_repeat-x]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full pb-8 xl:max-w-[75rem]">
         <div class="mb-12 flex h-fit flex-col items-center justify-center">
             <div class="dark:text-white relative w-fit text-center text-[2.5rem] font-bold uppercase text-black">
                 {{ __('pages/public/index.8') }}
@@ -14,7 +14,7 @@
             <div class="flex flex-col gap-6 xl:flex-row">
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         1
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         2
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -34,7 +34,7 @@
             <div class="flex flex-col gap-6 xl:flex-row">
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         3
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         4
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -54,7 +54,7 @@
             <div class="flex flex-col gap-6 xl:flex-row">
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         5
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         6
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -74,7 +74,7 @@
             <div class="flex flex-col gap-6 xl:flex-row">
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         7
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="xl:-1/2 flex w-full flex-row items-start xl:items-baseline">
                     <div class="dark:text-white relative mr-8 text-4xl font-bold text-black">
-                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-[0] h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
+                        <span class="dark:bg-[#0d6efd] absolute -left-4 top-[0.9rem] -z-10 mx-4 my-0 h-9 w-9 rounded-[2rem] bg-[#c6d8ff] font-bold"></span>
                         8
                     </div>
                     <div class="dark:text-white relative text-xl font-light text-black">
@@ -130,7 +130,7 @@
                     class="absolute -left-14 -top-2 h-32 w-32 scale-x-[-1] opacity-0 [transition:all_0.225s_ease-in-out] [rotate:20deg] group-hover/card:opacity-100" alt="thumb-up" loading="lazy">
             </div>
             <div
-                class="relative flex w-full flex-col gap-4 rounded-3xl bg-[#e01f1933] p-8 [transition:all_0.225s_ease-in-out] peer-hover:!bg-[#e01f191a] peer-hover:[filter:brightness(1)_blur(0.5rem)] xl:w-1/2">
+                class="relative flex w-full flex-col gap-4 rounded-3xl bg-[#e01f1933] p-8 [transition:all_0.225s_ease-in-out] peer-hover:bg-[#e01f191a]! peer-hover:[filter:brightness(1)_blur(0.5rem)] xl:w-1/2">
                 <div class="dark:text-white relative text-center text-2xl font-bold text-black">{{ __('pages/public/index.24') }}</div>
                 <div class="my-4 flex flex-col gap-4">
                     <div class="flex flex-row justify-between">

@@ -1,4 +1,4 @@
-<section class="relative z-40 m-0 h-full w-full overflow-visible bg-white p-0 pt-24 dark:bg-black">
+<section class="relative m-0 h-full w-full overflow-visible bg-white p-0 pt-24 dark:bg-black">
     @svg('ui-set.hand-over', '-top-[10%] left-full -translate-x-1/2 w-[50rem] h-[50rem] absolute')
     <img class="absolute -top-[10%] left-full h-[50rem] w-[50rem] -translate-x-1/2" src="{{ URL::asset('assets/images/min-png/hand-over.png') }}" alt="hand-over">
     <div class="absolute left-full top-0 h-[25rem] w-[25rem] -translate-x-1/2 rounded-[100%] bg-[#E96035] blur-[10rem] filter"></div>
@@ -7,13 +7,13 @@
     <div class="absolute bottom-[22%] right-0 z-10 h-80 w-[30rem] translate-x-[65%] rounded-[100%] bg-[#00ff75] blur-[10rem] filter xl:-bottom-[10%] xl:right-full xl:translate-x-[45%]"></div>
     <img class="absolute right-full top-[30%] h-[30rem] w-[30rem] translate-x-[45%] xl:-top-[10%]" src="{{ URL::asset('assets/images/min-png/cube.png') }}" alt="cube">
     <div class="absolute right-full top-[30%] h-[30rem] w-[30rem] translate-x-[45%] rounded-[100%] bg-[#7B2B90D9] blur-[10rem] filter xl:-top-[10%]"></div>
-    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[1200px]">
+    <div class="min-w-96 max-w-96 relative z-10 m-auto w-full xl:max-w-[75rem]">
         <div class="flex flex-col">
             <div class="mb-4 flex h-fit flex-col items-center justify-center">
                 <div class="relative mb-4 w-fit text-center text-4xl font-bold uppercase text-black dark:text-white xl:text-[2.5rem]">
                     {{ __('pages/public/index.57') }}
                     <span
-                        class="text-nowrap relative !-z-[1] uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-x-[4%] before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg] dark:before:bg-[#0d6efd]">
+                        class="text-nowrap relative -z-1! uppercase before:absolute before:right-0 before:top-2/4 before:-z-10 before:block before:h-10 before:w-full before:-translate-x-[4%] before:-translate-y-1/2 before:bg-[#6fa9ff] before:p-[0.3rem] before:content-[''] before:[rotate:1deg] dark:before:bg-[#0d6efd]">
                         {{ __('pages/public/index.58') }}
                     </span>
                     {{ __('pages/public/index.59') }}
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -50,7 +50,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/1.jpeg') }}" alt="1">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.178') }}
+                                                {!! __('pages/public/index.178') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -82,7 +82,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/2.jpeg') }}" alt="2">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.179') }}
+                                                {!! __('pages/public/index.179') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -222,7 +222,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/6.jpeg') }}" alt="6">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.185') }}
+                                                {!! __('pages/public/index.185') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -250,7 +250,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -258,7 +258,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/7.jpeg') }}" alt="7">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.186') }}
+                                                {!! __('pages/public/index.186') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -274,17 +274,17 @@
                                 <div class="flex flex-col">
                                     <div class="mb-4">
                                         <div class="relative text-center text-3xl font-bold text-black dark:text-white xl:text-left">
-                                            {{ __('pages/public/index.77') }}
+                                            {{ __('pages/public/index.189') }}
                                         </div>
                                     </div>
                                     <div class="mb-4">
                                         <div class="relative text-center text-xl font-light text-[#acacac] xl:text-left">
-                                            {{ __('pages/public/index.78') }}
+                                            {{ __('pages/public/index.190') }}
                                         </div>
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>
@@ -292,7 +292,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/8.jpeg') }}" alt="8">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.187') }}
+                                                {!! __('pages/public/index.187') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -318,7 +318,7 @@
                                     </div>
                                 </div>
                                 <button
-                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] border-[solid] border-black text-[1rem] dark:border-white">
+                                    class="js-modal-button relative flex h-12 w-full items-center justify-center rounded-full border-[0.1rem] cursor-pointer border-black text-[1rem] dark:border-white">
                                     <div class="relative text-xl text-black dark:text-white">
                                         {{ __('pages/public/index.64') }}
                                     </div>

@@ -8,7 +8,7 @@
 
 
         // provide smooth appearance
-        xmessage.classList.add("!opacity-100", "!top-4");
+        xmessage.classList.add("opacity-100!", "top-4!");
 
         const seconds = parseInt(xmessage.getAttribute("data-seconds")) * 1000;
         // animate transition time for the last 0.5 seconds
@@ -16,7 +16,7 @@
 
         // provide smooth vanishing
         setTimeout(() => {
-            xmessage.classList.remove("!opacity-0", "!top-4");
+            xmessage.classList.remove("opacity-0!", "top-4!");
         }, fadeOutTime);
 
         // remove xmessage

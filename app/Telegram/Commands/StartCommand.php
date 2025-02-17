@@ -2,9 +2,14 @@
 
 namespace App\Telegram\Commands;
 
+use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Support\Str;
+use App\Models\OneTimeLoginToken;
 use App\Services\TelegramServices;
 use Telegram\Bot\Commands\Command;
+use Illuminate\Support\Facades\URL;
+use App\Events\UserVerifiedByStartCommand;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 
@@ -20,6 +25,14 @@ class StartCommand extends Command
         $user->telegram_id = $telegram_id;
         $user->telegram_username = $telegram_username;
         $user->save();
+
+        // You can finish the process right here! - in order to do it you have 5 minutes to use the below url, after 5 minutes it will be expired and you won't be able to use it, If it's expired please go back to the website in your browser to finish the process there
+        $url = URL::temporarySignedRoute('public.auto-login', now()->addMinutes(30), ['tid' => encrypt($telegram_id), 'uuid' => encrypt($user->uuid)]);
+        logger($url);
+
+        // send the event
+        broadcast(new \App\Events\FireTelegramVerified($user->uuid));
+
         // reply with the message
         $this->replyWithMessage([
             'text' => $message,
@@ -28,15 +41,13 @@ class StartCommand extends Command
                 'inline_keyboard' => [
                     [
                         [
-                            'text' => 'Перейти на сайт', // Button text
-                            'url' => config('services.website.url') . '/dashboard' // URL for the button
+                            'text' => 'Оплатить Сейчас', // Button text
+                            'web_app' => ['url' => $url] // URL for the button
                         ]
                     ]
                 ]
             ])
         ]);
-
-        // $this->replyWithMessage(['text' => $message, "parse_mode" => "MarkdownV2"]);
     }
 
     public function handle()
@@ -113,55 +124,52 @@ class StartCommand extends Command
                 }
 
                 // Check if user is already in the club's group (exempted from the payment)
-                logger("you disabled telegram exemption");
-                if (1 > 10) {
-                    try {
-                        $request_chat_member = Telegram::getChatMember([
-                            "chat_id" => $group_id,
-                            "user_id" => $telegram_user_id,
-                        ]);
+                try {
+                    $request_chat_member = Telegram::getChatMember([
+                        "chat_id" => $group_id,
+                        "user_id" => $telegram_user_id,
+                    ]);
 
-                        // exempted users
-                        if ($request_chat_member->status === "creator") {
-                            $userByUuid->telegram_channel_status = "creator";
-                            $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ ⭐ Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь создателем канала.\n\n*Следуйщий Шаг* 👇👇👇"));
-                            return;
-                        };
-                        if ($request_chat_member->status === "administrator") {
-                            $userByUuid->telegram_channel_status = "administrator";
-                            $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🌟 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим администратором канала.\n\n*Следуйщий Шаг* 👇👇👇"));
-                            return;
-                        };
-                        if ($request_chat_member->status === "member") {
-                            $userByUuid->telegram_channel_status = "member";
-                            $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
-                            return;
-                        };
-                        if ($request_chat_member->status === "restricted") {
-                            $userByUuid->telegram_channel_status = "restricted";
-                            $userByUuid->telegram_channel_exempted = 1;
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
-                            return;
-                        };
-                        // those who are not in the chat
-                        if ($request_chat_member->status === "left") {
-                            $userByUuid->telegram_channel_status = "left";
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
-                            // throw new \Exception('User isn\'t exempted');
-                            return;
-                        };
-                        if ($request_chat_member->status === "kicked") {
-                            $userByUuid->telegram_channel_status = "kicked";
-                            $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
-                            // throw new \Exception('User isn\'t exempted');
-                            return;
-                        };
-                    } catch (\Exception $e) {
-                        // ignore .. continue to register user
-                    }
+                    // exempted users
+                    if ($request_chat_member->status === "creator") {
+                        $userByUuid->telegram_channel_status = "creator";
+                        $userByUuid->telegram_channel_exempted = 1;
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ ⭐ Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь создателем канала.\n\n*Следуйщий Шаг* 👇👇👇"));
+                        return;
+                    };
+                    if ($request_chat_member->status === "administrator") {
+                        $userByUuid->telegram_channel_status = "administrator";
+                        $userByUuid->telegram_channel_exempted = 1;
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🌟 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим администратором канала.\n\n*Следуйщий Шаг* 👇👇👇"));
+                        return;
+                    };
+                    if ($request_chat_member->status === "member") {
+                        $userByUuid->telegram_channel_status = "member";
+                        $userByUuid->telegram_channel_exempted = 1;
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
+                        return;
+                    };
+                    if ($request_chat_member->status === "restricted") {
+                        $userByUuid->telegram_channel_status = "restricted";
+                        $userByUuid->telegram_channel_exempted = 1;
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🤝 Здравствуйте " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сйте _*Club Start* а так-же являетесь текущим участником канала.\n\n*Следуйщий Шаг* 👇👇👇"));
+                        return;
+                    };
+                    // those who are not in the chat
+                    if ($request_chat_member->status === "left") {
+                        $userByUuid->telegram_channel_status = "left";
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🚀 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
+                        // throw new \Exception('User isn\'t exempted');
+                        return;
+                    };
+                    if ($request_chat_member->status === "kicked") {
+                        $userByUuid->telegram_channel_status = "kicked";
+                        $this->saveUserChanges($userByUuid, $telegram_user_id, $telegram_user_username, $telegramServices->markdownv2("✅ 🗿 С возвращением " . $telegram_user_full_name . "!\n\nВы успешно зарегестрировались на оффициальном веб-сайте *Club Start*!\n\n*Следуйщий Шаг* 👇👇👇"));
+                        // throw new \Exception('User isn\'t exempted');
+                        return;
+                    };
+                } catch (\Exception $e) {
+                    // ignore .. continue to register user
                 }
 
                 // update user

@@ -16,10 +16,11 @@ class VerifyCsrfToken extends Middleware
     protected $except = [];
     public function __construct(Application $app, Encrypter $encrypter)
     {
+        // elaborate on this ...
         $this->except = [
             "/1MIIJRAIBADANBgkqhkiG9w0BAQEFAASCCS4wggkqAgEAAoICAQC0dr14WFaDsDJsGvjxdCA8sD9GHD3/webhook",
             "/" . config("services.telegram.bot_token") . "/webhook",
-            "/yoocallback",
+            '/payment/processing',
         ];
         parent::__construct($app, $encrypter);
     }

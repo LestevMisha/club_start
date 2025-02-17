@@ -1,5 +1,5 @@
 <xpage-suggestions {{ $attributes->merge(['class' => 'component flex flex-row']) }} data-uid="{{ $uid }}">
-    <div class="my-2 ml-auto flex flex-row gap-2">
+    <div class="my-2 ml-auto flex w-full flex-row flex-wrap gap-4 xl:gap-2 justify-center xl:justify-end">
         @if (url()->current() === route('auth.register'))
             <a class="{{ $linkClasses }}" href="{{ route('auth.login') }}">{{ __('components/page-suggestions.4') }}</a>
         @elseif(url()->current() === route('auth.login'))
