@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite'
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
     },
 
     plugins: [
+        tailwindcss(),
         cssInjectedByJsPlugin({ relativeCSSInjection: true }),
         laravel({
             input: [
