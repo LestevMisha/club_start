@@ -20,7 +20,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
         try {
             // Prepare form data and API details
             const formData = new FormData(form);
-            const url = `${window.location.origin}/post/login/authenticate`;
+            const url = `${window.location.origin}/auth/login/authenticate`;
             const contentType = "application/x-www-form-urlencoded";
 
             // reCAPTCHA verification

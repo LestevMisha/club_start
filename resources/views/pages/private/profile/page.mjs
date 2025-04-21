@@ -3,6 +3,7 @@ import injectContentStylesAndScripts from "@helpers/injectContentStylesAndScript
 import postRequest from "@apis/postRequest.mjs";
 import renderBlockTime from "@helpers/renderBlockTime.mjs";
 import renderValidationErrors from "@helpers/renderValidationErrors";
+import startCountdownTimer from "@helpers/renderLiveTime";
 
 (() => {
     const updateImageForm = document.querySelector("#js-update-image-form");
@@ -41,35 +42,7 @@ import renderValidationErrors from "@helpers/renderValidationErrors";
 
     });
 
-    const verifyEmailButton = document.querySelector("xbutton[data-attribute='emailVerify']");
-    const verifyEmailXloader = verifyEmailButton.querySelector("xloader");
-
-    // Handle form submission
-    verifyEmailButton.addEventListener("click", async () => {
-
-        // Activate loader
-        verifyEmailXloader.classList.add("active");
-        verifyEmailButton.classList.add("pointer-events-none");
-
-        try {
-            // Prepare form data and API details
-            const url = `${window.location.origin}/post/profile/verifyEmail`;
-            const contentType = "application/x-www-form-urlencoded";
-
-            // reCAPTCHA verification
-            const captchaResponse = await verifyRecaptcha();
-            if (!captchaResponse?.success) {return injectContentStylesAndScripts(document.body, captchaResponse?.backend?.message);}
-
-            // Send form data
-            const response = await postRequest(url, contentType);
-            if (response) {return injectContentStylesAndScripts(document.body, response?.backend?.message);}
-
-        } catch (error) {
-            console.error("Form submission error:", error);
-        } finally {
-            verifyEmailXloader.classList.remove("active");
-            verifyEmailButton.classList.remove("pointer-events-none");
-        }
-
-    });    
+    // Activate the timer
+    const timeLeftElement = document.querySelector("#js-next-payment-date-input");
+    startCountdownTimer(timeLeftElement);
 })();

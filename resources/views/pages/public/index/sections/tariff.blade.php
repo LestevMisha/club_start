@@ -58,7 +58,7 @@
                                 {{ __('pages/public/index.85') }}
                             </div>
                             <div class="dark:text-white relative mb-8 text-center text-[4rem] font-bold text-black">
-                                6 000 ₽
+                                3 000 ₽
                             </div>
                             <a class="group relative mb-4 flex h-20 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#0d6efde6] text-xl text-white no-underline [transition:all_0.225s_ease-in-out] hover:scale-105 hover:bg-[#0d6efd]"
                                 href="{{ route('auth.register') }}">

@@ -1,1 +1,0 @@
-document.querySelectorAll("xinput").forEach(t=>{if(t.getAttribute("data-js-initialized")!=="false")return;t.setAttribute("data-js-initialized",!0);const e=t.getAttribute("data-attribute"),u=t.querySelector(`#js-${e}-button`),i=t.querySelector(`#js-${e}-input`);u.addEventListener("click",a=>{i.value=null,i.focus()})});

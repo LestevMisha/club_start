@@ -25,7 +25,7 @@
                     </button>
                     <div class="flex max-h-0 flex-col overflow-hidden opacity-0 [transition:all_.225s_ease-in-out] peer-[.expanded]/button:max-h-[100rem] peer-[.expanded]/button:opacity-100">
                         <div class="relative my-1 text-xl font-light text-[#acacac]">
-                            {{ __('pages/public/index.141') }}
+                            {!! __('pages/public/index.141') !!}
                             <span>
                                 <a class="text-[#0d6efd]" target="_blank" href="https://t.me/ClubStarthelp_bot">@ClubStarthelp_bot</a>
                             </span>

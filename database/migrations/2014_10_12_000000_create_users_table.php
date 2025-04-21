@@ -11,30 +11,30 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid')->unique();
+            $table->bigIncrements('id');
+            $table->uuid('uuid')->unique();
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->uuid('referral_uuid')->unique();
 
-            $table->integer('days_left')->default(0);
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->unsignedInteger('days_left')->default(0);
+            $table->unsignedInteger('amount_earned')->default(0);
+            $table->string('username')->nullable();
+            $table->boolean('is_subscribed')->default(false);
+            $table->timestamp('kicked_at')->nullable();
+            $table->uuid('referred_by_uuid')->nullable();
+            $table->string('registered_via')->nullable();
+            $table->text('telegram_invite_url')->nullable();
 
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('telegram_username')->nullable();
-            $table->integer('telegram_channel_exempted')->default(0);
-            $table->string('telegram_channel_status')->default("none");
-            
-
-            /* if empty (null) - user is not either verified/referred,
-            if not empty (<value>) - user is either verified/referred  */
-            $table->string('referred_by_uuid')->nullable();
-            $table->string('referral_uuid')->nullable();
-            $table->string('telegram_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('google_id')->nullable();
-
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

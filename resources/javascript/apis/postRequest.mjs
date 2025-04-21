@@ -3,9 +3,20 @@ import getCsrfToken from "../helpers/getCsrfToken.mjs";
 export default async function postRequest(url, contentType, parameters = {}) {
     try {
         // Prepare the body based on content type
-        const body = contentType === "application/json"
-            ? JSON.stringify(parameters)
-            : new URLSearchParams(parameters);
+        let body;
+
+        if (contentType !== "application/json") {
+            body = new URLSearchParams(parameters);
+
+            // Append the URL search params to the body
+            const urlParams = new URLSearchParams(window.location.search);
+            for (const [key, value] of urlParams.entries()) {
+                body.append(key, value);
+            }
+        } else {
+            // Serialize the object to JSON
+            body = JSON.stringify(parameters);
+        }
 
         // Send POST request
         const response = await fetch(url, {

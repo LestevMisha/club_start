@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\RateLimiterController;
-use App\Services\CloudPayments\PaymentServices;
 
 class LoginController extends RateLimiterController
 {
@@ -34,6 +33,13 @@ class LoginController extends RateLimiterController
 
         // 3. Login attempt
         if (Auth::attempt($validator->validated(), $remember)) {
+
+            # 4. Check if user can access the dashboard
+            $user = \App\Models\User::where('email', $request->input('email'))->first();
+            if (!$user->is_subscribed || $user->days_left <= 0 || $user->kicked_at) {
+                return $this->respond->renderErrors(["email" => __("login.invalid_subscription"), "password" => ""], "partials._input-error-message");
+            }
+
             $request->session()->regenerate();
 
             // Clear any existing rate limiting blocks
@@ -48,10 +54,6 @@ class LoginController extends RateLimiterController
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        logger("dash!");
-        $payment = new PaymentServices();
-        $payment->tokenTopUp('tk_3d9426ea04adfe86c9b2c54231fbc', 3000.00, '9e3a861c-0df4-4bae-b5c1-3009c45a0905');
-        logger("stopped!");
         return view("pages.auth.login.bundled");
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\RateLimiterController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ResetPasswordController extends RateLimiterController
@@ -21,7 +22,12 @@ class ResetPasswordController extends RateLimiterController
      */
     public function resetPassword(Request $request)
     {
-        // 1. Validation
+        // 1. Rate limiting (up to 5 attempts)
+        $throttleKey = $this->generateThrottleKey("resetPassword", "email", $request);
+        $executed = $this->rateLimiter($throttleKey, "password", 5, 300);
+        if ($executed) return $executed;
+
+        // 2. Validation
         $validator = Validator::make($request->all(), [
             'email' => "required|email",
             'password' => "required|min:8|confirmed",
@@ -37,12 +43,16 @@ class ResetPasswordController extends RateLimiterController
                 ])->setRememberToken(Str::random(60));
                 $user->save();
                 event(new PasswordReset($user));
+
+                // ✅ Auto-login user
+                Auth::login($user);
             }
         );
 
+
         // Default authentication error
         return $status === Password::PASSWORD_RESET
-            ? redirect()->route("auth.login")
+            ? redirect()->route("private.dashboard")
             : $this->respond->renderMessage("partials._modal-error-message", __("login.invalid_credentials"));
     }
 

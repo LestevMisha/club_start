@@ -3,10 +3,8 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Crypt;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Telegram\Bot\Exceptions\TelegramResponseException;
-use Vinkla\Hashids\Facades\Hashids;
 
 class TelegramServices
 {
@@ -14,9 +12,11 @@ class TelegramServices
 
     public function __construct(protected \App\Services\Models\AvatarServices $avatarServices) {}
 
-    public function getTelegramVerificationLink($uuid = "none", $target)
+    public function getCustomTelegramLink($arg, $uuid)
     {
-        return config("services.telegram.bot_url") . "&start=" .   $uuid  . "_" . $target; // should be encrypted
+        $base = config("services.telegram.bot_url");
+        $param = implode("_", [$arg, $uuid]);
+        return "{$base}?start={$param}";
     }
 
     function markdownv2($text)
@@ -110,10 +110,10 @@ class TelegramServices
         return $response->getBody()->getContents();
     }
 
-    public function observeSaveUserImage(string $telegram_id, string $uuid, int $index = 0)
+    public function observeSaveUserImage(string $user_id, string $uuid, int $index = 0)
     {
         // get the latest user's profile photo/image
-        $binaryImage = $this->observeCurrentUserImage($telegram_id, $index);
+        $binaryImage = $this->observeCurrentUserImage($user_id, $index);
         // save it to database
         $this->avatarServices->updateOrCreateAvatar($uuid, $binaryImage);
         return $binaryImage;

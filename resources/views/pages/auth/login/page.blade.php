@@ -22,15 +22,6 @@
                             <x-inputs.input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.3')" attribute="email" />
                             <x-inputs.password-input.compiled :uid="uniqid()" :inscription="__('pages/auth/login.4')" attribute="password" />
                             <x-submit-button.compiled :uid="uniqid()" :inscription="__('pages/auth/login.1')" iconName="arrow-forward" />
-                            <div class="flex flex-col gap-2">
-                                <div class="text-base text-[#666666]">
-                                    {{ __('pages/auth/login.6') }}
-                                </div>
-                                <div class="flex flex-col gap-4 xl:flex-row">
-                                    <x-telegram-button.compiled :uid="uniqid()" :url="route('auth.login.telegram')" :title="__('app.3')" icon="logos/telegram" target="" />
-                                    <x-button.compiled :uid="uniqid()" :url="route('auth.login.google')" :title="__('app.2')" icon="logos/google" target="" />
-                                </div>
-                            </div>
                             <x-checkbox.compiled :uid="uniqid()" :title="__('app.4')" checked="true" />
                         </div>
                     </form>

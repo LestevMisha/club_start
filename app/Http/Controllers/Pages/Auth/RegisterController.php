@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Pages\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -14,72 +11,15 @@ class RegisterController extends Controller
 
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected \App\Services\Models\UserServices $userServices,
-        protected \App\Services\Partials\_PartialServices $respond,
-        protected \App\Services\Partials\_StepServices $_stepServices,
+        protected \App\Services\TelegramServices $telegramServices,
     ) {}
 
-    protected $rules = [
-        'name' => "required|string|min:2|max:25",
-        'email' => "required|min:4|max:50|email|unique:users",
-        'password' => "required|min:8|confirmed",
-    ];
-
-
     /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
-    public function store(Request $request)
-    {
-        // data
-        $name = $request->get("name");
-        $email = $request->get("email");
-        $password = $request->get("password");
-        // data from cookies
-        $referred_by_uuid = $request->cookie("referred_by_uuid", "");
-
-        // check processing
-        $response = $this->action("name", $request);
-        if ($response) return $response;
-
-        if ($email) {
-            $response = $this->action("email", $request);
-            if ($response) return $response;
-        } else return $this->_stepServices->getStep(2);
-
-        if ($password) {
-            $response = $this->action("password", $request);
-            if ($response) return $response;
-        } else return $this->_stepServices->getStep(3);
-
-        // create a new user
-        $userData = [
-            "name" => $name,
-            "email" => $email,
-            "referred_by_uuid" => $referred_by_uuid,
-        ];
-        $user = $this->userServices->createUser($userData, $password);
-
-        // send verification letter
-        event(new Registered($user));
-
-        // authentificate user
-        if (Auth::attempt(compact('email', 'password'))) return redirect()->route("intermediate.telegram.verify");
-    }
-
-
-    /* +++++++++++++++++++ HELPER SECTION +++++++++++++++++++ */
-    public function action($key, Request $request)
-    {
-        $validator = Validator::make($request->all(), [$key => $this->rules[$key]]);
-        $error = $validator->errors()->first($key);
-        if ($validator->fails()) {
-            return $this->respond->renderErrors([$key => $error], "partials._input-error-message");
-        }
-    }
-
 
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return view("pages.auth.register.bundled");
+        $referred_by_uuid = $request->cookie("referred_by_uuid", "");
+        return redirect()->away($this->telegramServices->getCustomTelegramLink("web", $referred_by_uuid));
     }
 }

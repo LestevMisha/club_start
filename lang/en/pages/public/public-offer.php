@@ -207,22 +207,10 @@ TEXT,
 "key_12fe566495f4578ab55234d1a3ff1dcc" => <<<TEXT
 SP Shkitov Daniil Alekseevich
 TEXT,
-"key_c82bbf60bcfbefcaf1575930a55641af" => <<<TEXT
-Registration address: 241000, Bryansk region, Bryansk
-TEXT,
 "key_244edfbefee683fac20d61ddb88a0228" => <<<TEXT
 OGRNIP 322325600026496, TIN 325704482456
 TEXT,
-"key_71ae7d3eab0e7f568e09a12023901c48" => <<<TEXT
-Bank, BIC 041501601, bank/account 30101810400000000601
-TEXT,
 "key_2067d3bd7810f392f80a9a96d2ceba30" => <<<TEXT
 Current account 40817810308007337829
-TEXT,
-"key_2e89a0556e17fc34d288a28bc053be4c" => <<<TEXT
-Phone: +79992211222
-TEXT,
-"key_858d40593205d7d9a107dc84f109aa32" => <<<TEXT
-Email address danya.shkitov@bk.ru
 TEXT,
 ];

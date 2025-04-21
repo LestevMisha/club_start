@@ -80,12 +80,8 @@
                 <div class="my-4 text-2xl font-bold text-black dark:text-white">{{ __('pages/public/public-offer.key_e124f5e82e05a799a1677fdc0e4cc608') }}</div>
                 <ul>
                     <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_12fe566495f4578ab55234d1a3ff1dcc') }}</li>
-                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_c82bbf60bcfbefcaf1575930a55641af') }}</li>
                     <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_244edfbefee683fac20d61ddb88a0228') }}</li>
-                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_71ae7d3eab0e7f568e09a12023901c48') }}</li>
                     <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2067d3bd7810f392f80a9a96d2ceba30') }}</li>
-                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_2e89a0556e17fc34d288a28bc053be4c') }}</li>
-                    <li class="text-base leading-6 text-[#666666]">{{ __('pages/public/public-offer.key_858d40593205d7d9a107dc84f109aa32') }}</li>
                 </ul>
             </div>
         </div>

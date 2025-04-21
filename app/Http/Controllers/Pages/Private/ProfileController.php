@@ -15,6 +15,7 @@ class ProfileController extends RateLimiterController
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected \App\Services\Models\AvatarServices $avatarServices,
+        protected \App\Services\Models\PaymentServices $paymentServices,
         protected \App\Services\Partials\_PartialServices $respond
     ) {}
 
@@ -33,7 +34,7 @@ class ProfileController extends RateLimiterController
 
         // 2. Validate index
         $index = $request->get("image-index");
-        $photos = Telegram::getUserProfilePhotos(["user_id" => Auth::user()->telegram_id]);
+        $photos = Telegram::getUserProfilePhotos(["user_id" => Auth::user()->user_id]);
 
         if (!isset($photos["photos"][$index][0])) {
             // Log and handle incorrect index
@@ -81,6 +82,7 @@ class ProfileController extends RateLimiterController
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     public function __invoke()
     {
-        return view("pages.private.profile.bundled");
+        $payment = $this->paymentServices->getPayment("user_id", Auth::user()->user_id);
+        return view("pages.private.profile.bundled", ["payment" => $payment]);
     }
 }

@@ -115,7 +115,7 @@
                         <div class="text-nowrap relative font-light text-white">{{ __('pages/public/index.22') }}</div>
                     </div>
                     <div class="flex flex-row justify-between">
-                        <div class="text-nowrap relative font-light text-white">6 000 {{ __('pages/public/index.19') }}</div>
+                        <div class="text-nowrap relative font-light text-white">3 000 {{ __('pages/public/index.19') }}</div>
                         <span class="border-dot mx-4 w-full [border-bottom:0.1rem_dotted_#a9a9a9]"></span>
                         <div class="text-nowrap relative font-light text-white">{{ __('pages/public/index.23') }}</div>
                     </div>

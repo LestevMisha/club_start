@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\Partials\_ErrorServices;
 use App\Services\Partials\_PartialServices;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -27,7 +26,6 @@ class RateLimiterController extends Controller
     public function rateLimiter(string $key, string $input_key, int $maxAttempts, int $decaySeconds = 60)
     {
         // Record a new attempt only if the rate limit has not been exceeded.
-        RateLimiter::hit($key, $decaySeconds);
         if (RateLimiter::tooManyAttempts($key, $maxAttempts)) {
             $availableIn = RateLimiter::availableIn($key);
             // Respond with error
@@ -37,6 +35,7 @@ class RateLimiterController extends Controller
                 ["availableIn" => $availableIn],
             );
         }
+        RateLimiter::hit($key, $decaySeconds);
     }
 
     /**

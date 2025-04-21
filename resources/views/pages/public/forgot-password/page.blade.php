@@ -26,7 +26,7 @@
                                     {{ __('app.1') }}
                                 </span>
                                 <a class="text-[0.8rem] font-normal text-[#acacac] underline dark:text-[#666666]" href="https://mail.ru/" target="_blank">mail.ru</a>
-                                <span class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">{{ __('pages/private/profile.24') }}</span>
+                                <span class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">{{ __('app.5') }}</span>
                                 <a class="text-[0.8rem] font-normal text-[#acacac] underline dark:text-[#666666]" href="https://gmail.com/" target="_blank">gmail.com</a>
                             </div>
                         </div>

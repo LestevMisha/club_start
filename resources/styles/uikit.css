@@ -3,186 +3,201 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --animate-levitation: levitation 4s ease-in-out infinite;
-  --animate-fadeIn: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-
-  --font-sans: Gilroy, sans-serif;
-
-  @keyframes fadeIn {
-    0% {
-      background-color: rgba(0, 0, 0, 0);
-  }
-
-  100% {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-}
-
-@keyframes levitation {
-  0% {
-    translate: 0 0rem;
-  }
-
-  50% {
-    translate: 0 -0.2rem;
-  }
-
-  100% {
-    translate: 0 0rem;
-  }
-}
-
-
+    --animate-levitation: levitation 4s ease-in-out infinite;
+    --animate-fadeIn: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    
+    --font-sans: Gilroy, sans-serif;
+    
+    @keyframes fadeIn {
+        0% {
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+        100% {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+    
+    @keyframes levitation {
+        0% {
+            translate: 0 0rem;
+        }
+        
+        50% {
+            translate: 0 -0.2rem;
+        }
+        
+        100% {
+            translate: 0 0rem;
+        }
+    }
 }
 
 /*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+The default border color has changed to `currentColor` in Tailwind CSS v4,
+so we've added these compatibility styles to make sure everything still
+looks the same as it did with Tailwind CSS v3.
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
+If we ever want to remove these styles, we need to add an explicit border
+color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-
-    html { 
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+    
+    html {
         scrollbar-color: #0d6efd #66666666;
     }
-
+    
     .icon {
         position: relative;
         width: 0.75rem;
         height: 0.75rem;
-		/* color: #ffffff66; */
+        /* color: #ffffff66; */
         transition: all 0.225s ease-in-out;
     }
-
-	/* sizes */
+    
+    /* sizes */
     .icon.icon_2rem {
         width: 2rem;
         min-width: 2rem;
         height: 2rem;
         min-height: 2rem;
     }
-
+    
     .icon.icon_2\.5rem {
         width: 2.5rem;
         min-width: 2.5rem;
         height: 2.5rem;
         min-height: 2.5rem;
     }
-
-	/* paddings */
+    
+    /* paddings */
     .icon.icon_p6 {
         padding: 0.6rem;
     }
-
+    
     .icon.icon_p7 {
         padding: 0.7rem;
     }
-
-	/* raduis */
+    
+    /* raduis */
     .icon.icon_radius-0\.5rem {
         border-radius: 0.5rem;
     }
-
+    
     .icon.icon_radius-full {
         border-radius: 9999px;
     }
-
-	/* colors */
+    
+    /* colors */
     .icon.icon_grey {
-        background-color: #80808026;
+        background-color: #ececec;
         color: #00000066;
+        /* background-color: #80808026;
+        color: #00000066; */
     }
-
+    /*
     body.dark .icon.icon_grey {
         background-color: #00000026;
         color: #ffffff66;
-    }
-
+    } */
+    
     .icon.icon_red {
         color: #e31c1c;
     }
-
+    
     body.dark .icon.icon_grey {
         color: #ffffff66;
-        background-color: #80808026;
+        background-color: #131313;
+        /* background-color: #80808026; */
     }
-
-	/* hovers */
+    
+    /* hovers */
     .icon.icon_hover-v1:hover {
         scale: 1.05 !important;
         color: #ffffff !important;
         background-color: #0d6efd !important;
     }
-
+    
     .icon.icon_hover-v2:hover {
         scale: 1.05 !important;
-        background-color: #80808059 !important;
+        background-color: #d3d3d3 !important;
+        /* background-color: #80808059 !important; */
     }
-
+    
+    body.dark .icon.icon_hover-v2:hover {
+        background-color: #2d2d2d !important;
+    }
+    
     .icon.icon_hover-v3:hover {
         scale: 1.05 !important;
     }
-
+    
     .default-icon.circle-icon {
         border-radius: 50%;
     }
-
+    
     .default-icon.circle-icon:hover,
-	.default-icon.item-icon:hover {
+        .default-icon.item-icon:hover {
         background-color: #80808059;
         scale: 1.02;
     }
-
+    
     .component {
         position: relative;
         display: block;
     }
-
+    
     .cell {
         position: relative !important;
         padding: 1em !important;
         inset: unset !important;
         min-width: 255px;
-        background-color: #FFFFFF;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+        background-color: #ffffff;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
         border-radius: 0.4em;
     }
-
+    
     body.dark .cell {
         background-color: #171717;
     }
-
+    
     .emphasize {
-        background-image: linear-gradient(155deg, #E94094 10%, #FDBB6A 30%, #75C9C6 40%, #A0D081 50%, #5DC7DE 60%, #4357A4 79%, #E94094);
+        background-image: linear-gradient(
+        155deg,
+        #e94094 10%,
+        #fdbb6a 30%,
+        #75c9c6 40%,
+        #a0d081 50%,
+        #5dc7de 60%,
+        #4357a4 79%,
+        #e94094
+        );
         background-size: 100%;
         background-repeat: repeat;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-
+    
     .emphasize.blue {
         background-image: linear-gradient(135deg, #00ffbd, #0d6efd);
     }
-
+    
     .emphasize.orange {
         background-image: linear-gradient(155deg, #ee0979 50%, #ff6a00);
     }
-
+    
     .emphasize.green {
         background-image: linear-gradient(155deg, #09e3ee 50%, #00ff0c);
     }
-
+    
     .noise {
         position: absolute;
         top: 0;
@@ -191,9 +206,9 @@
         bottom: 0;
         z-index: 0;
         opacity: 0.05;
-        background: url("/assets/images/min-gif/noise.gif");
+        background: url('/assets/images/min-gif/noise.gif');
     }
-
+    
     .noise-before::before {
         position: absolute;
         top: 0;
@@ -201,17 +216,17 @@
         width: 100%;
         height: 100%;
         border-radius: 1em;
-        content: "";
-        opacity: .05;
+        content: '';
+        opacity: 0.05;
         z-index: 100;
         pointer-events: none;
-        background: url("/assets/images/min-gif/noise.gif");
+        background: url('/assets/images/min-gif/noise.gif');
     }
-
+    
     body.dark .noise-before {
-        background-color: #FFFFFF08;
+        background-color: #ffffff08;
     }
-
+    
     .slider-thumb-sneaker::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
@@ -220,87 +235,93 @@
         height: 2.5rem;
         width: 5rem;
         border: none;
-        background-image: url("/assets/images/min-png/sneaker-main.png");
+        background-image: url('/assets/images/min-png/sneaker-main.png');
         background-size: contain;
         background-repeat: no-repeat;
         transition: 0.2s ease-in-out;
     }
-
+    
     .bg-knight {
         position: relative;
         display: flex;
         height: auto;
         min-height: 100vh;
         background-color: #f8f7f6;
-        background-image: url("/assets/images/svg/knight.svg");
+        background-image: url('/assets/images/svg/knight.svg');
         background-repeat: no-repeat;
         background-position: -40%;
         background-size: 59% 90%;
         padding: 6em 0;
     }
-
+    
     body.dark .bg-knight {
-        background-color: #0e0e0e;
+        background-color: #222222;
     }
-
+    
     .QR-code svg {
         position: relative;
         height: fit-content;
-        border: 0.225rem solid #FFF;
+        border: 0.225rem solid #fff;
         border-radius: 0.225rem;
     }
 }
 
 @layer components {
-
     .tgme_widget_login.large button.tgme_widget_login_button {
         border-radius: 0.5rem !important;
     }
 }
 
-@media(min-width:1920px) {
+@media (max-width:640px) {
     html {
-        font-size: calc((100vw / 192) + (6*(100vw / 1920)));
+        font-size: 14px !important;
+    }
+    .cell {
+        border-radius: 0 !important;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none !important;  /* Remove scrollbar space */
+    }
+
+    html {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 }
 
-@media(max-width:640px) {
-    html {
-        font-size: 10px;
-    }
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/assets/fonts/Gilroy-Light.woff2');
+    font-weight: 300;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Gilroy';
-	src: url("/assets/fonts/Gilroy-Light.woff2");
-	font-weight: 300;
-	font-display: swap;
+    src: url('/assets/fonts/Gilroy-Regular.woff2');
+    font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Gilroy';
-	src: url("/assets/fonts/Gilroy-Regular.woff2");
-	font-weight: 400;
-	font-display: swap;
+    src: url('/assets/fonts/Gilroy-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Gilroy';
-	src: url("/assets/fonts/Gilroy-Medium.woff2") format("woff2");
-	font-weight: 500;
-	font-display: swap;
+    src: url('/assets/fonts/Gilroy-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Gilroy';
-	src: url("/assets/fonts/Gilroy-SemiBold.woff2") format("woff2");
-	font-weight: 600;
-	font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gilroy';
-	src: url("/assets/fonts/Gilroy-Bold.woff2") format("woff2");
-	font-weight: 700;
-	font-display: swap;
+    src: url('/assets/fonts/Gilroy-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
 }

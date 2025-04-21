@@ -3,13 +3,13 @@
 namespace App\Services\Models;
 
 use App\Models\User;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserServices
 {
-    // Create a new user
+    // Creates a new user
     public function createUser($data, $password): User
     {
         // Inject defaults
@@ -21,41 +21,38 @@ class UserServices
 
         // Merge incoming data with defaults
         $mergedData = array_merge($defaults, $data);
-
-        // Create and return
         return User::create($mergedData);
     }
 
-    // Delete a user
-    public function deleteUser($email)
-    {
-        session()->flush();
-        return User::where("email", $email)->delete();
-    }
 
+    // Updates user and return the updated instance
     public function updateUser(array $data, $whereKey, $whereValue): User
     {
-        // Update the user and return the updated instance
+        // Observe the user
         $user = User::where($whereKey, $whereValue)->first();
         $user->update($data);
         return $user;
     }
 
+
+    // Returns user instance
     public function getUser($whereKey, $whereValue): User|null
     {
-        // Return user instance
         return User::where($whereKey, $whereValue)->first();
     }
 
-    /**
-     * Check how many users are referred by the authenticated user.
-     *
-     * @return array
-     */
-    public function checkUserReferrals()
+    // Returns all matched user instances
+    public function getUsers($whereKey, $whereValue, string $order = "desc"): Collection|null
+    {
+        return User::where($whereKey, $whereValue)->orderBy("created_at", $order)->get();
+    }
+
+
+    // Checks how many users are referred by the authenticated user.
+    public function checkUserReferrals(object $user)
     {
         // Get the referral_uuid of the authenticated user
-        $referral_uuid = Auth::user()->referral_uuid;
+        $referral_uuid = $user->referral_uuid;
 
         // Find users referred by the authenticated user
         $referredUsers = User::where('referred_by_uuid', $referral_uuid)->get();
@@ -64,12 +61,31 @@ class UserServices
         $totalReferred = $referredUsers->count();
 
         // Count active referred users (days_left > 0)
-        $activeReferred = $referredUsers->where('days_left', '>', 0)->count();
+        $activeReferred = $referredUsers->where('days_left', '>', 0)->where("is_subscribed", "=", 1)->count();
 
         return json_decode(json_encode([
             'referral_uuid' => $referral_uuid,
             'total_referred' => $totalReferred,
             'active_referred' => $activeReferred,
         ]));
+    }
+
+
+    // Checks email verification eligibility
+    public function canVerifyEmail($whereKey, $whereValue)
+    {
+        $user = $this->getUser($whereKey, $whereValue);
+
+        if (
+            $user &&
+            $user->is_subscribed &&
+            $user->days_left > 0 &&
+            !$user->email_verified_at &&
+            !$user->password
+        ) {
+            return $user;
+        }
+
+        return abort(403);
     }
 }

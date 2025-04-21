@@ -32,18 +32,25 @@ return [
     ],
 
     'cloud_payments' => [
-        'public_id'               => env('CLOUD_PAYMENTS_PUBLIC_ID', null),
-        'api_key'                 => env('CLOUD_PAYMENTS_API_KEY', null),
-        'term_url'                => env('CLOUD_PAYMENTS_PAYMENT_TERM_URL', null),
-        'payment_currency'        => env('CLOUD_PAYMENTS_PAYMENT_CURRENCY', null),
-        'payment_url'             => env('CLOUD_PAYMENTS_PAYMENT_URL', null),
-        'payment_description'     => env('CLOUD_PAYMENTS_PAYMENT_DESCRIPTION', null),
-        'payment_language'        => env('CLOUD_PAYMENTS_PAYMENT_LANGUAGE', null),
-        'payment_amount'          => env('CLOUD_PAYMENTS_PAYMENT_AMOUNT', null),
-        'payment_is_recurring'    => env('CLOUD_PAYMENTS_PAYMENT_IS_RECURRING', null),
+        'public_id'                     => env('CLOUD_PAYMENTS_PUBLIC_ID', null),
+        'api_key'                       => env('CLOUD_PAYMENTS_API_KEY', null),
+        'term_url'                      => env('CLOUD_PAYMENTS_PAYMENT_TERM_URL', null),
+        'payment_currency'              => env('CLOUD_PAYMENTS_PAYMENT_CURRENCY', null),
+        'payment_url'                   => env('CLOUD_PAYMENTS_PAYMENT_URL', null),
+        'payment_description'           => env('CLOUD_PAYMENTS_PAYMENT_DESCRIPTION', null),
+        'payment_language'              => env('CLOUD_PAYMENTS_PAYMENT_LANGUAGE', null),
+        'payment_amount'                => env('CLOUD_PAYMENTS_PAYMENT_AMOUNT', null),
+        'payment_is_recurring'          => env('CLOUD_PAYMENTS_PAYMENT_IS_RECURRING', null),
+        'recurrent_payment_description' => env('CLOUD_PAYMENTS_RECURRENT_PAYMENT_DESCRIPTION', null),
+        'recurrent_payment_amount'      => env('CLOUD_PAYMENTS_RECURRENT_PAYMENT_AMOUNT', null),
+        'recurrent_payment_currency'    => env('CLOUD_PAYMENTS_RECURRENT_PAYMENT_CURRENCY', null),
+        'recurrent_payment_interval'    => env('CLOUD_PAYMENTS_RECURRENT_PAYMENT_INTERVAL', null),
+        'recurrent_payment_period'      => env('CLOUD_PAYMENTS_RECURRENT_PAYMENT_PERIOD', null),
     ],
 
     'telegram' => [
+        'register_url' => env('TELEGRAM_REGISTER_URL', null),
+        
         'bot_token' => env('TELEGRAM_BOT_TOKEN', null),
         'group_id' => env('TELEGRAM_GROUP_ID', null),
         'primary_chat_title' => env('TELEGRAM_PRIMARY_CHAT_TITLE', null),
@@ -75,4 +82,7 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+
+
+    'python_api_token' => env("PYTHON_API_TOKEN"),
 ];

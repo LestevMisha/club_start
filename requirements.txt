@@ -9,3 +9,4 @@ composer require yoomoney/yookassa-sdk-php - https://github.com/yoomoney/yookass
 composer require laravel/reverb - 
 composer require avto-dev/cloud-payments-laravel - https://github.com/avto-dev/cloud-payments-laravel
 composer require laravel/socialite - https://laravel.com/docs/11.x/socialite
+composer require sergey-zatulivetrov/tinkoff-acquiring-client:^4.0 - https://github.com/remils/tinkoff-acquiring-client/tree/v4.0.0

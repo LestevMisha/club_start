@@ -5,6 +5,8 @@
         $referredUsersData = app('App\Services\BladeServices')->getReferredUsersData();
         $activeReferred = $referredUsersData->active_referred;
         $totalReferred = $referredUsersData->total_referred;
+
+        $telegram_invite_url = auth()->user()->telegram_invite_url
     @endphp
 
     {{-- blade --}}

@@ -7,22 +7,21 @@ use Illuminate\Support\Str;
 
 class AvatarServices
 {
-
-
-
-    // Check if user has a profle image
+    // Checks if user has a profle image
     public function hasAvatar($uuid)
     {
         return Avatars::where("user_uuid", $uuid)->exists();
     }
 
+
+    // Returns user instance
     public function getAvatar($whereKey, $whereValue): Avatars|null
     {
-        // Return user instance
         return Avatars::where($whereKey, $whereValue)->first();
     }
 
-    // Update or create user's profile image
+
+    // Updates and creates profile image
     public function updateOrCreateAvatar($uuid, $image_data)
     {
         $image = Avatars::where('user_uuid', $uuid)->first();

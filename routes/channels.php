@@ -17,7 +17,3 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{uuid}', function (User $user, $uuid) {
     return (int) $user->uuid === (int) $uuid;
 });
-
-Broadcast::channel("TelegramVerified", function () {
-    //
-});
