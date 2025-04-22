@@ -8,6 +8,7 @@
         "php": "^8.2",
         "blade-ui-kit/blade-icons": "^1.7",
         "guzzlehttp/guzzle": "^7.9",
+        "irazasyed/telegram-bot-sdk": "^3.14",
         "laravel-lang/locales": "^2.5",
         "laravel/framework": "^11.0",
         "laravel/reverb": "^1.4",
