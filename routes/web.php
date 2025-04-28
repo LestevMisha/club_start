@@ -10,7 +10,6 @@ use App\Http\Controllers\Pages\Auth\EmailController;
 use App\Http\Controllers\Pages\Auth\LoginController;
 use App\Http\Controllers\Pages\Public\IndexController;
 use App\Http\Controllers\Pages\Public\TermsController;
-use App\Http\Controllers\Pages\Auth\RegisterController;
 use App\Http\Controllers\Redis\RedisLanguageController;
 use App\Http\Controllers\Pages\Public\PrivacyController;
 use App\Http\Controllers\Pages\Private\PaymentsController;
@@ -40,7 +39,6 @@ Route::middleware("throttle:100,1")->group(function () {
 Route::middleware("throttle:100,1")->group(function () {
     Route::get("/auth/login", LoginController::class)->middleware(["_non-auth", "throttle:30,1"])->name("auth.login");
     Route::post("/auth/login/authenticate", [LoginController::class, "authenticate"])->middleware("_non-auth")->name("login.authenticate"); // rate limited (5,5)
-    Route::get("/auth/register", RegisterController::class)->middleware(["_non-auth", "throttle:30,1"])->name("auth.register");
     Route::get("/auth/email", EmailController::class)->middleware(["_auth", "throttle:30,1", "signed"])->name("auth.email");
     Route::post("/auth/email/verifyEmail", [EmailController::class, "verifyEmail"])->middleware("_auth")->name("auth.email.verifyEmail"); // rate limited (1,1)
     Route::get("/email/verify/{id}/{hash}", EmailVerificationController::class)->middleware(["_auth", "throttle:10,1", "signed"])->name("verification.verify");

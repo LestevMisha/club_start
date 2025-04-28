@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <a class="group/button relative flex h-20 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#ffffffe6] text-xl text-black no-underline [transition:all_0.225s_ease-in-out] hover:scale-105 hover:bg-[#ffffff]"
-                    href="{{ route('auth.register') }}">
+                    href="{{ $registerLink }}" target="_blank">
                     {{ __('pages/public/index.6') }}
                     <img class="absolute -bottom-7 -right-4 h-12 w-12 opacity-0 [transition:all_0.225s_ease-in-out] group-hover/button:-translate-x-4 group-hover/button:-translate-y-4 group-hover/button:opacity-100"
                         src="{{ URL::asset('assets/images/min-webp/pointer.webp') }}" alt="finger-click">

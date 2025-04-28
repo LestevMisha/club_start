@@ -19,6 +19,11 @@ class TelegramServices
         return "{$base}?start={$param}";
     }
 
+    public function getRegisterLink() {
+        $referred_by_uuid = request()->query('referred_by_uuid', request()->cookie("referred_by_uuid"));
+        return $this->getCustomTelegramLink("web", $referred_by_uuid);
+    }
+
     function markdownv2($text)
     {
         // List of characters to be escaped

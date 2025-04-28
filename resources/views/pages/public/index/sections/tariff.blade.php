@@ -61,7 +61,7 @@
                                 3 000 ₽
                             </div>
                             <a class="group relative mb-4 flex h-20 w-full cursor-pointer items-center justify-center rounded-2xl bg-[#0d6efde6] text-xl text-white no-underline [transition:all_0.225s_ease-in-out] hover:scale-105 hover:bg-[#0d6efd]"
-                                href="{{ route('auth.register') }}">
+                                href="{{ $registerLink }}" target="_blank">
                                 {{ __('pages/public/index.86') }}
                                 <img class="absolute -bottom-7 -right-4 h-12 w-12 opacity-0 [transition:all_0.225s_ease-in-out] group-hover:-translate-x-4 group-hover:-translate-y-4 group-hover:opacity-100"
                                     src="{{ URL::asset('assets/images/min-webp/pointer.webp') }}" alt="finger-click">

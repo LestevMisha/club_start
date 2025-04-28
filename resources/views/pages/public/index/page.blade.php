@@ -10,16 +10,6 @@
     @include('pages.public.index.sections.author')
     @include('pages.public.index.sections.FAQ')
 
-    {{-- hook QsAAi29_1x --}}
-    {{-- <div id="video-intro">
-            <div class="video-wrapper">
-                @svg('red-cross', 'b-img b-img_remove')
-                <div class="b-img b-img_remove v1">—</div>
-                <video src="{{ URL::asset('assets/videos/camera.mp4') }}" autoplay muted loop>
-                </video>
-            </div>
-        </div> --}}
-
     <div class="js-modal-outer fixed left-0 top-0 z-999 hidden h-full w-full">
         <div class="js-modal-middle h-full w-full animate-fadeIn">
             <div class="noise-before absolute left-2/4 top-2/4 flex min-w-96 max-w-96 min-h-[28rem] max-h-[75%] -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white dark:bg-[#0e0e0e]!">
