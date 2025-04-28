@@ -17,4 +17,6 @@ return [
     "12" => "Completed",
     "13" => "Canceled",
     "14" => "Failed",
+    "15" => "Created",
+    "16" => "Pending",
 ];

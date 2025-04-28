@@ -51,24 +51,30 @@
                                 <tbody class="divide-y divide-gray-200 bg-white dark:divide-[#292929] dark:bg-[#1c1c1c]">
 
                                     @foreach ($referred_users as $key => $user)
+                                        @php
+                                            $expires_at = $user->payment?->expires_at;
+                                            $updated_at = $user->payment?->updated_at;
+                                            $strikes = $user->payment?->strikes;
+                                            $amount = $user->payment?->amount;
+                                        @endphp
+
                                         <tr>
                                             <td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200">
                                                 <div class="inline-flex items-center gap-x-3">
-                                                    {{ $user->payment?->invoice_id }}
+                                                    {{ $user->payment?->invoice_id ?? '-' }}
                                                 </div>
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $user->payment?->currency }}
+                                                {{ $user->payment?->currency ?? '-' }}
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $user->payment?->amount }}
-                                                <span>₽</span>
+                                                {{ $amount ? "{$amount} ₽" : '-' }}
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $user->payment?->strikes }}/3
+                                                {{ $strikes ? "{$strikes}/3" : '-' }}
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-700">
@@ -92,15 +98,25 @@
                                                         @svg('cancel-schedule-send', 'w-4 h-4')
                                                         <h2 class="text-sm font-normal">{{ __('pages/private/referred-users.14') }}</h2>
                                                     </div>
+                                                @elseif($user->payment?->status === 'pending')
+                                                    <div class="inline-flex items-center gap-x-2 rounded-full bg-yellow-50 px-3 py-1 text-yellow-600 ring-1 ring-inset ring-yellow-600/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30">
+                                                        @svg('work-history', 'w-4 h-4')
+                                                        <h2 class="text-sm font-normal">{{ __('pages/private/referred-users.16') }}</h2>
+                                                    </div>
+                                                @else
+                                                    <div class="inline-flex items-center gap-x-2 rounded-full bg-gray-50 px-3 py-1 text-gray-600 ring-1 ring-inset ring-gray-600/10 dark:bg-gray-400/10 dark:text-gray-400 dark:ring-gray-400/30">
+                                                        @svg('contract-edit', 'w-4 h-4')
+                                                        <h2 class="text-sm font-normal">{{ __('pages/private/referred-users.15') }}</h2>
+                                                    </div>
                                                 @endif
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ date('d-m-Y', strtotime($user->payment?->expires_at)) }}
+                                                {{ $expires_at ? date('d-m-Y', strtotime($expires_at)) : '-' }}
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ date('d-m-Y', strtotime($user->payment?->updated_at)) }}
+                                                {{ $updated_at ? date('d-m-Y', strtotime($updated_at)) : '-' }}
                                             </td>
                                         </tr>
                                     @endforeach
