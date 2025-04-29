@@ -2,11 +2,13 @@
 @section('sub-content')
     {{-- prerequisites --}}
     @php
-        $isVerified = auth()->user()->hasVerifiedEmail();
+        $user = auth()->user();
+        $isVerified = $user->hasVerifiedEmail();
         $isVerifiedLabel = 'pages/private/profile.' . ($isVerified ? 12 : 13);
+        $condition = $payment && $user->days_left !== 999;
         $status = '';
 
-        if ($payment) {
+        if ($condition) {
             $expiresAt = \Carbon\Carbon::parse($payment->expires_at);
             $now = \Carbon\Carbon::now();
 

@@ -1,7 +1,7 @@
 <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-4 sm:grid-cols-2">
 
     {{-- Autopayment Settings --}}
-    @if ($payment)
+    @if ($condition)
         <div class="cell flex h-full w-full flex-col gap-4">
             <div class="h-fit font-semibold text-[#666666] dark:text-[#acacac]"> {{ __('pages/private/profile.4') }}</div>
             <div class="flex flex-col gap-4">

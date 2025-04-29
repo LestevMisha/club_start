@@ -72,7 +72,7 @@
                                                     @svg('cancel-schedule-send', 'w-4 h-4')
                                                     <h2 class="text-sm font-normal">{{ __('pages/private/payments.14') }}</h2>
                                                 </div>
-                                            @elseif($user->payment?->status === 'pending')
+                                            @elseif($payment?->status === 'pending')
                                                 <div class="inline-flex items-center gap-x-2 rounded-full bg-yellow-50 px-3 py-1 text-yellow-600 ring-1 ring-inset ring-yellow-600/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30">
                                                     @svg('work-history', 'w-4 h-4')
                                                     <h2 class="text-sm font-normal">{{ __('pages/private/referred-users.16') }}</h2>
