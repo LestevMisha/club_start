@@ -33,7 +33,7 @@ import startCountdownTimer from "@helpers/renderLiveTime";
 
             // Render any errors or handle response
             renderValidationErrors(updateImageForm, response?.backend?.errors);
-            renderBlockTime(component, submitButton, response?.availableIn);
+            renderBlockTime(component, submitButton, response?.backend?.availableIn);
         } catch (error) {
             console.error("Form submission error:", error);
         } finally {

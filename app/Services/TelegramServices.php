@@ -55,16 +55,17 @@ class TelegramServices {
         }
     }
 
-    public function updateImage(int $index): array {
+    public function updateImage($index): array {
+        // Ensure $index is a valid integer
+        if (!is_numeric($index)) return [false, __("profile.invalid_index")];
+
         // data
         $user = auth()->user();
         $uuid = $user->uuid;
 
         // Get the latest user's profile photo/image
         [$success, $response] = $this->observeCurrentUserImage($user->user_id, $index);
-        if (!$success) {
-            return [$success, $response];
-        }
+        if (!$success) return [$success, $response];
 
         // Save it to database
         $encoded = base64_encode($response);
