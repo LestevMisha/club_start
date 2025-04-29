@@ -1,126 +1,127 @@
 <?php
-
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use Telegram\Bot\Laravel\Facades\Telegram;
-use Telegram\Bot\Exceptions\TelegramResponseException;
 
-class TelegramServices
-{
+class TelegramServices {
 
+    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
+    public function __construct(
+        protected \App\Services\Models\AvatarServices $avatarServices,
+        protected \App\Services\Models\UserServices $userServices,
+        protected \App\Services\RedisServices $redisServices,
+    ) {}
 
-    public function __construct(protected \App\Services\Models\AvatarServices $avatarServices) {}
-
-    public function getCustomTelegramLink($arg, $uuid)
-    {
+    /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
+    public function __getCustomTelegramLink(string $subject, string $referred_by_uuid = ""): string {
+        // telegram deep link formation
         $base = config("services.telegram.bot_url");
-        $param = implode("_", [$arg, $uuid]);
+        $param = implode("_", [$subject, $referred_by_uuid ? $referred_by_uuid : auth()->user()?->uuid]);
         return "{$base}?start={$param}";
     }
 
-    public function getRegisterLink() {
-        $referred_by_uuid = request()->query('referred_by_uuid', request()->cookie("referred_by_uuid"));
-        return $this->getCustomTelegramLink("web", $referred_by_uuid);
+    public function _getRegisterLink(): string {
+        // get referred_by_uuid from the request - default to cookies
+        $referred_by_uuid = request()->query('referred_by_uuid', request()->cookie("referred_by_uuid", ""));
+        return $this->__getCustomTelegramLink("web", $referred_by_uuid);
     }
 
-    function markdownv2($text)
-    {
-        // List of characters to be escaped
-        $characters = ['[', ']', '(', ')', '~', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'];
-
-        // Iterate over the list of characters and escape them
-        foreach ($characters as $char) {
-            $text = str_replace($char, '\\' . $char, $text);
-        }
-
-        return $text;
-    }
-
-    public function isAdmin(string $chat_id, int $target_id)
-    {
-        // check if user is admin
-        $admins = Telegram::getChatAdministrators([
-            'chat_id' => $chat_id,
-        ]);
-
-        foreach ($admins as $admin) {
-            if ($admin["user"]["id"] == $target_id) return 1;
-        }
-        return 0;
-    }
-
-    public function banChatMember(string $chat_id, int $user_id)
-    {
-        Telegram::banChatMember([
-            'chat_id' => $chat_id,
-            'user_id' => $user_id,
-        ]);
-    }
-
-    public function unbanChatMember(string $chat_id, int $user_id)
-    {
+    public function observeCurrentUserImage($user_id, $index = 0): array {
         try {
-            Telegram::unbanChatMember([
-                'chat_id' => $chat_id,
-                'user_id' => $user_id,
-                'only_if_banned' => true,
+            // get user images
+            $photos = Telegram::getUserProfilePhotos([
+                "user_id" => $user_id,
             ]);
-        } catch (TelegramResponseException $e) {
-            // TODO
+
+            // get path to last best-quality image
+            $fileId = data_get($photos, "photos.{$index}.0.file_id");
+            if (!$fileId) {
+                return [false, __("profile.invalid_index")];
+            }
+
+            $link = Telegram::getFile(["file_id" => $fileId]);
+
+            // return binary code of image
+            $url = "https://api.telegram.org/file/bot" . config("services.telegram.bot_token") . "/" . $link["file_path"];
+            $client = new Client();
+            $response = $client->get($url);
+            return [true, $response->getBody()->getContents()];
+        } catch (\Exception $e) {
+            return [false, __("profile.unexpected_error")];
         }
     }
 
-    public function sendMoneyWithdrawalNotification($uuid, $amount, $card_number)
-    {
-        return $this->sendMarkdownV2Message(
-            config("services.telegram.notifications_chat_id"),
-            "*Уведомление о выводе средств*\n\n*Сумма перевода*: __$amount руб.__\n*Номер карты*: `$card_number`\n*Команда Уведомления*: `/paid $uuid`",
-        );
+    public function updateImage(int $index): array {
+        // data
+        $user = auth()->user();
+        $uuid = $user->uuid;
+
+        // Get the latest user's profile photo/image
+        [$success, $response] = $this->observeCurrentUserImage($user->user_id, $index);
+        if (!$success) {
+            return [$success, $response];
+        }
+
+        // Save it to database
+        $encoded = base64_encode($response);
+        $this->avatarServices->updateOrCreateAvatar($uuid, $encoded)->image_data;
+
+        // Save it to redis
+        Redis::hset("users:{$uuid}", "avatar", $encoded);
+
+        return [true, null];
     }
 
-    public function sendMessage($chat_id, $text)
-    {
-        return Telegram::sendMessage([
-            "chat_id" => $chat_id,
-            "text" => $text,
-        ]);
+    public function _getImage(): string {
+        // data
+        $user = auth()->user();
+        $uuid = $user->uuid;
+
+        $encoded = Redis::hget("users:{$uuid}", "avatar");
+
+        if (!$encoded) {
+            if (!$this->avatarServices->hasAvatar($uuid)) {
+                // Get the latest user's profile photo/image
+                [$_, $response] = $this->observeCurrentUserImage($user->user_id);
+
+                // Save it to database
+                $encoded = $this->avatarServices->updateOrCreateAvatar($uuid, base64_encode($response))->image_data;
+            } else {
+                // Retrieve the image data
+                $encoded = $this->avatarServices->getAvatar('user_uuid', $uuid)->image_data;
+            }
+
+            // Save it to redis
+            Redis::hset("users:{$uuid}", "avatar", $encoded);
+        }
+
+        // Return base64 encoded string
+        return $encoded;
     }
 
-    public function sendMarkdownV2Message($chat_id, $text)
-    {
-        return Telegram::sendMessage([
-            "chat_id" => $chat_id,
-            "text" => $this->markdownv2($text),
-            "parse_mode" => "MarkdownV2",
-        ]);
+    public function autoLogin(Request $request): mixed {
+        // valiade signature
+        if (!$request->hasValidSignature()) return null;
+
+        // validate uuid and user
+        $uuid = $request->input("uuid");
+        if (!$uuid) return null;
+
+        $user = $this->userServices->getUser("uuid", $uuid);
+        if (!$user) return null;
+
+        // Create an new login session
+        $guestId = session()->getId();
+        Auth::login($user);
+
+        $this->redisServices->transferGuestPreferencesToUser($user->uuid, $guestId);
+        $request->session()->regenerate();
+
+        return $user;
     }
 
-    public function observeCurrentUserImage($user_id, $index)
-    {
-        // get user images
-        $resp = Telegram::getUserProfilePhotos([
-            "user_id" => $user_id,
-        ]);
-
-        // get path to last best-quality image
-        $link = Telegram::getFile([
-            "file_id" => $resp["photos"][$index][0]["file_id"],
-        ]);
-
-        // return binary code of image
-        $url = "https://api.telegram.org/file/bot" . config("services.telegram.bot_token") . "/" . $link["file_path"];
-        $client = new Client();
-        $response = $client->get($url);
-        return $response->getBody()->getContents();
-    }
-
-    public function observeSaveUserImage(string $user_id, string $uuid, int $index = 0)
-    {
-        // get the latest user's profile photo/image
-        $binaryImage = $this->observeCurrentUserImage($user_id, $index);
-        // save it to database
-        $this->avatarServices->updateOrCreateAvatar($uuid, $binaryImage);
-        return $binaryImage;
-    }
 }

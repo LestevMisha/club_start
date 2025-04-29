@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers\Pages\Public;
 
+use App\Http\Controllers\RateLimiterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\RateLimiterController;
-use App\Services\Partials\_PartialServices;
 
-class ForgotPasswordController extends RateLimiterController
-{
+class ForgotPasswordController extends RateLimiterController {
 
     /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
     /**
      * Handle an password reset link notification attempt.
      */
-    public function sendResetLink(Request $request)
-    {
+    public function sendResetLink(Request $request) {
         // 1. Rate limiting
         $throttleKey = $this->generateThrottleKey("sendResetLink", "email", $request);
         $executed = $this->rateLimiter($throttleKey, "email", 5, 300);
@@ -32,7 +29,7 @@ class ForgotPasswordController extends RateLimiterController
         }
 
         // 3. Send link attempt
-        $email = request()->get("email");
+        $email = $request->get("email");
         $status = Password::sendResetLink(compact('email'));
 
         if ($status === Password::RESET_LINK_SENT) {
@@ -52,10 +49,8 @@ class ForgotPasswordController extends RateLimiterController
         }
     }
 
-
     /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
-    public function __invoke()
-    {
+    public function __invoke() {
         return view("pages.public.forgot-password.bundled");
     }
 }

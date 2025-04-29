@@ -24,14 +24,12 @@ import postRequest from "@apis/postRequest.mjs";
 
             try {
                 // Prepare form data and API details
-                const url = `${window.location.origin}/post/redis/toggleState`;
+                const url = `${window.location.origin}/post/toggleThemeState`;
                 const contentType = "application/x-www-form-urlencoded";
-                const globalName = "theme-state";
-                const data = { "name": globalName };
 
                 // Send form data
-                const response = await postRequest(url, contentType, data);
-                setCurrentTheme(response[globalName], moonIcon, sunIcon);
+                const response = await postRequest(url, contentType);
+                setCurrentTheme(response["theme"], moonIcon, sunIcon);
 
             } catch (error) {
                 console.error("Form submission error:", error);

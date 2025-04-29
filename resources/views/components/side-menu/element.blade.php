@@ -5,7 +5,7 @@
             @svg('close-fullscreen', 'w-full h-full text-[#7f7f7f] hidden', ['id' => "js-$attribute-close-fullscreen-button"])
             <input id="js-{{ $attribute }}-input" class="absolute! left-0! top-0! m-0! h-full! w-full! cursor-pointer! outline-hidden! [all:unset]" type="checkbox">
         </div>
-        <img class="icon icon_2.5rem icon_radius-0.5rem sticky top-0 p-[0.03rem]" src="data:image/png;base64,{{ app('App\Services\BladeServices')->getImage() }}">
+        <img class="icon icon_2.5rem icon_radius-0.5rem sticky top-0 p-[0.03rem]" src="data:image/png;base64,{{ app(\App\Services\TelegramServices::class)->_getImage() }}">
         <x-theme-switcher.compiled :$uid attribute="switch-theme" class="sticky top-0" />
         <x-language-switcher.compiled :$uid class="sticky top-0" />
     </div>
@@ -26,17 +26,18 @@
         </div>
     </a>
 
-    <a class="{{ $route === 'private.payments' ? 'active' : '' }} group pointer-events-none mx-4 flex w-full min-w-[14em] cursor-default flex-row items-center gap-4" href="{{ route('private.payments') }}">
-        @svg('receipt', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]! cursor-pointer pointer-events-auto  group-[.active]:pointer-events-none')
-        <div class="pointer-events-auto cursor-pointer text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
-            {{ __('components/side-menu.3') }}
-        </div>
-    </a>
 
     <a class="{{ $route === 'private.referred.users' ? 'active' : '' }} group pointer-events-none mx-4 flex w-full min-w-[14em] cursor-default flex-row items-center gap-4" href="{{ route('private.referred.users') }}">
         @svg('link', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]! cursor-pointer pointer-events-auto  group-[.active]:pointer-events-none')
         <div class="pointer-events-auto cursor-pointer text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
             {{ __('components/side-menu.4') }}
+        </div>
+    </a>
+
+    <a class="{{ $route === 'private.payments' ? 'active' : '' }} group pointer-events-none mx-4 flex w-full min-w-[14em] cursor-default flex-row items-center gap-4" href="{{ route('private.payments') }}">
+        @svg('receipt', 'icon_2.5rem icon_grey icon_p7 icon_radius-0.5rem icon_hover-v2 group-[.active]:text-white! group-[.active]:bg-[#0d6efd]! cursor-pointer pointer-events-auto  group-[.active]:pointer-events-none')
+        <div class="pointer-events-auto cursor-pointer text-base font-medium text-[#acacac] transition-colors duration-[.225s] ease-in-out hover:text-[#666666] group-[.active]:text-[#0d6efd] dark:text-[#444444] dark:hover:text-[#666666]">
+            {{ __('components/side-menu.3') }}
         </div>
     </a>
 

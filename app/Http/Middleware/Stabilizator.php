@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckReferralId
+class Stabilizator
 {
     /**
      * Handle an incoming request.
@@ -16,12 +15,13 @@ class CheckReferralId
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $referralId = $request->query('referred_by_uuid');
+        $allowedKeys = ['locale', 'theme'];
+        $key = $request->route('key');
 
-        // If referral ID is present, queue the cookie
-        if ($referralId) {
-            Cookie::queue("referred_by_uuid", $referralId, 60 * 24); // 24 hours
+        if (!in_array($key, $allowedKeys)) {
+            abort(403, 'Unauthorized key.');
         }
+
         return $next($request);
     }
 }

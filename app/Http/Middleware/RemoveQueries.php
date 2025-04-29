@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Middleware\Pages;
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class _Unauthenticated {
+class RemoveQueries {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response {
-        // Allowed if: user isn't logged in and has unverified email
-        if (auth()->check()) return redirect()->route('private.dashboard');
+        // If there are query parameters, redirect to the URL without them
+        if ($request->getQueryString()) {
+            return redirect($request->url());
+        }
 
+        // Otherwise, continue the request
         return $next($request);
     }
 }

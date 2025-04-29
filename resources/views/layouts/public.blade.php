@@ -14,7 +14,7 @@
     @stack('pages.public.styles')
 </head>
 
-<body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }} overflow-hidden">
+<body class="{{ app(\App\Http\Controllers\RedisController::class)->_getThemeState(true) }} overflow-hidden">
 
     @yield('content')
 

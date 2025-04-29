@@ -21,7 +21,7 @@
     @stack('components.styles')
 </head>
 
-<body class="{{ app('App\Http\Controllers\Redis\RedisThemeController')->getThemeStateClass() }} bg-[#f8f8f8] dark:bg-[#0c0c0c]">
+<body class="{{ app(\App\Http\Controllers\RedisController::class)->_getThemeState(true) }} bg-[#f8f8f8] dark:bg-[#0c0c0c]">
 
     @yield('content')
 

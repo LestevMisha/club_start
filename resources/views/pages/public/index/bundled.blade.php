@@ -1,9 +1,8 @@
 @extends('sub-layouts.public')
 @section('sub-content')
-
     {{-- prerequisites --}}
     @php
-        $registerLink = app(\App\Services\TelegramServices::class)->getRegisterLink();
+        $registerLink = app(\App\Services\TelegramServices::class)->_getRegisterLink();
     @endphp
 
     {{-- blade --}}

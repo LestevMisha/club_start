@@ -3,21 +3,19 @@
 namespace App\Http\Controllers\Components;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-class LogoutButtonController extends Controller
-{
-    /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
-    public function __construct() {}
 
+class LogoutButtonController extends Controller {
 
-    /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
+    /* +++++++++++++++++++ INITIALIZATION +++++++++++++++++++ */
     // Logout user
-    public function logout()
-    {
+    public function __invoke(Request $request) {
         Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
+
+        // Flush all sessions
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route("auth.login");
     }
 }

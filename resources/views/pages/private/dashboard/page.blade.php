@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-2">
-                <x-button.compiled :uid="uniqid()" :title="__('pages/private/dashboard.6')" :url="app('App\Services\TelegramServices')->getCustomTelegramLink('archives', auth()->user()->uuid)" />
+                <x-button.compiled :uid="uniqid()" :title="__('pages/private/dashboard.6')" :url="app(\App\Services\TelegramServices::class)->__getCustomTelegramLink('archives')" />
                 <div class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">
                     {{ __('pages/private/dashboard.7') }}
                 </div>

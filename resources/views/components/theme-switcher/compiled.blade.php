@@ -1,7 +1,6 @@
 {{-- php prerequisites --}}
 @php
-    $rtc = app('App\Http\Controllers\Redis\RedisThemeController');
-    $isLightTheme = $rtc->getThemeState();
+    $isLightTheme = app(\App\Http\Controllers\RedisController::class)->_getThemeState(false);
 
     // theme states
     $moonState = $isLightTheme ? 'hidden' : '';

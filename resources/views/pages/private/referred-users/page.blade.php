@@ -9,7 +9,7 @@
             </div>
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-2">
-                    <x-button.compiled :uid="uniqid()" :title="__('pages/private/referred-users.2') . ' ' . number_format($amount_earned) . ' ' . '₽'" :url="app('App\Services\TelegramServices')->getCustomTelegramLink('payout', auth()->user()->uuid)" />
+                    <x-button.compiled :uid="uniqid()" :title="__('pages/private/referred-users.2') . ' ' . number_format($amount_earned) . ' ' . '₽'" :url="app(\App\Services\TelegramServices::class)->__getCustomTelegramLink('payout')" />
                     <div class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">
                         {{ __('pages/private/referred-users.3') }}
                     </div>
@@ -74,7 +74,11 @@
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $strikes ? "{$strikes}/3" : '-' }}
+                                                @if (isset($user->payment))
+                                                    {{ "{$strikes}/3" }}
+                                                @else
+                                                    {{ '-' }}
+                                                @endif
                                             </td>
 
                                             <td class="whitespace-nowrap px-4 py-4 text-sm font-medium text-gray-700">

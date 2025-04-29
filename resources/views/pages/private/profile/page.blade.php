@@ -9,7 +9,7 @@
                 <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.27')" attribute="payment-amount" :value="$payment->amount" />
                 <x-field.compiled :uid="uniqid()" :inscription="__('pages/private/profile.28')" attribute="next-payment-date" :value="$formatted" />
                 <div class="flex flex-col gap-2">
-                    <x-button.compiled :uid="uniqid()" :title="__('pages/private/profile.20')" :url="app('App\Services\TelegramServices')->getCustomTelegramLink('cancellation', auth()->user()->uuid)" />
+                    <x-button.compiled :uid="uniqid()" :title="__('pages/private/profile.20')" :url="app(\App\Services\TelegramServices::class)->__getCustomTelegramLink('cancellation')" />
                     <div class="text-[0.8rem] font-normal text-[#acacac] dark:text-[#666666]">
                         {{ __('pages/private/profile.5') }}
                     </div>

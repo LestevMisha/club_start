@@ -2,11 +2,11 @@
 @section('sub-content')
     {{-- prerequisites --}}
     @php
-        $referredUsersData = app('App\Services\BladeServices')->getReferredUsersData();
+        $referredUsersData = app(\App\Services\Models\UserServices::class)->_checkUserReferrals();
         $activeReferred = $referredUsersData->active_referred;
         $totalReferred = $referredUsersData->total_referred;
 
-        $telegram_invite_url = auth()->user()->telegram_invite_url
+        $telegram_invite_url = auth()->user()->telegram_invite_url;
     @endphp
 
     {{-- blade --}}
