@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Services\Partials\_ErrorServices;
-use App\Services\Partials\_PartialServices;
 
 class RecaptchaController extends Controller
 {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected _PartialServices $respond
+        protected \App\Services\Partials\_PartialServices $respond
     ) {}
 
     public function verify(Request $request)

@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\Partials\_PartialServices;
 use Illuminate\Support\Facades\RateLimiter;
 
 class RateLimiterController extends Controller
 {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
-        protected _PartialServices $respond,
+        protected \App\Services\Partials\_PartialServices $respond,
     ) {}
 
     /**

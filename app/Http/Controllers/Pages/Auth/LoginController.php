@@ -12,6 +12,7 @@ class LoginController extends RateLimiterController {
     /* +++++++++++++++++++ HEADER +++++++++++++++++++ */
     public function __construct(
         protected \App\Services\RedisServices $redisServices,
+        protected \App\Services\Partials\_PartialServices $respond,
     ) {}
 
     /* +++++++++++++++++++ PUBLIC SECTION +++++++++++++++++++ */
