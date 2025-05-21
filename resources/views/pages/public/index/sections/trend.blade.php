@@ -116,7 +116,7 @@
                                         <div class="flex w-full flex-col gap-4 p-8">
                                             <img class="h-96 w-full rounded-xl object-cover" src="{{ URL::asset('assets/images/min-jpeg/trend/3.jpeg') }}" alt="3">
                                             <div class="relative text-xl font-light text-[#acacac]">
-                                                {{ __('pages/public/index.180') }}
+                                                {!! __('pages/public/index.180') !!}
                                             </div>
                                         </div>
                                     </div>
